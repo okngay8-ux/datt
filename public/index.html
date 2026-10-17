@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="EPS-TOPIK Hàn Quốc">
+  <meta name="theme-color" content="#161920">
+  <title>Luyện Nghe Nói EPS-TOPIK • Korean Voice Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Watermark background like the reference image -->
+  <div class="watermark-overlay" aria-hidden="true">
+    <span class="watermark-text w1">epstopikvn.com</span>
+    <span class="watermark-text w2">epstopikvn.com</span>
+    <span class="watermark-text w3">.com</span>
+  </div>
+
+  <div class="app-layout">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="origami-logo">
+          <!-- Origami Crane SVG -->
+          <svg viewBox="0 0 64 64" fill="none" class="crane-svg">
+            <polygon points="32,4 10,26 32,38 54,26" fill="#38bdf8" opacity="0.9" />
+            <polygon points="32,38 10,26 24,56" fill="#0ea5e9" />
+            <polygon points="32,38 54,26 40,56" fill="#0284c7" />
+            <polygon points="32,4 32,38 24,56" fill="#7dd3fc" />
+            <polygon points="32,4 32,38 40,56" fill="#bae6fd" opacity="0.6" />
+          </svg>
+        </div>
+        <div class="header-brand">
+          <span class="brand-title">EPS-TOPIK 실전 훈련</span>
+          <span class="brand-sub">Korean Voice Studio</span>
+        </div>
+      </div>
+
+      <!-- Center Set Selector & Quick Save -->
+      <div class="header-center">
+        <div class="set-picker-box" title="Chọn bộ câu hỏi để học">
+          <span class="set-picker-label">📁 Bộ câu:</span>
+          <select id="selectActiveSet" class="header-set-select">
+            <!-- Populated dynamically via JS -->
+          </select>
+        </div>
+        <button type="button" class="btn-header-save" id="btnQuickSaveSet" title="Lưu danh sách câu hỏi hiện tại">
+          <svg class="icon-save" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+            <polyline points="7 3 7 8 15 8"></polyline>
+          </svg>
+          <span>Lưu bộ này</span>
+        </button>
+      </div>
+
+      <div class="header-right">
+        <button type="button" class="btn-header-phone" id="btnOpenPhoneModal" title="Quét mã QR kết nối học trên điện thoại">
+          <svg class="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+          <span>📱 Điện thoại</span>
+        </button>
+
+        <button type="button" class="btn-header-action" id="btnOpenManager">
+          <svg class="icon-grid" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+          </svg>
+          <span>Chức năng / Soạn câu</span>
+        </button>
+
+        <div class="user-avatar" title="Học viên EPS-TOPIK">
+          <span class="avatar-badge">🐶</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-stage">
+      <!-- Center Stage: Current Question & Answer Display -->
+      <section class="stage-card">
+        <!-- Question Display -->
+        <div class="question-display-container">
+          <h1 class="current-question-kr" id="displayQuestionKr">
+            중량물이 무엇인지 알고 있나요?
+          </h1>
+          <p class="current-question-vi" id="displayQuestionVi">
+            Bạn có biết vật nặng là gì không?
+          </p>
+        </div>
+
+        <!-- Answer Box Display -->
+        <div class="answer-box-container" id="answerBoxContainer">
+          <div class="answer-kr-line">
+            <span class="ans-badge">답:</span>
+            <span class="ans-text" id="displayAnswerKr">
+              중량물은 사람이 쉽게 들거나 옮기기 어려운 무거운 물건입니다.
+            </span>
+          </div>
+          <div class="answer-vi-line" id="displayAnswerViRow">
+            <svg class="icon-speaker-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            <span class="ans-vi" id="displayAnswerVi">
+              Vật nặng là vật khó nâng hoặc di chuyển bằng sức người.
+            </span>
+          </div>
+        </div>
+
+        <!-- Audio State Indicator -->
+        <div class="stage-status-bar" id="stageStatusBar">
+          <span class="status-pill" id="statusPill">Sẵn sàng</span>
+          <div class="mini-visualizer" id="miniVisualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Player Control Bar (Matching the exact control bar from screenshot) -->
+      <nav class="player-control-bar">
+        <div class="controls-left">
+          <!-- Step Counter & Sort/Direction -->
+          <div class="counter-badge" id="btnToggleOrder" title="Hướng duyệt câu">
+            <span class="icon-sort" id="orderArrow">↓</span>
+            <span id="counterText">1/10</span>
+          </div>
+
+          <!-- Playback Navigation Buttons -->
+          <button type="button" class="btn-ctrl" id="btnPrev" title="Câu trước (Phím mũi tên trái)">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="19 20 9 12 19 4 19 20"></polygon>
+              <line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="3"></line>
+            </svg>
+          </button>
+
+          <button type="button" class="btn-ctrl btn-play-main" id="btnPlayPause" title="Phát / Dừng (Phím Space)">
+            <svg class="icon-play" id="iconPlay" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="6 4 20 12 6 20 6 4"></polygon>
+            </svg>
+            <svg class="icon-pause" id="iconPause" style="display: none;" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+              <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+            </svg>
+          </button>
+
+          <button type="button" class="btn-ctrl" id="btnNext" title="Câu tiếp (Phím mũi tên phải)">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 4 15 12 5 20 5 4"></polygon>
+              <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="3"></line>
+            </svg>
+          </button>
+
+          <!-- Repeat Mode (All / 1 / Off) -->
+          <button type="button" class="btn-ctrl" id="btnRepeatMode" title="Chế độ lặp lại">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="17 1 21 5 17 9"></polyline>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+              <polyline points="7 23 3 19 7 15"></polyline>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+            </svg>
+            <span class="repeat-sub" id="repeatSubBadge">1</span>
+          </button>
+
+          <!-- Random Shuffle Mode -->
+          <button type="button" class="btn-ctrl" id="btnShuffle" title="Trộn ngẫu nhiên câu hỏi (Random Shuffle)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="16 3 21 3 21 8"></polyline>
+              <line x1="4" y1="20" x2="21" y2="3"></line>
+              <polyline points="21 16 21 21 16 21"></polyline>
+              <line x1="15" y1="15" x2="21" y2="21"></line>
+              <line x1="4" y1="4" x2="9" y2="9"></line>
+            </svg>
+          </button>
+
+          <!-- Delay / Độ trễ giữa các câu -->
+          <div class="delay-control-group" title="Thời gian chờ giữa câu hỏi và câu trả lời">
+            <span class="delay-label">Độ trễ</span>
+            <div class="delay-stepper">
+              <button type="button" class="btn-step" id="btnDelayMinus">-</button>
+              <span class="delay-num" id="delayValueText">3 s</span>
+              <button type="button" class="btn-step" id="btnDelayPlus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls-right">
+          <!-- Voice selection -->
+          <div class="dropdown-wrapper">
+            <select id="selectVoice" class="custom-select" title="Chọn giọng người bản địa">
+              <option value="ko-KR-SunHiNeural" selected>Sun-Hi (Nữ Seoul)</option>
+              <option value="ko-KR-InJoonNeural">In-Joon (Nam trầm ấm)</option>
+              <option value="ko-KR-HyunsuMultilingualNeural">Hyunsu (Nam trẻ trung)</option>
+            </select>
+          </div>
+
+          <!-- Speed selection -->
+          <div class="dropdown-wrapper">
+            <select id="selectSpeed" class="custom-select" title="Tốc độ nói">
+              <option value="0.75">0.75x (Chậm)</option>
+              <option value="0.85">0.85x (Vừa)</option>
+              <option value="1.0" selected>1.0x (Chuẩn)</option>
+              <option value="1.25">1.25x (Nhanh)</option>
+            </select>
+          </div>
+
+          <!-- Download Action Menu -->
+          <button type="button" class="btn-download-bar" id="btnDownloadCurrent" title="Tải câu này về máy (.MP3)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Tải MP3 câu này</span>
+          </button>
+
+          <button type="button" class="btn-download-bar btn-download-all" id="btnDownloadAll" title="Tải toàn bộ bài học có sẵn độ trễ (.MP3)">
+            <span>Tải toàn bộ (MP3)</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Bottom Playlist (Exactly matching screenshot rows) -->
+      <section class="playlist-section">
+        <div class="playlist-items" id="playlistContainer">
+          <!-- Dynamic Question Rows rendered via JS -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Left & Right Floating Pills from reference -->
+    <div class="bottom-floating-bar">
+      <button type="button" class="pill-btn pill-dict" id="btnDict" title="Tra cứu từ điển tiếng Hàn">
+        <span>Từ điển</span>
+      </button>
+
+      <div class="pill-assistant" title="Trợ lý luyện thi EPS-TOPIK">
+        <span class="vivi-badge">Trợ lý Vivi</span>
+        <div class="vivi-avatar">👩‍🏫</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 1: Quản lý câu hỏi & Chức năng soạn bài -->
+  <div class="modal-backdrop" id="managerModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg class="icon-modal" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+          </svg>
+          <h3>Chức năng & Soạn nội dung câu hỏi</h3>
+        </div>
+        <button type="button" class="btn-close-modal" id="btnCloseModal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-tabs">
+          <button type="button" class="tab-btn active" id="tabSavedSets">📚 Thư viện bộ câu (<span id="savedSetsCountBadge">2</span>)</button>
+          <button type="button" class="tab-btn" id="tabBulk">Dán danh sách câu mới</button>
+          <button type="button" class="tab-btn" id="tabSettings">Cài đặt luyện thi</button>
+        </div>
+
+        <!-- Tab 1: Thư viện các bộ câu hỏi đã lưu -->
+        <div class="tab-panel active" id="panelSavedSets">
+          <div class="library-action-bar">
+            <button type="button" class="btn-secondary" id="btnOpenSaveModalFromLib">
+              ➕ Lưu danh sách hiện tại thành bộ mới
+            </button>
+            <div class="import-export-group">
+              <button type="button" class="btn-icon-text" id="btnExportJson" title="Sao lưu tất cả bộ câu hỏi ra file JSON">
+                ⬇ Xuất file JSON
+              </button>
+              <label class="btn-icon-text btn-file-label" title="Khôi phục hoặc nhập bộ câu hỏi từ file JSON">
+                ⬆ Nhập file JSON
+                <input type="file" id="importJsonInput" accept=".json" style="display: none;">
+              </label>
+            </div>
+          </div>
+
+          <div class="saved-sets-list" id="savedSetsList">
+            <!-- Dynamic cards rendered via JS -->
+          </div>
+        </div>
+
+        <!-- Tab 2: Dán văn bản nhiều câu -->
+        <div class="tab-panel" id="panelBulk" style="display: none;">
+          <p class="tab-tip">
+            💡 Bạn có thể dán danh sách câu hỏi theo dạng <code>79. 중량물이 무엇인지 알고 있나요?</code>. Hệ thống sẽ tự động tách câu và dịch nghĩa sang tiếng Việt!
+          </p>
+
+          <div class="textarea-box">
+            <textarea id="bulkInputText" rows="10" placeholder="Dán danh sách câu tiếng Hàn vào đây... (Ví dụ:&#10;79. 중량물이 무엇인지 알고 있나요?&#10;80. 중량물 들기는 왜 허리 펴고 다리 힘을 이용해야 할까요?)"></textarea>
+          </div>
+
+          <div class="modal-action-row">
+            <button type="button" class="btn-secondary" id="btnLoadDefaultSample">
+              🎯 Tải mẫu 10 câu EPS-TOPIK trong ảnh
+            </button>
+            <button type="button" class="btn-primary" id="btnApplyBulk">
+              🚀 Áp dụng danh sách câu
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 3: Cài đặt luyện thi -->
+        <div class="tab-panel" id="panelSettings" style="display: none;">
+          <div class="setting-group">
+            <label class="setting-checkbox">
+              <input type="checkbox" id="chkAutoTranslateMissing" checked>
+              <span>Tự động dịch sang tiếng Việt nếu câu chưa có bản dịch</span>
+            </label>
+            <label class="setting-checkbox">
+              <input type="checkbox" id="chkSpeakAnswerToo" checked>
+              <span>Đọc cả câu hỏi và câu trả lời (Hỏi ➔ Chờ X giây ➔ Đọc đáp án)</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <span class="footer-note">Dữ liệu được lưu an toàn trong máy tính của bạn.</span>
+        <button type="button" class="btn-close-bottom" id="btnCloseModalBottom">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Popup Lưu bộ câu hỏi mới -->
+  <div class="modal-backdrop" id="saveSetModal" style="display: none;">
+    <div class="modal-card modal-card-sm">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg class="icon-modal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+            <polyline points="7 3 7 8 15 8"></polyline>
+          </svg>
+          <h3>Lưu bộ câu hỏi</h3>
+        </div>
+        <button type="button" class="btn-close-modal" id="btnCloseSaveModal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-field">
+          <label for="saveSetTitle">Tên bộ câu hỏi <span class="required">*</span></label>
+          <input type="text" id="saveSetTitle" class="form-input" placeholder="Ví dụ: Bài 79-88: An toàn nâng hạ vật nặng" required>
+        </div>
+
+        <div class="form-field">
+          <label for="saveSetDesc">Mô tả / Ghi chú</label>
+          <input type="text" id="saveSetDesc" class="form-input" placeholder="Ví dụ: 10 câu thực hành xưởng sản xuất">
+        </div>
+
+        <div class="save-stats-banner">
+          <span>📊 Số lượng câu sẽ lưu:</span>
+          <strong id="saveSetCountLabel">10 câu</strong>
+        </div>
+
+        <div class="form-field" id="updateExistingOptionGroup" style="display: none;">
+          <label class="setting-checkbox">
+            <input type="checkbox" id="chkOverwriteCurrentSet">
+            <span>Ghi đè / cập nhật vào bộ câu hiện tại: <strong id="currentSetNameLabel"></strong></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="btnCancelSave">Hủy</button>
+        <button type="button" class="btn-primary" id="btnConfirmSaveSet">💾 Xác nhận lưu bộ câu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Kết nối & Dùng trên Điện thoại (QR Code) -->
+  <div class="modal-backdrop" id="phoneModal" style="display: none;">
+    <div class="modal-card phone-modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg class="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 22px; height: 22px;">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+          <h3>Dùng trên Điện thoại (iOS / Android)</h3>
+        </div>
+        <button type="button" class="btn-close-modal" id="btnClosePhoneModal">&times;</button>
+      </div>
+
+      <div class="modal-body phone-modal-body">
+        <div class="phone-qr-layout">
+          <!-- Cột hiển thị QR Code -->
+          <div class="phone-qr-frame-box">
+            <div class="phone-qr-wrapper">
+              <img id="phoneQrImage" src="" alt="Mã QR mở trên điện thoại" style="display: none;" />
+              <div id="phoneQrLoading" class="phone-qr-loading">
+                <div class="spinner"></div>
+                <span>Đang dò địa chỉ IP & tạo mã QR...</span>
+              </div>
+            </div>
+            <span class="phone-qr-subtext">Quét bằng Camera điện thoại hoặc Zalo</span>
+          </div>
+
+          <!-- Cột chi tiết kết nối -->
+          <div class="phone-details-column">
+            <div class="phone-step-card">
+              <div class="phone-step-header">
+                <span class="step-num">1</span>
+                <strong>Kết nối chung mạng Wi-Fi</strong>
+              </div>
+              <p class="step-desc">Đảm bảo điện thoại và máy tính của bạn đang bắt chung một sóng Wi-Fi trong phòng/nhà.</p>
+            </div>
+
+            <div class="phone-step-card">
+              <div class="phone-step-header">
+                <span class="step-num">2</span>
+                <strong>Quét mã QR hoặc nhập liên kết</strong>
+              </div>
+              <div class="phone-url-bar">
+                <input type="text" id="phoneUrlInput" readonly value="Đang tìm địa chỉ..." />
+                <button type="button" class="btn-copy-url" id="btnCopyPhoneUrl">📋 Sao chép</button>
+              </div>
+              <div class="interface-selector-row" id="interfaceRow" style="display: none;">
+                <label>Card mạng:</label>
+                <select id="selectNetworkInterface" class="interface-select"></select>
+              </div>
+            </div>
+
+            <div class="phone-step-card pwa-card">
+              <div class="phone-step-header">
+                <span class="step-num">3</span>
+                <strong>Mẹo: Thêm ra màn hình chính (Dùng như App)</strong>
+              </div>
+              <ul class="pwa-guide-list">
+                <li>📱 <strong>iPhone (Safari):</strong> Nhấn nút <strong>Chia sẻ (Share <svg style="display:inline;width:14px;height:14px;vertical-align:middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>)</strong> ➔ Chọn <strong>"Thêm vào MH chính" (Add to Home Screen)</strong>.</li>
+                <li>🤖 <strong>Android (Chrome):</strong> Nhấn <strong>3 chấm (⋮)</strong> ➔ Chọn <strong>"Cài đặt ứng dụng"</strong> hoặc <strong>"Thêm vào màn hình chính"</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Khắc phục sự cố -->
+        <div class="phone-faq-collapsible">
+          <details>
+            <summary>❓ Không vào được hoặc điện thoại dùng 4G/5G riêng?</summary>
+            <div class="faq-inner-content">
+              <p>• <strong>Nếu điện thoại dùng 4G/5G:</strong> Bạn hãy bật tính năng <em>"Điểm phát sóng cá nhân" (Personal Hotspot)</em> trên điện thoại để máy tính kết nối vào, sau đó mở lại bảng này.</p>
+              <p>• <strong>Nếu bị chặn bởi Tường lửa Windows:</strong> Mở <em>Windows Security</em> ➔ <em>Firewall & network protection</em> ➔ Cho phép <em>Node.js JavaScript Runtime</em> trên Private network.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="btnClosePhoneModalBottom">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
