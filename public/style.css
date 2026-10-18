@@ -600,25 +600,55 @@ body.dark-theme {
 
 /* Playlist Section (Questions table) */
 .playlist-section {
-  flex: 1;
-  padding: 8px 0 60px;
+  padding: 0 0 60px;
+  position: relative;
+  width: 100%;
 }
 
 .playlist-items {
   display: flex;
   flex-direction: column;
+  max-height: calc(5 * 48px); /* Giới hạn hiển thị đúng 5 câu */
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.4) rgba(255, 255, 255, 0.03);
+}
+
+.playlist-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.playlist-items::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.playlist-items::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+}
+
+.playlist-items::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
 }
 
 /* Individual Question Row */
 .question-row {
   display: flex;
   align-items: center;
-  padding: 9px 24px;
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+  padding: 0 24px;
   cursor: pointer;
   font-size: 0.95rem;
   transition: background 0.12s ease;
   user-select: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  box-sizing: border-box;
 }
 
 .question-row:hover {
@@ -637,6 +667,7 @@ body.dark-theme {
   align-items: center;
   justify-content: center;
   font-size: 0.95rem;
+  flex-shrink: 0;
 }
 
 .row-icon-speaker {
@@ -654,8 +685,11 @@ body.dark-theme {
   color: var(--text-main);
   line-height: 1.4;
   display: flex;
-  align-items: baseline;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
 }
 
 .row-num {
@@ -668,6 +702,9 @@ body.dark-theme {
 .row-kr {
   font-weight: 500;
   color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Floating Bottom Controls */
@@ -1689,13 +1726,22 @@ body.dark-theme {
     flex: 1;
   }
 
-  .playlist-container {
-    padding: 0 10px 120px 10px;
+  .playlist-section {
+    padding: 0 0 90px;
+  }
+
+  .playlist-items {
+    max-height: calc(5 * 48px);
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 
   .question-row {
-    padding: 10px 12px;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    padding: 0 14px;
   }
 
   .phone-qr-layout {

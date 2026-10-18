@@ -1116,7 +1116,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Render Playlist Rows
+  // Hỗ trợ vuốt trượt (drag/swipe) bằng chuột trên máy tính cho khu câu hỏi
+  let isDraggingPlaylist = false;
+  let playlistStartY = 0;
+  let playlistStartScrollTop = 0;
+  let hasDraggedPlaylist = false;
+
+  if (playlistContainer) {
+    playlistContainer.addEventListener('mousedown', (e) => {
+      isDraggingPlaylist = true;
+      hasDraggedPlaylist = false;
+      playlistStartY = e.pageY - playlistContainer.offsetTop;
+      playlistStartScrollTop = playlistContainer.scrollTop;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDraggingPlaylist) return;
+      const y = e.pageY - playlistContainer.offsetTop;
+      const walk = y - playlistStartY;
+      if (Math.abs(walk) > 5) {
+        hasDraggedPlaylist = true;
+        playlistContainer.style.cursor = 'grabbing';
+        playlistContainer.style.userSelect = 'none';
+      }
+      playlistContainer.scrollTop = playlistStartScrollTop - walk;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDraggingPlaylist) {
+        isDraggingPlaylist = false;
+        playlistContainer.style.cursor = '';
+        playlistContainer.style.removeProperty('user-select');
+        setTimeout(() => {
+          hasDraggedPlaylist = false;
+        }, 80);
+      }
+    });
+  }
+
+  // Render Playlist Rows (Hiển thị 5 câu, các câu khác vuốt trượt)
   function renderPlaylist() {
     playlistContainer.innerHTML = '';
     questions.forEach((item, index) => {
@@ -1133,6 +1171,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
 
       row.addEventListener('click', () => {
+        if (hasDraggedPlaylist) return;
         if (currentIndex === index && isPlaying) {
           pauseAudio();
         } else {
