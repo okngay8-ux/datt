@@ -92,6 +92,85 @@ body.no-glass * {
   box-shadow: none !important;
 }
 
+/* ========================================================
+   GIAO DIỆN TỐI GIẢN (MINIMALIST / FOCUS MODE)
+   Chỉ hiển thị: Thời gian, câu hỏi & nút câu tiếp theo
+   ======================================================== */
+body.minimal-mode .origami-logo,
+body.minimal-mode .header-brand,
+body.minimal-mode #btnQuickSaveSet,
+body.minimal-mode #btnOpenCustomizer,
+body.minimal-mode #btnOpenPhoneModal,
+body.minimal-mode #btnOpenManager,
+body.minimal-mode .user-avatar,
+body.minimal-mode .stage-top-bar,
+body.minimal-mode .stage-status-bar,
+body.minimal-mode .exam-mode-pills,
+body.minimal-mode .player-control-bar,
+body.minimal-mode .bottom-floating-bar {
+  display: none !important;
+}
+
+body.minimal-mode .app-header {
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+body.minimal-mode .header-center {
+  flex: 1;
+  justify-content: center;
+}
+
+body.minimal-mode #examTimerBox {
+  display: inline-flex !important;
+  transform: scale(1.05);
+}
+
+body.minimal-mode .stage-card {
+  padding: 24px 20px 16px;
+  gap: 16px;
+}
+
+/* Nút Header Giao diện tối giản */
+.btn-header-minimal {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-header-minimal:hover {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: var(--accent-cyan);
+  color: #ffffff;
+}
+
+.icon-minimal-svg {
+  width: 15px;
+  height: 15px;
+}
+
+body.minimal-mode .btn-header-minimal {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.45);
+  color: #fca5a5;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+}
+
+body.minimal-mode .btn-header-minimal:hover {
+  background: rgba(239, 68, 68, 0.3);
+  color: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1615,6 +1694,23 @@ body.dark-theme {
 
 /* Complete Mobile Responsive Styling */
 @media (max-width: 680px) {
+  body.minimal-mode .app-header {
+    flex-wrap: nowrap;
+    padding: 8px 12px;
+    height: 52px;
+  }
+  body.minimal-mode .header-center {
+    order: 2;
+    width: auto;
+    margin: 0;
+  }
+  body.minimal-mode .set-picker-box {
+    display: none;
+  }
+  body.minimal-mode .header-right {
+    margin-left: auto;
+  }
+
   .app-header {
     height: auto;
     padding: 10px 12px;

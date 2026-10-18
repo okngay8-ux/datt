@@ -246,6 +246,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const labelCustomizerDelay = document.getElementById('labelCustomizerDelay');
   const btnResetCustomizer = document.getElementById('btnResetCustomizer');
 
+  // Minimalist Mode Toggle DOM
+  const btnToggleMinimal = document.getElementById('btnToggleMinimal');
+  const minimalBtnText = document.getElementById('minimalBtnText');
+  const toggleMinimalMode = document.getElementById('toggleMinimalMode');
+
   // Stage Top Quick Actions & In-Place Quick Edit Modal DOM
   const btnQuickEditCurrent = document.getElementById('btnQuickEditCurrent');
   const btnQuickAddStage = document.getElementById('btnQuickAddStage');
@@ -613,6 +618,19 @@ document.addEventListener('DOMContentLoaded', () => {
         saveVisualSettings();
         syncCustomizerControls();
         showToast('Đã khôi phục giao diện mặc định!', 'success');
+      });
+    }
+
+    // Minimalist mode toggle
+    if (btnToggleMinimal) {
+      btnToggleMinimal.addEventListener('click', () => {
+        const isMinimal = document.body.classList.contains('minimal-mode');
+        setMinimalMode(!isMinimal);
+      });
+    }
+    if (toggleMinimalMode) {
+      toggleMinimalMode.addEventListener('change', (e) => {
+        setMinimalMode(e.target.checked);
       });
     }
 
@@ -1780,6 +1798,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     applyVisualSettings();
     syncCustomizerControls();
+
+    const savedMinimal = localStorage.getItem('korean_minimal_mode');
+    if (savedMinimal === '1') {
+      setMinimalMode(true, false);
+    }
+  }
+
+  function setMinimalMode(enabled, notify = true) {
+    document.body.classList.toggle('minimal-mode', enabled);
+    if (minimalBtnText) {
+      minimalBtnText.textContent = enabled ? '✕ Thoát tối giản' : '🎯 Giao diện tối giản';
+    }
+    if (btnToggleMinimal) {
+      btnToggleMinimal.title = enabled ? 'Quay lại Giao diện đầy đủ' : 'Bật Giao diện tối giản (Chỉ hiển thị thời gian, câu hỏi & nút câu tiếp theo)';
+    }
+    if (toggleMinimalMode) {
+      toggleMinimalMode.checked = enabled;
+    }
+    localStorage.setItem('korean_minimal_mode', enabled ? '1' : '0');
+    if (notify) {
+      showToast(enabled ? '🎯 Đã bật Giao diện tối giản tập trung!' : '🔄 Đã quay lại Giao diện đầy đủ!', 'info');
+    }
   }
 
   function applyVisualSettings() {
@@ -1875,6 +1915,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Delay & voice
     if (rangeCustomizerDelay) rangeCustomizerDelay.value = visualSettings.delay;
     if (customizerVoiceSelect) customizerVoiceSelect.value = visualSettings.voice;
+    if (toggleMinimalMode) toggleMinimalMode.checked = document.body.classList.contains('minimal-mode');
   }
 
   function openQuickEditModal(index = currentIndex, isNew = false) {
