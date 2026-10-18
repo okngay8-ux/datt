@@ -113,7 +113,13 @@ body.minimal-mode .bottom-floating-bar {
 
 body.minimal-mode .app-header {
   justify-content: space-between;
-  padding: 0 24px;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 10px);
+  padding-bottom: 10px;
+  padding-left: calc(env(safe-area-inset-left, 0px) + 20px);
+  padding-right: calc(env(safe-area-inset-right, 0px) + 20px);
+  min-height: calc(54px + env(safe-area-inset-top, 0px));
+  height: auto;
+  box-sizing: border-box;
 }
 
 body.minimal-mode .header-center {
@@ -198,13 +204,18 @@ body.dark-theme {
 
 /* Top App Header */
 .app-header {
-  height: 52px;
+  min-height: calc(52px + env(safe-area-inset-top, 0px));
+  height: auto;
   background-color: var(--bg-header);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 6px);
+  padding-bottom: 6px;
+  padding-left: calc(env(safe-area-inset-left, 0px) + 18px);
+  padding-right: calc(env(safe-area-inset-right, 0px) + 18px);
+  box-sizing: border-box;
 }
 
 .header-left {
@@ -1696,8 +1707,14 @@ body.dark-theme {
 @media (max-width: 680px) {
   body.minimal-mode .app-header {
     flex-wrap: nowrap;
-    padding: 8px 12px;
-    height: 52px;
+    padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
+    padding-bottom: 10px;
+    padding-left: calc(env(safe-area-inset-left, 0px) + 14px);
+    padding-right: calc(env(safe-area-inset-right, 0px) + 14px);
+    min-height: calc(56px + env(safe-area-inset-top, 0px));
+    height: auto;
+    align-items: center;
+    box-sizing: border-box;
   }
   body.minimal-mode .header-center {
     order: 2;
@@ -1709,6 +1726,10 @@ body.dark-theme {
   }
   body.minimal-mode .header-right {
     margin-left: auto;
+  }
+  body.minimal-mode .stage-card {
+    padding: 16px 14px 12px;
+    gap: 12px;
   }
 
   .app-header {
@@ -1827,7 +1848,7 @@ body.dark-theme {
   }
 
   .page-bottom-actions {
-    padding: 16px 16px 110px;
+    padding: 16px 16px calc(110px + env(safe-area-inset-bottom, 0px));
   }
 
   .btn-exam-next {
@@ -2018,7 +2039,7 @@ body.dark-theme {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 20px 75px;
+  padding: 20px 20px calc(75px + env(safe-area-inset-bottom, 0px));
   width: 100%;
 }
 
