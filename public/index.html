@@ -86,7 +86,16 @@
             <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
             <line x1="12" y1="18" x2="12.01" y2="18"></line>
           </svg>
-          <span>📱 Điện thoại</span>
+          <span>QR Điện thoại</span>
+        </button>
+
+        <button type="button" class="btn-header-iphone" id="btnToggleIPhone13" title="Bật/Tắt chế độ giao diện tối ưu cho màn hình iPhone 13 Pro">
+          <svg class="icon-iphone-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="5" y="2" width="14" height="20" rx="3" ry="3"></rect>
+            <line x1="10" y1="4" x2="14" y2="4" stroke-linecap="round"></line>
+            <circle cx="12" cy="18" r="1" fill="currentColor"></circle>
+          </svg>
+          <span id="iphone13BtnText">📱 iPhone 13 Pro</span>
         </button>
 
         <button type="button" class="btn-header-action" id="btnOpenManager">
@@ -760,6 +769,15 @@
               <span class="toggle-sub">Chỉ hiện đồng hồ, câu hỏi và nút câu tiếp</span>
             </div>
             <input type="checkbox" id="toggleMinimalMode">
+            <span class="toggle-switch"></span>
+          </label>
+
+          <label class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-main">📱 Chế độ chuẩn iPhone 13 Pro</span>
+              <span class="toggle-sub">Tối ưu tai thỏ, tỷ lệ 19.5:9 & nút bấm tay</span>
+            </div>
+            <input type="checkbox" id="toggleIPhone13Mode">
             <span class="toggle-switch"></span>
           </label>
 

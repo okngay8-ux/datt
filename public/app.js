@@ -251,6 +251,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const minimalBtnText = document.getElementById('minimalBtnText');
   const toggleMinimalMode = document.getElementById('toggleMinimalMode');
 
+  // iPhone 13 Pro Mode Toggle DOM
+  const btnToggleIPhone13 = document.getElementById('btnToggleIPhone13');
+  const iphone13BtnText = document.getElementById('iphone13BtnText');
+  const toggleIPhone13Mode = document.getElementById('toggleIPhone13Mode');
+
   // Stage Top Quick Actions & In-Place Quick Edit Modal DOM
   const btnQuickEditCurrent = document.getElementById('btnQuickEditCurrent');
   const btnQuickAddStage = document.getElementById('btnQuickAddStage');
@@ -631,6 +636,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleMinimalMode) {
       toggleMinimalMode.addEventListener('change', (e) => {
         setMinimalMode(e.target.checked);
+      });
+    }
+
+    // iPhone 13 Pro mode toggle
+    if (btnToggleIPhone13) {
+      btnToggleIPhone13.addEventListener('click', () => {
+        const isIPhone13 = document.body.classList.contains('iphone13-mode');
+        setIPhone13Mode(!isIPhone13);
+      });
+    }
+    if (toggleIPhone13Mode) {
+      toggleIPhone13Mode.addEventListener('change', (e) => {
+        setIPhone13Mode(e.target.checked);
       });
     }
 
@@ -1803,6 +1821,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedMinimal === '1') {
       setMinimalMode(true, false);
     }
+
+    const savedIPhone13 = localStorage.getItem('korean_iphone13_mode');
+    if (savedIPhone13 === '1') {
+      setIPhone13Mode(true, false);
+    }
+  }
+
+  function setIPhone13Mode(enabled, notify = true) {
+    document.body.classList.toggle('iphone13-mode', enabled);
+    if (btnToggleIPhone13) {
+      btnToggleIPhone13.classList.toggle('active', enabled);
+      btnToggleIPhone13.title = enabled ? 'Quay lại Giao diện tiêu chuẩn' : 'Bật chế độ tối ưu màn hình iPhone 13 Pro';
+    }
+    if (iphone13BtnText) {
+      iphone13BtnText.textContent = enabled ? '✓ Đang bật IP13 Pro' : '📱 iPhone 13 Pro';
+    }
+    if (toggleIPhone13Mode) {
+      toggleIPhone13Mode.checked = enabled;
+    }
+    localStorage.setItem('korean_iphone13_mode', enabled ? '1' : '0');
+    if (notify) {
+      showToast(enabled ? '📱 Đã bật chế độ chuẩn màn hình iPhone 13 Pro!' : '🔄 Đã quay lại Giao diện tiêu chuẩn!', 'info');
+    }
   }
 
   function setMinimalMode(enabled, notify = true) {
@@ -1916,6 +1957,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (rangeCustomizerDelay) rangeCustomizerDelay.value = visualSettings.delay;
     if (customizerVoiceSelect) customizerVoiceSelect.value = visualSettings.voice;
     if (toggleMinimalMode) toggleMinimalMode.checked = document.body.classList.contains('minimal-mode');
+    if (toggleIPhone13Mode) toggleIPhone13Mode.checked = document.body.classList.contains('iphone13-mode');
   }
 
   function openQuickEditModal(index = currentIndex, isNew = false) {

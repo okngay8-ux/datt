@@ -188,6 +188,217 @@ body.minimal-mode .btn-header-minimal:hover {
   color: #ffffff;
 }
 
+/* Nút Header Chế độ iPhone 13 Pro */
+.btn-header-iphone {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #c084fc;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-header-iphone:hover {
+  background: rgba(168, 85, 247, 0.25);
+  border-color: #a855f7;
+  color: #ffffff;
+}
+
+.btn-header-iphone.active {
+  background: rgba(168, 85, 247, 0.28);
+  border-color: #c084fc;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.35);
+}
+
+.icon-iphone-svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Trong Giao diện tối giản: Giữ hiển thị nút iPhone 13 Pro gọn gàng */
+body.minimal-mode .btn-header-iphone {
+  display: flex !important;
+  padding: 4px 10px;
+  font-size: 0.775rem;
+}
+
+/* ========================================================
+   CHẾ ĐỘ TỐI ƯU MÀN HÌNH IPHONE 13 PRO (390 x 844 px)
+   Tối ưu rãnh tai thỏ (Notch 47px), Tỷ lệ 19.5:9, Home Bar (34px)
+   ======================================================== */
+body.iphone13-mode {
+  --kr-font-size: 22px !important;
+  --vi-font-size: 15px !important;
+  --ans-font-size: 15px !important;
+}
+
+/* 1. Trên màn hình máy tính (Desktop/Laptop > 640px):
+      Tạo khung mô phỏng chuẩn xác kích thước và cảm giác cầm iPhone 13 Pro */
+@media (min-width: 641px) {
+  body.iphone13-mode {
+    background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, #090a0f 75%) !important;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+    box-sizing: border-box;
+  }
+
+  body.iphone13-mode .app-layout {
+    width: 390px !important;
+    height: 844px !important;
+    max-height: 844px !important;
+    border-radius: 46px !important;
+    border: 10px solid #27272a !important;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 0 2px rgba(168, 85, 247, 0.4) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    position: relative;
+    background-color: var(--bg-main) !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Rãnh tai thỏ (Notch) mô phỏng của iPhone 13 Pro */
+  body.iphone13-mode .app-layout::before {
+    content: '';
+    position: sticky;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 28px;
+    background: #18181b;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    z-index: 9999;
+    display: block;
+    margin-bottom: -28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+
+  /* Vạch Home Indicator ở đáy */
+  body.iphone13-mode .app-layout::after {
+    content: '';
+    position: sticky;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 134px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 9999px;
+    z-index: 9999;
+    display: block;
+    margin-top: -13px;
+    pointer-events: none;
+  }
+}
+
+/* 2. Quy tắc tối ưu giao diện áp dụng cho iPhone 13 Pro */
+body.iphone13-mode .app-header {
+  padding-top: calc(env(safe-area-inset-top, 44px) + 8px) !important;
+  padding-bottom: 8px !important;
+  padding-left: calc(env(safe-area-inset-left, 0px) + 12px) !important;
+  padding-right: calc(env(safe-area-inset-right, 0px) + 12px) !important;
+  min-height: calc(52px + env(safe-area-inset-top, 44px)) !important;
+  gap: 8px;
+}
+
+body.iphone13-mode .stage-card {
+  padding: 16px 14px 12px !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+body.iphone13-mode .current-question-kr {
+  font-size: 22px !important;
+  line-height: 1.35 !important;
+  margin-bottom: 4px !important;
+}
+
+body.iphone13-mode .current-question-vi {
+  font-size: 14.5px !important;
+}
+
+body.iphone13-mode .answer-box-container {
+  padding: 10px 14px !important;
+  gap: 4px !important;
+  border-radius: 8px !important;
+}
+
+body.iphone13-mode .ans-text {
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+}
+
+body.iphone13-mode .ans-vi {
+  font-size: 13.5px !important;
+}
+
+body.iphone13-mode .player-control-bar {
+  padding: 0 12px !important;
+  height: 48px !important;
+}
+
+body.iphone13-mode .playlist-items {
+  max-height: calc(5 * 42px) !important;
+}
+
+body.iphone13-mode .question-row {
+  height: 42px !important;
+  min-height: 42px !important;
+  max-height: 42px !important;
+  padding: 0 14px !important;
+  font-size: 0.88rem !important;
+}
+
+/* Nút câu tiếp theo ở cuối trang chuẩn ngón tay bấm trên iPhone 13 Pro */
+body.iphone13-mode .bottom-floating-bar {
+  padding: 8px 14px calc(env(safe-area-inset-bottom, 34px) + 8px) !important;
+}
+
+body.iphone13-mode .btn-exam-next-large {
+  height: 48px !important;
+  font-size: 1rem !important;
+  border-radius: 9999px !important;
+  max-width: 360px !important;
+}
+
+/* Kết hợp: Giao diện tối giản (Minimal) + Chế độ iPhone 13 Pro */
+body.iphone13-mode.minimal-mode .app-header {
+  padding-top: calc(env(safe-area-inset-top, 44px) + 8px) !important;
+  padding-bottom: 8px !important;
+  justify-content: space-between;
+}
+
+body.iphone13-mode.minimal-mode .header-center {
+  gap: 8px !important;
+}
+
+body.iphone13-mode.minimal-mode .set-picker-box {
+  max-width: 170px !important;
+  padding: 3px 6px !important;
+}
+
+body.iphone13-mode.minimal-mode .set-picker-box select {
+  font-size: 0.775rem !important;
+}
+
+body.iphone13-mode.minimal-mode .stage-card {
+  padding: 14px 12px 10px !important;
+  gap: 10px !important;
+}
+
 * {
   margin: 0;
   padding: 0;
