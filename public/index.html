@@ -63,6 +63,16 @@
       </div>
 
       <div class="header-right">
+        <button type="button" class="btn-header-customizer" id="btnOpenCustomizer" title="Tùy chỉnh trực quan giao diện, màu sắc, cỡ chữ">
+          <svg class="icon-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2z"></path>
+            <circle cx="7.5" cy="10.5" r="1.5" fill="currentColor"></circle>
+            <circle cx="12" cy="7.5" r="1.5" fill="currentColor"></circle>
+            <circle cx="16.5" cy="10.5" r="1.5" fill="currentColor"></circle>
+          </svg>
+          <span>🎨 Tùy chỉnh web</span>
+        </button>
+
         <button type="button" class="btn-header-phone" id="btnOpenPhoneModal" title="Quét mã QR kết nối học trên điện thoại">
           <svg class="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
@@ -91,6 +101,26 @@
     <main class="main-stage">
       <!-- Center Stage: Current Question & Answer Display -->
       <section class="stage-card">
+        <!-- Stage Top Bar: In-Place Editing & Status -->
+        <div class="stage-top-bar">
+          <div class="stage-badge-pill" id="stageBadgePill">
+            <span class="pulse-dot"></span>
+            <span id="stageBadgeText">Đang luyện tập</span>
+          </div>
+          <div class="stage-quick-actions">
+            <button type="button" class="btn-quick-edit-stage" id="btnQuickEditCurrent" title="Chỉnh sửa trực tiếp câu hỏi & đáp án này">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-edit-pencil">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+              <span>Sửa câu này</span>
+            </button>
+            <button type="button" class="btn-quick-add-stage" id="btnQuickAddStage" title="Thêm câu hỏi mới vào danh sách">
+              <span>➕ Thêm câu mới</span>
+            </button>
+          </div>
+        </div>
+
         <!-- Question Display -->
         <div class="question-display-container">
           <h1 class="current-question-kr" id="displayQuestionKr">
@@ -533,6 +563,250 @@
       </div>
     </div>
   </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: CHỈNH SỬA TRỰC TIẾP CÂU HỎI & ĐÁP ÁN (IN-PLACE)    -->
+  <!-- ======================================================== -->
+  <div class="modal-backdrop" id="quickEditModal" style="display: none;">
+    <div class="modal-card quick-edit-modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span style="font-size: 1.25rem;">✏️</span>
+          <h3 id="quickEditModalTitle">Chỉnh sửa trực tiếp câu hỏi</h3>
+        </div>
+        <button type="button" class="btn-close-modal" id="btnCloseQuickEditModal">&times;</button>
+      </div>
+
+      <div class="modal-body quick-edit-body">
+        <!-- Số thứ tự câu & Nghe thử audio -->
+        <div class="edit-row-two-col">
+          <div class="form-field flex-1">
+            <label for="editQuestionNum">Số thứ tự / Tiêu đề câu</label>
+            <input type="text" id="editQuestionNum" class="form-input" placeholder="Ví dụ: 79. hoặc Câu 1">
+          </div>
+          <div class="edit-audio-actions">
+            <label>Phát thử âm thanh:</label>
+            <div class="audio-btn-row">
+              <button type="button" class="btn-preview-audio" id="btnPreviewQuestionAudio" title="Nghe thử giọng đọc câu hỏi">
+                🔊 Nghe câu hỏi
+              </button>
+              <button type="button" class="btn-preview-audio" id="btnPreviewAnswerAudio" title="Nghe thử giọng đọc câu trả lời">
+                🔊 Nghe đáp án
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Câu hỏi Hàn -->
+        <div class="form-field">
+          <div class="field-header-action">
+            <label for="editQuestionKr">🇰🇷 Câu hỏi Tiếng Hàn <span class="required">*</span></label>
+            <button type="button" class="btn-auto-translate" id="btnAutoTranslateQuestion" title="Tự động dịch sang tiếng Việt bằng AI">
+              🤖 Tự dịch sang Tiếng Việt
+            </button>
+          </div>
+          <textarea id="editQuestionKr" rows="2" class="form-input kr-textarea" placeholder="Nhập câu hỏi tiếng Hàn..."></textarea>
+        </div>
+
+        <!-- Dịch câu hỏi Việt -->
+        <div class="form-field">
+          <label for="editQuestionVi">🇻🇳 Dịch nghĩa Tiếng Việt (Câu hỏi)</label>
+          <textarea id="editQuestionVi" rows="2" class="form-input" placeholder="Nhập bản dịch tiếng Việt..."></textarea>
+        </div>
+
+        <!-- Câu trả lời Hàn -->
+        <div class="form-field">
+          <div class="field-header-action">
+            <label for="editAnswerKr">🇰🇷 Câu trả lời Tiếng Hàn (Đáp án)</label>
+            <button type="button" class="btn-auto-translate" id="btnAutoTranslateAnswer" title="Tự động dịch câu trả lời sang tiếng Việt">
+              🤖 Tự dịch sang Tiếng Việt
+            </button>
+          </div>
+          <textarea id="editAnswerKr" rows="2" class="form-input kr-textarea" placeholder="Nhập câu trả lời tiếng Hàn (nếu có)..."></textarea>
+        </div>
+
+        <!-- Dịch câu trả lời Việt -->
+        <div class="form-field">
+          <label for="editAnswerVi">🇻🇳 Dịch nghĩa Tiếng Việt (Câu trả lời)</label>
+          <textarea id="editAnswerVi" rows="2" class="form-input" placeholder="Nhập bản dịch tiếng Việt của câu trả lời..."></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer quick-edit-footer">
+        <div class="footer-left-actions">
+          <button type="button" class="btn-danger-outline" id="btnDeleteCurrentQuestion" title="Xóa vĩnh viễn câu hỏi này khỏi danh sách">🗑️ Xóa câu này</button>
+          <button type="button" class="btn-secondary" id="btnAddQuestionAfter" title="Chèn câu hỏi mới ngay sau câu này">➕ Thêm câu mới</button>
+        </div>
+        <div class="footer-right-actions">
+          <button type="button" class="btn-secondary" id="btnCancelQuickEdit">Hủy</button>
+          <button type="button" class="btn-primary" id="btnSaveQuickEdit">💾 Lưu thay đổi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- DRAWER: TÙY CHỈNH TRỰC QUAN GIAO DIỆN (VISUAL STUDIO)    -->
+  <!-- ======================================================== -->
+  <div class="customizer-drawer-backdrop" id="customizerBackdrop" style="display: none;"></div>
+  <aside class="customizer-drawer" id="customizerDrawer">
+    <div class="customizer-header">
+      <div class="customizer-title-group">
+        <div class="customizer-icon-badge">🎨</div>
+        <div>
+          <h3 class="customizer-title">Tùy chỉnh trực tiếp Web</h3>
+          <p class="customizer-desc">Xem trước thay đổi ngay tức thì</p>
+        </div>
+      </div>
+      <button type="button" class="btn-close-customizer" id="btnCloseCustomizer">&times;</button>
+    </div>
+
+    <div class="customizer-body">
+      <!-- Section 1: Chủ đề nền (Theme) -->
+      <div class="customizer-section">
+        <h4 class="customizer-section-title">🌓 Chế độ nền (Theme)</h4>
+        <div class="theme-grid">
+          <button type="button" class="theme-card active" data-theme="dark">
+            <span class="theme-preview bg-dark"></span>
+            <span class="theme-name">Cyber Dark</span>
+          </button>
+          <button type="button" class="theme-card" data-theme="amoled">
+            <span class="theme-preview bg-amoled"></span>
+            <span class="theme-name">Deep AMOLED</span>
+          </button>
+          <button type="button" class="theme-card" data-theme="midnight">
+            <span class="theme-preview bg-midnight"></span>
+            <span class="theme-name">Midnight Ocean</span>
+          </button>
+          <button type="button" class="theme-card" data-theme="slate">
+            <span class="theme-preview bg-slate"></span>
+            <span class="theme-name">Warm Slate</span>
+          </button>
+          <button type="button" class="theme-card" data-theme="light">
+            <span class="theme-preview bg-light"></span>
+            <span class="theme-name">Clean Light</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Section 2: Màu nhấn (Accent Color) -->
+      <div class="customizer-section">
+        <div class="section-header-flex">
+          <h4 class="customizer-section-title">✨ Màu sắc nổi bật (Accent)</h4>
+          <span class="color-preview-pill" id="accentColorPreviewBadge">#38bdf8</span>
+        </div>
+        <div class="color-swatches-grid">
+          <button type="button" class="swatch-btn active" data-color="#38bdf8" style="background-color: #38bdf8;" title="Sky Cyan (Mặc định)"></button>
+          <button type="button" class="swatch-btn" data-color="#10b981" style="background-color: #10b981;" title="Emerald Green"></button>
+          <button type="button" class="swatch-btn" data-color="#f59e0b" style="background-color: #f59e0b;" title="Amber Orange"></button>
+          <button type="button" class="swatch-btn" data-color="#a855f7" style="background-color: #a855f7;" title="Electric Purple"></button>
+          <button type="button" class="swatch-btn" data-color="#f43f5e" style="background-color: #f43f5e;" title="Rose Crimson"></button>
+          <button type="button" class="swatch-btn" data-color="#06b6d4" style="background-color: #06b6d4;" title="Turquoise Blue"></button>
+          <label class="swatch-custom-label" title="Tự chọn màu bất kỳ">
+            <input type="color" id="customColorPicker" value="#38bdf8">
+            <span class="custom-color-icon">🎨+</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Section 3: Cỡ chữ trực quan (Font Size Live Sliders) -->
+      <div class="customizer-section">
+        <h4 class="customizer-section-title">🔤 Kích thước chữ trực quan</h4>
+        
+        <div class="slider-control-item">
+          <div class="slider-label-row">
+            <span>Câu tiếng Hàn chính:</span>
+            <strong id="labelFontSizeKr">28px</strong>
+          </div>
+          <input type="range" id="rangeFontSizeKr" min="20" max="42" step="1" value="28" class="custom-range">
+        </div>
+
+        <div class="slider-control-item">
+          <div class="slider-label-row">
+            <span>Dịch tiếng Việt:</span>
+            <strong id="labelFontSizeVi">17px</strong>
+          </div>
+          <input type="range" id="rangeFontSizeVi" min="13" max="24" step="1" value="17" class="custom-range">
+        </div>
+
+        <div class="slider-control-item">
+          <div class="slider-label-row">
+            <span>Chữ câu trả lời (Hàn):</span>
+            <strong id="labelFontSizeAns">16px</strong>
+          </div>
+          <input type="range" id="rangeFontSizeAns" min="13" max="22" step="1" value="16" class="custom-range">
+        </div>
+      </div>
+
+      <!-- Section 4: Công tắc bật/tắt thành phần UI -->
+      <div class="customizer-section">
+        <h4 class="customizer-section-title">👁️ Bật / Tắt thành phần hiển thị</h4>
+        <div class="toggle-list">
+          <label class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-main">Hiện bản dịch tiếng Việt</span>
+              <span class="toggle-sub">Tắt đi để tự luyện nghe đoán nghĩa</span>
+            </div>
+            <input type="checkbox" id="toggleShowVi" checked>
+            <span class="toggle-switch"></span>
+          </label>
+
+          <label class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-main">Đồng hồ bấm giờ (Header)</span>
+              <span class="toggle-sub">Đo thời gian hoàn thành bộ câu</span>
+            </div>
+            <input type="checkbox" id="toggleShowTimer" checked>
+            <span class="toggle-switch"></span>
+          </label>
+
+          <label class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-main">Dải sóng âm thanh (Visualizer)</span>
+              <span class="toggle-sub">Hiệu ứng chuyển động khi phát âm</span>
+            </div>
+            <input type="checkbox" id="toggleShowVisualizer" checked>
+            <span class="toggle-switch"></span>
+          </label>
+
+          <label class="toggle-item">
+            <div class="toggle-info">
+              <span class="toggle-main">Hiệu ứng Kính mờ (Glassmorphism)</span>
+              <span class="toggle-sub">Độ sâu và viền phát sáng hiện đại</span>
+            </div>
+            <input type="checkbox" id="toggleGlassGlow" checked>
+            <span class="toggle-switch"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Section 5: Giọng đọc & Độ trễ -->
+      <div class="customizer-section">
+        <h4 class="customizer-section-title">🎙️ Giọng đọc & Độ trễ</h4>
+        <div class="customizer-field">
+          <label for="customizerVoiceSelect">Giọng đọc phát thanh:</label>
+          <select id="customizerVoiceSelect" class="form-select-sm">
+            <option value="ko-KR-SunHiNeural">Sun-Hi (Nữ Seoul - Chuẩn phát thanh viên)</option>
+            <option value="ko-KR-InJoonNeural">In-Joon (Nam Seoul - Trầm ấm, rõ chữ)</option>
+            <option value="ko-KR-HyunsuMultilingualNeural">Hyunsu (Nam trẻ trung năng động)</option>
+          </select>
+        </div>
+
+        <div class="slider-control-item" style="margin-top: 12px;">
+          <div class="slider-label-row">
+            <span>Thời gian chờ câu hỏi - trả lời:</span>
+            <strong id="labelCustomizerDelay">3 giây</strong>
+          </div>
+          <input type="range" id="rangeCustomizerDelay" min="1" max="15" step="1" value="3" class="custom-range">
+        </div>
+      </div>
+    </div>
+
+    <div class="customizer-footer">
+      <button type="button" class="btn-reset-customizer" id="btnResetCustomizer">🔄 Khôi phục mặc định</button>
+      <button type="button" class="btn-close-customizer-bottom" id="btnCloseCustomizerBottom">Xong</button>
+    </div>
+  </aside>
 
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer"></div>

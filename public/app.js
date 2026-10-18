@@ -223,11 +223,74 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnRestartExam = document.getElementById('btnRestartExam');
   const btnShuffleAndRestart = document.getElementById('btnShuffleAndRestart');
 
+  // Customizer Drawer DOM
+  const btnOpenCustomizer = document.getElementById('btnOpenCustomizer');
+  const customizerBackdrop = document.getElementById('customizerBackdrop');
+  const customizerDrawer = document.getElementById('customizerDrawer');
+  const btnCloseCustomizer = document.getElementById('btnCloseCustomizer');
+  const btnCloseCustomizerBottom = document.getElementById('btnCloseCustomizerBottom');
+  const accentColorPreviewBadge = document.getElementById('accentColorPreviewBadge');
+  const customColorPicker = document.getElementById('customColorPicker');
+  const labelFontSizeKr = document.getElementById('labelFontSizeKr');
+  const rangeFontSizeKr = document.getElementById('rangeFontSizeKr');
+  const labelFontSizeVi = document.getElementById('labelFontSizeVi');
+  const rangeFontSizeVi = document.getElementById('rangeFontSizeVi');
+  const labelFontSizeAns = document.getElementById('labelFontSizeAns');
+  const rangeFontSizeAns = document.getElementById('rangeFontSizeAns');
+  const toggleShowVi = document.getElementById('toggleShowVi');
+  const toggleShowTimer = document.getElementById('toggleShowTimer');
+  const toggleShowVisualizer = document.getElementById('toggleShowVisualizer');
+  const toggleGlassGlow = document.getElementById('toggleGlassGlow');
+  const customizerVoiceSelect = document.getElementById('customizerVoiceSelect');
+  const rangeCustomizerDelay = document.getElementById('rangeCustomizerDelay');
+  const labelCustomizerDelay = document.getElementById('labelCustomizerDelay');
+  const btnResetCustomizer = document.getElementById('btnResetCustomizer');
+
+  // Stage Top Quick Actions & In-Place Quick Edit Modal DOM
+  const btnQuickEditCurrent = document.getElementById('btnQuickEditCurrent');
+  const btnQuickAddStage = document.getElementById('btnQuickAddStage');
+  const quickEditModal = document.getElementById('quickEditModal');
+  const btnCloseQuickEditModal = document.getElementById('btnCloseQuickEditModal');
+  const btnCancelQuickEdit = document.getElementById('btnCancelQuickEdit');
+  const quickEditModalTitle = document.getElementById('quickEditModalTitle');
+  const editQuestionNum = document.getElementById('editQuestionNum');
+  const editQuestionKr = document.getElementById('editQuestionKr');
+  const editQuestionVi = document.getElementById('editQuestionVi');
+  const editAnswerKr = document.getElementById('editAnswerKr');
+  const editAnswerVi = document.getElementById('editAnswerVi');
+  const btnPreviewQuestionAudio = document.getElementById('btnPreviewQuestionAudio');
+  const btnPreviewAnswerAudio = document.getElementById('btnPreviewAnswerAudio');
+  const btnAutoTranslateQuestion = document.getElementById('btnAutoTranslateQuestion');
+  const btnAutoTranslateAnswer = document.getElementById('btnAutoTranslateAnswer');
+  const btnDeleteCurrentQuestion = document.getElementById('btnDeleteCurrentQuestion');
+  const btnAddQuestionAfter = document.getElementById('btnAddQuestionAfter');
+  const btnSaveQuickEdit = document.getElementById('btnSaveQuickEdit');
+
+  // Customizer State
+  const defaultVisualSettings = {
+    theme: 'dark',
+    accentColor: '#38bdf8',
+    fontSizeKr: 28,
+    fontSizeVi: 17,
+    fontSizeAns: 16,
+    showVi: true,
+    showTimer: true,
+    showVisualizer: true,
+    glassGlow: true,
+    delay: 3,
+    voice: 'ko-KR-SunHiNeural'
+  };
+
+  let visualSettings = { ...defaultVisualSettings };
+  let editingQuestionIndex = 0;
+  let isAddingNewQuestion = false;
+
   // Initialize App
   init();
 
   async function init() {
     originalQuestions = JSON.parse(JSON.stringify(questions));
+    loadAndApplyVisualSettings();
     renderPlaylist();
     updateStageDisplay();
     bindEvents();
@@ -421,6 +484,187 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnCopyPhoneUrl.addEventListener('click', handleCopyPhoneUrl);
     selectNetworkInterface.addEventListener('change', handleInterfaceChange);
+
+    // ========================================================
+    // Customizer Drawer Events (Bảng Tùy Chỉnh Trực Quan Web)
+    // ========================================================
+    if (btnOpenCustomizer) {
+      btnOpenCustomizer.addEventListener('click', () => {
+        customizerDrawer.classList.add('open');
+        customizerBackdrop.style.display = 'block';
+      });
+    }
+
+    const closeCustomizer = () => {
+      if (customizerDrawer) customizerDrawer.classList.remove('open');
+      if (customizerBackdrop) customizerBackdrop.style.display = 'none';
+    };
+    if (btnCloseCustomizer) btnCloseCustomizer.addEventListener('click', closeCustomizer);
+    if (btnCloseCustomizerBottom) btnCloseCustomizerBottom.addEventListener('click', closeCustomizer);
+    if (customizerBackdrop) customizerBackdrop.addEventListener('click', closeCustomizer);
+
+    // Theme Selection Cards
+    document.querySelectorAll('.theme-card').forEach(card => {
+      card.addEventListener('click', () => {
+        visualSettings.theme = card.dataset.theme;
+        applyVisualSettings();
+        saveVisualSettings();
+        syncCustomizerControls();
+      });
+    });
+
+    // Swatches (Bảng màu có sẵn)
+    document.querySelectorAll('.swatch-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        visualSettings.accentColor = btn.dataset.color;
+        applyVisualSettings();
+        saveVisualSettings();
+        syncCustomizerControls();
+      });
+    });
+
+    // Custom Color Picker (Tự chọn màu bất kỳ)
+    if (customColorPicker) {
+      customColorPicker.addEventListener('input', (e) => {
+        visualSettings.accentColor = e.target.value;
+        applyVisualSettings();
+        saveVisualSettings();
+        syncCustomizerControls();
+      });
+    }
+
+    // Font size sliders (Thay đổi cỡ chữ theo thời gian thực)
+    if (rangeFontSizeKr) {
+      rangeFontSizeKr.addEventListener('input', (e) => {
+        visualSettings.fontSizeKr = parseInt(e.target.value, 10);
+        applyVisualSettings();
+        saveVisualSettings();
+      });
+    }
+    if (rangeFontSizeVi) {
+      rangeFontSizeVi.addEventListener('input', (e) => {
+        visualSettings.fontSizeVi = parseInt(e.target.value, 10);
+        applyVisualSettings();
+        saveVisualSettings();
+      });
+    }
+    if (rangeFontSizeAns) {
+      rangeFontSizeAns.addEventListener('input', (e) => {
+        visualSettings.fontSizeAns = parseInt(e.target.value, 10);
+        applyVisualSettings();
+        saveVisualSettings();
+      });
+    }
+
+    // Toggles (Hiện/Ẩn tiếng Việt, timer, visualizer, glass)
+    if (toggleShowVi) {
+      toggleShowVi.addEventListener('change', (e) => {
+        visualSettings.showVi = e.target.checked;
+        applyVisualSettings();
+        saveVisualSettings();
+      });
+    }
+    if (toggleShowTimer) {
+      toggleShowTimer.addEventListener('change', (e) => {
+        visualSettings.showTimer = e.target.checked;
+        applyVisualSettings();
+        saveVisualSettings();
+      });
+    }
+    if (toggleShowVisualizer) {
+      toggleShowVisualizer.addEventListener('change', (e) => {
+        visualSettings.showVisualizer = e.target.checked;
+        applyVisualSettings();
+        saveVisualSettings();
+      });
+    }
+    if (toggleGlassGlow) {
+      toggleGlassGlow.addEventListener('change', (e) => {
+        visualSettings.glassGlow = e.target.checked;
+        applyVisualSettings();
+        saveVisualSettings();
+      });
+    }
+
+    // Customizer Voice & Delay
+    if (customizerVoiceSelect) {
+      customizerVoiceSelect.addEventListener('change', (e) => {
+        visualSettings.voice = e.target.value;
+        currentVoice = e.target.value;
+        selectVoice.value = e.target.value;
+        saveVisualSettings();
+        showToast(`Đã đổi giọng sang: ${e.target.options[e.target.selectedIndex].text.split('(')[0].trim()}`, 'info');
+      });
+    }
+    if (rangeCustomizerDelay) {
+      rangeCustomizerDelay.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value, 10);
+        visualSettings.delay = val;
+        delaySeconds = val;
+        delayValueText.textContent = `${val} s`;
+        labelCustomizerDelay.textContent = `${val} giây`;
+        saveVisualSettings();
+      });
+    }
+    if (btnResetCustomizer) {
+      btnResetCustomizer.addEventListener('click', () => {
+        visualSettings = { ...defaultVisualSettings };
+        applyVisualSettings();
+        saveVisualSettings();
+        syncCustomizerControls();
+        showToast('Đã khôi phục giao diện mặc định!', 'success');
+      });
+    }
+
+    // ========================================================
+    // Quick Edit In-Place Events (Chỉnh sửa trực tiếp câu hỏi)
+    // ========================================================
+    if (btnQuickEditCurrent) {
+      btnQuickEditCurrent.addEventListener('click', () => {
+        openQuickEditModal(currentIndex, false);
+      });
+    }
+    if (btnQuickAddStage) {
+      btnQuickAddStage.addEventListener('click', () => {
+        openQuickEditModal(currentIndex, true);
+      });
+    }
+
+    const closeQuickEdit = () => {
+      if (quickEditModal) quickEditModal.style.display = 'none';
+    };
+    if (btnCloseQuickEditModal) btnCloseQuickEditModal.addEventListener('click', closeQuickEdit);
+    if (btnCancelQuickEdit) btnCancelQuickEdit.addEventListener('click', closeQuickEdit);
+
+    if (btnAutoTranslateQuestion) {
+      btnAutoTranslateQuestion.addEventListener('click', () => {
+        handleAutoTranslateField(editQuestionKr.value, editQuestionVi, btnAutoTranslateQuestion);
+      });
+    }
+    if (btnAutoTranslateAnswer) {
+      btnAutoTranslateAnswer.addEventListener('click', () => {
+        handleAutoTranslateField(editAnswerKr.value, editAnswerVi, btnAutoTranslateAnswer);
+      });
+    }
+
+    if (btnPreviewQuestionAudio) {
+      btnPreviewQuestionAudio.addEventListener('click', () => {
+        previewAudioText(editQuestionKr.value);
+      });
+    }
+    if (btnPreviewAnswerAudio) {
+      btnPreviewAnswerAudio.addEventListener('click', () => {
+        previewAudioText(editAnswerKr.value);
+      });
+    }
+
+    if (btnSaveQuickEdit) btnSaveQuickEdit.addEventListener('click', handleSaveQuickEdit);
+    if (btnDeleteCurrentQuestion) btnDeleteCurrentQuestion.addEventListener('click', handleDeleteCurrentQuestion);
+    if (btnAddQuestionAfter) {
+      btnAddQuestionAfter.addEventListener('click', () => {
+        openQuickEditModal(editingQuestionIndex, true);
+      });
+    }
   }
 
   // Network Info & QR Code Loader
@@ -1481,6 +1725,285 @@ document.addEventListener('DOMContentLoaded', () => {
     btnApplyBulk.disabled = false;
     managerModal.style.display = 'none';
     showToast(`Đã áp dụng ${questions.length} câu mới. Bấm "Lưu bộ này" để lưu lại!`);
+  }
+
+  // ========================================================
+  // VISUAL CUSTOMIZER & IN-PLACE QUICK EDIT LOGIC
+  // ========================================================
+  function loadAndApplyVisualSettings() {
+    try {
+      const stored = localStorage.getItem('korean_visual_customizer_settings');
+      if (stored) {
+        visualSettings = { ...defaultVisualSettings, ...JSON.parse(stored) };
+      }
+    } catch (e) {
+      console.warn('Could not load visual settings:', e);
+    }
+    applyVisualSettings();
+    syncCustomizerControls();
+  }
+
+  function applyVisualSettings() {
+    // 1. Theme
+    document.body.classList.remove('theme-dark', 'theme-amoled', 'theme-midnight', 'theme-slate', 'theme-light');
+    if (visualSettings.theme && visualSettings.theme !== 'dark') {
+      document.body.classList.add(`theme-${visualSettings.theme}`);
+    }
+
+    // 2. Accent Color
+    const root = document.documentElement;
+    root.style.setProperty('--accent-cyan', visualSettings.accentColor);
+    if (accentColorPreviewBadge) {
+      accentColorPreviewBadge.textContent = visualSettings.accentColor;
+    }
+
+    // 3. Font Sizes
+    root.style.setProperty('--kr-font-size', `${visualSettings.fontSizeKr}px`);
+    root.style.setProperty('--vi-font-size', `${visualSettings.fontSizeVi}px`);
+    root.style.setProperty('--ans-font-size', `${visualSettings.fontSizeAns}px`);
+
+    if (labelFontSizeKr) labelFontSizeKr.textContent = `${visualSettings.fontSizeKr}px`;
+    if (labelFontSizeVi) labelFontSizeVi.textContent = `${visualSettings.fontSizeVi}px`;
+    if (labelFontSizeAns) labelFontSizeAns.textContent = `${visualSettings.fontSizeAns}px`;
+
+    // 4. Visibility Toggles
+    if (visualSettings.showVi) {
+      document.body.classList.remove('hide-vietnamese');
+    } else {
+      document.body.classList.add('hide-vietnamese');
+    }
+
+    if (visualSettings.showTimer) {
+      document.body.classList.remove('hide-timer');
+    } else {
+      document.body.classList.add('hide-timer');
+    }
+
+    if (visualSettings.showVisualizer) {
+      document.body.classList.remove('hide-visualizer');
+    } else {
+      document.body.classList.add('hide-visualizer');
+    }
+
+    if (visualSettings.glassGlow) {
+      document.body.classList.remove('no-glass');
+    } else {
+      document.body.classList.add('no-glass');
+    }
+
+    // 5. Delay & Voice sync
+    delaySeconds = visualSettings.delay;
+    if (delayValueText) delayValueText.textContent = `${delaySeconds} s`;
+    if (labelCustomizerDelay) labelCustomizerDelay.textContent = `${delaySeconds} giây`;
+    if (visualSettings.voice) {
+      currentVoice = visualSettings.voice;
+      if (selectVoice) selectVoice.value = currentVoice;
+      if (customizerVoiceSelect) customizerVoiceSelect.value = currentVoice;
+    }
+  }
+
+  function saveVisualSettings() {
+    try {
+      localStorage.setItem('korean_visual_customizer_settings', JSON.stringify(visualSettings));
+    } catch (e) {
+      console.warn('Could not save visual settings:', e);
+    }
+  }
+
+  function syncCustomizerControls() {
+    // Theme cards
+    document.querySelectorAll('.theme-card').forEach(card => {
+      card.classList.toggle('active', card.dataset.theme === visualSettings.theme);
+    });
+
+    // Swatches
+    document.querySelectorAll('.swatch-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.color.toLowerCase() === visualSettings.accentColor.toLowerCase());
+    });
+    if (customColorPicker) customColorPicker.value = visualSettings.accentColor;
+
+    // Sliders
+    if (rangeFontSizeKr) rangeFontSizeKr.value = visualSettings.fontSizeKr;
+    if (rangeFontSizeVi) rangeFontSizeVi.value = visualSettings.fontSizeVi;
+    if (rangeFontSizeAns) rangeFontSizeAns.value = visualSettings.fontSizeAns;
+
+    // Toggles
+    if (toggleShowVi) toggleShowVi.checked = visualSettings.showVi;
+    if (toggleShowTimer) toggleShowTimer.checked = visualSettings.showTimer;
+    if (toggleShowVisualizer) toggleShowVisualizer.checked = visualSettings.showVisualizer;
+    if (toggleGlassGlow) toggleGlassGlow.checked = visualSettings.glassGlow;
+
+    // Delay & voice
+    if (rangeCustomizerDelay) rangeCustomizerDelay.value = visualSettings.delay;
+    if (customizerVoiceSelect) customizerVoiceSelect.value = visualSettings.voice;
+  }
+
+  function openQuickEditModal(index = currentIndex, isNew = false) {
+    editingQuestionIndex = index;
+    isAddingNewQuestion = isNew;
+
+    if (isNew) {
+      quickEditModalTitle.textContent = "Thêm câu hỏi mới vào danh sách";
+      editQuestionNum.value = `${questions.length + 1}.`;
+      editQuestionKr.value = "";
+      editQuestionVi.value = "";
+      editAnswerKr.value = "";
+      editAnswerVi.value = "";
+      btnDeleteCurrentQuestion.style.display = 'none';
+      btnAddQuestionAfter.style.display = 'none';
+    } else {
+      quickEditModalTitle.textContent = `Chỉnh sửa câu ${index + 1}`;
+      const item = questions[index] || { num: `${index + 1}.`, qKr: '', qVi: '', aKr: '', aVi: '' };
+      editQuestionNum.value = item.num || `${index + 1}.`;
+      editQuestionKr.value = item.qKr || "";
+      editQuestionVi.value = item.qVi || "";
+      editAnswerKr.value = item.aKr || "";
+      editAnswerVi.value = item.aVi || "";
+      btnDeleteCurrentQuestion.style.display = 'inline-block';
+      btnAddQuestionAfter.style.display = 'inline-block';
+    }
+
+    quickEditModal.style.display = 'flex';
+  }
+
+  async function handleAutoTranslateField(sourceText, targetElement, btnElement) {
+    if (!sourceText || !sourceText.trim()) {
+      showToast("Vui lòng nhập văn bản tiếng Hàn trước khi dịch!", true);
+      return;
+    }
+    const origText = btnElement.textContent;
+    btnElement.textContent = "⏳ Đang dịch...";
+    btnElement.disabled = true;
+
+    try {
+      const resp = await fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: sourceText.trim() })
+      });
+      const data = await resp.json();
+      if (data.success && data.translation) {
+        targetElement.value = data.translation;
+        showToast("Đã dịch xong sang Tiếng Việt!");
+      } else {
+        throw new Error(data.error || 'Lỗi dịch');
+      }
+    } catch (err) {
+      console.error('Translation error:', err);
+      showToast("Không thể dịch tự động lúc này", true);
+    } finally {
+      btnElement.textContent = origText;
+      btnElement.disabled = false;
+    }
+  }
+
+  async function previewAudioText(text) {
+    if (!text || !text.trim()) {
+      showToast("Chưa có văn bản để phát âm!", true);
+      return;
+    }
+    try {
+      const resp = await fetch('/api/tts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text: text.trim(),
+          voice: currentVoice,
+          speed: currentSpeed
+        })
+      });
+      const data = await resp.json();
+      if (data.success && data.audioUrl) {
+        const previewAudio = new Audio(data.audioUrl);
+        previewAudio.play();
+      } else {
+        throw new Error(data.error || 'Lỗi TTS');
+      }
+    } catch (err) {
+      console.error('TTS preview error:', err);
+      showToast("Lỗi khi phát thử âm thanh", true);
+    }
+  }
+
+  function handleSaveQuickEdit() {
+    const qKr = editQuestionKr.value.trim();
+    if (!qKr) {
+      showToast("Vui lòng nhập câu hỏi tiếng Hàn!", true);
+      editQuestionKr.focus();
+      return;
+    }
+
+    const item = {
+      num: editQuestionNum.value.trim() || `${editingQuestionIndex + 1}.`,
+      qKr: qKr,
+      qVi: editQuestionVi.value.trim(),
+      aKr: editAnswerKr.value.trim(),
+      aVi: editAnswerVi.value.trim()
+    };
+
+    if (isAddingNewQuestion) {
+      if (editingQuestionIndex >= 0 && editingQuestionIndex < questions.length) {
+        questions.splice(editingQuestionIndex + 1, 0, item);
+        currentIndex = editingQuestionIndex + 1;
+      } else {
+        questions.push(item);
+        currentIndex = questions.length - 1;
+      }
+      showToast("Đã thêm câu hỏi mới thành công!");
+    } else {
+      questions[editingQuestionIndex] = item;
+      showToast("Đã lưu cập nhật câu hỏi!");
+    }
+
+    originalQuestions = JSON.parse(JSON.stringify(questions));
+    saveQuestionsToLocalStorage();
+    audioCache.clear();
+    renderPlaylist();
+    updateStageDisplay();
+    quickEditModal.style.display = 'none';
+
+    persistQuestionsToServer();
+  }
+
+  function handleDeleteCurrentQuestion() {
+    if (questions.length <= 1) {
+      showToast("Cần giữ ít nhất 1 câu hỏi trong danh sách!", true);
+      return;
+    }
+    const currentKr = questions[editingQuestionIndex]?.qKr || '';
+    if (!confirm(`Bạn có chắc muốn xóa câu hỏi "${currentKr}" không?`)) {
+      return;
+    }
+    questions.splice(editingQuestionIndex, 1);
+    if (currentIndex >= questions.length) {
+      currentIndex = questions.length - 1;
+    }
+    originalQuestions = JSON.parse(JSON.stringify(questions));
+    saveQuestionsToLocalStorage();
+    audioCache.clear();
+    renderPlaylist();
+    updateStageDisplay();
+    quickEditModal.style.display = 'none';
+    showToast("Đã xóa câu hỏi khỏi danh sách!");
+    persistQuestionsToServer();
+  }
+
+  function saveQuestionsToLocalStorage() {
+    try {
+      localStorage.setItem('korean_questions', JSON.stringify(questions));
+    } catch (e) {
+      console.warn('Could not save questions to localStorage:', e);
+    }
+  }
+
+  function persistQuestionsToServer() {
+    if (activeSetId && activeSetId.startsWith('set_')) {
+      fetch(`/api/sets/${activeSetId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ questions })
+      }).catch(err => console.warn('Could not auto-sync set to server:', err));
+    }
   }
 
   function escapeHtml(str) {
