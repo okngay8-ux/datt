@@ -306,12 +306,23 @@ body.iphone13-mode {
 
 /* 2. Quy tắc tối ưu giao diện áp dụng cho iPhone 13 Pro */
 body.iphone13-mode .app-header {
-  padding-top: calc(env(safe-area-inset-top, 44px) + 8px) !important;
+  padding-top: calc(max(env(safe-area-inset-top, 0px), 47px) + 12px) !important;
   padding-bottom: 8px !important;
   padding-left: calc(env(safe-area-inset-left, 0px) + 12px) !important;
   padding-right: calc(env(safe-area-inset-right, 0px) + 12px) !important;
-  min-height: calc(52px + env(safe-area-inset-top, 44px)) !important;
-  gap: 8px;
+  min-height: auto !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+body.iphone13-mode .header-right {
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+}
+
+body.iphone13-mode .header-right button {
+  padding: 4px 8px !important;
+  font-size: 0.75rem !important;
 }
 
 body.iphone13-mode .stage-card {
@@ -376,22 +387,97 @@ body.iphone13-mode .btn-exam-next-large {
 
 /* Kết hợp: Giao diện tối giản (Minimal) + Chế độ iPhone 13 Pro */
 body.iphone13-mode.minimal-mode .app-header {
-  padding-top: calc(env(safe-area-inset-top, 44px) + 8px) !important;
+  padding-top: calc(max(env(safe-area-inset-top, 0px), 47px) + 12px) !important;
   padding-bottom: 8px !important;
-  justify-content: space-between;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  row-gap: 8px !important;
+  column-gap: 8px !important;
+  align-items: center !important;
+  height: auto !important;
+  min-height: auto !important;
+  box-sizing: border-box !important;
 }
 
 body.iphone13-mode.minimal-mode .header-center {
-  gap: 8px !important;
+  display: contents !important;
+}
+
+body.iphone13-mode.minimal-mode #examTimerBox {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 3px 8px !important;
+  background: rgba(30, 41, 59, 0.75) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  border-radius: 6px !important;
+  justify-self: start !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+
+body.iphone13-mode.minimal-mode .header-right {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 6px !important;
+  margin: 0 !important;
+}
+
+body.iphone13-mode.minimal-mode .btn-header-minimal {
+  padding: 4px 8px !important;
+  font-size: 0.75rem !important;
+  white-space: nowrap !important;
+}
+
+body.iphone13-mode.minimal-mode .btn-header-iphone {
+  padding: 4px 8px !important;
+  font-size: 0.75rem !important;
+  white-space: nowrap !important;
 }
 
 body.iphone13-mode.minimal-mode .set-picker-box {
-  max-width: 170px !important;
-  padding: 3px 6px !important;
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  padding: 5px 10px !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
 }
 
-body.iphone13-mode.minimal-mode .set-picker-box select {
-  font-size: 0.775rem !important;
+body.iphone13-mode.minimal-mode .set-picker-label {
+  font-size: 0.78rem !important;
+  color: var(--accent-cyan) !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  margin-right: 6px !important;
+}
+
+body.iphone13-mode.minimal-mode .set-picker-box select,
+body.iphone13-mode.minimal-mode .header-set-select {
+  flex: 1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  text-overflow: ellipsis !important;
 }
 
 body.iphone13-mode.minimal-mode .stage-card {
@@ -1928,80 +2014,104 @@ body.dark-theme {
 /* Complete Mobile Responsive Styling */
 @media (max-width: 680px) {
   body.minimal-mode .app-header {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 6px;
-    padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
-    padding-bottom: 10px;
-    padding-left: calc(env(safe-area-inset-left, 0px) + 10px);
-    padding-right: calc(env(safe-area-inset-right, 0px) + 10px);
-    min-height: calc(56px + env(safe-area-inset-top, 0px));
-    height: auto;
-    box-sizing: border-box;
+    display: grid !important;
+    grid-template-columns: auto 1fr !important;
+    row-gap: 8px !important;
+    column-gap: 8px !important;
+    align-items: center !important;
+    padding-top: calc(max(env(safe-area-inset-top, 0px), 47px) + 12px) !important;
+    padding-bottom: 10px !important;
+    padding-left: calc(env(safe-area-inset-left, 0px) + 12px) !important;
+    padding-right: calc(env(safe-area-inset-right, 0px) + 12px) !important;
+    min-height: auto !important;
+    height: auto !important;
+    box-sizing: border-box !important;
   }
   body.minimal-mode .header-center {
-    order: 1;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex: 1;
-    min-width: 0;
-    margin: 0;
-  }
-  body.minimal-mode .set-picker-box {
-    display: flex !important;
-    align-items: center;
-    flex: 1;
-    min-width: 0;
-    max-width: 170px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 3px 6px;
-    border-radius: 6px;
-  }
-  body.minimal-mode .set-picker-label {
-    font-size: 0.72rem;
-    white-space: nowrap;
-  }
-  body.minimal-mode .header-set-select {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #fff;
-    width: 100%;
-    min-width: 0;
-    text-overflow: ellipsis;
+    display: contents !important;
   }
   body.minimal-mode #examTimerBox {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
     display: inline-flex !important;
-    padding: 2px 6px;
-    gap: 4px;
-    font-size: 0.775rem;
-    flex-shrink: 0;
-    transform: none;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 3px 8px !important;
+    background: rgba(30, 41, 59, 0.75) !important;
+    border: 1px solid rgba(56, 189, 248, 0.3) !important;
+    border-radius: 6px !important;
+    font-size: 0.78rem !important;
+    transform: none !important;
+    margin: 0 !important;
+    justify-self: start !important;
   }
   body.minimal-mode .timer-digits {
-    font-size: 0.85rem;
-    min-width: 36px;
+    font-size: 0.85rem !important;
+    min-width: 40px !important;
   }
   body.minimal-mode .btn-timer-icon {
-    font-size: 0.72rem;
-    padding: 1px 3px;
+    font-size: 0.72rem !important;
+    padding: 2px 4px !important;
   }
   body.minimal-mode .header-right {
-    order: 2;
-    margin-left: 0;
-    flex-shrink: 0;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    margin: 0 !important;
   }
   body.minimal-mode .btn-header-minimal {
-    padding: 5px 8px;
-    font-size: 0.72rem;
-    gap: 4px;
+    padding: 4px 8px !important;
+    font-size: 0.75rem !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+  }
+  body.minimal-mode .btn-header-iphone {
+    padding: 4px 8px !important;
+    font-size: 0.75rem !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+  }
+  body.minimal-mode .set-picker-box {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    padding: 5px 10px !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+  body.minimal-mode .set-picker-label {
+    font-size: 0.78rem !important;
+    color: var(--accent-cyan) !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    margin-right: 6px !important;
+  }
+  body.minimal-mode .header-set-select {
+    flex: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    cursor: pointer !important;
+    text-overflow: ellipsis !important;
   }
   body.minimal-mode .stage-card {
-    padding: 16px 14px 12px;
-    gap: 12px;
+    padding: 14px 12px 10px !important;
+    gap: 10px !important;
   }
 
   .app-header {

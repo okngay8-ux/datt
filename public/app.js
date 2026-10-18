@@ -1835,7 +1835,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnToggleIPhone13.title = enabled ? 'Quay lại Giao diện tiêu chuẩn' : 'Bật chế độ tối ưu màn hình iPhone 13 Pro';
     }
     if (iphone13BtnText) {
-      iphone13BtnText.textContent = enabled ? '✓ Đang bật IP13 Pro' : '📱 iPhone 13 Pro';
+      iphone13BtnText.textContent = enabled ? '✓ IP13' : '📱 IP13';
     }
     if (toggleIPhone13Mode) {
       toggleIPhone13Mode.checked = enabled;
@@ -1849,7 +1849,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setMinimalMode(enabled, notify = true) {
     document.body.classList.toggle('minimal-mode', enabled);
     if (minimalBtnText) {
-      minimalBtnText.textContent = enabled ? '✕ Thoát tối giản' : '🎯 Giao diện tối giản';
+      minimalBtnText.textContent = enabled ? '✕ Thoát' : '🎯 Tối giản';
     }
     if (btnToggleMinimal) {
       btnToggleMinimal.title = enabled ? 'Quay lại Giao diện đầy đủ' : 'Bật Giao diện tối giản (Chỉ hiển thị thời gian, câu hỏi & nút câu tiếp theo)';
