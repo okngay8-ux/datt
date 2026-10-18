@@ -1,964 +1,4112 @@
 [
   {
-    "id": "set_1792223473614",
-    "title": "46 kynangungxu",
-    "description": "46",
-    "createdAt": "2026-10-17T07:51:13.615Z",
-    "updatedAt": "2026-10-17T07:51:13.615Z",
+    "id": "set_v2_01_gioithieu",
+    "title": "1. Giới thiệu bản thân (4 bài mẫu)",
+    "description": "4 bài mẫu tự giới thiệu bản thân chi tiết theo từng kinh nghiệm và hoàn cảnh",
+    "createdAt": "2026-10-18T07:31:25.815Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
     "questions": [
       {
         "num": "1.",
-        "qKr": "직장 동료하고 어떻게 지낼거예요?",
-        "qVi": "Bạn sẽ hòa hợp với đồng nghiệp như thế nào?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "자기 소개 1 (전자 제품 조립작업 5년 경력)",
+        "qVi": "Bài mẫu 1: Kinh nghiệm 5 năm lắp ráp linh kiện điện tử",
+        "aKr": "안녕하십니까? 만나서 반갑습니다. 저는 베트남 랑썬에서 온 (프엉) 입니다. 올해 (34) 살입니다. 우리 가족은 모두 (4) 명입니다. 어머니와 누나, 남편, 그리고 저입니다. 제 취미는 독서입니다. 전에는 (전자 제품 조립작업) 을 5년 동안 했습니다. 제 생각에는 한국은 외국인 근로자를 위한 좋은 제도가 많이 있습니다. 그래서 한국에서 일하게 되기를 기대하고 있습니다. 뽑아주신다면 한국에 가서 열심히 일하겠습니다. 잘 부탁 드립니다. 감사합니다.",
+        "aVi": "Xin chào! Rất vui được gặp bạn. Tôi là (Phượng), đến từ Lạng Sơn, Việt Nam. Năm nay tôi (34) tuổi. Gia đình tôi có tất cả (4) người: Mẹ, chị gái, chồng và tôi. Sở thích của tôi là đọc sách. Trước đây tôi đã làm việc (lắp ráp linh kiện điện tử) trong 5 năm. Tôi nghĩ Hàn Quốc có nhiều chế độ tốt cho lao động nước ngoài. Vì vậy tôi rất mong đợi được làm việc tại Hàn Quốc. Nếu được chọn, sang Hàn Quốc tôi sẽ làm việc thật chăm chỉ. Xin nhờ giúp đỡ. Xin cảm ơn."
       },
       {
         "num": "2.",
-        "qKr": "직장 동료가 바쁘면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu đồng nghiệp của bạn bận rộn?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "자기 소개 2 (가구공장 5년 경력 / 축구 좋아함)",
+        "qVi": "Bài mẫu 2: Kinh nghiệm 5 năm xưởng gỗ / tính cẩn thận / thích đá bóng",
+        "aKr": "안녕하십니까? 만나서 반갑습니다. 저는 베트남 박장에서 온 (남) 입니다. 올해 (34) 살입니다. 우리 가족은 모두 (4) 명입니다. 어머니와 누나, 아내, 그리고 저입니다. 제 취미는 운동입니다. 특히 축구를 좋아합니다. 저는 일을 빨리 배우고 꼼꼼하게 일하는 것이 장점입니다. 저는 (가구공장) 에서 오년 동안 일했습니다. 한국에 취직하게 된다면 열심히 일하겠습니다. 여기까지 자기 소개를 마치겠습니다. 들어주셔서 감사합니다.",
+        "aVi": "Xin chào! Rất vui được gặp bạn. Tôi là (Nam), đến từ Bắc Giang, Việt Nam. Năm nay tôi (34) tuổi. Gia đình tôi gồm (4) người: Mẹ, chị gái, vợ và tôi. Sở thích là thể thao, đặc biệt thích bóng đá. Ưu điểm của tôi là học việc nhanh và làm việc tỉ mỉ cẩn thận. Tôi từng làm ở (xưởng gỗ) 5 năm. Nếu được sang Hàn làm việc tôi sẽ rất chăm chỉ. Tôi xin kết thúc phần giới thiệu bản thân tại đây. Cảm ơn đã lắng nghe."
       },
       {
         "num": "3.",
-        "qKr": "동료와 갈등이 있으면 어떻게 할거예요?",
-        "qVi": "Bạn làm gì nếu xảy ra mâu thuẫn với đồng nghiệp?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "자기 소개 3 (긍정적인 성격 / 기술 습득)",
+        "qVi": "Bài mẫu 3: Tính cách tích cực / Học hỏi kỹ thuật giúp đỡ gia đình",
+        "aKr": "안녕하십니까? 만나서 반갑습니다. 제 이름은 (프엉) 이고 베트남에서 왔습니다. 올해 (34) 살입니다. 우리 가족은 모두 (3) 명입니다. 어머니와 남동생, 그리고 저입니다. 제 취미는 운동입니다. 특히 축구를 좋아합니다. 저는 모든 일에 대해 긍정적으로 생각하는 성격을 가지고 있습니다. 한국에 가서 열심히 일하고 기술을 배운 후 고향에 돌아가 가족의 삶에 도움이 되고 싶습니다. 귀사에 취직하여 열심히 일하고 싶습니다. 제게 기회를 주시면 감사하겠습니다. 진심으로 감사합니다.",
+        "aVi": "Xin chào! Rất vui được gặp bạn. Tên tôi là (Phượng), đến từ Việt Nam. Năm nay tôi 34 tuổi. Gia đình tôi có 3 người: Mẹ, em trai và tôi. Sở thích là thể thao, đặc biệt thích bóng đá. Tính cách tôi luôn suy nghĩ tích cực trong mọi việc. Tôi muốn sang Hàn làm việc chăm chỉ, học kỹ thuật rồi về quê giúp đỡ gia đình. Nếu quý công ty cho tôi cơ hội tôi sẽ vô cùng biết ơn. Xin chân thành cảm ơn."
       },
       {
         "num": "4.",
-        "qKr": "새로운 동료들과 잘 지내기 위해 무엇을 합니까?",
-        "qVi": "Bạn làm gì để hòa hợp với các đồng nghiệp mới?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "5.",
-        "qKr": "동료와 의견이 다르면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có quan điểm khác với đồng nghiệp?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "6.",
-        "qKr": "직장에서 좋은 관계를 유지하려면 어떻게 해야 합니까?",
-        "qVi": "Làm thế nào để bạn duy trì mối quan hệ tốt ở nơi làm việc?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "7.",
-        "qKr": "동료가 실수하면 어떻게 합니까?",
-        "qVi": "Bạn làm gì khi đồng nghiệp mắc lỗi?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "8.",
-        "qKr": "동료가 어려움을 겪으면 어떻게 합니까?",
-        "qVi": "Bạn sẽ làm gì nếu đồng nghiệp đang gặp khó khăn?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "9.",
-        "qKr": "친구가 근무 중 개인 일을 하자고 하면 어떻게 합니까?",
-        "qVi": "Tôi nên làm gì nếu bạn tôi yêu cầu tôi làm việc gì đó riêng tư khi anh ấy đang làm việc?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "10.",
-        "qKr": "상사가 당신 의견에 반대하면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu sếp không đồng ý với ý kiến ​​của bạn?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "11.",
-        "qKr": "해결 방법을 모를 때는 어떻게 합니까?",
-        "qVi": "Bạn sẽ làm gì khi không biết cách giải quyết?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "12.",
-        "qKr": "문제가 생기면 해결책을 찾기 위해 어떻게 노력하실 건가요?",
-        "qVi": "Nếu một vấn đề nảy sinh, bạn sẽ làm việc như thế nào để tìm ra giải pháp?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "13.",
-        "qKr": "다른 사람들과 잘 지내는 것이 왜 중요하다고 생각하세요?",
-        "qVi": "Tại sao bạn nghĩ việc hòa hợp với những người khác là điều quan trọng?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "14.",
-        "qKr": "의사소통이 왜 중요한지 설명할 수 있나요?",
-        "qVi": "Bạn có thể giải thích tại sao giao tiếp lại quan trọng không?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "15.",
-        "qKr": "의사소통을 방해하는 요소들은 무엇이 있나요?",
-        "qVi": "Các yếu tố cản trở giao tiếp là gì?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "16.",
-        "qKr": "팀에서 효과적인 소통은 무엇입니까?",
-        "qVi": "Điều gì tạo nên sự giao tiếp hiệu quả trong một nhóm?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "17.",
-        "qKr": "사람들 사이에서 지켜야 할 예절에 대해 잘 알고 있나요?",
-        "qVi": "Bạn có quen với những phép xã giao cần được tuân thủ giữa mọi người không?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "18.",
-        "qKr": "일하면서 정해진 시간을 잘 지키시나요?",
-        "qVi": "Bạn có tuân theo giờ cố định trong khi làm việc không?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "19.",
-        "qKr": "두 가지 방법 중 선택할 때는 어떻게 합니까?",
-        "qVi": "Làm thế nào để bạn lựa chọn giữa hai phương pháp?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "20.",
-        "qKr": "작업하다가 실수하면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu mắc lỗi trong khi làm việc?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "21.",
-        "qKr": "작업하다가 사고가 나면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu xảy ra tai nạn khi đang làm việc?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "22.",
-        "qKr": "불량품이 많이 나면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có nhiều sản phẩm bị lỗi?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "23.",
-        "qKr": "문제가 생겼을 때 누구에게 먼저 보고합니까?",
-        "qVi": "Bạn sẽ báo cáo ai đầu tiên khi có vấn đề phát sinh?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "24.",
-        "qKr": "작업 중 문제가 반복되면 어떻게 하시겠습니까?",
-        "qVi": "Bạn làm gì khi vấn đề tái diễn trong công việc?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "25.",
-        "qKr": "이 일에 필요한 기술이 있습니까?",
-        "qVi": "Bạn có những kỹ năng cần thiết cho công việc này?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "26.",
-        "qKr": "기술을 어떻게 향상시키나요?",
-        "qVi": "Làm cách nào để cải thiện kỹ năng của tôi?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "27.",
-        "qKr": "새로운 기계를 만나면 어떻게 합니까?",
-        "qVi": "Bạn làm gì khi gặp một chiếc máy mới?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "28.",
-        "qKr": "기술적인 문제가 생기면 어떻게 합니까?",
-        "qVi": "Nếu tôi gặp vấn đề kỹ thuật thì sao?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "29.",
-        "qKr": "한국에서 사용할 수 있는 기술이 있어요?",
-        "qVi": "Có công nghệ nào có thể được sử dụng ở Hàn Quốc không?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "30.",
-        "qKr": "다른 사람보다 잘 할수 있는 기술이 있어요?",
-        "qVi": "Có kỹ năng nào bạn có thể làm tốt hơn những kỹ năng khác không?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "31.",
-        "qKr": "새로운 장비를 사용할 줄 모를 때는 어떻게 합니까?",
-        "qVi": "Nếu tôi không biết cách sử dụng thiết bị mới thì sao?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "32.",
-        "qKr": "작업 중 도구가(기계) 고장나면 어떻게 하시겠습니까?",
-        "qVi": "Bạn sẽ làm gì nếu dụng cụ (máy) của bạn bị hỏng khi đang làm việc?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "33.",
-        "qKr": "업무를 잘 이해하지 못했을 때는 어떻게 합니까?",
-        "qVi": "Bạn làm gì khi không hiểu công việc của mình?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "34.",
-        "qKr": "상대가 내 말을 안 들으면 어떻게 합니까?",
-        "qVi": "Tôi nên làm gì nếu người kia không lắng nghe tôi?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "35.",
-        "qKr": "논쟁이 있을 때는 어떻게 합니까?",
-        "qVi": "Bạn làm gì khi có tranh cãi?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "36.",
-        "qKr": "팀에서 오해가 생기면 어떻게 해결합니까?",
-        "qVi": "Làm thế nào để bạn giải quyết những hiểu lầm trong nhóm của bạn?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "37.",
-        "qKr": "다른 사람의 의견을 잘 듣는 편입니까?",
-        "qVi": "Bạn có giỏi lắng nghe ý kiến ​​của người khác không?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "38.",
-        "qKr": "상사에게 건의할 일이 있으면 어떻게 합니까?",
-        "qVi": "Tôi nên làm gì nếu có điều gì muốn đề xuất với sếp?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "39.",
-        "qKr": "근무시간 중에 외출해야 할 경우에는 어떻게 합니까?",
-        "qVi": "Nếu tôi cần ra ngoài trong giờ làm việc thì sao?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "40.",
-        "qKr": "회사가 월급을 안 주면 어떻게 합니까?",
-        "qVi": "Tôi phải làm gì nếu công ty không trả lương cho tôi?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "41.",
-        "qKr": "모르는 일이 있으면 어떻게 합니까?",
-        "qVi": "Tôi phải làm gì nếu tôi không biết điều gì đó?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "42.",
-        "qKr": "직장에서 가장 중요한 것은 무엇이라고 생각합니까?",
-        "qVi": "Bạn nghĩ điều gì là quan trọng nhất trong công việc?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "43.",
-        "qKr": "누군가 규정을 어기면 어떻게 합니까?",
-        "qVi": "Điều gì sẽ xảy ra nếu ai đó vi phạm các quy tắc?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "44.",
-        "qKr": "피곤해도 일을 성실히 합니까?",
-        "qVi": "Bạn có làm việc chăm chỉ ngay cả khi mệt mỏi không?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "45.",
-        "qKr": "실수하면 책임지시겠습니까?",
-        "qVi": "Bạn có chịu trách nhiệm nếu mắc sai lầm không?",
-        "aKr": "",
-        "aVi": ""
-      },
-      {
-        "num": "46.",
-        "qKr": "회사에 일이 많으면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có nhiều việc ở công ty?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "자기 소개 4 (결혼 / 성실하고 책임감 있음)",
+        "qVi": "Bài mẫu 4: Đã kết hôn / Chăm chỉ và có tinh thần trách nhiệm cao",
+        "aKr": "안녕하십니까? 처음 뵙겠습니다. 저는 베트남에서 온 (남) 입니다. 올해 (서른네) 살이고, 결혼했습니다. 우리 가족은 모두 (3) 명입니다. 어머니와 아내, 그리고 저입니다. 제 취미는 운동입니다. 특히 축구를 좋아합니다. 저는 일에 성실하고 책임감이 있는 사람입니다. 가족을 위해 한국에서 열심히 일하고 싶어서 지원하게 되었습니다. 합격하게 된다면 빠르게 업무를 익히고 성실하게 일하겠습니다. 잘 부탁드립니다. 감사합니다.",
+        "aVi": "Xin chào quý vị! Tôi là Nam đến từ Việt Nam. Năm nay tôi 34 tuổi và đã lập gia đình. Gia đình tôi gồm 3 người: Mẹ, vợ và tôi. Sở thích là thể thao, đặc biệt là bóng đá. Tôi là người chăm chỉ và có tinh thần trách nhiệm trong công việc. Tôi ứng tuyển vì muốn làm việc chăm chỉ tại Hàn Quốc để lo cho gia đình. Nếu trúng tuyển, tôi sẽ học việc thật nhanh và làm việc trung thực, chăm chỉ. Xin nhờ giúp đỡ. Cảm ơn rất nhiều."
       }
     ]
   },
   {
-    "id": "set_1792203333510",
-    "title": "118 coban",
-    "description": "118",
-    "createdAt": "2026-10-17T02:15:33.510Z",
-    "updatedAt": "2026-10-17T02:15:33.510Z",
+    "id": "set_v2_02_vandap_canhan",
+    "title": "2. Vấn đáp cá nhân & Đời sống (50 câu)",
+    "description": "50 câu hỏi đáp phỏng vấn về thông tin bản thân, gia đình, sở thích và văn hóa Hàn Quốc",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
     "questions": [
       {
+        "num": "1.",
+        "qKr": "이름이 뭐 예요?",
+        "qVi": "Tên bạn là gì?",
+        "aKr": "제 이름은 (남)입니다.",
+        "aVi": "Tên tôi là (Nam)."
+      },
+      {
+        "num": "2.",
+        "qKr": "나이가 어떻게 되세요?",
+        "qVi": "Bạn bao nhiêu tuổi?",
+        "aKr": "저는 (서른네) 살입니다.",
+        "aVi": "Tôi (34) tuổi."
+      },
+      {
+        "num": "3.",
+        "qKr": "생일이 언제예요?",
+        "qVi": "Sinh nhật của bạn khi nào?",
+        "aKr": "(천 구백 팔십 육)년 (사)월 (이)일입니다.",
+        "aVi": "Ngày (2) tháng (4) năm (1986)."
+      },
+      {
+        "num": "4.",
+        "qKr": "고향이 어디예요?",
+        "qVi": "Quê hương bạn ở đâu?",
+        "aKr": "제 고향은 (베트남 하남)입니다.",
+        "aVi": "Quê tôi ở (Hà Nam, Việt Nam)."
+      },
+      {
+        "num": "5.",
+        "qKr": "가족은 몇명이에요?",
+        "qVi": "Gia đình bạn có mấy người?",
+        "aKr": "우리 가족은 모두 (세)명입니다.",
+        "aVi": "Gia đình tôi có tất cả (3) người."
+      },
+      {
+        "num": "6.",
+        "qKr": "누구누구입니까? 누구누구예요?",
+        "qVi": "(Gia đình) Gồm những ai?",
+        "aKr": "(어머니, 누나)하고 저입니다.",
+        "aVi": "Mẹ, chị gái và tôi."
+      },
+      {
+        "num": "7.",
+        "qKr": "부모님이 계세요?",
+        "qVi": "Bạn còn bố mẹ không?",
+        "aKr": "네, 계십니다. / 아니요, 돌아가셨습니다.",
+        "aVi": "Vâng, bố mẹ tôi còn. / Dạ không, đã mất rồi ạ."
+      },
+      {
+        "num": "8.",
+        "qKr": "형제가 몇명이 있습니까?",
+        "qVi": "Bạn có mấy anh chị em?",
+        "aKr": "네, (두명)이 있습니다. (형 하나)하고 저입니다.",
+        "aVi": "Vâng, có (2) người. (Một anh trai) và tôi."
+      },
+      {
+        "num": "9.",
+        "qKr": "결혼했어요?",
+        "qVi": "Bạn đã kết hôn chưa?",
+        "aKr": "네, 결혼했습니다. / 아니요, 결혼 안했습니다.",
+        "aVi": "Vâng, tôi đã kết hôn rồi. / Chưa, tôi chưa kết hôn."
+      },
+      {
+        "num": "10.",
+        "qKr": "아이가 있어요?",
+        "qVi": "Bạn có con chưa?",
+        "aKr": "네, (아들 하나하고 딸 하나) 있습니다.",
+        "aVi": "Vâng, tôi có (một con trai và một con gái)."
+      },
+      {
+        "num": "11.",
+        "qKr": "키가 얼마예요?",
+        "qVi": "Chiều cao của bạn là bao nhiêu?",
+        "aKr": "(백육십오) 센티미터입니다.",
+        "aVi": "(165) cm ạ."
+      },
+      {
+        "num": "12.",
+        "qKr": "몸 무게는 얼마나 되세요?",
+        "qVi": "Bạn nặng bao nhiêu kg?",
+        "aKr": "(오십오) 킬로그램입니다.",
+        "aVi": "(55) kg ạ."
+      },
+      {
+        "num": "13.",
+        "qKr": "오늘 무슨 요일이에요?",
+        "qVi": "Hôm nay là thứ mấy?",
+        "aKr": "오늘은 (토요일)입니다.",
+        "aVi": "Hôm nay là (thứ bảy)."
+      },
+      {
+        "num": "14.",
+        "qKr": "어제 무슨 요일이에요?",
+        "qVi": "Hôm qua là thứ mấy?",
+        "aKr": "어제가 (금요일)입니다.",
+        "aVi": "Hôm qua là (thứ sáu)."
+      },
+      {
+        "num": "15.",
+        "qKr": "내일 무슨 요일이에요?",
+        "qVi": "Ngày mai là thứ mấy?",
+        "aKr": "내일은 (일요일)입니다.",
+        "aVi": "Ngày mai là (chủ nhật)."
+      },
+      {
+        "num": "16.",
+        "qKr": "오늘 몇월 며칠이에요?",
+        "qVi": "Hôm nay là ngày mấy tháng mấy?",
+        "aKr": "(유)월 (이십사)일입니다.",
+        "aVi": "Ngày (24) tháng (6) ạ."
+      },
+      {
+        "num": "17.",
+        "qKr": "내일 몇월 며칠이에요?",
+        "qVi": "Ngày mai là ngày mấy tháng mấy?",
+        "aKr": "(유)월 (이십오)일입니다.",
+        "aVi": "Ngày (25) tháng (6) ạ."
+      },
+      {
+        "num": "18.",
+        "qKr": "어제 몇월 며칠이에요?",
+        "qVi": "Hôm qua là ngày mấy tháng mấy?",
+        "aKr": "(유)월 (이십삼)일입니다.",
+        "aVi": "Ngày (23) tháng (6) ạ."
+      },
+      {
+        "num": "19.",
+        "qKr": "한국에 왜 가고 싶어요?",
+        "qVi": "Tại sao bạn muốn đi Hàn Quốc?",
+        "aKr": "문화 체험을 하고 돈도 벌려고 합니다.",
+        "aVi": "Tôi muốn trải nghiệm văn hóa và kiếm tiền giúp đỡ gia đình."
+      },
+      {
+        "num": "20.",
+        "qKr": "요즘 무슨 일을 하세요?",
+        "qVi": "Dạo này bạn làm công việc gì?",
+        "aKr": "전자 제품 조립작업을 하고 있습니다.",
+        "aVi": "Tôi đang làm công việc lắp ráp sản phẩm điện tử."
+      },
+      {
+        "num": "21.",
+        "qKr": "한국말을 잘 할수 있어요?",
+        "qVi": "Bạn nói tốt tiếng Hàn không?",
+        "aKr": "아니요. 기초대화만 할수 있습니다.",
+        "aVi": "Không ạ. Tôi chỉ có thể giao tiếp cơ bản thôi."
+      },
+      {
+        "num": "22.",
+        "qKr": "무엇을 타고 왔어요?",
+        "qVi": "Bạn đi gì đến đây?",
+        "aKr": "(오토바이, 택시, 자동차)를 타고 왔습니다.",
+        "aVi": "Tôi đi bằng (xe máy / taxi / ô tô) đến."
+      },
+      {
+        "num": "23.",
+        "qKr": "여기까지 얼마나 걸렸어요?",
+        "qVi": "Mất bao lâu để đến đây?",
+        "aKr": "여기까지 한 시간 반 정도 걸렸습니다.",
+        "aVi": "Đến đây mất khoảng 1 tiếng rưỡi ạ."
+      },
+      {
+        "num": "24.",
+        "qKr": "전에 무슨 일을 했어요?",
+        "qVi": "Trước đây bạn đã từng làm gì?",
+        "aKr": "(조선 선박)을 한 적이 있습니다.",
+        "aVi": "Tôi từng làm việc ở (ngành đóng tàu)."
+      },
+      {
+        "num": "25.",
+        "qKr": "왜 우리가 당신을 고용해야 합니까?",
+        "qVi": "Tại sao chúng tôi phải tuyển dụng bạn?",
+        "aKr": "저는 빠른 학습자이고 책임감이 있는 사람입니다.",
+        "aVi": "Vì tôi học việc rất nhanh và là người có tinh thần trách nhiệm cao."
+      },
+      {
+        "num": "26.",
+        "qKr": "외국에 가 본적이 있어요?",
+        "qVi": "Bạn đã từng đi nước ngoài chưa?",
+        "aKr": "한국에 가본적이 있습니다. (가본적이 없습니다.)",
+        "aVi": "Tôi từng đi Hàn Quốc rồi. (Tôi chưa từng đi nước ngoài bao giờ)."
+      },
+      {
+        "num": "27.",
+        "qKr": "무슨 운동을 좋아합니까?",
+        "qVi": "Bạn thích môn thể thao nào?",
+        "aKr": "저는 배드민턴을 좋아합니다.",
+        "aVi": "Tôi thích chơi cầu lông."
+      },
+      {
+        "num": "28.",
+        "qKr": "취미가 뭐예요?",
+        "qVi": "Sở thích của bạn là gì?",
+        "aKr": "제 취미는 운동입니다.",
+        "aVi": "Sở thích của tôi là thể thao."
+      },
+      {
         "num": "29.",
-        "qKr": "한국에 왜 가고 싶어요? 한국에 가는 이유가 무엇입니까? 한국에 갈 목적이 뭐예요?",
-        "qVi": "Tại sao bạn muốn đến Hàn Quốc? Tại sao bạn lại đến Hàn Quốc? Mục đích bạn đến Hàn Quốc là gì?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "한국말을 얼마 동안 배웠어요?",
+        "qVi": "Bạn đã học tiếng Hàn trong bao lâu?",
+        "aKr": "(오) 개월 동안 공부했습니다.",
+        "aVi": "Tôi đã học trong (5) tháng."
       },
       {
         "num": "30.",
-        "qKr": "한국에 가면 어떤 일 하고 싶어요?",
-        "qVi": "Bạn muốn làm gì khi đến Hàn Quốc?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "한국어를 공부한지 얼마나 되었습니까?",
+        "qVi": "Từ khi bạn học tiếng Hàn được bao lâu rồi?",
+        "aKr": "(이)년 정도 되었습니다.",
+        "aVi": "Được khoảng (2) năm rồi ạ."
       },
       {
         "num": "31.",
-        "qKr": "무슨 운동을 좋아해요?",
-        "qVi": "Bạn thích môn thể thao nào?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "한국어를 공부가 어떻습니까?",
+        "qVi": "Bạn thấy việc học tiếng Hàn thế nào?",
+        "aKr": "한국어를 공부가 어렵지만 재미있습니다.",
+        "aVi": "Học tiếng Hàn tuy khó nhưng rất thú vị."
       },
       {
         "num": "32.",
-        "qKr": "베트남에서 어떤 일을 해 본 적이 있습니까?",
-        "qVi": "Bạn đã làm gì ở Việt Nam?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "무슨 색깔을 좋아합니까?",
+        "qVi": "Bạn thích màu gì?",
+        "aKr": "저는 (빨간색, 파란색, 녹색...)을 좋아합니다.",
+        "aVi": "Tôi thích (màu đỏ / màu xanh lam / màu xanh lá...)."
       },
       {
         "num": "33.",
-        "qKr": "당신은 어떤 사람입니까? 무슨 단장점이 있습니까?",
-        "qVi": "Bạn là người như thế nào? Những ưu và nhược điểm là gì?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "어떤 계절을 좋아합니까?",
+        "qVi": "Bạn thích mùa nào nhất?",
+        "aKr": "따뜻해서 봄을 제일 좋아합니다.",
+        "aVi": "Tôi thích nhất mùa xuân vì thời tiết ấm áp."
       },
       {
         "num": "34.",
-        "qKr": "나중에 계약기간이 끝난 후에 뭘 할 거예요?/ 끝나고나서 어떻게 할 거예요?/ 끝나면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì sau khi thời hạn hợp đồng kết thúc?/ Bạn sẽ làm gì sau khi thời hạn hợp đồng kết thúc?/ Bạn sẽ làm gì khi thời hạn hợp đồng kết thúc?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "한국 친구가 있어요?",
+        "qVi": "Bạn có bạn người Hàn Quốc không?",
+        "aKr": "네, 있습니다. / 아니요, 없습니다.",
+        "aVi": "Vâng, tôi có. / Dạ không, tôi không có."
+      },
+      {
+        "num": "35.",
+        "qKr": "아버지는 연세가 어떻게 되세요?",
+        "qVi": "Bố bạn bao nhiêu tuổi rồi?",
+        "aKr": "아버지는 일흔 살입니다.",
+        "aVi": "Bố tôi 70 tuổi ạ."
       },
       {
         "num": "36.",
-        "qKr": "회사에 일이 많으면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có nhiều việc ở công ty?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "어머니는 연세가 어떻게 되세요?",
+        "qVi": "Mẹ bạn bao nhiêu tuổi rồi?",
+        "aKr": "어머니는 예순 네 살입니다.",
+        "aVi": "Mẹ tôi 64 tuổi ạ."
       },
       {
         "num": "37.",
-        "qKr": "회사에서 야근을 시키면 어떻게 하겠습니까?",
-        "qVi": "Bạn sẽ làm gì nếu công ty bắt bạn làm thêm giờ?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "컴퓨터를 할 수 있어요?",
+        "qVi": "Bạn có thể sử dụng máy tính không?",
+        "aKr": "네, 할 수 있습니다. (아니요, 할 수 없습니다.)",
+        "aVi": "Vâng, tôi làm được. (Dạ không, tôi không biết dùng)."
       },
       {
         "num": "38.",
-        "qKr": "맡는 일이 끝나면 뭐 할 거예요?",
-        "qVi": "Bạn sẽ làm gì sau khi kết thúc công việc?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "어떤 한국 음식을 좋아하시나요?",
+        "qVi": "Bạn thích món ăn nào của Hàn Quốc?",
+        "aKr": "유명해서 불고기를 제일 좋아합니다.",
+        "aVi": "Tôi thích nhất món thịt nướng Bulgogi vì rất nổi tiếng."
       },
       {
         "num": "39.",
-        "qKr": "잘 못할 것이 있으면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có điều gì đó bạn không giỏi?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "시간이 있을 때 무엇을 하고 싶습니까?",
+        "qVi": "Khi có thời gian rảnh bạn muốn làm gì?",
+        "aKr": "운동하고 한국어를 공부하고 싶습니다.",
+        "aVi": "Tôi muốn tập thể dục và học thêm tiếng Hàn."
       },
       {
         "num": "40.",
-        "qKr": "직장 동료하고 어떻게지낼 거예요?",
-        "qVi": "Bạn sẽ hòa hợp với đồng nghiệp như thế nào?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "한국의 수도가 무엇입니까?",
+        "qVi": "Thủ đô của Hàn Quốc là gì?",
+        "aKr": "한국 수도는 서울입니다.",
+        "aVi": "Thủ đô của Hàn Quốc là Seoul."
       },
       {
         "num": "41.",
-        "qKr": "직장 동료가 바쁘면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu đồng nghiệp của bạn bận rộn?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "한국의 전통 옷은 무엇입니까?",
+        "qVi": "Áo truyền thống của Hàn Quốc là gì?",
+        "aKr": "한복입니다.",
+        "aVi": "Là áo Hanbok."
       },
       {
         "num": "42.",
-        "qKr": "불량품을 많으면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có nhiều sản phẩm bị lỗi?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "아침에 무엇을 먹었습니까?",
+        "qVi": "Buổi sáng bạn đã ăn gì?",
+        "aKr": "볶음밥을 먹었습니다.",
+        "aVi": "Tôi đã ăn cơm rang."
       },
       {
         "num": "43.",
-        "qKr": "한국에 가게되면 가장 고민(걱정)한 것이 뭐예요?",
-        "qVi": "Điều bạn lo lắng nhất khi sang Hàn Quốc là gì?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "한국에서 어느 쪽으로 일을 하고 싶습니까?",
+        "qVi": "Bạn muốn làm việc bên ngành nào tại Hàn Quốc?",
+        "aKr": "제조업 쪽으로 일을 하고 싶습니다.",
+        "aVi": "Tôi muốn làm việc bên ngành sản xuất chế tạo."
       },
       {
         "num": "44.",
-        "qKr": "돈을 많이 벌면 뭘 할 거예요?",
-        "qVi": "Bạn sẽ làm gì khi kiếm được nhiều tiền?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "가족 중에 한국에서 일하는 사람이 있습니까?",
+        "qVi": "Trong gia đình bạn có người đang làm việc tại Hàn Quốc không?",
+        "aKr": "네, 형은 한국에서 일하는 지 삼년 되었습니다.",
+        "aVi": "Vâng, anh trai tôi làm việc ở Hàn Quốc được 3 năm rồi."
       },
       {
         "num": "45.",
-        "qKr": "한국에 가서 시간이 있으면 뭘 할 거예요?",
-        "qVi": "Nếu có thời gian sang Hàn Quốc bạn sẽ làm gì?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "지금 몇시예요?",
+        "qVi": "Bây giờ là mấy giờ?",
+        "aKr": "지금 (오전 10시 30분)입니다.",
+        "aVi": "Bây giờ là (10 giờ 30 phút sáng)."
       },
       {
         "num": "46.",
-        "qKr": "한국에 대해 아는게 있어요?",
-        "qVi": "Bạn có biết gì về Hàn Quốc không?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "한국에 가면 어떤 일을 하고 싶어요?",
+        "qVi": "Nếu đi Hàn Quốc bạn muốn làm công việc gì?",
+        "aKr": "제 생각에는 어떤 일이 다 좋겠습니다. 그래서 어떤 일을 하게 되면 최선 다 하겠습니다.",
+        "aVi": "Theo tôi công việc nào cũng tốt. Vì vậy dù được giao việc gì tôi cũng sẽ cố gắng hết sức."
       },
       {
         "num": "47.",
-        "qKr": "상사가 당신 의견에 반대하면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu sếp không đồng ý với ý kiến ​​của bạn?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "오늘 날씨가 어때요?",
+        "qVi": "Hôm nay thời tiết thế nào?",
+        "aKr": "비가 조금 내리고 시원합니다. (햇빛 강하고 맑습니다.)",
+        "aVi": "Trời mưa nhỏ và mát mẻ. (Trời nắng gắt và quang đãng)."
       },
       {
         "num": "48.",
-        "qKr": "일을 하다가 실수하면 어떻게 할거예요? 실수하면 책임지시겠습니까?",
-        "qVi": "Bạn sẽ làm gì nếu mắc sai lầm trong công việc? Bạn có chịu trách nhiệm nếu mắc sai lầm không?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "어디에서 한국어를 공부했어요?",
+        "qVi": "Bạn đã học tiếng Hàn ở đâu?",
+        "aKr": "인터넷에서 자기로 온라인 공부했습니다. (Bắc giang 한국어 학원에서 공부했습니다.)",
+        "aVi": "Tôi tự học online trên mạng. (Tôi học ở trung tâm tiếng Hàn Bắc Giang)."
       },
       {
         "num": "49.",
-        "qKr": "한국에서 사용할 수 있는 자격(기술)이 있습니까?",
-        "qVi": "Bạn có bằng cấp (kỹ năng) nào có thể sử dụng được ở Hàn Quốc không?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "한국문화에 대해 아는 게 있습니까?",
+        "qVi": "Bạn có hiểu biết gì về văn hóa Hàn Quốc không?",
+        "aKr": "한국 사람들은 인사할 때 허리를 숙여 합니다. 술을 마실 때 고개를 옆에 돌려야 합니다.",
+        "aVi": "Người Hàn Quốc khi chào hỏi cúi gập lưng. Khi uống rượu với người lớn tuổi phải quay mặt sang một bên."
       },
       {
         "num": "50.",
-        "qKr": "작업하다가 사고가 나면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu xảy ra tai nạn khi đang làm việc?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "한국에 대해 아는게 있어요?",
+        "qVi": "Bạn biết điều gì về đất nước Hàn Quốc?",
+        "aKr": "한국은 아름다운 나라이고 경제가 발전한 나라였습니다. 한국 사람들은 친절합니다. 유명한 관광지가 남이섬, 경복궁 등이 많이 있습니다. 전통옷은 한복입니다...",
+        "aVi": "Hàn Quốc là đất nước tươi đẹp có nền kinh tế phát triển. Người dân rất thân thiện. Có nhiều điểm du lịch nổi tiếng như đảo Nami, cung điện Gyeongbokgung. Trang phục truyền thống là Hanbok..."
+      }
+    ]
+  },
+  {
+    "id": "set_v2_03_ungxu",
+    "title": "3. Ứng xử nơi làm việc (47 câu)",
+    "description": "47 câu hỏi tình huống giao tiếp, giải quyết mâu thuẫn, sự cố máy móc và văn hóa xưởng sản xuất",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "직장 동료하고 어떻게 지낼거예요?",
+        "qVi": "Bạn sẽ đối xử với đồng nghiệp như thế nào?",
+        "aKr": "배려하면서 즐겁게 지낼겁니다. 바쁘면 도와줄게요.",
+        "aVi": "Tôi sẽ quan tâm và hòa đồng vui vẻ. Nếu đồng nghiệp bận tôi sẽ giúp đỡ."
+      },
+      {
+        "num": "2.",
+        "qKr": "직장 동료가 바쁘면 어떻게 할거예요?",
+        "qVi": "Nếu đồng nghiệp bận, bạn sẽ làm gì?",
+        "aKr": "제 일이 끝나면 즐겁게 도와줄게요.",
+        "aVi": "Khi xong việc của mình tôi sẽ vui vẻ hỗ trợ họ."
+      },
+      {
+        "num": "3.",
+        "qKr": "동료와 갈등이 있으면 어떻게 할거예요?",
+        "qVi": "Nếu có mâu thuẫn với đồng nghiệp thì bạn sẽ làm gì?",
+        "aKr": "동료 이야기를 잘 듣고 적극적으로 대화해서 빨리 화해하겠습니다.",
+        "aVi": "Tôi sẽ lắng nghe đồng nghiệp và tích cực nói chuyện để nhanh chóng làm hòa."
+      },
+      {
+        "num": "4.",
+        "qKr": "새로운 동료들과 잘 지내기 위해 무엇을 합니까?",
+        "qVi": "Bạn sẽ làm gì để hòa hợp với đồng nghiệp mới?",
+        "aKr": "먼저 인사를 잘하고 대화를 시도해서 서로를 알아가려고 합니다.",
+        "aVi": "Tôi sẽ chủ động chào hỏi và bắt chuyện để đôi bên hiểu nhau hơn."
+      },
+      {
+        "num": "5.",
+        "qKr": "동료와 의견이 다르면 어떻게 할거예요?",
+        "qVi": "Nếu bạn có ý kiến khác với đồng nghiệp thì sao?",
+        "aKr": "상대방의 의견을 듣고 솔직하게 대화하여 해결하려고 합니다.",
+        "aVi": "Tôi sẽ lắng nghe ý kiến của đối phương và thẳng thắn trao đổi để giải quyết."
+      },
+      {
+        "num": "6.",
+        "qKr": "직장에서 좋은 관계를 유지하려면 어떻게 해야 합니까?",
+        "qVi": "Làm sao để duy trì mối quan hệ tốt tại nơi làm việc?",
+        "aKr": "항상 존중하고 필요할 때 서로 도와줍니다.",
+        "aVi": "Luôn tôn trọng lẫn nhau và sẵn sàng giúp đỡ khi cần thiết."
+      },
+      {
+        "num": "7.",
+        "qKr": "동료가 실수하면 어떻게 합니까?",
+        "qVi": "Nếu đồng nghiệp mắc lỗi thì bạn sẽ làm gì?",
+        "aKr": "감정을 상하지 않도록 부드럽게 조언합니다.",
+        "aVi": "Tôi sẽ góp ý nhẹ nhàng khéo léo để không làm tổn thương họ."
+      },
+      {
+        "num": "8.",
+        "qKr": "동료가 어려움을 겪으면 어떻게 합니까?",
+        "qVi": "Nếu đồng nghiệp gặp khó khăn thì bạn sẽ làm gì?",
+        "aKr": "먼저 상태를 물어보고 도와줄 수 있는 부분은 돕습니다.",
+        "aVi": "Trước tiên tôi sẽ hỏi thăm tình hình và giúp đỡ những phần mình có thể."
+      },
+      {
+        "num": "9.",
+        "qKr": "친구가 근무 중 개인 일을 하자고 하면 어떻게 합니까?",
+        "qVi": "Nếu bạn bè rủ làm việc riêng trong giờ làm thì bạn làm gì?",
+        "aKr": "정중히 거절하고 업무에 집중합니다.",
+        "aVi": "Tôi sẽ lịch sự từ chối và tập trung vào công việc."
+      },
+      {
+        "num": "10.",
+        "qKr": "상사가 당신 의견에 반대하면 어떻게 할거예요?",
+        "qVi": "Nếu cấp trên không đồng ý với ý kiến của bạn thì sao?",
+        "aKr": "잘 못한 것을 사과하고 다시 지시는 대로 하겠습니다.",
+        "aVi": "Tôi sẽ nhận lỗi về phần chưa đúng và làm theo đúng chỉ thị của cấp trên."
+      },
+      {
+        "num": "11.",
+        "qKr": "해결 방법을 모를 때는 어떻게 합니까?",
+        "qVi": "Khi không biết cách giải quyết thì bạn sẽ làm gì?",
+        "aKr": "경험 많은 분께 묻거나 관련 정보를 찾아봅니다.",
+        "aVi": "Tôi sẽ hỏi người có kinh nghiệm hoặc tìm hiểu thông tin liên quan."
+      },
+      {
+        "num": "12.",
+        "qKr": "문제가 생기면 해결책을 찾기 위해 어떻게 노력하실 건가요?",
+        "qVi": "Nếu phát sinh vấn đề bạn làm gì để tìm phương pháp giải quyết?",
+        "aKr": "문제를 분석하고, 최선의 해결책을 찾기 위해 동료, 상사와 함께 협력한다.",
+        "aVi": "Tôi sẽ phân tích vấn đề và phối hợp với đồng nghiệp, cấp trên để tìm phương án tối ưu."
+      },
+      {
+        "num": "13.",
+        "qKr": "다른 사람들과 잘 지내는 것이 왜 중요하다고 생각하세요?",
+        "qVi": "Bạn có nghĩ là việc hòa đồng với người khác quan trọng?",
+        "aKr": "네, 업무 효율을 높이고, 긍정적인 근무 환경을 만들거든요.",
+        "aVi": "Vâng, vì nó giúp nâng cao hiệu quả công việc và tạo môi trường làm việc tích cực."
+      },
+      {
+        "num": "14.",
+        "qKr": "의사소통이 왜 중요한지 설명할 수 있나요?",
+        "qVi": "Bạn cho biết tại sao giao tiếp lại quan trọng?",
+        "aKr": "서로 이해하고, 오해를 줄일 수 있습니다.",
+        "aVi": "Vì giao tiếp giúp đôi bên thấu hiểu nhau và giảm bớt những hiểu lầm."
+      },
+      {
+        "num": "15.",
+        "qKr": "의사소통을 방해하는 요소들은 무엇이 있나요?",
+        "qVi": "Những yếu tố nào gây ảnh hưởng xấu đến giao tiếp?",
+        "aKr": "오해, 감정적 상태 등이 방해 요소가 될 수 있다고 생각합니다.",
+        "aVi": "Tôi nghĩ sự hiểu lầm và trạng thái cảm xúc tiêu cực là rào cản lớn."
+      },
+      {
+        "num": "16.",
+        "qKr": "팀에서 효과적인 소통은 무엇입니까?",
+        "qVi": "Giao tiếp hiệu quả trong nhóm là gì?",
+        "aKr": "잘 듣고, 필요한 말만 명확히 전달하는 것입니다.",
+        "aVi": "Là lắng nghe cẩn thận và truyền đạt rõ ràng, đúng trọng tâm."
+      },
+      {
+        "num": "17.",
+        "qKr": "사람들 사이에서 지켜야 할 예절에 대해 잘 알고 있나요?",
+        "qVi": "Bạn có nắm rõ các phép tắc trong giao tiếp không?",
+        "aKr": "네, 예의와 존중을 바탕으로 소통하고, 상대방을 배려하는 것이 중요하다.",
+        "aVi": "Vâng, giao tiếp trên nền tảng lễ phép, tôn trọng và biết nghĩ cho đối phương."
+      },
+      {
+        "num": "18.",
+        "qKr": "일하면서 정해진 시간을 잘 지키시나요?",
+        "qVi": "Bạn có tuân thủ thời gian làm việc không?",
+        "aKr": "네, 시간을 잘 지켜서 업무 효율을 높이고, 신뢰를 만듭니다.",
+        "aVi": "Vâng, tôi luôn đúng giờ để nâng cao năng suất và tạo dựng lòng tin."
+      },
+      {
+        "num": "19.",
+        "qKr": "두 가지 방법 중 선택할 때는 어떻게 합니까?",
+        "qVi": "Khi chọn giữa hai phương án, bạn làm sao?",
+        "aKr": "각각의 장단점을 비교하고 가장 효율적인 방법을 선택합니다.",
+        "aVi": "Tôi so sánh ưu nhược điểm của từng phương án rồi chọn cách tối ưu nhất."
+      },
+      {
+        "num": "20.",
+        "qKr": "작업하다가 실수하면 어떻게 할거예요?",
+        "qVi": "Nếu bạn làm sai trong lúc làm việc thì sao?",
+        "aKr": "상사(관리자)에게 보고하고 앞으로 다시 실수하지 않게 노력합니다.",
+        "aVi": "Tôi sẽ báo ngay cho cấp trên (quản lý) và nỗ lực không để tái phạm."
+      },
+      {
+        "num": "21.",
+        "qKr": "작업하다가 사고가 나면 어떻게 할거예요?",
+        "qVi": "Nếu xảy ra tai nạn khi làm việc thì sao?",
+        "aKr": "큰 소리로 외치고 옆동료를 부르고 관리자에게 빨리 보고하겠습니다.",
+        "aVi": "Tôi sẽ hô to gọi đồng nghiệp xung quanh và lập tức báo ngay cho quản lý."
+      },
+      {
+        "num": "22.",
+        "qKr": "불량품이 많이 나면 어떻게 할거예요?",
+        "qVi": "Nếu ra nhiều sản phẩm lỗi thì sao?",
+        "aKr": "먼저 기계를 정지하고 (스위치를 끄고) 빨리 관리자에게 보고하겠습니다.",
+        "aVi": "Trước tiên tôi tắt máy dừng lại rồi lập tức báo cáo cho quản lý."
+      },
+      {
+        "num": "23.",
+        "qKr": "문제가 생겼을 때 누구에게 먼저 보고합니까?",
+        "qVi": "Nếu phát sinh vấn đề bạn báo cáo cho ai đầu tiên?",
+        "aKr": "관리자에게 보고합니다.",
+        "aVi": "Tôi báo cáo cho người quản lý đầu tiên."
+      },
+      {
+        "num": "24.",
+        "qKr": "작업 중 문제가 반복되면 어떻게 하시겠습니까?",
+        "qVi": "Trong công việc nếu vấn đề phát sinh lặp đi lặp lại thì bạn xử lý sao?",
+        "aKr": "문제가 반복되면 관리자에게 보고합니다.",
+        "aVi": "Nếu vấn đề lặp lại tôi sẽ báo cáo cấp quản lý để có giải pháp triệt để."
+      },
+      {
+        "num": "25.",
+        "qKr": "이 일에 필요한 기술이 있습니까?",
+        "qVi": "Bạn có kỹ năng cần thiết cho công việc này không?",
+        "aKr": "기본적인 기계를 다룰 수 있고 작업 절차를 잘 이해하고 있습니다.",
+        "aVi": "Tôi sử dụng được các máy cơ bản và nắm rõ quy trình thao tác."
+      },
+      {
+        "num": "26.",
+        "qKr": "기술을 어떻게 향상시키나요?",
+        "qVi": "Bạn làm thế nào để nâng cao kỹ năng?",
+        "aKr": "책이나 영상으로 공부하고 선배에게 배웁니다.",
+        "aVi": "Tôi học qua tài liệu, video và học hỏi kinh nghiệm từ các tiền bối."
+      },
+      {
+        "num": "27.",
+        "qKr": "새로운 기계를 만나면 어떻게 합니까?",
+        "qVi": "Khi gặp máy mới, bạn làm gì?",
+        "aKr": "설명서를 꼼꼼히 읽고 안전하게 사용하는 방법을 익힙니다.",
+        "aVi": "Tôi đọc kỹ sách hướng dẫn và học cách vận hành an toàn."
+      },
+      {
+        "num": "28.",
+        "qKr": "기술적인 문제가 생기면 어떻게 합니까?",
+        "qVi": "Nếu có sự cố kỹ thuật thì bạn làm gì?",
+        "aKr": "바로 작업을 멈추고 관리자에게 보고합니다.",
+        "aVi": "Tôi dừng công việc ngay lập tức và báo cáo cho quản lý."
+      },
+      {
+        "num": "29.",
+        "qKr": "한국에서 사용할 수 있는 기술이 있어요?",
+        "qVi": "Bạn có kỹ năng có thể dùng ở Hàn Quốc không?",
+        "aKr": "저는 전자 제품 조립작업을 (4년) 동안 했는데 관련 일을 할 수 있습니다.",
+        "aVi": "Tôi có 4 năm kinh nghiệm lắp ráp điện tử nên làm tốt việc liên quan."
+      },
+      {
+        "num": "30.",
+        "qKr": "다른 사람보다 잘 할수 있는 기술이 있어요?",
+        "qVi": "Bạn có kỹ năng nào làm tốt hơn người khác không?",
+        "aKr": "저는 빠른 학습자이고 꼼꼼히 일합니다.",
+        "aVi": "Tôi tiếp thu rất nhanh và làm việc tỉ mỉ cẩn thận."
+      },
+      {
+        "num": "31.",
+        "qKr": "새로운 장비를 사용할 줄 모를 때는 어떻게 합니까?",
+        "qVi": "Khi chưa biết cách sử dụng trang thiết bị mới bạn làm gì?",
+        "aKr": "설명서를 읽고 선배에게 배우며 안전하게 사용법을 익힙니다.",
+        "aVi": "Tôi đọc hướng dẫn sử dụng và nhờ tiền bối chỉ dạy để dùng an toàn."
+      },
+      {
+        "num": "32.",
+        "qKr": "작업 중 도구가(기계) 고장나면 어떻게 하시겠습니까?",
+        "qVi": "Đang làm nếu công cụ, máy móc bị hỏng thì bạn làm thế nào?",
+        "aKr": "도구가(기계) 고장나면 바로 중단하고 관리자에게 보고하겠습니다.",
+        "aVi": "Tôi sẽ dừng ngay lại và báo cáo ngay cho quản lý."
+      },
+      {
+        "num": "33.",
+        "qKr": "업무를 잘 이해하지 못했을 때는 어떻게 합니까?",
+        "qVi": "Nếu bạn chưa hiểu rõ công việc thì bạn sẽ làm gì?",
+        "aKr": "정확히 이해할 때까지 다시 묻습니다.",
+        "aVi": "Tôi sẽ hỏi lại cho đến khi hiểu thật chính xác mới làm."
+      },
+      {
+        "num": "34.",
+        "qKr": "상대가 내 말을 안 들으면 어떻게 합니까?",
+        "qVi": "Nếu đối phương không nghe bạn thì làm gì?",
+        "aKr": "더 쉽게 설명하고 부드럽게 다시 말합니다.",
+        "aVi": "Tôi sẽ giải thích đơn giản hơn và nói lại một cách nhẹ nhàng."
+      },
+      {
+        "num": "35.",
+        "qKr": "논쟁이 있을 때는 어떻게 합니까?",
+        "qVi": "Khi có tranh luận, bạn làm gì?",
+        "aKr": "감정을 자제하고 논리적으로 이야기합니다.",
+        "aVi": "Tôi kiềm chế cảm xúc và nói chuyện dựa trên lý lẽ."
+      },
+      {
+        "num": "36.",
+        "qKr": "팀에서 오해가 생기면 어떻게 해결합니까?",
+        "qVi": "Nếu có hiểu lầm trong nhóm thì bạn làm gì?",
+        "aKr": "오해가 생기면 먼저 이야기해서 풀려고 합니다.",
+        "aVi": "Tôi sẽ chủ động trò chuyện để tháo gỡ hiểu lầm."
+      },
+      {
+        "num": "37.",
+        "qKr": "다른 사람의 의견을 잘 듣는 편입니까?",
+        "qVi": "Bạn có phải tuýp người biết lắng nghe?",
+        "aKr": "네, 다른 사람의 의견도 잘 듣는 편입니다.",
+        "aVi": "Vâng, tôi là người luôn biết lắng nghe ý kiến người khác."
+      },
+      {
+        "num": "38.",
+        "qKr": "상사에게 건의할 일이 있으면 어떻게 합니까?",
+        "qVi": "Nếu có kiến nghị thì bạn làm sao?",
+        "aKr": "건의사항이 있으면 예의 있게 말씀드립니다.",
+        "aVi": "Tôi sẽ trình bày ý kiến một cách lịch sự, đúng mực."
+      },
+      {
+        "num": "39.",
+        "qKr": "근무시간 중에 외출해야 할 경우에는 어떻게 합니까?",
+        "qVi": "Nếu bận cần ra ngoài trong giờ làm thì làm gì?",
+        "aKr": "상사에게 보고해서 허락을 받고 나가야 합니다.",
+        "aVi": "Tôi phải báo cáo cấp trên và được cho phép mới được ra ngoài."
+      },
+      {
+        "num": "40.",
+        "qKr": "회사가 월급을 안 주면 어떻게 합니까?",
+        "qVi": "Nếu công ty không trả lương thì bạn sẽ làm gì?",
+        "aKr": "먼저 사무실에 올라가서 이유를 물어보고, 계속 성실히 일하면서 답변을 기다리겠습니다.",
+        "aVi": "Trước tiên tôi lên văn phòng hỏi lý do, và vẫn chăm chỉ làm việc trong lúc chờ câu trả lời."
+      },
+      {
+        "num": "41.",
+        "qKr": "모르는 일이 있으면 어떻게 합니까?",
+        "qVi": "Nếu có việc không biết thì bạn làm gì?",
+        "aKr": "선배나 관리자에게 물어보고 배우겠습니다.",
+        "aVi": "Tôi sẽ hỏi tiền bối hoặc người quản lý để học hỏi."
+      },
+      {
+        "num": "42.",
+        "qKr": "직장에서 가장 중요한 것은 무엇이라고 생각합니까?",
+        "qVi": "Bạn nghĩ điều gì là quan trọng nhất ở nơi làm việc?",
+        "aKr": "시간 약속, 정직함, 책임감이 가장 중요하다고 생각합니다.",
+        "aVi": "Tôi nghĩ đúng giờ, trung thực và tinh thần trách nhiệm là quan trọng nhất."
+      },
+      {
+        "num": "43.",
+        "qKr": "누군가 규정을 어기면 어떻게 합니까?",
+        "qVi": "Nếu ai đó vi phạm quy định thì sao?",
+        "aKr": "관리자에게 보고하겠습니다.",
+        "aVi": "Tôi sẽ báo cáo cho quản lý."
+      },
+      {
+        "num": "44.",
+        "qKr": "피곤해도 일을 성실히 합니까?",
+        "qVi": "Bạn có làm việc chăm chỉ dù mệt không?",
+        "aKr": "네, 피곤해도 끝까지 최선을 다하겠습니다.",
+        "aVi": "Vâng, dù mệt tôi vẫn nỗ lực hết mình đến cùng."
+      },
+      {
+        "num": "45.",
+        "qKr": "실수하면 책임지시겠습니까?",
+        "qVi": "Nếu phạm sai lầm, bạn có chịu trách nhiệm không?",
+        "aKr": "네, 잘못을 인정하고 바로잡겠습니다.",
+        "aVi": "Vâng, tôi sẵn sàng nhận lỗi và khắc phục sai sót ngay."
+      },
+      {
+        "num": "46.",
+        "qKr": "회사에 일이 많으면 어떻게 할거예요?",
+        "qVi": "Nếu công ty nhiều việc bạn sẽ làm gì?",
+        "aKr": "맡은 일은 빨리 끝내고 추가 업무도 열심히 하겠습니다.",
+        "aVi": "Tôi sẽ hoàn thành nhanh việc được giao và sẵn sàng tăng ca chăm chỉ."
+      },
+      {
+        "num": "47.",
+        "qKr": "맡겼는 일이 끝나면 뭐 할거예요?",
+        "qVi": "Nếu xong việc của mình, bạn sẽ làm gì?",
+        "aKr": "작업장을 정리하거나 다른 일을 도울 준비를 하겠습니다.",
+        "aVi": "Tôi sẽ dọn dẹp nơi làm việc hoặc sẵn sàng hỗ trợ các công việc khác."
+      }
+    ]
+  },
+  {
+    "id": "set_v2_04_tinh_quydoi",
+    "title": "4. Tính toán & Quy đổi đơn vị (36 câu)",
+    "description": "10 câu tính nhẩm cộng trừ nhân chia và 26 câu chuyển đổi đơn vị đo lường xưởng sản xuất",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "(200) 더하기 (300)은 얼마예요?",
+        "qVi": "200 cộng 300 là bao nhiêu?",
+        "aKr": "오 백입니다.",
+        "aVi": "Là 500 ạ."
+      },
+      {
+        "num": "2.",
+        "qKr": "(250) 더하기 (100)은 얼마예요?",
+        "qVi": "250 cộng 100 là bao nhiêu?",
+        "aKr": "삼 백 오십입니다.",
+        "aVi": "Là 350 ạ."
+      },
+      {
+        "num": "3.",
+        "qKr": "(8) 곱하기 (9)은 얼마예요?",
+        "qVi": "8 nhân 9 là bao nhiêu?",
+        "aKr": "칠십이입니다.",
+        "aVi": "Là 72 ạ."
+      },
+      {
+        "num": "4.",
+        "qKr": "(5) 곱하기 (6)은 얼마예요?",
+        "qVi": "5 nhân 6 là bao nhiêu?",
+        "aKr": "삼십입니다.",
+        "aVi": "Là 30 ạ."
+      },
+      {
+        "num": "5.",
+        "qKr": "(100) 빼기 (35)은 얼마예요?",
+        "qVi": "100 trừ 35 là bao nhiêu?",
+        "aKr": "육십오입니다.",
+        "aVi": "Là 65 ạ."
+      },
+      {
+        "num": "6.",
+        "qKr": "(50) 빼기 (30)은 얼마예요?",
+        "qVi": "50 trừ 30 là bao nhiêu?",
+        "aKr": "이십입니다.",
+        "aVi": "Là 20 ạ."
+      },
+      {
+        "num": "7.",
+        "qKr": "(60) 나누기 (15)은 얼마예요?",
+        "qVi": "60 chia 15 là bao nhiêu?",
+        "aKr": "사입니다.",
+        "aVi": "Là 4 ạ."
+      },
+      {
+        "num": "8.",
+        "qKr": "(40) 나누기 (8)은 얼마예요?",
+        "qVi": "40 chia 8 là bao nhiêu?",
+        "aKr": "오입니다.",
+        "aVi": "Là 5 ạ."
+      },
+      {
+        "num": "9.",
+        "qKr": "1 킬로그램은 몇 그램입니까?",
+        "qVi": "1 kg là bao nhiêu gam?",
+        "aKr": "천 그램입니다.",
+        "aVi": "Là 1000 gam ạ."
+      },
+      {
+        "num": "10.",
+        "qKr": "1 미터는 몇 센티미터입니까?",
+        "qVi": "1 mét là bao nhiêu cm?",
+        "aKr": "백 센티미터입니다.",
+        "aVi": "Là 100 cm ạ."
+      },
+      {
+        "num": "11.",
+        "qKr": "한 시간은 몇 분입니까?",
+        "qVi": "1 giờ bằng bao nhiêu phút?",
+        "aKr": "60 분입니다.",
+        "aVi": "Là 60 phút ạ."
+      },
+      {
+        "num": "12.",
+        "qKr": "1 미터는 몇 센티미터입니까?",
+        "qVi": "1m bằng bao nhiêu cm?",
+        "aKr": "100 센티미터입니다.",
+        "aVi": "Là 100 cm ạ."
+      },
+      {
+        "num": "13.",
+        "qKr": "2 미터는 몇 센티미터입니까?",
+        "qVi": "2m bằng bao nhiêu cm?",
+        "aKr": "200 센티미터입니다.",
+        "aVi": "Là 200 cm ạ."
+      },
+      {
+        "num": "14.",
+        "qKr": "3 미터는 몇 센티미터입니까?",
+        "qVi": "3m bằng bao nhiêu cm?",
+        "aKr": "300 센티미터입니다.",
+        "aVi": "Là 300 cm ạ."
+      },
+      {
+        "num": "15.",
+        "qKr": "4 미터는 몇 센티미터입니까?",
+        "qVi": "4m bằng bao nhiêu cm?",
+        "aKr": "400 센티미터입니다.",
+        "aVi": "Là 400 cm ạ."
+      },
+      {
+        "num": "16.",
+        "qKr": "5 미터는 몇 센티미터입니까?",
+        "qVi": "5m bằng bao nhiêu cm?",
+        "aKr": "500 센티미터입니다.",
+        "aVi": "Là 500 cm ạ."
+      },
+      {
+        "num": "17.",
+        "qKr": "1 미터는 몇 미니미터입니까?",
+        "qVi": "1m bằng bao nhiêu mm?",
+        "aKr": "1000 미니미터입니다.",
+        "aVi": "Là 1000 mm ạ."
+      },
+      {
+        "num": "18.",
+        "qKr": "2 미터는 몇 미니미터입니까?",
+        "qVi": "2m bằng bao nhiêu mm?",
+        "aKr": "2000 미니미터입니다.",
+        "aVi": "Là 2000 mm ạ."
+      },
+      {
+        "num": "19.",
+        "qKr": "3 미터는 몇 미니미터입니까?",
+        "qVi": "3m bằng bao nhiêu mm?",
+        "aKr": "3000 미니미터입니다.",
+        "aVi": "Là 3000 mm ạ."
+      },
+      {
+        "num": "20.",
+        "qKr": "4 미터는 몇 미니미터입니까?",
+        "qVi": "4m bằng bao nhiêu mm?",
+        "aKr": "4000 미니미터입니다.",
+        "aVi": "Là 4000 mm ạ."
+      },
+      {
+        "num": "21.",
+        "qKr": "5 미터는 몇 미니미터입니까?",
+        "qVi": "5m bằng bao nhiêu mm?",
+        "aKr": "5000 미니미터입니다.",
+        "aVi": "Là 5000 mm ạ."
+      },
+      {
+        "num": "22.",
+        "qKr": "1 센티미터는 몇 미니미터입니까?",
+        "qVi": "1cm bằng bao nhiêu mm?",
+        "aKr": "10 미니미터입니다.",
+        "aVi": "Là 10 mm ạ."
+      },
+      {
+        "num": "23.",
+        "qKr": "2 센티미터는 몇 미니미터입니까?",
+        "qVi": "2cm bằng bao nhiêu mm?",
+        "aKr": "20 미니미터입니다.",
+        "aVi": "Là 20 mm ạ."
+      },
+      {
+        "num": "24.",
+        "qKr": "3 센티미터는 몇 미니미터입니까?",
+        "qVi": "3cm bằng bao nhiêu mm?",
+        "aKr": "30 미니미터입니다.",
+        "aVi": "Là 30 mm ạ."
+      },
+      {
+        "num": "25.",
+        "qKr": "4 센티미터는 몇 미니미터입니까?",
+        "qVi": "4cm bằng bao nhiêu mm?",
+        "aKr": "40 미니미터입니다.",
+        "aVi": "Là 40 mm ạ."
+      },
+      {
+        "num": "26.",
+        "qKr": "5 센티미터는 몇 미니미터입니까?",
+        "qVi": "5cm bằng bao nhiêu mm?",
+        "aKr": "50 미니미터입니다.",
+        "aVi": "Là 50 mm ạ."
+      },
+      {
+        "num": "27.",
+        "qKr": "1 킬로그램은 몇 그램입니까?",
+        "qVi": "1kg bằng bao nhiêu gam?",
+        "aKr": "1000 그램입니다.",
+        "aVi": "Là 1000 gam ạ."
+      },
+      {
+        "num": "28.",
+        "qKr": "2 킬로그램은 몇 그램입니까?",
+        "qVi": "2kg bằng bao nhiêu gam?",
+        "aKr": "2000 그램입니다.",
+        "aVi": "Là 2000 gam ạ."
+      },
+      {
+        "num": "29.",
+        "qKr": "3 킬로그램은 몇 그램입니까?",
+        "qVi": "3kg bằng bao nhiêu gam?",
+        "aKr": "3000 그램입니다.",
+        "aVi": "Là 3000 gam ạ."
+      },
+      {
+        "num": "30.",
+        "qKr": "4 킬로그램은 몇 그램입니까?",
+        "qVi": "4kg bằng bao nhiêu gam?",
+        "aKr": "4000 그램입니다.",
+        "aVi": "Là 4000 gam ạ."
+      },
+      {
+        "num": "31.",
+        "qKr": "5 킬로그램은 몇 그램입니까?",
+        "qVi": "5kg bằng bao nhiêu gam?",
+        "aKr": "5000 그램입니다.",
+        "aVi": "Là 5000 gam ạ."
+      },
+      {
+        "num": "32.",
+        "qKr": "1 리터는 몇 미니리터입니까?",
+        "qVi": "1 lít bằng bao nhiêu mililít?",
+        "aKr": "1000 미니리터입니다.",
+        "aVi": "Là 1000 ml ạ."
+      },
+      {
+        "num": "33.",
+        "qKr": "2 리터는 몇 미니리터입니까?",
+        "qVi": "2 lít bằng bao nhiêu mililít?",
+        "aKr": "2000 미니리터입니다.",
+        "aVi": "Là 2000 ml ạ."
+      },
+      {
+        "num": "34.",
+        "qKr": "3 리터는 몇 미니리터입니까?",
+        "qVi": "3 lít bằng bao nhiêu mililít?",
+        "aKr": "3000 미니리터입니다.",
+        "aVi": "Là 3000 ml ạ."
+      },
+      {
+        "num": "35.",
+        "qKr": "4 리터는 몇 미니리터입니까?",
+        "qVi": "4 lít bằng bao nhiêu mililít?",
+        "aKr": "4000 미니리터입니다.",
+        "aVi": "Là 4000 ml ạ."
+      },
+      {
+        "num": "36.",
+        "qKr": "5 리터는 몇 미니리터입니까?",
+        "qVi": "5 lít bằng bao nhiêu mililít?",
+        "aKr": "5000 미니리터입니다.",
+        "aVi": "Là 5000 ml ạ."
+      }
+    ]
+  },
+  {
+    "id": "set_v2_05_hieulenh",
+    "title": "5. Hiệu lệnh & Thao tác thể chất (31 câu)",
+    "description": "31 khẩu lệnh cử động tay chân, hướng nhìn, tư thế cơ thể giám khảo kiểm tra trực tiếp",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "오른쪽으로 보세요",
+        "qVi": "Hãy nhìn về bên phải",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "2.",
+        "qKr": "왼쪽으로 보세요",
+        "qVi": "Hãy nhìn về bên trái",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "3.",
+        "qKr": "위로 보세요",
+        "qVi": "Hãy nhìn lên trên",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "4.",
+        "qKr": "아래로 보세요",
+        "qVi": "Hãy nhìn xuống dưới",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "5.",
+        "qKr": "오른손 올리세요. 내리세요",
+        "qVi": "Hãy giơ tay phải lên. Hãy hạ xuống",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "6.",
+        "qKr": "왼손 올리세요. 내리세요",
+        "qVi": "Hãy giơ tay trái lên. Hãy hạ xuống",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "7.",
+        "qKr": "양손 올리세요. 내리세요",
+        "qVi": "Hãy giơ hai tay lên. Hãy hạ xuống",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "8.",
+        "qKr": "오른발 올리세요. 내리세요",
+        "qVi": "Hãy giơ chân phải lên. Hạ xuống",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "9.",
+        "qKr": "왼발 올리세요. 내리세요",
+        "qVi": "Hãy giơ chân trái lên. Hạ xuống",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "10.",
+        "qKr": "오른쪽으로 걸어가세요",
+        "qVi": "Hãy bước sang bên phải",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "11.",
+        "qKr": "왼쪽으로 걸어가세요",
+        "qVi": "Hãy bước sang bên trái",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "12.",
+        "qKr": "뒤로 걸어가세요",
+        "qVi": "Hãy bước về đằng sau",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "13.",
+        "qKr": "앞으로 걸어가세요",
+        "qVi": "Hãy tiến về phía trước",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "14.",
+        "qKr": "오른쪽으로 돌아서세요",
+        "qVi": "Hãy quay về bên phải",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "15.",
+        "qKr": "왼쪽으로 돌아서세요",
+        "qVi": "Hãy quay về bên trái",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "16.",
+        "qKr": "뒤로 돌아서세요",
+        "qVi": "Hãy quay về đằng sau",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "17.",
+        "qKr": "앉으세요. 일어나세요",
+        "qVi": "Hãy ngồi xuống. Hãy đứng lên",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "18.",
+        "qKr": "주먹을 쥐세요",
+        "qVi": "Hãy nắm tay lại",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "19.",
+        "qKr": "주먹을 펴세요.",
+        "qVi": "Hãy xòe tay ra",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "20.",
+        "qKr": "세번 박수 하세요.",
+        "qVi": "Hãy vỗ tay ba lần",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "21.",
+        "qKr": "고개를 돌리세요.",
+        "qVi": "Hãy quay cổ",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "22.",
+        "qKr": "허리를 돌리세요.",
+        "qVi": "Hãy vặn mình",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "23.",
+        "qKr": "귀를 잡으세요.",
+        "qVi": "Hãy sờ tai",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "24.",
+        "qKr": "왼쪽에 귀를 잡으세요.",
+        "qVi": "Hãy sờ tai trái",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "25.",
+        "qKr": "오른 귀를 잡으세요.",
+        "qVi": "Hãy sờ tai phải",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "26.",
+        "qKr": "코를 잡으세요.",
+        "qVi": "Hãy sờ mũi",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "27.",
+        "qKr": "왼쪽 손으로 오른쪽 귀를 만져 보세요",
+        "qVi": "Hãy dùng tay trái chạm vào tai phải.",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "28.",
+        "qKr": "오른쪽 손으로 왼쪽 귀를 만져 보세요",
+        "qVi": "Hãy dùng tay phải chạm vào tai trái.",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "29.",
+        "qKr": "양팔을 앞으로 뻗어 보세요",
+        "qVi": "Hãy giơ cả hai tay về phía trước",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "30.",
+        "qKr": "손가락을 펴 보세요",
+        "qVi": "Hãy duỗi các ngón tay ra",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      },
+      {
+        "num": "31.",
+        "qKr": "손가락을 움직여 보세요",
+        "qVi": "Hãy cử động các ngón tay",
+        "aKr": "네, 알겠습니다.",
+        "aVi": "Vâng, tôi hiểu rồi."
+      }
+    ]
+  },
+  {
+    "id": "set_v2_06_congcu_nhandien",
+    "title": "6. Nhận diện công cụ sản xuất (67 công cụ - có ảnh)",
+    "description": "67 công cụ sản xuất chế tạo kèm ảnh minh họa và tên gọi chuẩn tiếng Hàn",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "이것은 무엇입니까? (CO2용접기)",
+        "qVi": "Cái này là gì? (Máy hàn CO2)",
+        "aKr": "이것은 CO2용접기입니다.",
+        "aVi": "Đây là Máy hàn CO2.",
+        "img": "/images/vong2/tool_1.png"
+      },
+      {
+        "num": "2.",
+        "qKr": "이것은 무엇입니까? (벤딩기)",
+        "qVi": "Cái này là gì? (Máy đóng dây đai)",
+        "aKr": "이것은 벤딩기입니다.",
+        "aVi": "Đây là Máy đóng dây đai.",
+        "img": "/images/vong2/tool_2.png"
+      },
+      {
+        "num": "3.",
+        "qKr": "이것은 무엇입니까? (컨트롤 판넬)",
+        "qVi": "Cái này là gì? (Bảng điều khiển)",
+        "aKr": "이것은 컨트롤 판넬입니다.",
+        "aVi": "Đây là Bảng điều khiển.",
+        "img": "/images/vong2/tool_3.png"
+      },
+      {
+        "num": "4.",
+        "qKr": "이것은 무엇입니까? (누전차단기)",
+        "qVi": "Cái này là gì? (Cầu dao điện / Cầu dao chống giật)",
+        "aKr": "이것은 누전차단기입니다.",
+        "aVi": "Đây là Cầu dao điện / Cầu dao chống giật.",
+        "img": "/images/vong2/tool_4.png"
+      },
+      {
+        "num": "5.",
+        "qKr": "이것은 무엇입니까? (에어콤프레샤)",
+        "qVi": "Cái này là gì? (Máy nén khí)",
+        "aKr": "이것은 에어콤프레샤입니다.",
+        "aVi": "Đây là Máy nén khí.",
+        "img": "/images/vong2/tool_5.png"
+      },
+      {
+        "num": "6.",
+        "qKr": "이것은 무엇입니까? (호이스트)",
+        "qVi": "Cái này là gì? (Tời nâng / Pa lăng)",
+        "aKr": "이것은 호이스트입니다.",
+        "aVi": "Đây là Tời nâng / Pa lăng.",
+        "img": "/images/vong2/tool_6.png"
+      },
+      {
+        "num": "7.",
+        "qKr": "이것은 무엇입니까? (방청유)",
+        "qVi": "Cái này là gì? (Dầu bôi trơn chống rỉ (WD-40))",
+        "aKr": "이것은 방청유입니다.",
+        "aVi": "Đây là Dầu bôi trơn chống rỉ (WD-40).",
+        "img": "/images/vong2/tool_7.png"
+      },
+      {
+        "num": "8.",
+        "qKr": "이것은 무엇입니까? (원형톱)",
+        "qVi": "Cái này là gì? (Máy cưa đĩa tròn)",
+        "aKr": "이것은 원형톱입니다.",
+        "aVi": "Đây là Máy cưa đĩa tròn.",
+        "img": "/images/vong2/tool_8.png"
+      },
+      {
+        "num": "9.",
+        "qKr": "이것은 무엇입니까? (회로시험기)",
+        "qVi": "Cái này là gì? (Đồng hồ đo điện / Vạn năng kế)",
+        "aKr": "이것은 회로시험기입니다.",
+        "aVi": "Đây là Đồng hồ đo điện / Vạn năng kế.",
+        "img": "/images/vong2/tool_9.png"
+      },
+      {
+        "num": "10.",
+        "qKr": "이것은 무엇입니까? (버니어 캘리퍼스)",
+        "qVi": "Cái này là gì? (Thước cặp / Thước kẹp vernier)",
+        "aKr": "이것은 버니어 캘리퍼스입니다.",
+        "aVi": "Đây là Thước cặp / Thước kẹp vernier.",
+        "img": "/images/vong2/tool_10.png"
+      },
+      {
+        "num": "11.",
+        "qKr": "이것은 무엇입니까? (지게차)",
+        "qVi": "Cái này là gì? (Xe nâng hàng)",
+        "aKr": "이것은 지게차입니다.",
+        "aVi": "Đây là Xe nâng hàng.",
+        "img": "/images/vong2/tool_11.png"
+      },
+      {
+        "num": "12.",
+        "qKr": "이것은 무엇입니까? (대차)",
+        "qVi": "Cái này là gì? (Xe đẩy bàn chở hàng)",
+        "aKr": "이것은 대차입니다.",
+        "aVi": "Đây là Xe đẩy bàn chở hàng.",
+        "img": "/images/vong2/tool_12.png"
+      },
+      {
+        "num": "13.",
+        "qKr": "이것은 무엇입니까? (소켓 렌치)",
+        "qVi": "Cái này là gì? (Cần siết bu lông / Cờ lê tròng)",
+        "aKr": "이것은 소켓 렌치입니다.",
+        "aVi": "Đây là Cần siết bu lông / Cờ lê tròng.",
+        "img": "/images/vong2/tool_13.png"
+      },
+      {
+        "num": "14.",
+        "qKr": "이것은 무엇입니까? (스패너)",
+        "qVi": "Cái này là gì? (Cờ lê)",
+        "aKr": "이것은 스패너입니다.",
+        "aVi": "Đây là Cờ lê.",
+        "img": "/images/vong2/tool_14.png"
+      },
+      {
+        "num": "15.",
+        "qKr": "이것은 무엇입니까? (작업등)",
+        "qVi": "Cái này là gì? (Đèn làm việc / Đèn soi xưởng)",
+        "aKr": "이것은 작업등입니다.",
+        "aVi": "Đây là Đèn làm việc / Đèn soi xưởng.",
+        "img": "/images/vong2/tool_15.png"
+      },
+      {
+        "num": "16.",
+        "qKr": "이것은 무엇입니까? (파이프렌치)",
+        "qVi": "Cái này là gì? (Kìm nước / Cờ lê vặn ống nước)",
+        "aKr": "이것은 파이프렌치입니다.",
+        "aVi": "Đây là Kìm nước / Cờ lê vặn ống nước.",
+        "img": "/images/vong2/tool_16.png"
+      },
+      {
+        "num": "17.",
+        "qKr": "이것은 무엇입니까? (공구함)",
+        "qVi": "Cái này là gì? (Hộp đựng dụng cụ / Hộp đồ nghề)",
+        "aKr": "이것은 공구함입니다.",
+        "aVi": "Đây là Hộp đựng dụng cụ / Hộp đồ nghề.",
+        "img": "/images/vong2/tool_17.png"
+      },
+      {
+        "num": "18.",
+        "qKr": "이것은 무엇입니까? (전기드릴)",
+        "qVi": "Cái này là gì? (Máy khoan điện)",
+        "aKr": "이것은 전기드릴입니다.",
+        "aVi": "Đây là Máy khoan điện.",
+        "img": "/images/vong2/tool_18.png"
+      },
+      {
+        "num": "19.",
+        "qKr": "이것은 무엇입니까? (핸드카)",
+        "qVi": "Cái này là gì? (Xe đẩy tay 2 bánh)",
+        "aKr": "이것은 핸드카입니다.",
+        "aVi": "Đây là Xe đẩy tay 2 bánh.",
+        "img": "/images/vong2/tool_19.png"
+      },
+      {
+        "num": "20.",
+        "qKr": "이것은 무엇입니까? (나사못)",
+        "qVi": "Cái này là gì? (Đinh vít / Vít bắt gỗ)",
+        "aKr": "이것은 나사못입니다.",
+        "aVi": "Đây là Đinh vít / Vít bắt gỗ.",
+        "img": "/images/vong2/tool_20.png"
+      },
+      {
+        "num": "21.",
+        "qKr": "이것은 무엇입니까? (육각렌치)",
+        "qVi": "Cái này là gì? (Cờ lê lục giác)",
+        "aKr": "이것은 육각렌치입니다.",
+        "aVi": "Đây là Cờ lê lục giác.",
+        "img": "/images/vong2/tool_21.png"
+      },
+      {
+        "num": "22.",
+        "qKr": "이것은 무엇입니까? (바구니)",
+        "qVi": "Cái này là gì? (Giỏ nhựa đựng đồ)",
+        "aKr": "이것은 바구니입니다.",
+        "aVi": "Đây là Giỏ nhựa đựng đồ.",
+        "img": "/images/vong2/tool_22.png"
+      },
+      {
+        "num": "23.",
+        "qKr": "이것은 무엇입니까? (전선 릴)",
+        "qVi": "Cái này là gì? (Cuộn dây cáp điện)",
+        "aKr": "이것은 전선 릴입니다.",
+        "aVi": "Đây là Cuộn dây cáp điện.",
+        "img": "/images/vong2/tool_23.png"
+      },
+      {
+        "num": "24.",
+        "qKr": "이것은 무엇입니까? (핸드파래트(파래트트럭))",
+        "qVi": "Cái này là gì? (Xe nâng tay Pallet)",
+        "aKr": "이것은 핸드파래트(파래트트럭)입니다.",
+        "aVi": "Đây là Xe nâng tay Pallet.",
+        "img": "/images/vong2/tool_24.png"
+      },
+      {
+        "num": "25.",
+        "qKr": "이것은 무엇입니까? (마대)",
+        "qVi": "Cái này là gì? (Bao tải / Bao bố đựng hàng)",
+        "aKr": "이것은 마대입니다.",
+        "aVi": "Đây là Bao tải / Bao bố đựng hàng.",
+        "img": "/images/vong2/tool_25.png"
+      },
+      {
+        "num": "26.",
+        "qKr": "이것은 무엇입니까? (암나사(너트), 수나사(볼트))",
+        "qVi": "Cái này là gì? (Đai ốc (Ecu), Bu-lông)",
+        "aKr": "이것은 암나사(너트), 수나사(볼트)입니다.",
+        "aVi": "Đây là Đai ốc (Ecu), Bu-lông.",
+        "img": "/images/vong2/tool_26.png"
+      },
+      {
+        "num": "27.",
+        "qKr": "이것은 무엇입니까? (파렛트)",
+        "qVi": "Cái này là gì? (Pallet kệ đỡ hàng)",
+        "aKr": "이것은 파렛트입니다.",
+        "aVi": "Đây là Pallet kệ đỡ hàng.",
+        "img": "/images/vong2/tool_27.png"
+      },
+      {
+        "num": "28.",
+        "qKr": "이것은 무엇입니까? (사다리)",
+        "qVi": "Cái này là gì? (Thang chữ A)",
+        "aKr": "이것은 사다리입니다.",
+        "aVi": "Đây là Thang chữ A.",
+        "img": "/images/vong2/tool_28.png"
+      },
+      {
+        "num": "29.",
+        "qKr": "이것은 무엇입니까? (스위치)",
+        "qVi": "Cái này là gì? (Công tắc điện / Nút bấm)",
+        "aKr": "이것은 스위치입니다.",
+        "aVi": "Đây là Công tắc điện / Nút bấm.",
+        "img": "/images/vong2/tool_29.png"
+      },
+      {
+        "num": "30.",
+        "qKr": "이것은 무엇입니까? (저울)",
+        "qVi": "Cái này là gì? (Cân đồng hồ)",
+        "aKr": "이것은 저울입니다.",
+        "aVi": "Đây là Cân đồng hồ.",
+        "img": "/images/vong2/tool_30.png"
+      },
+      {
+        "num": "31.",
+        "qKr": "이것은 무엇입니까? (멀티탭)",
+        "qVi": "Cái này là gì? (Ổ cắm điện nhiều lỗ)",
+        "aKr": "이것은 멀티탭입니다.",
+        "aVi": "Đây là Ổ cắm điện nhiều lỗ.",
+        "img": "/images/vong2/tool_31.png"
+      },
+      {
+        "num": "32.",
+        "qKr": "이것은 무엇입니까? (박스(상자))",
+        "qVi": "Cái này là gì? (Thùng giấy / Thùng carton)",
+        "aKr": "이것은 박스(상자)입니다.",
+        "aVi": "Đây là Thùng giấy / Thùng carton.",
+        "img": "/images/vong2/tool_32.png"
+      },
+      {
+        "num": "33.",
+        "qKr": "이것은 무엇입니까? (망치)",
+        "qVi": "Cái này là gì? (Búa đóng đinh)",
+        "aKr": "이것은 망치입니다.",
+        "aVi": "Đây là Búa đóng đinh.",
+        "img": "/images/vong2/tool_33.png"
+      },
+      {
+        "num": "34.",
+        "qKr": "이것은 무엇입니까? (환풍기)",
+        "qVi": "Cái này là gì? (Quạt thông gió)",
+        "aKr": "이것은 환풍기입니다.",
+        "aVi": "Đây là Quạt thông gió.",
+        "img": "/images/vong2/tool_34.png"
+      },
+      {
+        "num": "35.",
+        "qKr": "이것은 무엇입니까? (바이스)",
+        "qVi": "Cái này là gì? (Ê-tô kẹp gia công)",
+        "aKr": "이것은 바이스입니다.",
+        "aVi": "Đây là Ê-tô kẹp gia công.",
+        "img": "/images/vong2/tool_35.png"
+      },
+      {
+        "num": "36.",
+        "qKr": "이것은 무엇입니까? (줄자)",
+        "qVi": "Cái này là gì? (Thước cuộn / Thước dây)",
+        "aKr": "이것은 줄자입니다.",
+        "aVi": "Đây là Thước cuộn / Thước dây.",
+        "img": "/images/vong2/tool_36.png"
+      },
+      {
+        "num": "37.",
+        "qKr": "이것은 무엇입니까? (소화기)",
+        "qVi": "Cái này là gì? (Bình cứu hỏa / Bình chữa cháy)",
+        "aKr": "이것은 소화기입니다.",
+        "aVi": "Đây là Bình cứu hỏa / Bình chữa cháy.",
+        "img": "/images/vong2/tool_37.png"
+      },
+      {
+        "num": "38.",
+        "qKr": "이것은 무엇입니까? (드럼)",
+        "qVi": "Cái này là gì? (Thùng phi chứa chất lỏng)",
+        "aKr": "이것은 드럼입니다.",
+        "aVi": "Đây là Thùng phi chứa chất lỏng.",
+        "img": "/images/vong2/tool_38.png"
+      },
+      {
+        "num": "39.",
+        "qKr": "이것은 무엇입니까? (비닐끈)",
+        "qVi": "Cái này là gì? (Dây nilon buộc hàng)",
+        "aKr": "이것은 비닐끈입니다.",
+        "aVi": "Đây là Dây nilon buộc hàng.",
+        "img": "/images/vong2/tool_39.png"
+      },
+      {
+        "num": "40.",
+        "qKr": "이것은 무엇입니까? (공구 캐비넷)",
+        "qVi": "Cái này là gì? (Tủ đựng dụng cụ cơ khí)",
+        "aKr": "이것은 공구 캐비넷입니다.",
+        "aVi": "Đây là Tủ đựng dụng cụ cơ khí.",
+        "img": "/images/vong2/tool_40.png"
+      },
+      {
+        "num": "41.",
+        "qKr": "이것은 무엇입니까? (칼)",
+        "qVi": "Cái này là gì? (Dao rọc giấy / Dao cắt)",
+        "aKr": "이것은 칼입니다.",
+        "aVi": "Đây là Dao rọc giấy / Dao cắt.",
+        "img": "/images/vong2/tool_41.png"
+      },
+      {
+        "num": "42.",
+        "qKr": "이것은 무엇입니까? (드라이버)",
+        "qVi": "Cái này là gì? (Tua vít (Tô vít))",
+        "aKr": "이것은 드라이버입니다.",
+        "aVi": "Đây là Tua vít (Tô vít).",
+        "img": "/images/vong2/tool_42.png"
+      },
+      {
+        "num": "43.",
+        "qKr": "이것은 무엇입니까? (가위)",
+        "qVi": "Cái này là gì? (Kéo cắt)",
+        "aKr": "이것은 가위입니다.",
+        "aVi": "Đây là Kéo cắt.",
+        "img": "/images/vong2/tool_43.png"
+      },
+      {
+        "num": "44.",
+        "qKr": "이것은 무엇입니까? (톱)",
+        "qVi": "Cái này là gì? (Cưa tay)",
+        "aKr": "이것은 톱입니다.",
+        "aVi": "Đây là Cưa tay.",
+        "img": "/images/vong2/tool_44.png"
+      },
+      {
+        "num": "45.",
+        "qKr": "이것은 무엇입니까? (펜치)",
+        "qVi": "Cái này là gì? (Kìm điện đa năng)",
+        "aKr": "이것은 펜치입니다.",
+        "aVi": "Đây là Kìm điện đa năng.",
+        "img": "/images/vong2/tool_45.png"
+      },
+      {
+        "num": "46.",
+        "qKr": "이것은 무엇입니까? (손전등)",
+        "qVi": "Cái này là gì? (Đèn pin cầm tay)",
+        "aKr": "이것은 손전등입니다.",
+        "aVi": "Đây là Đèn pin cầm tay.",
+        "img": "/images/vong2/tool_46.png"
+      },
+      {
+        "num": "47.",
+        "qKr": "이것은 무엇입니까? (쓰레받기)",
+        "qVi": "Cái này là gì? (Hót rác / Xẻng rác)",
+        "aKr": "이것은 쓰레받기입니다.",
+        "aVi": "Đây là Hót rác / Xẻng rác.",
+        "img": "/images/vong2/tool_47.png"
+      },
+      {
+        "num": "48.",
+        "qKr": "이것은 무엇입니까? (니퍼)",
+        "qVi": "Cái này là gì? (Kìm cắt chân linh kiện / Kìm bấm)",
+        "aKr": "이것은 니퍼입니다.",
+        "aVi": "Đây là Kìm cắt chân linh kiện / Kìm bấm.",
+        "img": "/images/vong2/tool_48.png"
+      },
+      {
+        "num": "49.",
+        "qKr": "이것은 무엇입니까? (테이프)",
+        "qVi": "Cái này là gì? (Băng dính dán thùng)",
+        "aKr": "이것은 테이프입니다.",
+        "aVi": "Đây là Băng dính dán thùng.",
+        "img": "/images/vong2/tool_49.png"
+      },
+      {
+        "num": "50.",
+        "qKr": "이것은 무엇입니까? (삽)",
+        "qVi": "Cái này là gì? (Cái xẻng)",
+        "aKr": "이것은 삽입니다.",
+        "aVi": "Đây là Cái xẻng.",
+        "img": "/images/vong2/tool_50.png"
       },
       {
         "num": "51.",
-        "qKr": "불량품이 많으면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có nhiều sản phẩm bị lỗi?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (프라이어)",
+        "qVi": "Cái này là gì? (Kìm mỏ nhọn / Kìm mỏ quạ)",
+        "aKr": "이것은 프라이어입니다.",
+        "aVi": "Đây là Kìm mỏ nhọn / Kìm mỏ quạ.",
+        "img": "/images/vong2/tool_51.png"
       },
       {
         "num": "52.",
-        "qKr": "요즘 무슨 일을 하세요?",
-        "qVi": "Bạn đang làm gì trong những ngày này?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (그라인더)",
+        "qVi": "Cái này là gì? (Máy mài góc cầm tay)",
+        "aKr": "이것은 그라인더입니다.",
+        "aVi": "Đây là Máy mài góc cầm tay.",
+        "img": "/images/vong2/tool_52.png"
       },
       {
         "num": "53.",
-        "qKr": "무엇을 타고 왔어요?",
-        "qVi": "Bạn đã đi xe gì?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (줄)",
+        "qVi": "Cái này là gì? (Cây giũa mài kim loại)",
+        "aKr": "이것은 줄입니다.",
+        "aVi": "Đây là Cây giũa mài kim loại.",
+        "img": "/images/vong2/tool_53.png"
       },
       {
         "num": "54.",
-        "qKr": "여기까지 얼마나 걸렸어요?",
-        "qVi": "Mất bao lâu để đến được đây?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (방호덮개)",
+        "qVi": "Cái này là gì? (Vỏ che chắn bảo vệ máy)",
+        "aKr": "이것은 방호덮개입니다.",
+        "aVi": "Đây là Vỏ che chắn bảo vệ máy.",
+        "img": "/images/vong2/tool_54.png"
       },
       {
         "num": "55.",
-        "qKr": "한국말은 잘 할 수 있어요? / 한국말은 잘하나요?",
-        "qVi": "Bạn có thể nói tiếng Hàn tốt không? / Bạn có giỏi tiếng Hàn không?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (에어건)",
+        "qVi": "Cái này là gì? (Súng xì khô / Súng thổi khí)",
+        "aKr": "이것은 에어건입니다.",
+        "aVi": "Đây là Súng xì khô / Súng thổi khí.",
+        "img": "/images/vong2/tool_55.png"
       },
       {
         "num": "56.",
-        "qKr": "한국인 친구가 있어요? 한국에 친적이나 친구가(아는 사람이) 있습니까? 가족 한국에서 일한 사람이나 한국에 살 고 있는 사람이 있습니까?",
-        "qVi": "Bạn có người bạn Hàn Quốc nào không? Bạn có người thân, bạn bè (hoặc ai đó bạn biết) ở Hàn Quốc không? Có ai trong gia đình bạn làm việc hoặc sống ở Hàn Quốc không?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (유압펌프)",
+        "qVi": "Cái này là gì? (Bơm thủy lực)",
+        "aKr": "이것은 유압펌프입니다.",
+        "aVi": "Đây là Bơm thủy lực.",
+        "img": "/images/vong2/tool_56.png"
       },
       {
         "num": "57.",
-        "qKr": "운전할 줄 아세요? 지게차를 운전할줄 아세요?",
-        "qVi": "Bạn có biết lái xe không? Bạn có biết lái xe nâng không?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (인두기)",
+        "qVi": "Cái này là gì? (Mỏ hàn thiếc)",
+        "aKr": "이것은 인두기입니다.",
+        "aVi": "Đây là Mỏ hàn thiếc.",
+        "img": "/images/vong2/tool_57.png"
       },
       {
         "num": "58.",
-        "qKr": "포장하는 일을 해 봤어요? / 해 봤습니까?",
-        "qVi": "Bạn đã từng làm việc trong lĩnh vực đóng gói chưa? / Bạn đã thử chưa?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (혼합기)",
+        "qVi": "Cái này là gì? (Máy trộn nguyên liệu)",
+        "aKr": "이것은 혼합기입니다.",
+        "aVi": "Đây là Máy trộn nguyên liệu.",
+        "img": "/images/vong2/tool_58.png"
       },
       {
         "num": "59.",
-        "qKr": "외국에서 일해 본 적이 있습니까? 외국에 가 본 적이 있습니까?",
-        "qVi": "Bạn đã từng làm việc ở nước ngoài chưa? Bạn đã từng ra nước ngoài chưa?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (가스켓)",
+        "qVi": "Cái này là gì? (Gioăng đệm làm kín (Gasket))",
+        "aKr": "이것은 가스켓입니다.",
+        "aVi": "Đây là Gioăng đệm làm kín (Gasket).",
+        "img": "/images/vong2/tool_59.png"
       },
       {
         "num": "60.",
-        "qKr": "당신이 한국에서 일할 자격이 있는 것은 무엇입니까?",
-        "qVi": "Bạn đủ điều kiện để làm việc tại Hàn Quốc?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (플랜지)",
+        "qVi": "Cái này là gì? (Mặt bích đường ống (Flange))",
+        "aKr": "이것은 플랜지입니다.",
+        "aVi": "Đây là Mặt bích đường ống (Flange).",
+        "img": "/images/vong2/tool_60.png"
       },
       {
         "num": "61.",
-        "qKr": "왜 우리가 당신을 고용 합니까?",
-        "qVi": "Tại sao chúng tôi thuê bạn?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (수평기)",
+        "qVi": "Cái này là gì? (Thước thủy đo thăng bằng)",
+        "aKr": "이것은 수평기입니다.",
+        "aVi": "Đây là Thước thủy đo thăng bằng.",
+        "img": "/images/vong2/tool_61.png"
       },
       {
         "num": "62.",
-        "qKr": "아침을 드셨어요? / 아침을 먹었어요?",
-        "qVi": "Bạn đã ăn sáng chưa? / Bạn đã ăn sáng chưa?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (적외선 온도계)",
+        "qVi": "Cái này là gì? (Nhiệt kế hồng ngoại đo nhiệt độ)",
+        "aKr": "이것은 적외선 온도계입니다.",
+        "aVi": "Đây là Nhiệt kế hồng ngoại đo nhiệt độ.",
+        "img": "/images/vong2/tool_62.png"
       },
       {
         "num": "63.",
-        "qKr": "아침을 무엇을 먹었습니까?",
-        "qVi": "Bạn đã ăn gì cho bữa sáng?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (클램프)",
+        "qVi": "Cái này là gì? (Cảo chữ C / Cái kẹp vam)",
+        "aKr": "이것은 클램프입니다.",
+        "aVi": "Đây là Cảo chữ C / Cái kẹp vam.",
+        "img": "/images/vong2/tool_63.png"
       },
       {
         "num": "64.",
-        "qKr": "어떤 계절을 좋아합니까? 왜 그계절을 좋아해요?",
-        "qVi": "Bạn thích mùa nào? Tại sao bạn thích mùa đó?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (절연테이프)",
+        "qVi": "Cái này là gì? (Băng dính cách điện)",
+        "aKr": "이것은 절연테이프입니다.",
+        "aVi": "Đây là Băng dính cách điện.",
+        "img": "/images/vong2/tool_64.png"
       },
       {
         "num": "65.",
-        "qKr": "무슨 운동을 좋아합니까?",
-        "qVi": "Bạn thích môn thể thao nào?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (케이블타이)",
+        "qVi": "Cái này là gì? (Dây rút nhựa / Dây thít)",
+        "aKr": "이것은 케이블타이입니다.",
+        "aVi": "Đây là Dây rút nhựa / Dây thít.",
+        "img": "/images/vong2/tool_65.png"
       },
       {
         "num": "66.",
-        "qKr": "어떤 계절이 가장 덥습니까?",
-        "qVi": "Mùa nào nóng nhất?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (테프론 테이프)",
+        "qVi": "Cái này là gì? (Băng tan quấn ren chống rỉ nước)",
+        "aKr": "이것은 테프론 테이프입니다.",
+        "aVi": "Đây là Băng tan quấn ren chống rỉ nước.",
+        "img": "/images/vong2/tool_66.png"
       },
       {
         "num": "67.",
-        "qKr": "한국 날씨는 일 년에 몇 계절입니까?",
-        "qVi": "Thời tiết ở Hàn Quốc một năm có bao nhiêu mùa?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이것은 무엇입니까? (경첩)",
+        "qVi": "Cái này là gì? (Bản lề cửa)",
+        "aKr": "이것은 경첩입니다.",
+        "aVi": "Đây là Bản lề cửa.",
+        "img": "/images/vong2/tool_67.png"
+      }
+    ]
+  },
+  {
+    "id": "set_v2_07_congcu_thaotac",
+    "title": "7. Thao tác sử dụng công cụ (14 câu)",
+    "description": "14 câu khẩu lệnh và thao tác thực hành cầm nắm, vận hành dụng cụ trong xưởng",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "망치를 가져와서 못을 박는 행동을 합니다.",
+        "qVi": "Mang (cầm) búa đến rồi thực hiện việc đóng đinh.",
+        "aKr": "네, 망치로 못을 박겠습니다.",
+        "aVi": "Vâng, tôi sẽ lấy búa để đóng đinh."
+      },
+      {
+        "num": "2.",
+        "qKr": "렌치(스패너)를 가져와서 너트를 조이는 행동을 합니다.",
+        "qVi": "Mang cờ lê đến để siết chặt đai ốc.",
+        "aKr": "네, 렌치로 너트를 조이겠습니다.",
+        "aVi": "Vâng, tôi sẽ lấy cờ lê để siết chặt đai ốc."
+      },
+      {
+        "num": "3.",
+        "qKr": "드라이버를 사용해서(가져와서) 나사를 조이는 행동을 합니다.",
+        "qVi": "Dùng (mang) tua vít để xoáy ốc vít.",
+        "aKr": "네, 드라이버로 나사를 조이겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng tua vít để xoáy vít."
+      },
+      {
+        "num": "4.",
+        "qKr": "펜치를 사용해서(가져와서) 철사를 자르는 행동을 합니다.",
+        "qVi": "Dùng (mang) kìm để cắt dây sắt.",
+        "aKr": "네, 펜치로 철사를 자르겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng kìm để cắt dây sắt."
+      },
+      {
+        "num": "5.",
+        "qKr": "충전(전동)드릴을 사용해서(가져와서) 나사를 푸는 행동을 합니다.",
+        "qVi": "Dùng (mang) khoan pin (điện) để tháo vít.",
+        "aKr": "네, 드릴로 나사를 풀겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng khoan để tháo vít."
+      },
+      {
+        "num": "6.",
+        "qKr": "전기드릴을 사용해서(가져와서) 금속에 구멍을 뚫는 행동을 합니다.",
+        "qVi": "Dùng (mang) khoan điện để khoan lỗ trên kim loại.",
+        "aKr": "네, 전기드릴로 구멍을 뚫겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng khoan điện để khoan lỗ."
+      },
+      {
+        "num": "7.",
+        "qKr": "육각렌치를 사용해서(가져와서) 육각 볼트를 조이는 행동을 합니다.",
+        "qVi": "Dùng (mang) lục giác để vặn chặt bu lông đầu lục giác.",
+        "aKr": "네, 육각렌치로 조이겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng cờ lê lục giác để siết bu lông."
+      },
+      {
+        "num": "8.",
+        "qKr": "톱을 사용해서(가져와서) 나무판을 자르는 행동을 합니다.",
+        "qVi": "Dùng (mang) cưa để thực hiện việc cắt gỗ.",
+        "aKr": "네, 톱으로 나무판을 자르겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng cưa để cắt tấm gỗ."
+      },
+      {
+        "num": "9.",
+        "qKr": "그라인더를 사용해서 금속 판을 가공하는 행동을 합니다.",
+        "qVi": "Dùng máy mài để mài bề mặt tấm kim loại.",
+        "aKr": "네, 그라인더로 금속을 가공하겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng máy mài để gia công kim loại."
+      },
+      {
+        "num": "10.",
+        "qKr": "버니어캘리퍼스를 사용해서 볼트의 길이를 재는 행동을 합니다.",
+        "qVi": "Dùng thước kẹp để đo chiều dài của bu lông.",
+        "aKr": "네, 버니어캘리퍼스로 길이를 재겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng thước kẹp để đo chiều dài."
+      },
+      {
+        "num": "11.",
+        "qKr": "줄을 사용해서 철판의 날카로운 모서리를 다듬는 행동을 합니다.",
+        "qVi": "Dùng dũa để mài các cạnh sắc của tấm sắt.",
+        "aKr": "네, 줄로 날카로운 부분을 다듬겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng dũa mài nhẵn phần cạnh sắc."
+      },
+      {
+        "num": "12.",
+        "qKr": "테이프를 사용해서 상자를 포장하는 행동을 합니다.",
+        "qVi": "Dùng băng dính để đóng gói hộp hàng.",
+        "aKr": "네, 테이프로 상자를 포장하겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng băng dính đóng gói thùng hàng."
+      },
+      {
+        "num": "13.",
+        "qKr": "사포를 사용해서 표면을 매끄럽게 만드는 행동을 합니다.",
+        "qVi": "Dùng giấy nhám để làm nhẵn bề mặt.",
+        "aKr": "네, 사포로 표면을 매끄럽게 문지르겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng giấy nhám đánh bóng bề mặt."
+      },
+      {
+        "num": "14.",
+        "qKr": "망치로 못을 빼는 동작을 해 보세요.",
+        "qVi": "Dùng búa để nhổ đinh.",
+        "aKr": "네, 망치로 못을 빼겠습니다.",
+        "aVi": "Vâng, tôi sẽ dùng búa để nhổ đinh ra."
+      }
+    ]
+  },
+  {
+    "id": "set_v2_08_congcu_congdung",
+    "title": "8. Giải thích công dụng công cụ (48 câu)",
+    "description": "48 câu hỏi đáp giải thích chi tiết mục đích sử dụng từng loại máy móc thiết bị xưởng",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "이 도구는 무엇에 사용합니까? (CO2용접기)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Máy hàn CO2)",
+        "aKr": "용접하는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để hàn kim loại."
+      },
+      {
+        "num": "2.",
+        "qKr": "이건 언제 사용해요? (벤딩기)",
+        "qVi": "Cái này dùng khi nào? (Máy đóng đai)",
+        "aKr": "끈을 고정하는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để đóng đai buộc dây cố định hàng."
+      },
+      {
+        "num": "3.",
+        "qKr": "이건 뭐 하는 데 써요? (컨트롤 판넬)",
+        "qVi": "Cái này dùng để làm gì? (Bảng điều khiển)",
+        "aKr": "기계를 제어하는 데 사용하는 도구입니다.",
+        "aVi": "Là thiết bị dùng để điều khiển vận hành máy móc."
+      },
+      {
+        "num": "4.",
+        "qKr": "이것은 뭐예요? (누전차단기)",
+        "qVi": "Cái này là gì? (Cầu dao chống giật)",
+        "aKr": "전기를 차단하는 데 사용하는 도구입니다.",
+        "aVi": "Là thiết bị dùng để ngắt điện khi xảy ra sự cố."
+      },
+      {
+        "num": "5.",
+        "qKr": "이 도구는 무엇에 사용합니까? (에어콤프레샤)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Máy nén khí)",
+        "aKr": "공기를 압축하는 데 사용하는 도구입니다.",
+        "aVi": "Là thiết bị dùng để nén khí áp lực cao."
+      },
+      {
+        "num": "6.",
+        "qKr": "이건 언제 사용해요? (호이스트)",
+        "qVi": "Cái này dùng khi nào? (Tời pa lăng)",
+        "aKr": "물건을 들어올리는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để nâng kéo vật nặng lên cao."
+      },
+      {
+        "num": "7.",
+        "qKr": "이건 뭐 하는 데 써요? (방청유)",
+        "qVi": "Cái này dùng để làm gì? (Dầu bôi trơn)",
+        "aKr": "녹슬지 않게 하는 데 사용하는 도구입니다.",
+        "aVi": "Là dầu dùng để bôi trơn và chống rỉ sét."
+      },
+      {
+        "num": "8.",
+        "qKr": "이것은 뭐예요? (원형톱)",
+        "qVi": "Cái này là gì? (Máy cưa đĩa)",
+        "aKr": "나무를 자르는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để cưa xẻ gỗ."
+      },
+      {
+        "num": "9.",
+        "qKr": "이 도구는 무엇에 사용합니까? (회로시험기)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Đồng hồ đo điện)",
+        "aKr": "전기를 측정하는 데 사용하는 도구입니다.",
+        "aVi": "Là thiết bị dùng để đo thông số dòng điện, điện áp."
+      },
+      {
+        "num": "10.",
+        "qKr": "이건 언제 사용해요? (버니어 캘리퍼스)",
+        "qVi": "Cái này dùng khi nào? (Thước kẹp)",
+        "aKr": "두께를 재는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để đo độ dày, đường kính chính xác."
+      },
+      {
+        "num": "11.",
+        "qKr": "이건 뭐 하는 데 써요? (지게차)",
+        "qVi": "Cái này dùng để làm gì? (Xe nâng)",
+        "aKr": "화물을 운반하는 데 사용하는 도구입니다.",
+        "aVi": "Là phương tiện dùng để nâng và vận chuyển hàng hóa."
+      },
+      {
+        "num": "12.",
+        "qKr": "이것은 뭐예요? (대차)",
+        "qVi": "Cái này là gì? (Xe đẩy bàn)",
+        "aKr": "물건을 옮기는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để di chuyển hàng hóa nhẹ."
+      },
+      {
+        "num": "13.",
+        "qKr": "이 도구는 무엇에 사용합니까? (소켓 렌치)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Cần siết bu lông)",
+        "aKr": "볼트를 조이는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để siết chặt bu lông."
+      },
+      {
+        "num": "14.",
+        "qKr": "이건 언제 사용해요? (스패너)",
+        "qVi": "Cái này dùng khi nào? (Cờ lê)",
+        "aKr": "너트를 조이는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để siết chặt đai ốc."
+      },
+      {
+        "num": "15.",
+        "qKr": "이건 뭐 하는 데 써요? (작업등)",
+        "qVi": "Cái này dùng để làm gì? (Đèn làm việc)",
+        "aKr": "작업할 때 비추는 데 사용하는 도구입니다.",
+        "aVi": "Là đèn dùng để chiếu sáng khu vực thao tác."
+      },
+      {
+        "num": "16.",
+        "qKr": "이것은 뭐예요? (파이프렌치)",
+        "qVi": "Cái này là gì? (Kìm nước vặn ống)",
+        "aKr": "파이프를 조이는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để vặn siết đường ống."
+      },
+      {
+        "num": "17.",
+        "qKr": "이 도구는 무엇에 사용합니까? (공구함)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Hộp đồ nghề)",
+        "aKr": "공구를 보관하는 데 사용하는 도구입니다.",
+        "aVi": "Là hộp dùng để cất giữ bảo quản dụng cụ."
+      },
+      {
+        "num": "18.",
+        "qKr": "이건 언제 사용해요? (전기드릴)",
+        "qVi": "Cái này dùng khi nào? (Máy khoan)",
+        "aKr": "구멍을 뚫는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để khoan tạo lỗ."
+      },
+      {
+        "num": "19.",
+        "qKr": "이건 뭐 하는 데 써요? (핸드카)",
+        "qVi": "Cái này dùng để làm gì? (Xe đẩy tay)",
+        "aKr": "물건을 나르는 데 사용하는 도구입니다.",
+        "aVi": "Là xe dùng để chở và kéo hàng hóa."
+      },
+      {
+        "num": "20.",
+        "qKr": "이것은 뭐예요? (육각렌치)",
+        "qVi": "Cái này là gì? (Cờ lê lục giác)",
+        "aKr": "육각볼트를 조이는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để siết bu lông lục giác chìm."
+      },
+      {
+        "num": "21.",
+        "qKr": "이 도구는 무엇에 사용합니까? (바구니)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Giỏ đồ)",
+        "aKr": "물건을 담는 데 사용하는 도구입니다.",
+        "aVi": "Là giỏ dùng để chứa đựng đồ đạc linh kiện."
+      },
+      {
+        "num": "22.",
+        "qKr": "이건 언제 사용해요? (전선 릴)",
+        "qVi": "Cái này dùng khi nào? (Cuộn cáp điện)",
+        "aKr": "전선을 감는 데 사용하는 도구입니다.",
+        "aVi": "Là cuộn dùng để cuốn và kéo dài dây điện."
+      },
+      {
+        "num": "23.",
+        "qKr": "이건 뭐 하는 데 써요? (핸드파래트)",
+        "qVi": "Cái này dùng để làm gì? (Xe nâng pallet)",
+        "aKr": "짐을 나르는 데 사용하는 도구입니다.",
+        "aVi": "Là xe kéo tay dùng để di chuyển các kiện hàng trên pallet."
+      },
+      {
+        "num": "24.",
+        "qKr": "이것은 뭐예요? (마대)",
+        "qVi": "Cái này là gì? (Bao tải)",
+        "aKr": "물건을 담는 데 사용하는 도구입니다.",
+        "aVi": "Là bao bì dùng để chứa đựng nông sản, vật liệu."
+      },
+      {
+        "num": "25.",
+        "qKr": "이 도구는 무엇에 사용합니까? (볼트/너트)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Bu lông đai ốc)",
+        "aKr": "부품을 고정하는 데 사용하는 도구입니다.",
+        "aVi": "Là chi tiết dùng để liên kết cố định các bộ phận."
+      },
+      {
+        "num": "26.",
+        "qKr": "이건 언제 사용해요? (파렛트)",
+        "qVi": "Cái này dùng khi nào? (Pallet)",
+        "aKr": "물건을 싣는 데 사용하는 도구입니다.",
+        "aVi": "Là tấm kệ dùng để chất xếp hàng hóa lên trên."
+      },
+      {
+        "num": "27.",
+        "qKr": "이건 뭐 하는 데 써요? (사다리)",
+        "qVi": "Cái này dùng để làm gì? (Thang)",
+        "aKr": "높은 곳에 올라가는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để trèo lên vị trí cao."
+      },
+      {
+        "num": "28.",
+        "qKr": "이것은 뭐예요? (스위치)",
+        "qVi": "Cái này là gì? (Công tắc)",
+        "aKr": "전기를 켜는 데 사용하는 도구입니다.",
+        "aVi": "Là thiết bị dùng để bật tắt nguồn điện máy móc."
+      },
+      {
+        "num": "29.",
+        "qKr": "이 도구는 무엇에 사용합니까? (저울)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Cái cân)",
+        "aKr": "무게를 재는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để đo trọng lượng hàng hóa."
+      },
+      {
+        "num": "30.",
+        "qKr": "이건 언제 사용해요? (멀티탭)",
+        "qVi": "Cái này dùng khi nào? (Ổ cắm nhiều lỗ)",
+        "aKr": "전원을 연결하는 데 사용하는 도구입니다.",
+        "aVi": "Là thiết bị dùng để cắm nối nhiều nguồn điện."
+      },
+      {
+        "num": "31.",
+        "qKr": "이건 뭐 하는 데 써요? (박스)",
+        "qVi": "Cái này dùng để làm gì? (Thùng carton)",
+        "aKr": "물건을 포장하는 데 사용하는 도구입니다.",
+        "aVi": "Là thùng giấy dùng để đóng gói bảo quản hàng."
+      },
+      {
+        "num": "32.",
+        "qKr": "이것은 뭐예요? (망치)",
+        "qVi": "Cái này là gì? (Cây búa)",
+        "aKr": "못을 박는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để đóng và nhổ đinh."
+      },
+      {
+        "num": "33.",
+        "qKr": "이 도구는 무엇에 사용합니까? (환풍기)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Quạt thông gió)",
+        "aKr": "공기를 순환시키는 데 사용하는 도구입니다.",
+        "aVi": "Là thiết bị dùng để lưu thông và hút bụi làm sạch không khí."
+      },
+      {
+        "num": "34.",
+        "qKr": "이건 언제 사용해요? (바이스)",
+        "qVi": "Cái này dùng khi nào? (Ê tô)",
+        "aKr": "물건을 고정하는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ kẹp dùng để giữ cố định phôi khi gia công."
+      },
+      {
+        "num": "35.",
+        "qKr": "이건 뭐 하는 데 써요? (줄자)",
+        "qVi": "Cái này dùng để làm gì? (Thước dây)",
+        "aKr": "길이를 재는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để đo kích thước chiều dài."
+      },
+      {
+        "num": "36.",
+        "qKr": "이것은 뭐예요? (소화기)",
+        "qVi": "Cái này là gì? (Bình chữa cháy)",
+        "aKr": "불을 끄는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ chuyên dùng để dập tắt đám cháy."
+      },
+      {
+        "num": "37.",
+        "qKr": "이 도구는 무엇에 사용합니까? (드럼통)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Thùng phi)",
+        "aKr": "액체를 담는 데 사용하는 도구입니다.",
+        "aVi": "Là thùng chứa dùng để đựng chất lỏng, dầu mỡ."
+      },
+      {
+        "num": "38.",
+        "qKr": "이건 언제 사용해요? (비닐끈)",
+        "qVi": "Cái này dùng khi nào? (Dây nilon)",
+        "aKr": "물건을 묶는 데 사용하는 도구입니다.",
+        "aVi": "Là dây dùng để buộc chằng hàng hóa gọn gàng."
+      },
+      {
+        "num": "39.",
+        "qKr": "이건 뭐 하는 데 써요? (공구 캐비넷)",
+        "qVi": "Cái này dùng để làm gì? (Tủ đồ nghề)",
+        "aKr": "공구를 정리하는 데 사용하는 도구입니다.",
+        "aVi": "Là tủ chuyên dụng dùng để sắp xếp ngăn nắp dụng cụ."
+      },
+      {
+        "num": "40.",
+        "qKr": "이것은 뭐예요? (칼)",
+        "qVi": "Cái này là gì? (Dao cắt)",
+        "aKr": "무언가를 자르는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để cắt gọt vật liệu."
+      },
+      {
+        "num": "41.",
+        "qKr": "이 도구는 무엇에 사용합니까? (드라이버)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Tua vít)",
+        "aKr": "나사를 조이는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để vặn siết xoáy ốc vít."
+      },
+      {
+        "num": "42.",
+        "qKr": "이건 뭐 하는 데 써요? (톱)",
+        "qVi": "Cái này dùng để làm gì? (Cưa tay)",
+        "aKr": "목재를 자르는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để cưa xẻ gỗ."
+      },
+      {
+        "num": "43.",
+        "qKr": "이것은 뭐예요? (니퍼)",
+        "qVi": "Cái này là gì? (Kìm cắt)",
+        "aKr": "선을 자르는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để cắt dây điện, dây cáp mỏng."
+      },
+      {
+        "num": "44.",
+        "qKr": "이 도구는 무엇에 사용합니까? (손전등)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Đèn pin)",
+        "aKr": "어두운 곳을 비추는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để chiếu sáng nơi tối."
+      },
+      {
+        "num": "45.",
+        "qKr": "이건 뭐 하는 데 써요? (펜치)",
+        "qVi": "Cái này dùng để làm gì? (Kìm đa năng)",
+        "aKr": "선을 자르는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để kẹp giữ và cắt dây kim loại."
+      },
+      {
+        "num": "46.",
+        "qKr": "이것은 뭐예요? (테이프)",
+        "qVi": "Cái này là gì? (Băng dính)",
+        "aKr": "포장하는 데 사용하는 도구입니다.",
+        "aVi": "Là vật liệu dính dùng để dán niêm phong hộp hàng."
+      },
+      {
+        "num": "47.",
+        "qKr": "이 도구는 무엇에 사용합니까? (삽)",
+        "qVi": "Dụng cụ này được dùng để làm gì? (Cái xẻng)",
+        "aKr": "흙을 퍼는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ dùng để xúc đất cát nguyên liệu."
+      },
+      {
+        "num": "48.",
+        "qKr": "이건 언제 사용해요? (프라이어)",
+        "qVi": "Cái này dùng khi nào? (Kìm mỏ quạ)",
+        "aKr": "물체를 잡는 데 사용하는 도구입니다.",
+        "aVi": "Là dụng cụ kẹp dùng để giữ chặt vật thể gia công."
+      }
+    ]
+  },
+  {
+    "id": "set_v2_09_congcu_baoquan",
+    "title": "9. Bảo quản & Cất giữ công cụ (12 câu)",
+    "description": "12 khẩu lệnh yêu cầu thí sinh phân loại và cất đồ nghề gọn gàng vào hộp dụng cụ",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "버니어 캘리퍼스를 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt thước kẹp vernier vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      },
+      {
+        "num": "2.",
+        "qKr": "스패너를 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt cờ lê vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      },
+      {
+        "num": "3.",
+        "qKr": "작업등을 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt đèn làm việc vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      },
+      {
+        "num": "4.",
+        "qKr": "나사못을 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt ốc vít vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      },
+      {
+        "num": "5.",
+        "qKr": "망치를 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt búa vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      },
+      {
+        "num": "6.",
+        "qKr": "줄자를 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt thước dây vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      },
+      {
+        "num": "7.",
+        "qKr": "드라이버를 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt tuốc nơ vít vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      },
+      {
+        "num": "8.",
+        "qKr": "펜치를 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt kìm vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      },
+      {
+        "num": "9.",
+        "qKr": "니퍼를 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt kìm cắt vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      },
+      {
+        "num": "10.",
+        "qKr": "테이프를 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt băng keo vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      },
+      {
+        "num": "11.",
+        "qKr": "줄을 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt giũa vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      },
+      {
+        "num": "12.",
+        "qKr": "경첩을 (공구함)바구니에 넣으세요.",
+        "qVi": "Hãy đặt bản lề vào giỏ (hộp công cụ).",
+        "aKr": "네, 바구니에 넣겠습니다.",
+        "aVi": "Vâng, tôi sẽ cất vào giỏ."
+      }
+    ]
+  },
+  {
+    "id": "set_v2_10_thietbi_an_toan",
+    "title": "10. Thiết bị & Đồ bảo hộ an toàn (15 đồ - có ảnh)",
+    "description": "15 trang bị bảo hộ lao động cá nhân kèm ảnh thực tế và tên gọi chuẩn",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "이것은 무엇입니까? (방수 앞치마)",
+        "qVi": "Đây là trang bị gì? (Tạp dề chống thấm nước)",
+        "aKr": "이것은 방수 앞치마입니다.",
+        "aVi": "Đây là Tạp dề chống thấm nước.",
+        "img": "/images/vong2/safety_1.png"
+      },
+      {
+        "num": "2.",
+        "qKr": "이것은 무엇입니까? (안전모)",
+        "qVi": "Đây là trang bị gì? (Mũ bảo hộ lao động)",
+        "aKr": "이것은 안전모입니다.",
+        "aVi": "Đây là Mũ bảo hộ lao động.",
+        "img": "/images/vong2/safety_2.png"
+      },
+      {
+        "num": "3.",
+        "qKr": "이것은 무엇입니까? (위생마스크)",
+        "qVi": "Đây là trang bị gì? (Khẩu trang vệ sinh)",
+        "aKr": "이것은 위생마스크입니다.",
+        "aVi": "Đây là Khẩu trang vệ sinh.",
+        "img": "/images/vong2/safety_3.png"
+      },
+      {
+        "num": "4.",
+        "qKr": "이것은 무엇입니까? (위생장화)",
+        "qVi": "Đây là trang bị gì? (Ủng vệ sinh chống nước)",
+        "aKr": "이것은 위생장화입니다.",
+        "aVi": "Đây là Ủng vệ sinh chống nước.",
+        "img": "/images/vong2/safety_4.png"
+      },
+      {
+        "num": "5.",
+        "qKr": "이것은 무엇입니까? (방진마스크)",
+        "qVi": "Đây là trang bị gì? (Khẩu trang lọc bụi / phòng bụi)",
+        "aKr": "이것은 방진마스크입니다.",
+        "aVi": "Đây là Khẩu trang lọc bụi / phòng bụi.",
+        "img": "/images/vong2/safety_5.png"
+      },
+      {
+        "num": "6.",
+        "qKr": "이것은 무엇입니까? (안전장갑)",
+        "qVi": "Đây là trang bị gì? (Găng tay an toàn)",
+        "aKr": "이것은 안전장갑입니다.",
+        "aVi": "Đây là Găng tay an toàn.",
+        "img": "/images/vong2/safety_6.png"
+      },
+      {
+        "num": "7.",
+        "qKr": "이것은 무엇입니까? (위생모)",
+        "qVi": "Đây là trang bị gì? (Mũ trùm đầu vệ sinh)",
+        "aKr": "이것은 위생모입니다.",
+        "aVi": "Đây là Mũ trùm đầu vệ sinh.",
+        "img": "/images/vong2/safety_7.png"
+      },
+      {
+        "num": "8.",
+        "qKr": "이것은 무엇입니까? (작업복)",
+        "qVi": "Đây là trang bị gì? (Quần áo bảo hộ lao động)",
+        "aKr": "이것은 작업복입니다.",
+        "aVi": "Đây là Quần áo bảo hộ lao động.",
+        "img": "/images/vong2/safety_8.png"
+      },
+      {
+        "num": "9.",
+        "qKr": "이것은 무엇입니까? (보안경)",
+        "qVi": "Đây là trang bị gì? (Kính bảo hộ che chắn mắt)",
+        "aKr": "이것은 보안경입니다.",
+        "aVi": "Đây là Kính bảo hộ che chắn mắt.",
+        "img": "/images/vong2/safety_9.png"
+      },
+      {
+        "num": "10.",
+        "qKr": "이것은 무엇입니까? (안전화)",
+        "qVi": "Đây là trang bị gì? (Giày bảo hộ mũi thép chống đinh)",
+        "aKr": "이것은 안전화입니다.",
+        "aVi": "Đây là Giày bảo hộ mũi thép chống đinh.",
+        "img": "/images/vong2/safety_10.png"
+      },
+      {
+        "num": "11.",
+        "qKr": "이것은 무엇입니까? (위생복)",
+        "qVi": "Đây là trang bị gì? (Bộ quần áo vệ sinh xưởng)",
+        "aKr": "이것은 위생복입니다.",
+        "aVi": "Đây là Bộ quần áo vệ sinh xưởng.",
+        "img": "/images/vong2/safety_11.png"
+      },
+      {
+        "num": "12.",
+        "qKr": "이것은 무엇입니까? (청력보호구(귀마개))",
+        "qVi": "Đây là trang bị gì? (Chụp tai / Nút tai chống ồn)",
+        "aKr": "이것은 청력보호구(귀마개)입니다.",
+        "aVi": "Đây là Chụp tai / Nút tai chống ồn.",
+        "img": "/images/vong2/safety_12.png"
+      },
+      {
+        "num": "13.",
+        "qKr": "이것은 무엇입니까? (안전대)",
+        "qVi": "Đây là trang bị gì? (Dây đai an toàn trên cao)",
+        "aKr": "이것은 안전대입니다.",
+        "aVi": "Đây là Dây đai an toàn trên cao.",
+        "img": "/images/vong2/safety_13.png"
+      },
+      {
+        "num": "14.",
+        "qKr": "이것은 무엇입니까? (용접면)",
+        "qVi": "Đây là trang bị gì? (Mặt nạ hàn bảo vệ mắt và mặt)",
+        "aKr": "이것은 용접면입니다.",
+        "aVi": "Đây là Mặt nạ hàn bảo vệ mắt và mặt.",
+        "img": "/images/vong2/safety_14.png"
+      },
+      {
+        "num": "15.",
+        "qKr": "이것은 무엇입니까? (위생장갑)",
+        "qVi": "Đây là trang bị gì? (Găng tay vệ sinh cao su mỏng)",
+        "aKr": "이것은 위생장갑입니다.",
+        "aVi": "Đây là Găng tay vệ sinh cao su mỏng.",
+        "img": "/images/vong2/safety_15.png"
+      }
+    ]
+  },
+  {
+    "id": "set_v2_11_bienbao_an_toan",
+    "title": "11. Hệ thống biển báo an toàn (95 biển - có ảnh)",
+    "description": "Trọn bộ 95 biển báo chỉ thị, cảnh báo nguy hiểm, biển cấm, thoát hiểm khẩn cấp và PCCC",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "이 표지는 무슨 뜻입니까? (반사조끼를 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy mặc áo phản quang)",
+        "aKr": "이 표지는 '반사조끼를 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy mặc áo phản quang'.",
+        "img": "/images/vong2/sign_1.png"
+      },
+      {
+        "num": "2.",
+        "qKr": "이 표지는 무슨 뜻입니까? (머리 보호구를 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy đội mũ bảo hộ bảo vệ đầu)",
+        "aKr": "이 표지는 '머리 보호구를 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy đội mũ bảo hộ bảo vệ đầu'.",
+        "img": "/images/vong2/sign_2.png"
+      },
+      {
+        "num": "3.",
+        "qKr": "이 표지는 무슨 뜻입니까? (보호장갑을 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy đeo găng tay bảo hộ)",
+        "aKr": "이 표지는 '보호장갑을 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy đeo găng tay bảo hộ'.",
+        "img": "/images/vong2/sign_3.png"
+      },
+      {
+        "num": "4.",
+        "qKr": "이 표지는 무슨 뜻입니까? (경적을 울리시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy bấm còi cảnh báo)",
+        "aKr": "이 표지는 '경적을 울리시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy bấm còi cảnh báo'.",
+        "img": "/images/vong2/sign_4.png"
+      },
+      {
+        "num": "5.",
+        "qKr": "이 표지는 무슨 뜻입니까? (방호복을 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy mặc trang phục bảo hộ)",
+        "aKr": "이 표지는 '방호복을 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy mặc trang phục bảo hộ'.",
+        "img": "/images/vong2/sign_5.png"
+      },
+      {
+        "num": "6.",
+        "qKr": "이 표지는 무슨 뜻입니까? (불투명 보안대를 반드시 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Bắt buộc đeo kính an toàn mờ chống lóa)",
+        "aKr": "이 표지는 '불투명 보안대를 반드시 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Bắt buộc đeo kính an toàn mờ chống lóa'.",
+        "img": "/images/vong2/sign_6.png"
+      },
+      {
+        "num": "7.",
+        "qKr": "이 표지는 무슨 뜻입니까? (귀마개를 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy đeo nút bịt tai chống ồn)",
+        "aKr": "이 표지는 '귀마개를 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy đeo nút bịt tai chống ồn'.",
+        "img": "/images/vong2/sign_7.png"
+      },
+      {
+        "num": "8.",
+        "qKr": "이 표지는 무슨 뜻입니까? (보안경을 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy đeo kính bảo hộ bảo vệ mắt)",
+        "aKr": "이 표지는 '보안경을 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy đeo kính bảo hộ bảo vệ mắt'.",
+        "img": "/images/vong2/sign_8.png"
+      },
+      {
+        "num": "9.",
+        "qKr": "이 표지는 무슨 뜻입니까? (사용설명서, 책자를 참조하십시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy tham khảo sách hướng dẫn sử dụng)",
+        "aKr": "이 표지는 '사용설명서, 책자를 참조하십시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy tham khảo sách hướng dẫn sử dụng'.",
+        "img": "/images/vong2/sign_9.png"
+      },
+      {
+        "num": "10.",
+        "qKr": "이 표지는 무슨 뜻입니까? (마스크를 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy đeo khẩu trang)",
+        "aKr": "이 표지는 '마스크를 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy đeo khẩu trang'.",
+        "img": "/images/vong2/sign_10.png"
+      },
+      {
+        "num": "11.",
+        "qKr": "이 표지는 무슨 뜻입니까? (보호용 앞치마를 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy mặc tạp dề bảo vệ)",
+        "aKr": "이 표지는 '보호용 앞치마를 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy mặc tạp dề bảo vệ'.",
+        "img": "/images/vong2/sign_11.png"
+      },
+      {
+        "num": "12.",
+        "qKr": "이 표지는 무슨 뜻입니까? (손을 씻으시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy rửa sạch tay)",
+        "aKr": "이 표지는 '손을 씻으시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy rửa sạch tay'.",
+        "img": "/images/vong2/sign_12.png"
+      },
+      {
+        "num": "13.",
+        "qKr": "이 표지는 무슨 뜻입니까? (손잡이를 사용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy nắm vào tay vịn / tay cầm)",
+        "aKr": "이 표지는 '손잡이를 사용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy nắm vào tay vịn / tay cầm'.",
+        "img": "/images/vong2/sign_13.png"
+      },
+      {
+        "num": "14.",
+        "qKr": "이 표지는 무슨 뜻입니까? (안전띠를 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy cài dây an toàn)",
+        "aKr": "이 표지는 '안전띠를 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy cài dây an toàn'.",
+        "img": "/images/vong2/sign_14.png"
+      },
+      {
+        "num": "15.",
+        "qKr": "이 표지는 무슨 뜻입니까? (얼굴 보호구를 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy đeo mặt nạ bảo hộ che mặt)",
+        "aKr": "이 표지는 '얼굴 보호구를 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy đeo mặt nạ bảo hộ che mặt'.",
+        "img": "/images/vong2/sign_15.png"
+      },
+      {
+        "num": "16.",
+        "qKr": "이 표지는 무슨 뜻입니까? (용접마스크를 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy đeo mặt nạ hàn)",
+        "aKr": "이 표지는 '용접마스크를 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy đeo mặt nạ hàn'.",
+        "img": "/images/vong2/sign_16.png"
+      },
+      {
+        "num": "17.",
+        "qKr": "이 표지는 무슨 뜻입니까? (잠그시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy khóa chặt lại)",
+        "aKr": "이 표지는 '잠그시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy khóa chặt lại'.",
+        "img": "/images/vong2/sign_17.png"
+      },
+      {
+        "num": "18.",
+        "qKr": "이 표지는 무슨 뜻입니까? (전기 플러그를 콘센트에서 분리하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy rút phích cắm điện ra khỏi ổ cắm)",
+        "aKr": "이 표지는 '전기 플러그를 콘센트에서 분리하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy rút phích cắm điện ra khỏi ổ cắm'.",
+        "img": "/images/vong2/sign_18.png"
+      },
+      {
+        "num": "19.",
+        "qKr": "이 표지는 무슨 뜻입니까? (안전벨트를 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy thắt dây đai an toàn)",
+        "aKr": "이 표지는 '안전벨트를 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy thắt dây đai an toàn'.",
+        "img": "/images/vong2/sign_19.png"
+      },
+      {
+        "num": "20.",
+        "qKr": "이 표지는 무슨 뜻입니까? (이 통로를 이용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy đi theo lối đi an toàn này)",
+        "aKr": "이 표지는 '이 통로를 이용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy đi theo lối đi an toàn này'.",
+        "img": "/images/vong2/sign_20.png"
+      },
+      {
+        "num": "21.",
+        "qKr": "이 표지는 무슨 뜻입니까? (호흡기 보호장치를 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy đeo thiết bị bảo hộ hô hấp (mặt nạ dưỡng khí))",
+        "aKr": "이 표지는 '호흡기 보호장치를 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy đeo thiết bị bảo hộ hô hấp (mặt nạ dưỡng khí)'.",
+        "img": "/images/vong2/sign_21.png"
+      },
+      {
+        "num": "22.",
+        "qKr": "이 표지는 무슨 뜻입니까? (안전화를 착용하시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Hãy đi giày bảo hộ lao động)",
+        "aKr": "이 표지는 '안전화를 착용하시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Hãy đi giày bảo hộ lao động'.",
+        "img": "/images/vong2/sign_22.png"
+      },
+      {
+        "num": "23.",
+        "qKr": "이 표지는 무슨 뜻입니까? (일반적인 강제 행동 표시)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Biển báo hành động cưỡng chế chung)",
+        "aKr": "이 표지는 '일반적인 강제 행동 표시'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Biển báo hành động cưỡng chế chung'.",
+        "img": "/images/vong2/sign_23.png"
+      },
+      {
+        "num": "24.",
+        "qKr": "이 표지는 무슨 뜻입니까? (낙하(추락) 경고)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cảnh báo nguy cơ rơi ngã)",
+        "aKr": "이 표지는 '낙하(추락) 경고'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cảnh báo nguy cơ rơi ngã'.",
+        "img": "/images/vong2/sign_24.png"
+      },
+      {
+        "num": "25.",
+        "qKr": "이 표지는 무슨 뜻입니까? (미끄러운 표면 경고)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cảnh báo bề mặt trơn trượt)",
+        "aKr": "이 표지는 '미끄러운 표면 경고'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cảnh báo bề mặt trơn trượt'.",
+        "img": "/images/vong2/sign_25.png"
+      },
+      {
+        "num": "26.",
+        "qKr": "이 표지는 무슨 뜻입니까? (바닥면 장애물 경고)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cảnh báo chướng ngại vật trên sàn)",
+        "aKr": "이 표지는 '바닥면 장애물 경고'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cảnh báo chướng ngại vật trên sàn'.",
+        "img": "/images/vong2/sign_26.png"
+      },
+      {
+        "num": "27.",
+        "qKr": "이 표지는 무슨 뜻입니까? (인화물질 경고)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cảnh báo vật liệu dễ cháy)",
+        "aKr": "이 표지는 '인화물질 경고'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cảnh báo vật liệu dễ cháy'.",
+        "img": "/images/vong2/sign_27.png"
+      },
+      {
+        "num": "28.",
+        "qKr": "이 표지는 무슨 뜻입니까? (낙하물 경고)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cảnh báo vật rơi từ trên cao)",
+        "aKr": "이 표지는 '낙하물 경고'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cảnh báo vật rơi từ trên cao'.",
+        "img": "/images/vong2/sign_28.png"
+      },
+      {
+        "num": "29.",
+        "qKr": "이 표지는 무슨 뜻입니까? (일반 경고 표시)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Biển báo cảnh báo nguy hiểm chung)",
+        "aKr": "이 표지는 '일반 경고 표시'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Biển báo cảnh báo nguy hiểm chung'.",
+        "img": "/images/vong2/sign_29.png"
+      },
+      {
+        "num": "30.",
+        "qKr": "이 표지는 무슨 뜻입니까? (독성 물질 경고)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cảnh báo hóa chất độc hại)",
+        "aKr": "이 표지는 '독성 물질 경고'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cảnh báo hóa chất độc hại'.",
+        "img": "/images/vong2/sign_30.png"
+      },
+      {
+        "num": "31.",
+        "qKr": "이 표지는 무슨 뜻입니까? (방사능 물질 또는 이온화 방사선 경고)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cảnh báo vật liệu phóng xạ hoặc bức xạ ion hóa)",
+        "aKr": "이 표지는 '방사능 물질 또는 이온화 방사선 경고'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cảnh báo vật liệu phóng xạ hoặc bức xạ ion hóa'.",
+        "img": "/images/vong2/sign_31.png"
+      },
+      {
+        "num": "32.",
+        "qKr": "이 표지는 무슨 뜻입니까? (전기 경고)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cảnh báo nguy hiểm điện giật)",
+        "aKr": "이 표지는 '전기 경고'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cảnh báo nguy hiểm điện giật'.",
+        "img": "/images/vong2/sign_32.png"
+      },
+      {
+        "num": "33.",
+        "qKr": "이 표지는 무슨 뜻입니까? (뜨거운 표면 경고)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cảnh báo bề mặt nóng bỏng)",
+        "aKr": "이 표지는 '뜨거운 표면 경고'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cảnh báo bề mặt nóng bỏng'.",
+        "img": "/images/vong2/sign_33.png"
+      },
+      {
+        "num": "34.",
+        "qKr": "이 표지는 무슨 뜻입니까? (생물학적 위험 경고)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cảnh báo mối nguy hiểm sinh học)",
+        "aKr": "이 표지는 '생물학적 위험 경고'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cảnh báo mối nguy hiểm sinh học'.",
+        "img": "/images/vong2/sign_34.png"
+      },
+      {
+        "num": "35.",
+        "qKr": "이 표지는 무슨 뜻입니까? (지게차와 산업용 운반기계 경고)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cảnh báo xe nâng và máy vận chuyển công nghiệp)",
+        "aKr": "이 표지는 '지게차와 산업용 운반기계 경고'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cảnh báo xe nâng và máy vận chuyển công nghiệp'.",
+        "img": "/images/vong2/sign_35.png"
+      },
+      {
+        "num": "36.",
+        "qKr": "이 표지는 무슨 뜻입니까? (금연, 담배를 피우지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm hút thuốc lá)",
+        "aKr": "이 표지는 '금연, 담배를 피우지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm hút thuốc lá'.",
+        "img": "/images/vong2/sign_36.png"
+      },
+      {
+        "num": "37.",
+        "qKr": "이 표지는 무슨 뜻입니까? (리프트 승객용으로 사용 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm dùng thang tời tải hàng cho hành khách)",
+        "aKr": "이 표지는 '리프트 승객용으로 사용 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm dùng thang tời tải hàng cho hành khách'.",
+        "img": "/images/vong2/sign_37.png"
+      },
+      {
+        "num": "38.",
+        "qKr": "이 표지는 무슨 뜻입니까? (밀지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm xô đẩy)",
+        "aKr": "이 표지는 '밀지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm xô đẩy'.",
+        "img": "/images/vong2/sign_38.png"
+      },
+      {
+        "num": "39.",
+        "qKr": "이 표지는 무슨 뜻입니까? (기대지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm dựa người vào)",
+        "aKr": "이 표지는 '기대지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm dựa người vào'.",
+        "img": "/images/vong2/sign_39.png"
+      },
+      {
+        "num": "40.",
+        "qKr": "이 표지는 무슨 뜻입니까? (만지지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm chạm sờ tay vào)",
+        "aKr": "이 표지는 '만지지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm chạm sờ tay vào'.",
+        "img": "/images/vong2/sign_40.png"
+      },
+      {
+        "num": "41.",
+        "qKr": "이 표지는 무슨 뜻입니까? (뛰지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm chạy nhảy)",
+        "aKr": "이 표지는 '뛰지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm chạy nhảy'.",
+        "img": "/images/vong2/sign_41.png"
+      },
+      {
+        "num": "42.",
+        "qKr": "이 표지는 무슨 뜻입니까? (물로 소화하지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm dập lửa bằng nước)",
+        "aKr": "이 표지는 '물로 소화하지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm dập lửa bằng nước'.",
+        "img": "/images/vong2/sign_42.png"
+      },
+      {
+        "num": "43.",
+        "qKr": "이 표지는 무슨 뜻입니까? (사진 촬영 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm quay phim, chụp ảnh)",
+        "aKr": "이 표지는 '사진 촬영 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm quay phim, chụp ảnh'.",
+        "img": "/images/vong2/sign_43.png"
+      },
+      {
+        "num": "44.",
+        "qKr": "이 표지는 무슨 뜻입니까? (손을 넣지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm thò tay vào khe máy)",
+        "aKr": "이 표지는 '손을 넣지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm thò tay vào khe máy'.",
+        "img": "/images/vong2/sign_44.png"
+      },
+      {
+        "num": "45.",
+        "qKr": "이 표지는 무슨 뜻입니까? (로프에 매듭을 짓지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm thắt nút dây thừng)",
+        "aKr": "이 표지는 '로프에 매듭을 짓지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm thắt nút dây thừng'.",
+        "img": "/images/vong2/sign_45.png"
+      },
+      {
+        "num": "46.",
+        "qKr": "이 표지는 무슨 뜻입니까? (물을 마시지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Nước không uống được)",
+        "aKr": "이 표지는 '물을 마시지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Nước không uống được'.",
+        "img": "/images/vong2/sign_46.png"
+      },
+      {
+        "num": "47.",
+        "qKr": "이 표지는 무슨 뜻입니까? (수영 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm bơi lội)",
+        "aKr": "이 표지는 '수영 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm bơi lội'.",
+        "img": "/images/vong2/sign_47.png"
+      },
+      {
+        "num": "48.",
+        "qKr": "이 표지는 무슨 뜻입니까? (술 취한 사람 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm người say rượu vào)",
+        "aKr": "이 표지는 '술 취한 사람 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm người say rượu vào'.",
+        "img": "/images/vong2/sign_48.png"
+      },
+      {
+        "num": "49.",
+        "qKr": "이 표지는 무슨 뜻입니까? (앉지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm ngồi ở đây)",
+        "aKr": "이 표지는 '앉지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm ngồi ở đây'.",
+        "img": "/images/vong2/sign_49.png"
+      },
+      {
+        "num": "50.",
+        "qKr": "이 표지는 무슨 뜻입니까? (일반적인 금지표지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Biểu tượng cấm chung)",
+        "aKr": "이 표지는 '일반적인 금지표지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Biểu tượng cấm chung'.",
+        "img": "/images/vong2/sign_50.png"
+      },
+      {
+        "num": "51.",
+        "qKr": "이 표지는 무슨 뜻입니까? (스위치의 상태를 바꾸지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm thay đổi vị trí công tắc điện)",
+        "aKr": "이 표지는 '스위치의 상태를 바꾸지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm thay đổi vị trí công tắc điện'.",
+        "img": "/images/vong2/sign_51.png"
+      },
+      {
+        "num": "52.",
+        "qKr": "이 표지는 무슨 뜻입니까? (애견 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm mang theo thú cưng / chó mèo)",
+        "aKr": "이 표지는 '애견 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm mang theo thú cưng / chó mèo'.",
+        "img": "/images/vong2/sign_52.png"
+      },
+      {
+        "num": "53.",
+        "qKr": "이 표지는 무슨 뜻입니까? (임산부 출입 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm phụ nữ có thai vào khu vực này)",
+        "aKr": "이 표지는 '임산부 출입 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm phụ nữ có thai vào khu vực này'.",
+        "img": "/images/vong2/sign_53.png"
+      },
+      {
+        "num": "54.",
+        "qKr": "이 표지는 무슨 뜻입니까? (식음료 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm mang đồ ăn thức uống)",
+        "aKr": "이 표지는 '식음료 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm mang đồ ăn thức uống'.",
+        "img": "/images/vong2/sign_54.png"
+      },
+      {
+        "num": "55.",
+        "qKr": "이 표지는 무슨 뜻입니까? (올라가지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm leo trèo lên trên)",
+        "aKr": "이 표지는 '올라가지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm leo trèo lên trên'.",
+        "img": "/images/vong2/sign_55.png"
+      },
+      {
+        "num": "56.",
+        "qKr": "이 표지는 무슨 뜻입니까? (장갑을 착용하지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm đeo găng tay (khi thao tác máy quay))",
+        "aKr": "이 표지는 '장갑을 착용하지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm đeo găng tay (khi thao tác máy quay)'.",
+        "img": "/images/vong2/sign_56.png"
+      },
+      {
+        "num": "57.",
+        "qKr": "이 표지는 무슨 뜻입니까? (실외신발 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm đi giày dép ngoài trời vào xưởng)",
+        "aKr": "이 표지는 '실외신발 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm đi giày dép ngoài trời vào xưởng'.",
+        "img": "/images/vong2/sign_57.png"
+      },
+      {
+        "num": "58.",
+        "qKr": "이 표지는 무슨 뜻입니까? (의자를 흔들지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm lắc lư đu đưa ghế)",
+        "aKr": "이 표지는 '의자를 흔들지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm lắc lư đu đưa ghế'.",
+        "img": "/images/vong2/sign_58.png"
+      },
+      {
+        "num": "59.",
+        "qKr": "이 표지는 무슨 뜻입니까? (지게차, 산업용차량 접근 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm lại gần xe nâng và phương tiện công nghiệp)",
+        "aKr": "이 표지는 '지게차, 산업용차량 접근 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm lại gần xe nâng và phương tiện công nghiệp'.",
+        "img": "/images/vong2/sign_59.png"
+      },
+      {
+        "num": "60.",
+        "qKr": "이 표지는 무슨 뜻입니까? (착화 금지; 화재, 발화원과 발연 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm đánh lửa, cấm các nguồn sinh nhiệt và sinh khói)",
+        "aKr": "이 표지는 '착화 금지; 화재, 발화원과 발연 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm đánh lửa, cấm các nguồn sinh nhiệt và sinh khói'.",
+        "img": "/images/vong2/sign_60.png"
+      },
+      {
+        "num": "61.",
+        "qKr": "이 표지는 무슨 뜻입니까? (휴대폰 사용 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm sử dụng điện thoại di động khi làm việc)",
+        "aKr": "이 표지는 '휴대폰 사용 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm sử dụng điện thoại di động khi làm việc'.",
+        "img": "/images/vong2/sign_61.png"
+      },
+      {
+        "num": "62.",
+        "qKr": "이 표지는 무슨 뜻입니까? (토트랙을 벗어나지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm đi lệch khỏi đường ray an toàn)",
+        "aKr": "이 표지는 '토트랙을 벗어나지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm đi lệch khỏi đường ray an toàn'.",
+        "img": "/images/vong2/sign_62.png"
+      },
+      {
+        "num": "63.",
+        "qKr": "이 표지는 무슨 뜻입니까? (통행 금지)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm đi lại qua lối này)",
+        "aKr": "이 표지는 '통행 금지'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm đi lại qua lối này'.",
+        "img": "/images/vong2/sign_63.png"
+      },
+      {
+        "num": "64.",
+        "qKr": "이 표지는 무슨 뜻입니까? (휴대용 그라인더에 사용하지 마시오)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cấm sử dụng với máy mài cầm tay)",
+        "aKr": "이 표지는 '휴대용 그라인더에 사용하지 마시오'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cấm sử dụng với máy mài cầm tay'.",
+        "img": "/images/vong2/sign_64.png"
+      },
+      {
+        "num": "65.",
+        "qKr": "이 표지는 무슨 뜻입니까? (구급가방)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Túi / Hộp sơ cứu y tế cấp cứu)",
+        "aKr": "이 표지는 '구급가방'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Túi / Hộp sơ cứu y tế cấp cứu'.",
+        "img": "/images/vong2/sign_65.png"
+      },
+      {
+        "num": "66.",
+        "qKr": "이 표지는 무슨 뜻입니까? (들것)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cáng cứu thương)",
+        "aKr": "이 표지는 '들것'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cáng cứu thương'.",
+        "img": "/images/vong2/sign_66.png"
+      },
+      {
+        "num": "67.",
+        "qKr": "이 표지는 무슨 뜻입니까? (비상망치)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Búa thoát hiểm phá kính)",
+        "aKr": "이 표지는 '비상망치'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Búa thoát hiểm phá kính'.",
+        "img": "/images/vong2/sign_67.png"
       },
       {
         "num": "68.",
-        "qKr": "베트남 날씨는 지금 무슨 계절입니까?",
-        "qVi": "Thời tiết ở Việt Nam bây giờ là mùa nào?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (구명부이)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Phao cứu sinh hình tròn)",
+        "aKr": "이 표지는 '구명부이'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Phao cứu sinh hình tròn'.",
+        "img": "/images/vong2/sign_68.png"
       },
       {
         "num": "69.",
-        "qKr": "한국의 대표적인음식이 뭐예요?",
-        "qVi": "Món ăn đại diện của Hàn Quốc là gì?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (반시계방향 열림)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Mở theo chiều ngược kim đồng hồ)",
+        "aKr": "이 표지는 '반시계방향 열림'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Mở theo chiều ngược kim đồng hồ'.",
+        "img": "/images/vong2/sign_69.png"
       },
       {
         "num": "70.",
-        "qKr": "한국의 수도는 어디예요?",
-        "qVi": "Thủ đô của Hàn Quốc ở đâu?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (시계방향으로 열림)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Mở theo chiều kim đồng hồ)",
+        "aKr": "이 표지는 '시계방향으로 열림'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Mở theo chiều kim đồng hồ'.",
+        "img": "/images/vong2/sign_70.png"
       },
       {
         "num": "71.",
-        "qKr": "한국의 가장 유명한 여행지가 어디예요?",
-        "qVi": "Đâu là địa điểm du lịch nổi tiếng nhất ở Hàn Quốc?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (비상전화)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Điện thoại khẩn cấp)",
+        "aKr": "이 표지는 '비상전화'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Điện thoại khẩn cấp'.",
+        "img": "/images/vong2/sign_71.png"
       },
       {
         "num": "72.",
-        "qKr": "한국음식 중에서 어떤 음식을 가장 좋아해요?",
-        "qVi": "Bạn thích món ăn Hàn Quốc nào nhất?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (구명조끼)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Áo phao cứu sinh)",
+        "aKr": "이 표지는 '구명조끼'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Áo phao cứu sinh'.",
+        "img": "/images/vong2/sign_72.png"
       },
       {
         "num": "73.",
-        "qKr": "집에서 여기까지 어떻게 왔습니까?(왔어요?) 무엇을 타고 왔습니까? 시간이얼마나 걸립니까?",
-        "qVi": "Bạn từ nhà đến đây bằng cách nào? (Làm thế nào bạn đến được đây?) Bạn đã đi xe gì? Phải mất bao lâu?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (비상구(오))",
+        "qVi": "Biển báo này có ý nghĩa gì? (Lối thoát hiểm khẩn cấp (hướng bên phải))",
+        "aKr": "이 표지는 '비상구(오)'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Lối thoát hiểm khẩn cấp (hướng bên phải)'.",
+        "img": "/images/vong2/sign_73.png"
       },
       {
         "num": "74.",
-        "qKr": "기숙사 생활을 해본 적 있습니까?",
-        "qVi": "Bạn đã từng sống ở ký túc xá chưa?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (비상구(왼))",
+        "qVi": "Biển báo này có ý nghĩa gì? (Lối thoát hiểm khẩn cấp (hướng bên trái))",
+        "aKr": "이 표지는 '비상구(왼)'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Lối thoát hiểm khẩn cấp (hướng bên trái)'.",
+        "img": "/images/vong2/sign_74.png"
       },
       {
         "num": "75.",
-        "qKr": "아침에 몇 시에 일어납니까?",
-        "qVi": "Buổi sáng bạn thức dậy lúc mấy giờ?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (비상탈출용 호흡기)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Mặt nạ thở thoát hiểm khẩn cấp)",
+        "aKr": "이 표지는 '비상탈출용 호흡기'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Mặt nạ thở thoát hiểm khẩn cấp'.",
+        "img": "/images/vong2/sign_75.png"
       },
       {
         "num": "76.",
-        "qKr": "주말에는 보통 무엇을 합니까?",
-        "qVi": "Bạn thường làm gì vào cuối tuần?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (구조창문)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cửa sổ cứu hộ khẩn cấp)",
+        "aKr": "이 표지는 '구조창문'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cửa sổ cứu hộ khẩn cấp'.",
+        "img": "/images/vong2/sign_76.png"
       },
       {
         "num": "77.",
-        "qKr": "오늘 기분이 어떻습니까?",
-        "qVi": "Hôm nay bạn cảm thấy thế nào?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (사다리가 있는 비상 창문)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cửa sổ thoát hiểm có thang dây)",
+        "aKr": "이 표지는 '사다리가 있는 비상 창문'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cửa sổ thoát hiểm có thang dây'.",
+        "img": "/images/vong2/sign_77.png"
       },
       {
         "num": "78.",
-        "qKr": "일하면서 가장 힘든 점은 무엇입니까?",
-        "qVi": "Điều khó khăn nhất trong công việc của bạn là gì?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (산소호흡기)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Bình thở oxy cấp cứu)",
+        "aKr": "이 표지는 '산소호흡기'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Bình thở oxy cấp cứu'.",
+        "img": "/images/vong2/sign_78.png"
       },
       {
         "num": "79.",
-        "qKr": "그 상황을 해결하려고 노력했던 방법이 있습니까?",
-        "qVi": "Có cách nào bạn đã cố gắng giải quyết tình hình không?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (오른쪽 슬라이딩 도어)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cửa trượt thoát hiểm bên phải)",
+        "aKr": "이 표지는 '오른쪽 슬라이딩 도어'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cửa trượt thoát hiểm bên phải'.",
+        "img": "/images/vong2/sign_79.png"
       },
       {
         "num": "80.",
-        "qKr": "안전 교육을 받은 경험이 있습니까?",
-        "qVi": "Bạn đã bao giờ được đào tạo về an toàn chưa?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (왼쪽 슬라이딩 도어)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cửa trượt thoát hiểm bên trái)",
+        "aKr": "이 표지는 '왼쪽 슬라이딩 도어'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cửa trượt thoát hiểm bên trái'.",
+        "img": "/images/vong2/sign_80.png"
       },
       {
         "num": "81.",
-        "qKr": "소통이 잘 되지 않을 때는 어떻게 해결합니까?",
-        "qVi": "Làm thế nào để bạn giải quyết vấn đề khi giao tiếp không tốt?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (왼쪽으로 밀면 열리는 문)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cửa đẩy mở về bên trái khi thoát nạn)",
+        "aKr": "이 표지는 '왼쪽으로 밀면 열리는 문'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cửa đẩy mở về bên trái khi thoát nạn'.",
+        "img": "/images/vong2/sign_81.png"
       },
       {
         "num": "82.",
-        "qKr": "여러 나라 중 왜 한국을 선택했습니까?",
-        "qVi": "Trong số các quốc gia, tại sao bạn lại chọn Hàn Quốc?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (오른쪽으로 밀면 열리는 문)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cửa đẩy mở về bên phải khi thoát nạn)",
+        "aKr": "이 표지는 '오른쪽으로 밀면 열리는 문'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cửa đẩy mở về bên phải khi thoát nạn'.",
+        "img": "/images/vong2/sign_82.png"
       },
       {
         "num": "83.",
-        "qKr": "한국 직장에서 필요한 태도는 무엇이라 생각합니까?",
-        "qVi": "Bạn nghĩ thái độ nào là cần thiết ở nơi làm việc Hàn Quốc?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (오른쪽으로 당기면 열리는 문)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cửa kéo mở về bên phải)",
+        "aKr": "이 표지는 '오른쪽으로 당기면 열리는 문'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cửa kéo mở về bên phải'.",
+        "img": "/images/vong2/sign_83.png"
       },
       {
         "num": "84.",
-        "qKr": "지각하면 어떻게 합니까?",
-        "qVi": "Tôi phải làm gì nếu đến muộn?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (왼쪽으로 당기면 열리는 문)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cửa kéo mở về bên trái)",
+        "aKr": "이 표지는 '왼쪽으로 당기면 열리는 문'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cửa kéo mở về bên trái'.",
+        "img": "/images/vong2/sign_84.png"
       },
       {
         "num": "85.",
-        "qKr": "한국에서 어느 쪽 일을 하고 싶으세요?",
-        "qVi": "Bạn muốn làm công việc gì ở Hàn Quốc?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (식수)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Nước uống sạch sinh hoạt)",
+        "aKr": "이 표지는 '식수'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Nước uống sạch sinh hoạt'.",
+        "img": "/images/vong2/sign_85.png"
       },
       {
         "num": "86.",
-        "qKr": "이유가 뭐예요?",
-        "qVi": "Tại sao?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (응급처치)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Khu vực cấp cứu sơ cứu ban đầu)",
+        "aKr": "이 표지는 '응급처치'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Khu vực cấp cứu sơ cứu ban đầu'.",
+        "img": "/images/vong2/sign_86.png"
       },
       {
         "num": "87.",
-        "qKr": "다른 사람보다 잘 할수 있는 기술이 있습니까?",
-        "qVi": "Có kỹ năng nào bạn có thể làm tốt hơn những người khác không?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (심장박동기)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Máy khử rung tim tự động (AED))",
+        "aKr": "이 표지는 '심장박동기'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Máy khử rung tim tự động (AED)'.",
+        "img": "/images/vong2/sign_87.png"
       },
       {
         "num": "88.",
-        "qKr": "상사가 시킨 일이 마음에 들지 않으면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu bạn không thích những gì sếp yêu cầu bạn làm?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (탈출사다리)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Thang thoát hiểm khẩn cấp)",
+        "aKr": "이 표지는 '탈출사다리'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Thang thoát hiểm khẩn cấp'.",
+        "img": "/images/vong2/sign_88.png"
       },
       {
         "num": "89.",
-        "qKr": "일을 하다가 갑자기 전기가 나가면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu đột nhiên mất điện khi đang làm việc?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (방화문)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cửa chống cháy ngăn khói)",
+        "aKr": "이 표지는 '방화문'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cửa chống cháy ngăn khói'.",
+        "img": "/images/vong2/sign_89.png"
       },
       {
         "num": "90.",
-        "qKr": "동료하고 갈등이 있으면 어떻게 할 거예요?",
-        "qVi": "Bạn làm gì nếu xảy ra mâu thuẫn với đồng nghiệp?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (소화전)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Cột họng nước chữa cháy)",
+        "aKr": "이 표지는 '소화전'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Cột họng nước chữa cháy'.",
+        "img": "/images/vong2/sign_90.png"
       },
       {
         "num": "91.",
-        "qKr": "회사가 월급을 안 주면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu công ty không trả lương cho bạn?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (소방사다리)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Thang cứu hỏa chữa cháy)",
+        "aKr": "이 표지는 '소방사다리'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Thang cứu hỏa chữa cháy'.",
+        "img": "/images/vong2/sign_91.png"
       },
       {
         "num": "92.",
-        "qKr": "다른 사람들과 잘 지내는 것이 왜 중요하다고 생각하세요?",
-        "qVi": "Tại sao bạn nghĩ việc hòa hợp với những người khác là điều quan trọng?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (화재경보기)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Nút ấn chuông báo cháy khẩn cấp)",
+        "aKr": "이 표지는 '화재경보기'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Nút ấn chuông báo cháy khẩn cấp'.",
+        "img": "/images/vong2/sign_92.png"
       },
       {
         "num": "93.",
-        "qKr": "새로운 동료들과 잘 지내기 위해 어떤 노력을 할 수 있어요?",
-        "qVi": "Bạn có thể làm gì để hòa hợp với các đồng nghiệp mới?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (소방장비)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Trang thiết bị chữa cháy)",
+        "aKr": "이 표지는 '소방장비'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Trang thiết bị chữa cháy'.",
+        "img": "/images/vong2/sign_93.png"
       },
       {
         "num": "94.",
-        "qKr": "문제가 생기면 해결책을 찾기 위해 어떻게 노력하실 건가요?",
-        "qVi": "Nếu một vấn đề nảy sinh, bạn sẽ làm việc như thế nào để tìm ra giải pháp?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (화재비상전화)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Điện thoại khẩn cấp báo cháy)",
+        "aKr": "이 표지는 '화재비상전화'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Điện thoại khẩn cấp báo cháy'.",
+        "img": "/images/vong2/sign_94.png"
       },
       {
         "num": "95.",
-        "qKr": "의사소통이 왜 중요한지 설명할 수 있나요?",
-        "qVi": "Bạn có thể giải thích tại sao giao tiếp lại quan trọng không?",
-        "aKr": "",
-        "aVi": ""
+        "qKr": "이 표지는 무슨 뜻입니까? (소화기)",
+        "qVi": "Biển báo này có ý nghĩa gì? (Bình chữa cháy xách tay)",
+        "aKr": "이 표지는 '소화기'라는 뜻입니다.",
+        "aVi": "Biển báo này có nghĩa là 'Bình chữa cháy xách tay'.",
+        "img": "/images/vong2/sign_95.png"
+      }
+    ]
+  },
+  {
+    "id": "set_v2_12_antoan_truoc_khi_lam",
+    "title": "12. An toàn lao động - Trước khi làm việc (37 câu)",
+    "description": "37 câu hỏi đáp chuẩn bị bảo hộ lao động, lối thoát hiểm, biển báo, thiết bị bảo vệ máy, MSDS và không gian kín",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "보호구가 무엇인가요?",
+        "qVi": "Dụng cụ bảo hộ là gì?",
+        "aKr": "보호구는 작업자의 몸을 위험에서 보호하는 장비입니다.",
+        "aVi": "Dụng cụ bảo hộ là dụng cụ bảo vệ cơ thể người lao động khỏi nguy hiểm."
       },
       {
-        "num": "96.",
-        "qKr": "의사소통을 방해하는 요소들은 무엇이 있나요?",
-        "qVi": "Các yếu tố cản trở giao tiếp là gì?",
-        "aKr": "",
-        "aVi": ""
+        "num": "2.",
+        "qKr": "보호구에는 어떤 종류가 있나요?",
+        "qVi": "Có những loại dụng cụ bảo hộ nào?",
+        "aKr": "보호구에는 안전모, 안전화, 안전대, 보안면, 귀마개, 마스크 등이 있습니다.",
+        "aVi": "Dụng cụ bảo hộ gồm mũ, giày, dây an toàn, mặt nạ, nút tai và khẩu trang bảo hộ."
       },
       {
-        "num": "97.",
-        "qKr": "사람들 사이에서 지켜야 할 예절에 대해 잘 알고 있나요?",
-        "qVi": "Bạn có quen với những phép xã giao cần được tuân thủ giữa mọi người không?",
-        "aKr": "",
-        "aVi": ""
+        "num": "3.",
+        "qKr": "안전모는 무엇입니까?",
+        "qVi": "Mũ bảo hộ là gì?",
+        "aKr": "안전모는 머리를 보호하는 보호구입니다.",
+        "aVi": "Mũ bảo hộ là dụng cụ bảo vệ đầu."
       },
       {
-        "num": "98.",
-        "qKr": "일하면서 정해진 시간을 잘 지키시나요?",
-        "qVi": "Bạn có tuân theo giờ cố định trong khi làm việc không?",
-        "aKr": "",
-        "aVi": ""
+        "num": "4.",
+        "qKr": "안전화는 무엇입니까?",
+        "qVi": "Giày bảo hộ là gì?",
+        "aKr": "안전화는 떨어지는 물건이나 날카로운 물건으로부터 발을 보호하는 신발입니다.",
+        "aVi": "Giày bảo hộ là giày bảo vệ chân khỏi vật rơi hoặc vật sắc nhọn."
       },
       {
-        "num": "99.",
-        "qKr": "컴퓨터를 할 수 있어요?",
-        "qVi": "Bạn có thể sử dụng máy tính không?",
-        "aKr": "",
-        "aVi": ""
+        "num": "5.",
+        "qKr": "안전대는 무엇입니까?",
+        "qVi": "Dây an toàn là gì?",
+        "aKr": "안전대는 높은 곳에서 떨어지는 것을 막는 보호구입니다.",
+        "aVi": "Dây an toàn là dụng cụ giúp ngăn rơi ngã khi làm việc trên cao."
       },
       {
-        "num": "100.",
-        "qKr": "다른 부서로 옮기라고 하면 어떻게 할 거예요? / 다른 부서로 옮기게 된다면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu tôi yêu cầu bạn chuyển sang bộ phận khác? / Bạn sẽ làm gì nếu được chuyển sang bộ phận khác?",
-        "aKr": "",
-        "aVi": ""
+        "num": "6.",
+        "qKr": "보안면은 무엇입니까?",
+        "qVi": "Mặt nạ bảo hộ là gì?",
+        "aKr": "보안면은 얼굴과 눈을 보호하는 보호구입니다.",
+        "aVi": "Mặt nạ bảo hộ là dụng cụ bảo vệ mặt và mắt."
       },
       {
-        "num": "101.",
-        "qKr": "작업 중에 도구나 기계가 고장나면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu một công cụ hoặc máy móc bị hỏng trong quá trình làm việc?",
-        "aKr": "",
-        "aVi": ""
+        "num": "7.",
+        "qKr": "귀마개는 무엇입니까?",
+        "qVi": "Nút tai là gì?",
+        "aKr": "귀마개는 큰 소음으로부터 귀를 보호하는 보호구입니다.",
+        "aVi": "Nút tai là dụng cụ bảo vệ tai khỏi tiếng ồn lớn."
       },
       {
-        "num": "102.",
-        "qKr": "힘든 일을 할 수 있어요?",
-        "qVi": "Bạn có thể làm việc chăm chỉ không?",
-        "aKr": "",
-        "aVi": ""
+        "num": "8.",
+        "qKr": "방진마스크는 무엇입니까?",
+        "qVi": "Khẩu trang chống bụi là gì?",
+        "aKr": "방진마스크는 먼지로부터 입과 코를 보호하는 마스크입니다.",
+        "aVi": "Khẩu trang chống bụi là khẩu trang bảo vệ miệng và mũi khỏi bụi."
       },
       {
-        "num": "103.",
-        "qKr": "한국에서 생활하는 동안 힘든 일이 생기면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có điều gì khó khăn xảy ra khi sống ở Hàn Quốc?",
-        "aKr": "",
-        "aVi": ""
+        "num": "9.",
+        "qKr": "방독마스크는 무엇입니까?",
+        "qVi": "Khẩu trang chống độc là gì?",
+        "aKr": "방독마스크는 유해 화학물질로부터 입과 코를 보호하는 마스크입니다.",
+        "aVi": "Khẩu trang chống độc là khẩu trang bảo vệ miệng và mũi khỏi hóa chất độc hại."
       },
       {
-        "num": "104.",
-        "qKr": "근무 시간 중에 외출해야 할 경우에는 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu phải ra ngoài trong giờ làm việc?",
-        "aKr": "",
-        "aVi": ""
+        "num": "10.",
+        "qKr": "방열복은 무엇입니까?",
+        "qVi": "Quần áo chống nhiệt là gì?",
+        "aKr": "방열복은 높은 열과 불로부터 몸을 보호하는 작업복입니다.",
+        "aVi": "Quần áo chống nhiệt là đồ bảo hộ bảo vệ cơ thể khỏi nhiệt cao và lửa."
       },
       {
-        "num": "105.",
-        "qKr": "한국사람과 갈등이 생기면 어떻게 해결해야 해요?",
-        "qVi": "Nếu xảy ra mâu thuẫn với người Hàn Quốc thì tôi nên giải quyết như thế nào?",
-        "aKr": "",
-        "aVi": ""
+        "num": "11.",
+        "qKr": "방한복은 무엇입니까?",
+        "qVi": "Quần áo chống lạnh là gì?",
+        "aKr": "방한복은 추운 곳에서 몸을 따뜻하게 보호하는 작업복입니다.",
+        "aVi": "Quần áo chống lạnh là đồ bảo hộ giữ ấm cơ thể khi làm việc nơi lạnh."
       },
       {
-        "num": "106.",
-        "qKr": "한국에서 생활하는 동안 힘든 일이 생기면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có điều gì khó khăn xảy ra khi sống ở Hàn Quốc?",
-        "aKr": "",
-        "aVi": ""
+        "num": "12.",
+        "qKr": "보호구를 왜 착용하여야 할까요?",
+        "qVi": "Tại sao chúng ta phải đeo dụng cụ bảo hộ?",
+        "aKr": "보호구는 생명과 건강을 지키기 위해 반드시 착용해야 합니다.",
+        "aVi": "Cần đeo dụng cụ bảo hộ để bảo vệ tính mạng và sức khỏe."
       },
       {
-        "num": "107.",
-        "qKr": "첫 월급을 받으면 뭘 할 거예요?",
-        "qVi": "Bạn sẽ làm gì khi nhận được đồng lương đầu tiên?",
-        "aKr": "",
-        "aVi": ""
+        "num": "13.",
+        "qKr": "머리를 보호하기 위해 착용하는 보호구는 무엇인가요?",
+        "qVi": "Dụng cụ bảo hộ để bảo vệ đầu là gì?",
+        "aKr": "머리를 보호하는 보호구는 안전모입니다.",
+        "aVi": "Dụng cụ bảo vệ đầu là mũ bảo hộ."
       },
       {
-        "num": "108.",
-        "qKr": "새로운 장비를 사용할 줄 모르면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu không biết cách sử dụng thiết bị mới?",
-        "aKr": "",
-        "aVi": ""
+        "num": "14.",
+        "qKr": "높은 장소에서 작업 시 안전모 외에 착용해야 하는 보호구는 무엇인가요?",
+        "qVi": "Dụng cụ bảo hộ nào cần phải đeo khi làm việc ở nơi cao ngoài mũ bảo hộ?",
+        "aKr": "높은 곳에서는 안전모와 함께 안전대를 착용해야 합니다.",
+        "aVi": "Khi làm việc trên cao cần đội mũ bảo hộ và đeo dây an toàn."
       },
       {
-        "num": "109.",
-        "qKr": "업무를 잘 이해하지 못 했을 때 어떻게 할 거예요?",
-        "qVi": "Bạn làm gì khi không hiểu rõ công việc của mình?",
-        "aKr": "",
-        "aVi": ""
+        "num": "15.",
+        "qKr": "화학물질로부터 입과 코를 보호하기 위해 착용하는 보호구는 무엇인가요?",
+        "qVi": "Dụng cụ bảo hộ nào được đeo để bảo vệ miệng và mũi khỏi các chất hóa học?",
+        "aKr": "화학물질로부터 입과 코를 보호하는 보호구는 방독마스크입니다.",
+        "aVi": "Dụng cụ bảo vệ miệng và mũi khỏi hóa chất là khẩu trang chống độc."
       },
       {
-        "num": "110.",
-        "qKr": "기숙사 생활이 불편하면 어떻게 하겠습니까?",
-        "qVi": "Bạn sẽ làm gì nếu cuộc sống ký túc xá không thoải mái?",
-        "aKr": "",
-        "aVi": ""
+        "num": "16.",
+        "qKr": "소음이 심한 작업 환경에서 귀를 보호하기 위해 착용하는 보호구는 무엇인가요?",
+        "qVi": "Dụng cụ bảo hộ nào được đeo để bảo vệ tai khỏi tiếng ồn trong môi trường làm việc có tiếng ồn lớn?",
+        "aKr": "소음이 심한 곳에서 귀를 보호하는 보호구는 귀마개입니다.",
+        "aVi": "Dụng cụ bảo vệ tai ở nơi ồn là nút tai."
       },
       {
-        "num": "111.",
-        "qKr": "작업하다가 불이 나면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu hỏa hoạn xảy ra trong khi bạn đang làm việc?",
-        "aKr": "",
-        "aVi": ""
+        "num": "17.",
+        "qKr": "비상구가 무엇인가요?",
+        "qVi": "Cửa thoát hiểm là gì?",
+        "aKr": "비상구는 사고가 났을 때 빨리 대피하는 출입구입니다.",
+        "aVi": "Cửa thoát hiểm là lối ra để sơ tán nhanh khi có sự cố."
       },
       {
-        "num": "112.",
-        "qKr": "맡는 일이 너무 힘들면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu công việc của bạn quá khó khăn?",
-        "aKr": "",
-        "aVi": ""
+        "num": "18.",
+        "qKr": "소화기가 무엇인가요?",
+        "qVi": "Bình chữa cháy là gì?",
+        "aKr": "소화기는 불이 났을 때 불을 끄는 장비입니다.",
+        "aVi": "Bình chữa cháy là thiết bị dùng để dập lửa khi có cháy."
       },
       {
-        "num": "113.",
-        "qKr": "너무 피곤하면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu quá mệt mỏi?",
-        "aKr": "",
-        "aVi": ""
+        "num": "19.",
+        "qKr": "대피로는 무엇인가요?",
+        "qVi": "Lối thoát hiểm là gì?",
+        "aKr": "대피로는 위급할 때 안전하게 나가는 길입니다.",
+        "aVi": "Lối thoát hiểm là đường đi an toàn khi có tình huống khẩn cấp."
       },
       {
-        "num": "114.",
-        "qKr": "동료가 실수하면 어떻게 할 거예요? / 실수한 동료를 보면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu đồng nghiệp của bạn mắc lỗi? / Bạn sẽ làm gì nếu thấy đồng nghiệp mắc lỗi?",
-        "aKr": "",
-        "aVi": ""
+        "num": "20.",
+        "qKr": "소화기란 무엇이며 소화기의 색상은 어떻게 되나요?",
+        "qVi": "Bình chữa cháy là gì và màu sắc của bình chữa cháy như thế nào?",
+        "aKr": "소화기는 불을 끄는 장비이며 보통 빨간색입니다.",
+        "aVi": "Bình chữa cháy là thiết bị dập lửa và thường có màu đỏ."
       },
       {
-        "num": "115.",
-        "qKr": "동료가 어려움을 겪으면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu đồng nghiệp của bạn gặp khó khăn?",
-        "aKr": "",
-        "aVi": ""
+        "num": "21.",
+        "qKr": "비상구 등 대피로는 왜 확인해야 할까요?",
+        "qVi": "Tại sao cần phải kiểm tra lối thoát hiểm?",
+        "aKr": "비상구와 대피로를 알아야 사고 때 빨리 대피할 수 있기 때문입니다.",
+        "aVi": "Cần biết cửa và lối thoát hiểm để sơ tán nhanh khi có sự cố."
       },
       {
-        "num": "116.",
-        "qKr": "동료와 의견이 다르면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có quan điểm khác với đồng nghiệp?",
-        "aKr": "",
-        "aVi": ""
+        "num": "22.",
+        "qKr": "안전보건표지는 무엇인가요?",
+        "qVi": "Biển báo an toàn là gì?",
+        "aKr": "안전보건표지는 위험을 알리고 안전 행동을 안내하는 표지입니다.",
+        "aVi": "Biển an toàn vệ sinh lao động là biển báo nguy hiểm và hướng dẫn hành động an toàn."
       },
       {
-        "num": "117.",
-        "qKr": "누군가 규정을 어기면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu ai đó vi phạm quy tắc?",
-        "aKr": "",
-        "aVi": ""
+        "num": "23.",
+        "qKr": "안전보건표지에는 어떤 종류가 있을까요?",
+        "qVi": "Có những loại biển báo an toàn nào?",
+        "aKr": "안전보건표지에는 경고, 금지, 지시, 안내 표지가 있습니다.",
+        "aVi": "Biển an toàn gồm biển cảnh báo, biển cấm, biển chỉ dẫn và biển hướng dẫn."
       },
       {
-        "num": "118.",
-        "qKr": "직장에서 가장 중요한 것은 무엇이라고 생각합니까?",
-        "qVi": "Bạn nghĩ điều gì là quan trọng nhất trong công việc?",
-        "aKr": "",
-        "aVi": ""
+        "num": "24.",
+        "qKr": "안전보건표지를 왜 확인해야 할까요?",
+        "qVi": "Tại sao cần phải kiểm tra biển báo an toàn?",
+        "aKr": "안전보건표지를 확인하면 위험을 빠르게 알 수 있기 때문입니다.",
+        "aVi": "Cần xem biển an toàn để nhận biết nguy hiểm nhanh chóng."
+      },
+      {
+        "num": "25.",
+        "qKr": "위험장소 출입금지 등 금지표지는 무슨 색인가요?",
+        "qVi": "Biển cấm như cấm vào khu vực nguy hiểm có màu gì?",
+        "aKr": "금지표지는 빨간색 원과 사선으로 표시합니다.",
+        "aVi": "Biển cấm được ký hiệu bằng vòng tròn đỏ và đường chéo đỏ."
+      },
+      {
+        "num": "26.",
+        "qKr": "방호장치가 무엇인가요?",
+        "qVi": "Thiết bị bảo vệ là gì?",
+        "aKr": "방호장치는 기계의 위험으로부터 작업자를 보호하는 장치입니다.",
+        "aVi": "Thiết bị bảo vệ là thiết bị bảo vệ người lao động khỏi nguy hiểm từ máy móc."
+      },
+      {
+        "num": "27.",
+        "qKr": "정상 작동이 무슨 뜻인가요?",
+        "qVi": "Hoạt động bình thường có nghĩa là gì?",
+        "aKr": "정상 작동은 장치가 안전하고 정확하게 작동하는 상태입니다.",
+        "aVi": "Hoạt động bình thường là trạng thái thiết bị chạy an toàn và chính xác."
+      },
+      {
+        "num": "28.",
+        "qKr": "방호장치 정상 작동 여부를 왜 확인하여야 하나요?",
+        "qVi": "Tại sao cần phải kiểm tra xem thiết bị bảo vệ có hoạt động bình thường không?",
+        "aKr": "방호장치가 정상 작동해야 사고를 막을 수 있기 때문입니다.",
+        "aVi": "Cần kiểm tra vì thiết bị bảo vệ phải hoạt động tốt mới ngăn được tai nạn."
+      },
+      {
+        "num": "29.",
+        "qKr": "작업 전 안전점검이 무엇인가요?",
+        "qVi": "Kiểm tra an toàn trước khi làm việc là gì?",
+        "aKr": "작업 전 안전점검은 작업 전에 기계와 설비의 이상 여부를 확인하는 것입니다.",
+        "aVi": "Kiểm tra an toàn trước khi làm việc là kiểm tra máy móc, thiết bị có bất thường không."
+      },
+      {
+        "num": "30.",
+        "qKr": "화학물질이 무엇인가요?",
+        "qVi": "Hóa chất là gì?",
+        "aKr": "화학물질은 사람에게 해롭거나 폭발 위험이 있는 고체, 액체, 기체입니다.",
+        "aVi": "Hóa chất là chất rắn, lỏng hoặc khí có thể gây hại hoặc có nguy cơ cháy nổ."
+      },
+      {
+        "num": "31.",
+        "qKr": "MSDS(물질안전보건자료)가 무엇인가요?",
+        "qVi": "MSDS (dữ liệu an toàn và sức khỏe hóa chất) là gì?",
+        "aKr": "MSDS는 화학물질의 위험성과 취급 방법을 알려 주는 자료입니다.",
+        "aVi": "MSDS là tài liệu cho biết nguy hiểm và cách xử lý hóa chất."
+      },
+      {
+        "num": "32.",
+        "qKr": "화학물질을 취급할 때 어떤 보호구가 필요한가요?",
+        "qVi": "Khi xử lý hóa chất, cần sử dụng thiết bị bảo hộ nào?",
+        "aKr": "화학물질을 취급할 때는 장갑, 보호안경, 보호복 등을 착용해야 합니다.",
+        "aVi": "Khi xử lý hóa chất cần đeo găng tay, kính bảo hộ và mặc đồ bảo hộ."
+      },
+      {
+        "num": "33.",
+        "qKr": "화학물질 MSDS(물질안전보건자료)를 왜 확인해야 할까요?",
+        "qVi": "Tại sao cần phải kiểm tra MSDS - dữ liệu an toàn và sức khỏe hóa chất?",
+        "aKr": "MSDS를 확인해야 화학물질을 안전하게 취급할 수 있기 때문입니다.",
+        "aVi": "Cần xem MSDS để sử dụng hóa chất an toàn."
+      },
+      {
+        "num": "34.",
+        "qKr": "화학물질을 사용하는 작업 전에는 어떤 보호구를 준비해야 하나요?",
+        "qVi": "Trước khi sử dụng hóa chất, cần chuẩn bị thiết bị bảo hộ nào?",
+        "aKr": "작업 전에는 방독마스크와 화학물질용 보호장갑을 준비해야 합니다.",
+        "aVi": "Trước khi làm việc cần chuẩn bị khẩu trang chống độc và găng tay chống hóa chất."
+      },
+      {
+        "num": "35.",
+        "qKr": "밀폐공간이 무엇인가요?",
+        "qVi": "Không gian kín là gì?",
+        "aKr": "밀폐공간은 환기가 잘 안 되어 산소 부족이나 유해가스 위험이 있는 공간입니다.",
+        "aVi": "Không gian kín là nơi thông gió kém, có nguy cơ thiếu oxy hoặc khí độc."
+      },
+      {
+        "num": "36.",
+        "qKr": "환기가 무슨 뜻인가요?",
+        "qVi": "Thông gió có nghĩa là gì?",
+        "aKr": "환기는 오염된 공기를 깨끗한 공기로 바꾸는 것입니다.",
+        "aVi": "Thông gió là thay không khí bẩn bằng không khí sạch."
+      },
+      {
+        "num": "37.",
+        "qKr": "밀폐공간 작업 전 왜 환기를 해야 할까요?",
+        "qVi": "Tại sao cần phải thông gió trước khi làm việc trong không gian kín?",
+        "aKr": "환기하지 않으면 산소 부족이나 유해가스로 사망할 수 있기 때문입니다.",
+        "aVi": "Cần thông gió vì thiếu oxy hoặc khí độc có thể gây tử vong."
+      }
+    ]
+  },
+  {
+    "id": "set_v2_13_antoan_trong_khi_lam",
+    "title": "13. An toàn lao động - Trong khi làm việc (54 câu)",
+    "description": "54 câu hỏi đáp quy tắc an toàn máy móc, xe nâng, làm việc nhóm, nâng hạ vật nặng và cấm dùng điện thoại",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "가동이 무슨 뜻인가요?",
+        "qVi": "Vận hành có nghĩa là gì?",
+        "aKr": "가동은 기계나 설비를 실제로 작동시키는 것입니다.",
+        "aVi": "Vận hành là cho máy móc hoặc thiết bị hoạt động."
+      },
+      {
+        "num": "2.",
+        "qKr": "정비가 무슨 뜻인가요?",
+        "qVi": "Bảo trì có nghĩa là gì?",
+        "aKr": "정비는 기계를 점검하고 수리하거나 부품을 교체하는 작업입니다.",
+        "aVi": "Bảo trì là kiểm tra, sửa chữa máy hoặc thay linh kiện."
+      },
+      {
+        "num": "3.",
+        "qKr": "가동 중인 기계를 왜 정비하면 안 될까요?",
+        "qVi": "Tại sao không được bảo trì máy móc đang hoạt động?",
+        "aKr": "가동 중인 기계를 정비하면 갑자기 움직여 사고가 날 수 있기 때문입니다.",
+        "aVi": "Không được bảo trì máy đang chạy vì máy có thể bất ngờ chuyển động gây tai nạn."
+      },
+      {
+        "num": "4.",
+        "qKr": "기계가 알 수 없는 이유로 멈추면 어떻게 해야 하나요?",
+        "qVi": "Nếu máy móc dừng lại vì lý do không rõ, bạn nên làm gì?",
+        "aKr": "함부로 조작하지 말고 관리자에게 보고해야 합니다.",
+        "aVi": "Không tự ý thao tác, cần báo cho quản lý."
+      },
+      {
+        "num": "5.",
+        "qKr": "모르는 기계가 무슨 뜻인가요?",
+        "qVi": "Máy móc lạ có nghĩa là gì?",
+        "aKr": "모르는 기계는 사용법을 정확히 모르는 설비입니다.",
+        "aVi": "Máy không biết là thiết bị chưa nắm rõ cách sử dụng."
+      },
+      {
+        "num": "6.",
+        "qKr": "임의 조작이 무슨 뜻인가요?",
+        "qVi": "Thao tác tùy tiện có nghĩa là gì?",
+        "aKr": "임의 조작은 허가 없이 기계나 설비를 마음대로 조작하는 것입니다.",
+        "aVi": "Thao tác tùy tiện là tự ý điều khiển máy móc khi chưa được phép."
+      },
+      {
+        "num": "7.",
+        "qKr": "모르는 기계를 왜 임의로 조작하면 안 될까요?",
+        "qVi": "Tại sao không được thao tác tùy tiện với máy móc lạ?",
+        "aKr": "모르는 기계를 임의로 조작하면 예상 못한 사고가 날 수 있기 때문입니다.",
+        "aVi": "Không tự ý dùng máy không biết vì có thể gây tai nạn bất ngờ."
+      },
+      {
+        "num": "8.",
+        "qKr": "비상정지장치가 무엇인지 아나요?",
+        "qVi": "Bạn có biết thiết bị dừng khẩn cấp là gì không?",
+        "aKr": "비상정지장치는 위험할 때 기계를 즉시 멈추는 버튼입니다.",
+        "aVi": "Thiết bị dừng khẩn cấp là nút dùng để dừng máy ngay khi nguy hiểm."
+      },
+      {
+        "num": "9.",
+        "qKr": "안전장치·시설이 무엇인지 알고 있나요?",
+        "qVi": "Bạn có biết thiết bị và cơ sở an toàn là gì không?",
+        "aKr": "안전장치·시설은 작업자를 사고로부터 보호하는 설비입니다.",
+        "aVi": "Thiết bị/cơ sở an toàn là thiết bị bảo vệ người lao động khỏi tai nạn."
+      },
+      {
+        "num": "10.",
+        "qKr": "해체·해지가 무슨 뜻인지 알고 있나요?",
+        "qVi": "Bạn có biết tháo dỡ hoặc vô hiệu hóa có nghĩa là gì không?",
+        "aKr": "해체·해지는 장치를 분리하거나 안전기능을 멈추는 것입니다.",
+        "aVi": "Tháo dỡ/vô hiệu hóa là tháo thiết bị hoặc làm ngừng chức năng an toàn."
+      },
+      {
+        "num": "11.",
+        "qKr": "안전장치·시설을 왜 해체·해지하면 안될까요?",
+        "qVi": "Tại sao không được tháo dỡ hoặc vô hiệu hóa thiết bị và cơ sở an toàn?",
+        "aKr": "안전장치를 해체하면 사고를 막을 수 없기 때문입니다.",
+        "aVi": "Không được tháo thiết bị an toàn vì sẽ không còn ngăn được tai nạn."
+      },
+      {
+        "num": "12.",
+        "qKr": "기계의 안전장치를 해체하고 작업하면 어떤 위험이 있나요?",
+        "qVi": "Nếu tháo dỡ thiết bị an toàn của máy móc và làm việc, có những nguy hiểm nào?",
+        "aKr": "안전장치를 해체하고 작업하면 기계에 끼일 위험이 있습니다.",
+        "aVi": "Nếu tháo thiết bị an toàn khi làm việc, có nguy cơ bị kẹt vào máy."
+      },
+      {
+        "num": "13.",
+        "qKr": "지정이 무슨 뜻인지 알고 있나요?",
+        "qVi": "Bạn có biết quy định có nghĩa là gì không?",
+        "aKr": "지정은 사고 예방을 위해 사람, 물건, 장소를 정해 두는 것입니다.",
+        "aVi": "Chỉ định là quy định người, vật hoặc địa điểm để phòng tai nạn."
+      },
+      {
+        "num": "14.",
+        "qKr": "보조 도구·공구가 무엇인가요?",
+        "qVi": "Công cụ phụ trợ là gì?",
+        "aKr": "보조 도구·공구는 작업을 더 안전하게 돕는 도구입니다.",
+        "aVi": "Dụng cụ phụ trợ là dụng cụ giúp làm việc an toàn hơn."
+      },
+      {
+        "num": "15.",
+        "qKr": "작업 시 왜 지정된 보조 도구·공구를 사용해야 할까요?",
+        "qVi": "Khi làm việc, tại sao phải sử dụng công cụ phụ trợ đã được chỉ định?",
+        "aKr": "지정된 도구를 써야 파손과 사고를 막을 수 있기 때문입니다.",
+        "aVi": "Cần dùng đúng dụng cụ đã quy định để tránh hư hỏng và tai nạn."
+      },
+      {
+        "num": "16.",
+        "qKr": "기계 작업 시 보조 도구를 사용하는 이유를 알고 있나요?",
+        "qVi": "Bạn có biết lý do tại sao phải sử dụng công cụ phụ trợ khi làm việc với máy móc không?",
+        "aKr": "기계 작업 시 손 끼임 사고를 막기 위해 보조 도구를 사용합니다.",
+        "aVi": "Khi làm việc với máy cần dùng dụng cụ phụ trợ để tránh kẹt tay."
+      },
+      {
+        "num": "17.",
+        "qKr": "지게차가 무엇인가요?",
+        "qVi": "Xe nâng là gì?",
+        "aKr": "지게차는 무거운 화물이나 자재를 들어 운반하는 기계입니다.",
+        "aVi": "Xe nâng là máy dùng để nâng và vận chuyển hàng hoặc vật liệu."
+      },
+      {
+        "num": "18.",
+        "qKr": "안전벨트가 무엇인가요?",
+        "qVi": "Dây an toàn là gì?",
+        "aKr": "안전벨트는 운전자가 튕겨 나가는 것을 막는 보호장비입니다.",
+        "aVi": "Dây an toàn là thiết bị giúp người lái không bị văng ra ngoài."
+      },
+      {
+        "num": "19.",
+        "qKr": "시야 확보는 무슨 뜻일까요?",
+        "qVi": "Đảm bảo tầm nhìn có nghĩa là gì?",
+        "aKr": "시야 확보는 앞, 옆, 뒤를 잘 확인하며 운전하는 것입니다.",
+        "aVi": "Đảm bảo tầm nhìn là quan sát rõ phía trước, hai bên và phía sau khi lái."
+      },
+      {
+        "num": "20.",
+        "qKr": "지게차 운전 시 왜 안전벨트를 착용하고 시야를 확보 해야 할까요?",
+        "qVi": "Tại sao khi lái xe nâng cần đeo dây an toàn và đảm bảo tầm nhìn?",
+        "aKr": "안전벨트와 시야 확보는 운전자와 동료의 사고를 막기 때문입니다.",
+        "aVi": "Dây an toàn và tầm nhìn tốt giúp phòng tai nạn cho người lái và đồng nghiệp."
+      },
+      {
+        "num": "21.",
+        "qKr": "지게차를 운전할 수 있나요? 지게차는 누가 운전할 수 있나요?",
+        "qVi": "Bạn có thể lái xe nâng không? Ai có thể lái xe nâng?",
+        "aKr": "지게차는 자격이 있는 사람만 운전할 수 있습니다.",
+        "aVi": "Chỉ người có đủ điều kiện mới được lái xe nâng."
+      },
+      {
+        "num": "22.",
+        "qKr": "위험작업이 무엇인가요?",
+        "qVi": "Công việc nguy hiểm là gì?",
+        "aKr": "위험작업은 사고나 부상 위험이 높은 작업입니다.",
+        "aVi": "Công việc nguy hiểm là công việc có nguy cơ tai nạn hoặc chấn thương cao."
+      },
+      {
+        "num": "23.",
+        "qKr": "2인1조 작업이 무엇인가요?",
+        "qVi": "Công việc theo nhóm 2 người là gì?",
+        "aKr": "2인1조 작업은 두 사람이 함께 하며 한 사람이 서로를 확인하는 작업입니다.",
+        "aVi": "Làm việc theo nhóm 2 người là hai người cùng làm và hỗ trợ, giám sát nhau."
+      },
+      {
+        "num": "24.",
+        "qKr": "위험작업은 왜 2인1조로 해야 할까요?",
+        "qVi": "Tại sao công việc nguy hiểm phải được thực hiện theo nhóm 2 người?",
+        "aKr": "2인1조로 하면 사고 때 바로 구조하고 대응할 수 있기 때문입니다.",
+        "aVi": "Cần làm 2 người để có thể cứu hộ và xử lý ngay khi có sự cố."
+      },
+      {
+        "num": "25.",
+        "qKr": "사다리 위에서 혼자 작업할 수 있나요?",
+        "qVi": "Bạn có thể làm việc một mình trên thang không?",
+        "aKr": "사다리 작업은 혼자 하지 말고 아래에서 한 사람이 잡아줘야 합니다.",
+        "aVi": "Không nên làm việc trên thang một mình, cần có người giữ thang bên dưới."
+      },
+      {
+        "num": "26.",
+        "qKr": "중장비가 무엇인가요?",
+        "qVi": "Thiết bị nặng là gì?",
+        "aKr": "중장비는 큰 작업을 하는 크고 무거운 기계장비입니다.",
+        "aVi": "Thiết bị nặng là máy móc lớn, nặng dùng cho công việc lớn."
+      },
+      {
+        "num": "27.",
+        "qKr": "작업구역이 무엇인가요?",
+        "qVi": "Khu vực làm việc là gì?",
+        "aKr": "작업구역은 작업자가 일하거나 장비가 움직이는 위험 구역입니다.",
+        "aVi": "Khu vực làm việc là nơi người lao động làm việc hoặc máy móc hoạt động, có nguy cơ tai nạn."
+      },
+      {
+        "num": "28.",
+        "qKr": "중장비 작업구역은 왜 접근 금지 할까요?",
+        "qVi": "Tại sao khu vực làm việc của thiết bị nặng lại bị cấm tiếp cận?",
+        "aKr": "중장비 주변은 사각지대가 많아 접근하면 매우 위험하기 때문입니다.",
+        "aVi": "Không được lại gần thiết bị nặng vì có nhiều điểm mù rất nguy hiểm."
+      },
+      {
+        "num": "29.",
+        "qKr": "근처에서 중장비가 작업을 하고 있으면 어떻게 해야 하나요?",
+        "qVi": "Nếu có thiết bị nặng đang làm việc gần đó, bạn nên làm gì?",
+        "aKr": "중장비 작업구역에는 접근하지 말아야 합니다.",
+        "aVi": "Không được vào khu vực làm việc của thiết bị nặng."
+      },
+      {
+        "num": "30.",
+        "qKr": "화재가 무엇인지 알고 있나요?",
+        "qVi": "Bạn có biết hỏa hoạn là gì không?",
+        "aKr": "화재는 물질이 불에 타며 열과 빛을 내는 현상입니다.",
+        "aVi": "Cháy là hiện tượng vật liệu bắt lửa và tạo ra nhiệt, ánh sáng."
+      },
+      {
+        "num": "31.",
+        "qKr": "화기가 무엇인지 알고 있나요?",
+        "qVi": "Bạn có biết nguồn lửa là gì không?",
+        "aKr": "화기는 불꽃, 불티, 열을 낼 수 있는 기구나 장치입니다.",
+        "aVi": "Nguồn lửa là dụng cụ hoặc thiết bị có thể tạo lửa, tia lửa hoặc nhiệt."
+      },
+      {
+        "num": "32.",
+        "qKr": "화재 가능 물질 주변에서 왜 화기를 금지할까요?",
+        "qVi": "Tại sao lại cấm sử dụng lửa gần các vật liệu có khả năng cháy?",
+        "aKr": "가연성 물질 주변에서 화기를 쓰면 화재 위험이 크기 때문입니다.",
+        "aVi": "Không dùng nguồn lửa gần vật dễ cháy vì nguy cơ cháy rất cao."
+      },
+      {
+        "num": "33.",
+        "qKr": "불에 잘 타는 물건이 근처에 있으면 용접작업 전에 어떻게 해야 하나요?",
+        "qVi": "Nếu có vật dễ cháy gần đó, bạn nên làm gì trước khi thực hiện công việc hàn?",
+        "aKr": "용접 전에는 불에 잘 타는 물건을 치워야 합니다.",
+        "aVi": "Trước khi hàn cần dọn các vật dễ cháy ra xa."
+      },
+      {
+        "num": "34.",
+        "qKr": "불이 났을 때는 어떻게 해야 하나요?",
+        "qVi": "Bạn nên làm gì khi có hỏa hoạn xảy ra?",
+        "aKr": "불이 나면 소화기로 끄고, 끌 수 없으면 즉시 대피해야 합니다.",
+        "aVi": "Khi có cháy, dùng bình chữa cháy; nếu không dập được thì sơ tán ngay."
+      },
+      {
+        "num": "35.",
+        "qKr": "화학물질이 무엇인가요?",
+        "qVi": "Hóa chất là gì?",
+        "aKr": "화학물질은 사람에게 해롭거나 폭발 위험이 있는 물질입니다.",
+        "aVi": "Hóa chất là chất có thể gây hại cho người hoặc có nguy cơ cháy nổ."
+      },
+      {
+        "num": "36.",
+        "qKr": "환기장치가 무엇인가요?",
+        "qVi": "Hệ thống thông gió là gì?",
+        "aKr": "환기장치는 유해 공기를 빼고 신선한 공기를 넣는 설비입니다.",
+        "aVi": "Hệ thống thông gió là thiết bị hút khí độc ra và đưa không khí sạch vào."
+      },
+      {
+        "num": "37.",
+        "qKr": "화학물질 취급 시 왜 환기장치를 가동해야 할까요?",
+        "qVi": "Tại sao khi xử lý hóa chất phải vận hành hệ thống thông gió?",
+        "aKr": "화학물질의 유해가스를 밖으로 배출해야 건강을 지킬 수 있기 때문입니다.",
+        "aVi": "Cần chạy thông gió để đưa khí độc chất ra ngoài và bảo vệ sức khỏe."
+      },
+      {
+        "num": "38.",
+        "qKr": "화학물질을 다룰 때는 어떻게 해야 하나요?",
+        "qVi": "Khi xử lý hóa chất, bạn nên làm gì?",
+        "aKr": "화학물질을 다룰 때는 환기하고 적절한 보호구를 착용해야 합니다.",
+        "aVi": "Khi xử lý hóa chất cần thông gió và đeo thiết bị bảo hộ phù hợp."
+      },
+      {
+        "num": "39.",
+        "qKr": "통제구역이 무엇인가요?",
+        "qVi": "Khu vực kiểm soát là gì?",
+        "aKr": "통제구역은 위험해서 허가 없이 들어갈 수 없는 구역입니다.",
+        "aVi": "Khu vực kiểm soát là khu vực nguy hiểm, không được vào nếu chưa được phép."
+      },
+      {
+        "num": "40.",
+        "qKr": "허가가 무슨 뜻인가요?",
+        "qVi": "Giấy phép có nghĩa là gì?",
+        "aKr": "허가는 안전 조건을 확인한 뒤 작업을 승인하는 것입니다.",
+        "aVi": "Giấy phép là việc kiểm tra điều kiện an toàn rồi cho phép làm việc."
+      },
+      {
+        "num": "41.",
+        "qKr": "통제구역은 왜 허가 없이 출입 금지 할까요?",
+        "qVi": "Tại sao khu vực kiểm soát lại bị cấm vào khi không có giấy phép?",
+        "aKr": "통제구역은 사고 위험이 높아 허가 없이 들어가면 위험하기 때문입니다.",
+        "aVi": "Không vào khu vực kiểm soát khi chưa được phép vì nguy cơ tai nạn cao."
+      },
+      {
+        "num": "42.",
+        "qKr": "출입 금지라는 뜻을 알고 있나요?",
+        "qVi": "Bạn có biết nghĩa của \"cấm vào\" không?",
+        "aKr": "출입 금지는 위험해서 들어가면 안 된다는 뜻입니다.",
+        "aVi": "Cấm vào nghĩa là nơi nguy hiểm, không được đi vào."
+      },
+      {
+        "num": "43.",
+        "qKr": "중량물이 무엇인지 알고 있나요?",
+        "qVi": "Bạn có biết vật nặng là gì không?",
+        "aKr": "중량물은 사람이 쉽게 들거나 옮기기 어려운 무거운 물건입니다.",
+        "aVi": "Vật nặng là vật khó nâng hoặc di chuyển bằng sức người."
+      },
+      {
+        "num": "44.",
+        "qKr": "중량물 들기는 왜 허리 펴고 다리 힘을 이용해야 할까요?",
+        "qVi": "Tại sao khi nâng vật nặng phải giữ lưng thẳng và sử dụng sức mạnh của chân?",
+        "aKr": "허리 펴고 다리 힘으로 들어야 허리를 다치지 않기 때문입니다.",
+        "aVi": "Giữ lưng thẳng và dùng sức chân để nâng để tránh bị đau lưng."
+      },
+      {
+        "num": "45.",
+        "qKr": "무거운 물건은 어떻게 들어야 하나요?",
+        "qVi": "Bạn nên nâng vật nặng như thế nào?",
+        "aKr": "무거운 물건은 두 사람 이상이 들거나 장비를 사용해야 합니다.",
+        "aVi": "Vật nặng nên được nâng bởi hai người trở lên hoặc dùng thiết bị hỗ trợ."
+      },
+      {
+        "num": "46.",
+        "qKr": "운반이 무엇인가요?",
+        "qVi": "Vận chuyển là gì?",
+        "aKr": "운반은 물건을 한 장소에서 다른 장소로 옮기는 것입니다.",
+        "aVi": "Vận chuyển là đưa đồ vật từ nơi này sang nơi khác."
+      },
+      {
+        "num": "47.",
+        "qKr": "운반 기구가 무엇인가요?",
+        "qVi": "Thiết bị vận chuyển là gì?",
+        "aKr": "운반 기구는 물건을 안전하고 쉽게 옮기는 도구입니다.",
+        "aVi": "Dụng cụ vận chuyển là công cụ giúp di chuyển đồ vật an toàn và dễ hơn."
+      },
+      {
+        "num": "48.",
+        "qKr": "중량물 운반 시 왜 운반기구를 활용해야 할까요?",
+        "qVi": "Tại sao khi vận chuyển vật nặng phải sử dụng thiết bị vận chuyển?",
+        "aKr": "운반기구를 사용하면 허리 부상 위험을 줄일 수 있기 때문입니다.",
+        "aVi": "Cần dùng dụng cụ vận chuyển để giảm nguy cơ chấn thương lưng."
+      },
+      {
+        "num": "49.",
+        "qKr": "무거운 물건을 옮길 때에는 어떻게 해야 하나요?",
+        "qVi": "Khi di chuyển vật nặng, bạn nên làm gì?",
+        "aKr": "무거운 물건을 옮길 때는 운반기구를 사용해야 합니다.",
+        "aVi": "Khi di chuyển vật nặng cần dùng dụng cụ vận chuyển."
+      },
+      {
+        "num": "50.",
+        "qKr": "이동이 무엇인가요?",
+        "qVi": "Di chuyển là gì?",
+        "aKr": "이동은 한 장소에서 다른 장소로 옮겨 가는 것입니다.",
+        "aVi": "Di chuyển là đi từ nơi này sang nơi khác."
+      },
+      {
+        "num": "51.",
+        "qKr": "안전통로가 무엇인가요?",
+        "qVi": "Lối đi an toàn là gì?",
+        "aKr": "안전통로는 작업자가 안전하게 다니는 통로입니다.",
+        "aVi": "Lối đi an toàn là lối để người lao động đi lại an toàn."
+      },
+      {
+        "num": "52.",
+        "qKr": "이동 시 왜 안전통로를 이용해야 할까요?",
+        "qVi": "Tại sao khi di chuyển phải sử dụng lối đi an toàn?",
+        "aKr": "안전통로를 이용해야 장애물과 기계 위험을 피할 수 있기 때문입니다.",
+        "aVi": "Cần đi lối an toàn để tránh chướng ngại vật và nguy hiểm từ máy móc."
+      },
+      {
+        "num": "53.",
+        "qKr": "작업 중이란 무슨 뜻인가요?",
+        "qVi": "Bạn có biết \"đang làm việc\" có nghĩa là gì không?",
+        "aKr": "작업 중이란 작업자가 업무와 관련된 모든 행위를 수행하는 시간이나 상태입니다.",
+        "aVi": "Đang làm việc là trạng thái và thời gian mà người lao động thực hiện các động tác liên quan đến công việc."
+      },
+      {
+        "num": "54.",
+        "qKr": "작업 중 왜 휴대폰을 사용하면 안 될까요?",
+        "qVi": "Tại sao khi đang làm việc lại không được sử dụng điện thoại di động?",
+        "aKr": "작업 중 휴대폰을 쓰면 집중력이 떨어져 사고 위험이 높아지기 때문입니다.",
+        "aVi": "Không dùng điện thoại khi làm việc vì mất tập trung dẫn đến nguy cơ tai nạn cao."
+      }
+    ]
+  },
+  {
+    "id": "set_v2_14_antoan_sau_khi_lam_va_su_co",
+    "title": "14. An toàn lao động - Sau khi làm & Khẩn cấp (34 câu)",
+    "description": "34 câu hỏi đáp dọn dẹp vệ sinh, ngắt điện, kiểm tra tàn lửa và quy trình ứng phó hỏa hoạn, tai nạn",
+    "createdAt": "2026-10-18T07:31:25.816Z",
+    "updatedAt": "2026-10-18T07:31:25.816Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "정리정돈이 무슨 뜻인가요?",
+        "qVi": "Bạn có biết \"sắp xếp\" có nghĩa là gì không?",
+        "aKr": "정리정돈은 물건을 제자리에 두고 주변을 깨끗하게 하는 것입니다.",
+        "aVi": "Sắp xếp gọn gàng là để đồ đúng chỗ và giữ nơi làm việc sạch sẽ."
+      },
+      {
+        "num": "2.",
+        "qKr": "청소가 무슨 뜻인가요?",
+        "qVi": "Bạn có biết \"dọn dẹp\" có nghĩa là gì không?",
+        "aKr": "청소는 먼지, 쓰레기, 기름 등을 치우는 것입니다.",
+        "aVi": "Dọn dẹp là loại bỏ bụi, rác, dầu mỡ và chất bẩn."
+      },
+      {
+        "num": "3.",
+        "qKr": "작업장에서 정리정돈 및 청소 왜 해야 할까요?",
+        "qVi": "Tại sao phải sắp xếp và dọn dẹp tại nơi làm việc?",
+        "aKr": "정리정돈과 청소를 해야 넘어짐과 미끄러짐 사고를 막을 수 있기 때문입니다.",
+        "aVi": "Cần sắp xếp và dọn dẹp để tránh vấp ngã, trượt ngã."
+      },
+      {
+        "num": "4.",
+        "qKr": "공구가 무엇인가요?",
+        "qVi": "Công cụ là gì?",
+        "aKr": "공구는 작업을 쉽고 정확하게 돕는 도구입니다.",
+        "aVi": "Công cụ là dụng cụ giúp làm việc dễ và chính xác hơn."
+      },
+      {
+        "num": "5.",
+        "qKr": "지정된 자리가 무슨 뜻인가요?",
+        "qVi": "Vị trí đã định có nghĩa là gì?",
+        "aKr": "지정된 자리는 물건을 두도록 미리 정해 놓은 위치입니다.",
+        "aVi": "Vị trí quy định là nơi đã được định sẵn để đặt đồ."
+      },
+      {
+        "num": "6.",
+        "qKr": "공구를 왜 지정된 자리에 두어야 할까요?",
+        "qVi": "Tại sao phải đặt công cụ vào vị trí đã định?",
+        "aKr": "공구를 제자리에 두어야 분실, 파손, 사고를 막을 수 있기 때문입니다.",
+        "aVi": "Cần để công cụ đúng chỗ để tránh mất, hỏng và tai nạn."
+      },
+      {
+        "num": "7.",
+        "qKr": "위생관리가 무엇인가요?",
+        "qVi": "Quản lý vệ sinh là gì?",
+        "aKr": "위생관리는 몸과 작업환경을 깨끗하게 유지하는 관리입니다.",
+        "aVi": "Quản lý vệ sinh là giữ cơ thể và môi trường làm việc sạch sẽ."
+      },
+      {
+        "num": "8.",
+        "qKr": "손 씻기 등 위생관리를 왜 해야 할까요?",
+        "qVi": "Tại sao phải thực hiện quản lý vệ sinh như rửa tay?",
+        "aKr": "손을 씻어야 이물질과 화학물질이 몸에 들어가는 것을 막을 수 있기 때문입니다.",
+        "aVi": "Cần rửa tay để ngăn bụi bẩn và hóa chất đi vào cơ thể."
+      },
+      {
+        "num": "9.",
+        "qKr": "작업 후 밥 먹기 전에 무엇을 해야 하나요?",
+        "qVi": "Bạn nên làm gì trước khi ăn sau khi làm việc?",
+        "aKr": "밥 먹기 전에는 손을 깨끗이 씻어야 합니다.",
+        "aVi": "Trước khi ăn cần rửa tay sạch sẽ."
+      },
+      {
+        "num": "10.",
+        "qKr": "청소·수리 작업이 무엇인가요?",
+        "qVi": "Công việc dọn dẹp hoặc sửa chữa là gì?",
+        "aKr": "청소·수리 작업은 기계를 청소하거나 고장 난 부분을 고치는 작업입니다.",
+        "aVi": "Công việc vệ sinh/sửa chữa là làm sạch máy hoặc sửa phần bị hỏng."
+      },
+      {
+        "num": "11.",
+        "qKr": "전원 차단이 무슨 뜻인가요?",
+        "qVi": "Bạn có biết \"tắt nguồn\" có nghĩa là gì không?",
+        "aKr": "전원 차단은 기계의 전기를 끊는 것입니다.",
+        "aVi": "Ngắt nguồn điện là cắt hoàn toàn điện của máy."
+      },
+      {
+        "num": "12.",
+        "qKr": "청소·수리 작업 시 왜 기계 전원을 차단해야 할까요?",
+        "qVi": "Tại sao khi làm việc dọn dẹp hoặc sửa chữa phải tắt nguồn máy?",
+        "aKr": "기계가 갑자기 작동하는 것을 막기 위해서입니다.",
+        "aVi": "Để ngăn máy bất ngờ hoạt động."
+      },
+      {
+        "num": "13.",
+        "qKr": "기계의 청소·수리 작업 전에는 무엇을 해야 하나요?",
+        "qVi": "Bạn nên làm gì trước khi thực hiện công việc dọn dẹp hoặc sửa chữa máy móc?",
+        "aKr": "청소·수리 전에는 기계 전원을 차단해야 합니다.",
+        "aVi": "Trước khi vệ sinh hoặc sửa chữa cần ngắt nguồn điện của máy."
+      },
+      {
+        "num": "14.",
+        "qKr": "화기 취급이 무엇인가요?",
+        "qVi": "Bạn có biết \"xử lý nguồn lửa\" có nghĩa là gì không?",
+        "aKr": "화기 취급은 불을 사용하거나 다루는 것입니다.",
+        "aVi": "Xử lý/sử dụng nguồn lửa là việc sử dụng hoặc thao tác với lửa."
+      },
+      {
+        "num": "15.",
+        "qKr": "불씨·불티가 무엇인가요?",
+        "qVi": "Bạn có biết \"tàn lửa và tia lửa\" có nghĩa là gì không?",
+        "aKr": "불씨·불티는 불이 붙을 수 있는 작은 불꽃입니다.",
+        "aVi": "Tàn lửa, tia lửa là những đốm lửa nhỏ có thể gây cháy."
+      },
+      {
+        "num": "16.",
+        "qKr": "화기 취급 시 왜 불씨·불티를 확인해야 할까요?",
+        "qVi": "Tại sao khi xử lý nguồn lửa phải kiểm tra tàn lửa và tia lửa?",
+        "aKr": "불씨·불티가 남아 있으면 나중에 화재가 날 수 있기 때문입니다.",
+        "aVi": "Cần kiểm tra vì tàn lửa, tia lửa còn sót lại có thể gây cháy sau đó."
+      },
+      {
+        "num": "17.",
+        "qKr": "소화기를 사용할 줄 아나요? 소화기 사용 시 제일 먼저 해야 하는 것은?",
+        "qVi": "Bạn có biết cách sử dụng bình chữa cháy không? Khi sử dụng bình chữa cháy, điều đầu tiên phải làm là gì?",
+        "aKr": "네, 사용할 줄 압니다. 소화기 사용 시 제일 먼저 해야 하는 것은 안전핀을 뽑는 것입니다.",
+        "aVi": "Vâng, tôi biết cách sử dụng. Khi sử dụng bình chữa cháy, điều đầu tiên phải làm là rút chốt an toàn."
+      },
+      {
+        "num": "18.",
+        "qKr": "화재가 무엇인가요?",
+        "qVi": "Bạn có biết \"cháy\" có nghĩa là gì không?",
+        "aKr": "화재는 물질이 불에 타며 열과 빛을 내는 현상입니다.",
+        "aVi": "Cháy là hiện tượng vật liệu bắt lửa và tạo ra nhiệt, ánh sáng."
+      },
+      {
+        "num": "19.",
+        "qKr": "대피가 무엇인가요?",
+        "qVi": "Bạn có biết \"sơ tán\" có nghĩa là gì không?",
+        "aKr": "대피는 위험할 때 안전한 곳으로 빨리 이동하는 것입니다.",
+        "aVi": "Sơ tán là nhanh chóng di chuyển đến nơi an toàn khi có nguy hiểm."
+      },
+      {
+        "num": "20.",
+        "qKr": "화재 시 왜 대피가 우선일까요?",
+        "qVi": "Bạn có biết tại sao khi có cháy, ưu tiên là sơ tán không?",
+        "aKr": "화재 때는 사람의 생명이 재산보다 중요하기 때문입니다.",
+        "aVi": "Khi có cháy, tính mạng con người quan trọng hơn tài sản."
+      },
+      {
+        "num": "21.",
+        "qKr": "119 전화번호를 알고 있나요?",
+        "qVi": "Bạn có biết số điện thoại 119 không?",
+        "aKr": "119는 한국에서 화재나 응급상황 때 신고하는 전화번호입니다.",
+        "aVi": "119 là số điện thoại báo cháy hoặc cấp cứu ở Hàn Quốc."
+      },
+      {
+        "num": "22.",
+        "qKr": "모르는 작업이 무슨 뜻인가요?",
+        "qVi": "Bạn có biết \"công việc không biết\" có nghĩa là gì không?",
+        "aKr": "모르는 작업은 방법을 정확히 모르고 하는 작업입니다.",
+        "aVi": "Công việc không biết là công việc mình chưa nắm rõ cách làm."
+      },
+      {
+        "num": "23.",
+        "qKr": "물어보기가 무슨 뜻인가요?",
+        "qVi": "Hỏi là có nghĩa là gì không?",
+        "aKr": "물어보기는 모르는 것을 다른 사람에게 질문하는 것입니다.",
+        "aVi": "Hỏi là đặt câu hỏi cho người khác về điều mình chưa biết."
+      },
+      {
+        "num": "24.",
+        "qKr": "모르는 작업은 왜 물어봐야 할까요?",
+        "qVi": "Bạn có biết tại sao cần phải hỏi về công việc không biết không?",
+        "aKr": "모르는 작업은 자신과 동료의 안전을 위해 반드시 물어봐야 합니다.",
+        "aVi": "Cần hỏi khi không biết để bảo vệ an toàn cho mình và đồng nghiệp."
+      },
+      {
+        "num": "25.",
+        "qKr": "사고 위험이 무엇인가요?",
+        "qVi": "Bạn có biết \"nguy cơ tai nạn\" có nghĩa là gì không?",
+        "aKr": "사고 위험은 작업 중 다치거나 피해가 생길 수 있는 위험요인입니다.",
+        "aVi": "Nguy cơ tai nạn là yếu tố có thể gây thương tích hoặc thiệt hại khi làm việc."
+      },
+      {
+        "num": "26.",
+        "qKr": "발견이 무슨 뜻인가요?",
+        "qVi": "Bạn có biết \"phát hiện\" có nghĩa là gì không?",
+        "aKr": "발견은 보이지 않던 위험이나 이상을 찾아내는 것입니다.",
+        "aVi": "Phát hiện là nhận ra hoặc tìm ra nguy hiểm, bất thường chưa thấy trước đó."
+      },
+      {
+        "num": "27.",
+        "qKr": "사고위험 발견 시 왜 알려줘야 할까요?",
+        "qVi": "Bạn có biết tại sao khi phát hiện nguy cơ tai nạn phải thông báo không?",
+        "aKr": "사고위험을 알려야 다른 사람의 사고를 막을 수 있기 때문입니다.",
+        "aVi": "Cần báo nguy cơ tai nạn để ngăn tai nạn cho người khác."
+      },
+      {
+        "num": "28.",
+        "qKr": "폭염이 무엇인가요?",
+        "qVi": "Bạn có biết \"nắng nóng\" có nghĩa là gì không?",
+        "aKr": "폭염은 최고기온이 33도 이상인 날이 2일 이상 계속되는 현상입니다.",
+        "aVi": "Nắng nóng là hiện tượng nhiệt độ cao nhất từ 33 độ trở lên kéo dài trong 2 ngày trở lên."
+      },
+      {
+        "num": "29.",
+        "qKr": "폭염 시 왜 물, 그늘, 휴식을 해야 할까요?",
+        "qVi": "Bạn có biết tại sao khi có nắng nóng phải uống nước, nghỉ ngơi và tìm bóng râm không?",
+        "aKr": "폭염 때는 체온 상승과 탈수를 막기 위해 물, 그늘, 휴식이 필요합니다.",
+        "aVi": "Khi nắng nóng cần nước, bóng râm và nghỉ ngơi để tránh tăng nhiệt và mất nước."
+      },
+      {
+        "num": "30.",
+        "qKr": "날씨가 너무 더우면 어떻게 해야 하나요?",
+        "qVi": "Bạn nên làm gì khi thời tiết quá nóng?",
+        "aKr": "날씨가 너무 더우면 물을 자주 마시고 그늘에서 쉬어야 합니다.",
+        "aVi": "Khi trời quá nóng cần uống nước thường xuyên và nghỉ trong bóng râm."
+      },
+      {
+        "num": "31.",
+        "qKr": "작업 중지가 무엇인가요?",
+        "qVi": "Bạn có biết \"dừng công việc\" có nghĩa là gì không?",
+        "aKr": "작업 중지는 위험할 때 즉시 일을 멈추는 것입니다.",
+        "aVi": "Dừng công việc là ngừng làm việc ngay khi có nguy hiểm."
+      },
+      {
+        "num": "32.",
+        "qKr": "대피가 무슨 뜻인가요?",
+        "qVi": "Bạn có biết \"sơ tán\" có nghĩa là gì không?",
+        "aKr": "대피는 위험한 상황에서 안전한 곳으로 빨리 이동하는 것입니다.",
+        "aVi": "Sơ tán là nhanh chóng di chuyển đến nơi an toàn khi gặp nguy hiểm."
+      },
+      {
+        "num": "33.",
+        "qKr": "사고 위험 시 왜 작업을 중지하고 대피해야 할까요?",
+        "qVi": "Bạn có biết tại sao khi có nguy cơ tai nạn phải dừng công việc và sơ tán không?",
+        "aKr": "사람의 생명이 기계나 설비보다 중요하기 때문입니다.",
+        "aVi": "Vì tính mạng con người quan trọng hơn máy móc và thiết bị."
+      },
+      {
+        "num": "34.",
+        "qKr": "사고의 위험이 있으면 어떻게 해야 하나요?",
+        "qVi": "Bạn nên làm gì khi có nguy cơ tai nạn?",
+        "aKr": "사고 위험이 있으면 작업을 멈추고 안전한 곳으로 대피해야 합니다.",
+        "aVi": "Nếu có nguy cơ tai nạn, cần dừng công việc và sơ tán đến nơi an toàn."
       }
     ]
   }

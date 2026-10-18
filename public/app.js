@@ -117,6 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // DOM Elements - Stage
   const displayQuestionKr = document.getElementById('displayQuestionKr');
   const displayQuestionVi = document.getElementById('displayQuestionVi');
+  const questionImageBox = document.getElementById('questionImageBox');
+  const displayQuestionImage = document.getElementById('displayQuestionImage');
   const answerBoxContainer = document.getElementById('answerBoxContainer');
   const displayAnswerKr = document.getElementById('displayAnswerKr');
   const displayAnswerVi = document.getElementById('displayAnswerVi');
@@ -1093,6 +1095,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Update Center Stage Info
   function updateStageDisplay() {
     if (questions.length === 0) {
+      if (questionImageBox) questionImageBox.style.display = 'none';
+      if (displayQuestionImage) displayQuestionImage.src = '';
       displayQuestionKr.textContent = "Chưa có câu hỏi nào";
       displayQuestionVi.textContent = "Bấm Chức năng để nhập câu hỏi";
       displayAnswerKr.textContent = "";
@@ -1102,6 +1106,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const item = questions[currentIndex];
+    if (questionImageBox && displayQuestionImage) {
+      if (item && item.img) {
+        displayQuestionImage.src = item.img;
+        questionImageBox.style.display = 'flex';
+      } else {
+        displayQuestionImage.src = '';
+        questionImageBox.style.display = 'none';
+      }
+    }
+
     displayQuestionKr.textContent = `${item.num ? item.num + ' ' : ''}${item.qKr}`;
     displayQuestionVi.textContent = item.qVi || "—";
 
@@ -1178,9 +1192,15 @@ document.addEventListener('DOMContentLoaded', () => {
     questions.forEach((item, index) => {
       const row = document.createElement('div');
       row.className = `question-row ${index === currentIndex ? 'active' : ''}`;
+      
+      const hasImg = Boolean(item.img);
+      const iconHtml = hasImg 
+        ? `<img src="${item.img}" class="row-thumb-img" alt="Ảnh minh họa" loading="lazy" />` 
+        : (index === currentIndex ? '<span class="row-icon-speaker">🔊</span>' : '<span class="row-icon-question">❓</span>');
+
       row.innerHTML = `
         <div class="row-icon-col">
-          ${index === currentIndex ? '<span class="row-icon-speaker">🔊</span>' : '<span class="row-icon-question">❓</span>'}
+          ${iconHtml}
         </div>
         <div class="row-text">
           <span class="row-num">${escapeHtml(item.num || (index + 1) + '.')}</span>
@@ -2013,12 +2033,14 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    const existingImg = (!isAddingNewQuestion && questions[editingQuestionIndex]?.img) ? questions[editingQuestionIndex].img : undefined;
     const item = {
       num: editQuestionNum.value.trim() || `${editingQuestionIndex + 1}.`,
       qKr: qKr,
       qVi: editQuestionVi.value.trim(),
       aKr: editAnswerKr.value.trim(),
-      aVi: editAnswerVi.value.trim()
+      aVi: editAnswerVi.value.trim(),
+      ...(existingImg ? { img: existingImg } : {})
     };
 
     if (isAddingNewQuestion) {

@@ -335,6 +335,45 @@ body.dark-theme {
   max-width: 860px;
 }
 
+/* Question Illustration Image (Dụng cụ & Biển báo) */
+.question-image-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  max-width: 200px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question-image-box:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+}
+
+#displayQuestionImage {
+  max-width: 100%;
+  max-height: 150px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+}
+
+.row-thumb-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .current-question-kr {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: var(--kr-font-size, 28px);
