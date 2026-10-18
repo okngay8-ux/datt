@@ -342,7 +342,7 @@ app.post('/api/tts-qa-playlist', async (req, res) => {
     res.set({
       'Content-Type': 'audio/mpeg',
       'Content-Length': fullBuffer.length,
-      'Content-Disposition': 'inline; filename="epstopik_full_lesson.mp3"',
+      'Content-Disposition': 'inline; filename="korean_full_lesson.mp3"',
       'Cache-Control': 'no-cache'
     });
 
@@ -432,7 +432,7 @@ app.listen(PORT, '0.0.0.0', () => {
   const phoneUrl = `http://${primary.ip}:${PORT}`;
 
   console.log(`=======================================================`);
-  console.log(`🚀 Korean Voice Studio & EPS-TOPIK Player đã khởi động!`);
+  console.log(`🚀 Korean Voice Studio & Luyện Tiếng Hàn đã khởi động!`);
   console.log(`💻 Dùng trên máy tính  : http://localhost:${PORT}`);
   console.log(`📱 Dùng trên điện thoại : ${phoneUrl} (Cùng Wi-Fi)`);
   console.log(`=======================================================`);

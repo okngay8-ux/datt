@@ -5,21 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="EPS-TOPIK Hàn Quốc">
+  <meta name="apple-mobile-web-app-title" content="Luyện Tiếng Hàn">
   <meta name="theme-color" content="#161920">
-  <title>Luyện Nghe Nói EPS-TOPIK • Korean Voice Studio</title>
+  <title>Luyện Nghe Nói Tiếng Hàn • Korean Voice Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-theme">
-  <!-- Watermark background like the reference image -->
-  <div class="watermark-overlay" aria-hidden="true">
-    <span class="watermark-text w1">epstopikvn.com</span>
-    <span class="watermark-text w2">epstopikvn.com</span>
-    <span class="watermark-text w3">.com</span>
-  </div>
 
   <div class="app-layout">
     <!-- Top Header -->
@@ -36,12 +30,12 @@
           </svg>
         </div>
         <div class="header-brand">
-          <span class="brand-title">EPS-TOPIK 실전 훈련</span>
+          <span class="brand-title">한국어 회화 실전 훈련</span>
           <span class="brand-sub">Korean Voice Studio</span>
         </div>
       </div>
 
-      <!-- Center Set Selector & Quick Save -->
+      <!-- Center Set Selector & Exam Timer -->
       <div class="header-center">
         <div class="set-picker-box" title="Chọn bộ câu hỏi để học">
           <span class="set-picker-label">📁 Bộ câu:</span>
@@ -49,6 +43,15 @@
             <!-- Populated dynamically via JS -->
           </select>
         </div>
+
+        <!-- Đồng hồ tính thời gian luyện bộ đề -->
+        <div class="exam-timer-box" id="examTimerBox" title="Thời gian luyện bộ đề">
+          <span class="timer-icon">⏱️</span>
+          <span class="timer-digits" id="examTimerText">00:00</span>
+          <button type="button" class="btn-timer-icon" id="btnToggleTimer" title="Tạm dừng / Tiếp tục tính giờ">⏸</button>
+          <button type="button" class="btn-timer-icon" id="btnResetTimer" title="Đặt lại thời gian (00:00)">🔄</button>
+        </div>
+
         <button type="button" class="btn-header-save" id="btnQuickSaveSet" title="Lưu danh sách câu hỏi hiện tại">
           <svg class="icon-save" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
@@ -78,7 +81,7 @@
           <span>Chức năng / Soạn câu</span>
         </button>
 
-        <div class="user-avatar" title="Học viên EPS-TOPIK">
+        <div class="user-avatar" title="Học viên tiếng Hàn">
           <span class="avatar-badge">🐶</span>
         </div>
       </div>
@@ -114,6 +117,28 @@
             <span class="ans-vi" id="displayAnswerVi">
               Vật nặng là vật khó nâng hoặc di chuyển bằng sức người.
             </span>
+          </div>
+        </div>
+
+        <!-- Cụm tính năng Luyện Thi: Xem đáp án & Nhấn nút sang câu -->
+        <div class="exam-action-bar" id="examActionBar">
+          <div class="exam-mode-pills">
+            <button type="button" class="mode-pill active" id="btnModeExam" title="Chế độ Luyện Thi: Đọc câu hỏi ➔ chờ bạn trả lời ➔ bấm nút để xem đáp án và sang câu tiếp">
+              🎯 Luyện thi (Nhấn nút)
+            </button>
+            <button type="button" class="mode-pill" id="btnModeAuto" title="Chế độ Tự Động: Tự chạy hết độ trễ rồi tự sang câu kế tiếp">
+              ⚡ Tự động (Auto)
+            </button>
+          </div>
+
+          <div class="exam-btn-group" id="examBtnGroup">
+            <button type="button" class="btn-exam-action btn-show-answer" id="btnExamShowAnswer" title="Bấm để xem và nghe phát âm câu trả lời chuẩn">
+              👁️ Xem & Nghe đáp án
+            </button>
+            <button type="button" class="btn-exam-action btn-exam-next" id="btnExamNext" title="Trả lời xong ➔ Bấm để sang câu tiếp theo (Phím Space)">
+              <span>Câu tiếp theo ➔</span>
+              <kbd class="kbd-tag">Space</kbd>
+            </button>
           </div>
         </div>
 
@@ -172,7 +197,7 @@
           </button>
 
           <!-- Random Shuffle Mode -->
-          <button type="button" class="btn-ctrl" id="btnShuffle" title="Trộn ngẫu nhiên câu hỏi (Random Shuffle)">
+          <button type="button" class="btn-ctrl" id="btnShuffle" title="Trộn ngẫu nhiên câu hỏi (Vẫn giữ số câu gốc)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <polyline points="16 3 21 3 21 8"></polyline>
               <line x1="4" y1="20" x2="21" y2="3"></line>
@@ -180,6 +205,11 @@
               <line x1="15" y1="15" x2="21" y2="21"></line>
               <line x1="4" y1="4" x2="9" y2="9"></line>
             </svg>
+          </button>
+
+          <!-- Về đúng thứ tự câu ban đầu -->
+          <button type="button" class="btn-ctrl btn-restore-order" id="btnRestoreOrder" title="Khôi phục về đúng thứ tự câu ban đầu (1, 2, 3...)">
+            <span class="ctrl-icon-num">123</span>
           </button>
 
           <!-- Delay / Độ trễ giữa các câu -->
@@ -243,7 +273,7 @@
         <span>Từ điển</span>
       </button>
 
-      <div class="pill-assistant" title="Trợ lý luyện thi EPS-TOPIK">
+      <div class="pill-assistant" title="Trợ lý phát âm tiếng Hàn">
         <span class="vivi-badge">Trợ lý Vivi</span>
         <div class="vivi-avatar">👩‍🏫</div>
       </div>
@@ -307,7 +337,7 @@
 
           <div class="modal-action-row">
             <button type="button" class="btn-secondary" id="btnLoadDefaultSample">
-              🎯 Tải mẫu 10 câu EPS-TOPIK trong ảnh
+              🎯 Tải 10 câu hỏi mẫu thực hành
             </button>
             <button type="button" class="btn-primary" id="btnApplyBulk">
               🚀 Áp dụng danh sách câu
@@ -463,6 +493,43 @@
 
       <div class="modal-footer">
         <button type="button" class="btn-secondary" id="btnClosePhoneModalBottom">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Tổng kết hoàn thành bộ câu hỏi / luyện đề -->
+  <div class="modal-backdrop" id="examResultModal" style="display: none;">
+    <div class="modal-card result-modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span style="font-size: 1.3rem;">🏆</span>
+          <h3>Hoàn thành Bộ câu hỏi!</h3>
+        </div>
+        <button type="button" class="btn-close-modal" id="btnCloseResultModal">&times;</button>
+      </div>
+      <div class="modal-body result-modal-body">
+        <div class="result-celebration">🎉</div>
+        <h4 class="result-heading" id="resultHeading">Xuất sắc! Bạn đã luyện xong toàn bộ câu hỏi!</h4>
+        
+        <div class="result-stats-grid">
+          <div class="stat-card">
+            <span class="stat-label">⏱️ Tổng thời gian:</span>
+            <span class="stat-value" id="resultTotalTime">00:00</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">📝 Số câu hoàn thành:</span>
+            <span class="stat-value" id="resultTotalQuestions">0 câu</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">⚡ Tốc độ trung bình:</span>
+            <span class="stat-value" id="resultAvgSpeed">0s / câu</span>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button type="button" class="btn-primary" id="btnRestartExam">🔄 Luyện lại từ đầu</button>
+          <button type="button" class="btn-secondary" id="btnShuffleAndRestart">🔀 Trộn ngẫu nhiên & Luyện lại</button>
+        </div>
       </div>
     </div>
   </div>

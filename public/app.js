@@ -1,7 +1,7 @@
-// EPS-TOPIK & Korean Voice Studio Interactive Player
+// Korean Voice Studio Interactive Player
 
-// Bộ dữ liệu 10 câu mẫu đúng chuẩn hình ảnh tham khảo (Câu 79 - 88)
-const DEFAULT_EPSTOPIK_QUESTIONS = [
+// Bộ dữ liệu 10 câu mẫu đúng chuẩn (Câu 79 - 88)
+const DEFAULT_KOREAN_QUESTIONS = [
   {
     num: "79.",
     qKr: "중량물이 무엇인지 알고 있나요?",
@@ -77,8 +77,9 @@ const DEFAULT_EPSTOPIK_QUESTIONS = [
 document.addEventListener('DOMContentLoaded', () => {
   // Application State
   let savedSets = [];
-  let activeSetId = localStorage.getItem('epstopik_active_set_id') || 'set_heavy_79_88';
-  let questions = JSON.parse(localStorage.getItem('epstopik_questions') || 'null') || [...DEFAULT_EPSTOPIK_QUESTIONS];
+  let activeSetId = localStorage.getItem('korean_active_set_id') || localStorage.getItem('epstopik_active_set_id') || 'set_heavy_79_88';
+  let questions = JSON.parse(localStorage.getItem('korean_questions') || localStorage.getItem('epstopik_questions') || 'null') || [...DEFAULT_KOREAN_QUESTIONS];
+  let originalQuestions = JSON.parse(JSON.stringify(questions)); // Lưu đúng thứ tự gốc
   let currentIndex = 0;
   let isPlaying = false;
   let repeatMode = 'all'; // '1' (lặp 1 câu), 'all' (lặp toàn bộ), 'off' (dừng khi hết)
@@ -87,6 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let isAscending = true;
   let currentVoice = 'ko-KR-SunHiNeural';
   let currentSpeed = 1.0;
+
+  // Chế độ luyện thi & đếm giờ
+  let examMode = 'manual'; // 'manual' (bấm nút khi trả lời xong) hoặc 'auto' (tự động theo độ trễ)
+  let isAnswerRevealed = false;
+  let examTimerSeconds = 0;
+  let examTimerInterval = null;
+  let isExamTimerRunning = false;
 
   // Audio Playback Engine & Timer Tracking
   const audio = new Audio();
@@ -109,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // DOM Elements - Stage
   const displayQuestionKr = document.getElementById('displayQuestionKr');
   const displayQuestionVi = document.getElementById('displayQuestionVi');
+  const answerBoxContainer = document.getElementById('answerBoxContainer');
   const displayAnswerKr = document.getElementById('displayAnswerKr');
   const displayAnswerVi = document.getElementById('displayAnswerVi');
   const statusPill = document.getElementById('statusPill');
@@ -191,10 +200,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const chkAutoTranslateMissing = document.getElementById('chkAutoTranslateMissing');
   const chkSpeakAnswerToo = document.getElementById('chkSpeakAnswerToo');
 
+  // Exam Timer DOM
+  const examTimerBox = document.getElementById('examTimerBox');
+  const examTimerText = document.getElementById('examTimerText');
+  const btnToggleTimer = document.getElementById('btnToggleTimer');
+  const btnResetTimer = document.getElementById('btnResetTimer');
+
+  // Exam Practice Mode DOM
+  const btnModeExam = document.getElementById('btnModeExam');
+  const btnModeAuto = document.getElementById('btnModeAuto');
+  const btnExamShowAnswer = document.getElementById('btnExamShowAnswer');
+  const btnExamNext = document.getElementById('btnExamNext');
+  const btnRestoreOrder = document.getElementById('btnRestoreOrder');
+
+  // Exam Result Modal DOM
+  const examResultModal = document.getElementById('examResultModal');
+  const btnCloseResultModal = document.getElementById('btnCloseResultModal');
+  const resultHeading = document.getElementById('resultHeading');
+  const resultTotalTime = document.getElementById('resultTotalTime');
+  const resultTotalQuestions = document.getElementById('resultTotalQuestions');
+  const resultAvgSpeed = document.getElementById('resultAvgSpeed');
+  const btnRestartExam = document.getElementById('btnRestartExam');
+  const btnShuffleAndRestart = document.getElementById('btnShuffleAndRestart');
+
   // Initialize App
   init();
 
   async function init() {
+    originalQuestions = JSON.parse(JSON.stringify(questions));
     renderPlaylist();
     updateStageDisplay();
     bindEvents();
@@ -232,11 +265,40 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Shuffle toggle
-    btnShuffle.addEventListener('click', () => {
-      isShuffle = !isShuffle;
-      btnShuffle.classList.toggle('active', isShuffle);
-      showToast(isShuffle ? '🔀 Đã bật chế độ trộn ngẫu nhiên' : '➡️ Đã tắt trộn ngẫu nhiên');
+    // Shuffle & Restore Original Order
+    btnShuffle.addEventListener('click', shuffleQuestions);
+    btnRestoreOrder.addEventListener('click', restoreOriginalOrder);
+
+    // Exam Mode Toggles
+    btnModeExam.addEventListener('click', () => setExamMode('manual'));
+    btnModeAuto.addEventListener('click', () => setExamMode('auto'));
+
+    // Exam Manual Action Buttons
+    btnExamShowAnswer.addEventListener('click', handleExamShowAnswer);
+    btnExamNext.addEventListener('click', handleExamNext);
+
+    // Exam Timer Controls
+    btnToggleTimer.addEventListener('click', () => {
+      if (isExamTimerRunning) pauseExamTimer();
+      else startExamTimer();
+    });
+    btnResetTimer.addEventListener('click', resetExamTimer);
+
+    // Exam Result Modal Controls
+    btnCloseResultModal.addEventListener('click', () => {
+      examResultModal.style.display = 'none';
+    });
+    btnRestartExam.addEventListener('click', () => {
+      examResultModal.style.display = 'none';
+      resetExamTimer();
+      restoreOriginalOrder();
+      startExamTimer();
+    });
+    btnShuffleAndRestart.addEventListener('click', () => {
+      examResultModal.style.display = 'none';
+      resetExamTimer();
+      shuffleQuestions();
+      startExamTimer();
     });
 
     // Delay stepper
@@ -289,7 +351,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
       if (e.code === 'Space') {
         e.preventDefault();
-        togglePlayPause();
+        if (examMode === 'manual') {
+          // Trong chế độ luyện thi, bấm phím cách (Space) chuyển câu tiếp theo nếu không đang đọc âm thanh
+          if (audio.paused) {
+            handleExamNext();
+          } else {
+            togglePlayPause();
+          }
+        } else {
+          togglePlayPause();
+        }
       } else if (e.code === 'ArrowRight') {
         e.preventDefault();
         navigate(1);
@@ -320,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Apply Bulk Questions
     btnApplyBulk.addEventListener('click', handleApplyBulk);
     btnLoadDefaultSample.addEventListener('click', () => {
-      bulkInputText.value = DEFAULT_EPSTOPIK_QUESTIONS.map(q => `${q.num} ${q.qKr}`).join('\n');
+      bulkInputText.value = DEFAULT_KOREAN_QUESTIONS.map(q => `${q.num} ${q.qKr}`).join('\n');
     });
 
     // Export & Import JSON
@@ -488,11 +559,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!targetSet) return;
 
     activeSetId = setId;
-    localStorage.setItem('epstopik_active_set_id', setId);
+    localStorage.setItem('korean_active_set_id', setId);
     questions = [...targetSet.questions];
-    localStorage.setItem('epstopik_questions', JSON.stringify(questions));
+    originalQuestions = JSON.parse(JSON.stringify(questions));
+    localStorage.setItem('korean_questions', JSON.stringify(questions));
 
     currentIndex = 0;
+    isAnswerRevealed = false;
+    resetExamTimer();
     audioCache.clear();
     stopAudio();
     renderPlaylist();
@@ -582,7 +656,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         savedSets.unshift(data.set);
         activeSetId = data.set.id;
-        localStorage.setItem('epstopik_active_set_id', activeSetId);
+        localStorage.setItem('korean_active_set_id', activeSetId);
         showToast(`✅ Đã lưu bộ câu mới: ${data.set.title}`);
       }
 
@@ -697,7 +771,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `epstopik_bo_cau_hoi_backup_${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `korean_bo_cau_hoi_backup_${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     showToast('⬇ Đã xuất file JSON sao lưu thành công!');
   }
@@ -774,6 +848,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     counterText.textContent = `${currentIndex + 1}/${questions.length}`;
 
+    // Xử lý ẩn / hiện đáp án theo chế độ luyện thi
+    if (answerBoxContainer) {
+      if (examMode === 'manual' && !isAnswerRevealed) {
+        answerBoxContainer.classList.add('answer-hidden');
+        btnExamShowAnswer.innerHTML = '👁️ Xem & Nghe đáp án';
+      } else {
+        answerBoxContainer.classList.remove('answer-hidden');
+        btnExamShowAnswer.innerHTML = isAnswerRevealed ? '✅ Đã xem đáp án' : '👁️ Xem & Nghe đáp án';
+      }
+    }
+
     // Highlight row in playlist
     document.querySelectorAll('.question-row').forEach((row, i) => {
       if (i === currentIndex) {
@@ -817,6 +902,178 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Exam Timer Functions
+  function formatTime(seconds) {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    if (m >= 60) {
+      const h = Math.floor(m / 60);
+      const remM = m % 60;
+      return `${String(h).padStart(2, '0')}:${String(remM).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+    return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  }
+
+  function startExamTimer() {
+    if (isExamTimerRunning) return;
+    isExamTimerRunning = true;
+    btnToggleTimer.textContent = '⏸';
+    btnToggleTimer.title = 'Tạm dừng tính giờ';
+    examTimerBox.classList.add('running');
+
+    if (examTimerInterval) clearInterval(examTimerInterval);
+    examTimerInterval = setInterval(() => {
+      examTimerSeconds++;
+      examTimerText.textContent = formatTime(examTimerSeconds);
+    }, 1000);
+  }
+
+  function pauseExamTimer() {
+    if (!isExamTimerRunning) return;
+    isExamTimerRunning = false;
+    btnToggleTimer.textContent = '▶';
+    btnToggleTimer.title = 'Tiếp tục tính giờ';
+    examTimerBox.classList.remove('running');
+    if (examTimerInterval) {
+      clearInterval(examTimerInterval);
+      examTimerInterval = null;
+    }
+  }
+
+  function resetExamTimer() {
+    pauseExamTimer();
+    examTimerSeconds = 0;
+    examTimerText.textContent = '00:00';
+    btnToggleTimer.textContent = '▶';
+  }
+
+  // Exam Practice Mode Switcher
+  function setExamMode(mode) {
+    examMode = mode;
+    if (mode === 'manual') {
+      btnModeExam.classList.add('active');
+      btnModeAuto.classList.remove('active');
+      isAnswerRevealed = false;
+      if (answerBoxContainer) {
+        answerBoxContainer.classList.add('answer-hidden');
+      }
+      showToast('🎯 Chế độ Luyện thi: Trả lời xong nhấn nút để xem đáp án / sang câu!');
+    } else {
+      btnModeAuto.classList.add('active');
+      btnModeExam.classList.remove('active');
+      if (answerBoxContainer) {
+        answerBoxContainer.classList.remove('answer-hidden');
+      }
+      showToast('⚡ Chế độ Tự động: Tự động chạy theo độ trễ cài đặt!');
+    }
+    updateStageDisplay();
+  }
+
+  // Shuffle & Restore Order
+  // Shuffle questions while strictly preserving each question's original number label (e.g. 80. or 46.)
+  function shuffleQuestions() {
+    if (questions.length <= 1) {
+      showToast('Cần ít nhất 2 câu để xáo trộn!');
+      return;
+    }
+    stopAudio(true);
+
+    const shuffled = [...questions];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    questions = shuffled;
+    currentIndex = 0;
+    isAnswerRevealed = false;
+    renderPlaylist();
+    updateStageDisplay();
+    btnShuffle.classList.add('active');
+    btnRestoreOrder.classList.remove('active');
+    showToast(`🔀 Đã xáo trộn ngẫu nhiên ${questions.length} câu (vẫn giữ nguyên số thứ tự gốc của câu)!`);
+    playCurrentQuestion();
+  }
+
+  // Restore questions to the original order (1, 2, 3...)
+  function restoreOriginalOrder() {
+    if (!originalQuestions || originalQuestions.length === 0) return;
+    stopAudio(true);
+    questions = JSON.parse(JSON.stringify(originalQuestions));
+    currentIndex = 0;
+    isAnswerRevealed = false;
+    renderPlaylist();
+    updateStageDisplay();
+    btnShuffle.classList.remove('active');
+    btnRestoreOrder.classList.add('active');
+    setTimeout(() => btnRestoreOrder.classList.remove('active'), 1000);
+    showToast(`🔢 Đã khôi phục đúng thứ tự ban đầu (1, 2, 3...)!`);
+    playCurrentQuestion();
+  }
+
+  // Exam Manual Actions
+  async function handleExamShowAnswer() {
+    if (questions.length === 0) return;
+    const item = questions[currentIndex];
+    if (!item) return;
+
+    isAnswerRevealed = true;
+    if (answerBoxContainer) {
+      answerBoxContainer.classList.remove('answer-hidden');
+    }
+
+    if (!item.aKr) {
+      btnExamShowAnswer.innerHTML = '✅ Đã xem đáp án';
+      showToast('Câu này chưa có đáp án tiếng Hàn để phát!');
+      return;
+    }
+
+    try {
+      setStatus('Đang đọc đáp án...', true);
+      btnExamShowAnswer.innerHTML = '🔊 Đang đọc đáp án...';
+      const aAudioUrl = await getAudioBlobUrl(item.aKr);
+      audio.src = aAudioUrl;
+      await audio.play();
+      audio.onended = () => {
+        btnExamShowAnswer.innerHTML = '✅ Đã xem đáp án';
+        setStatus('Sẵn sàng', false);
+      };
+    } catch (err) {
+      console.error('Lỗi phát âm thanh đáp án:', err);
+      btnExamShowAnswer.innerHTML = '✅ Đã xem đáp án';
+      setStatus('Sẵn sàng', false);
+    }
+  }
+
+  function handleExamNext() {
+    if (questions.length === 0) return;
+    stopAudio(true);
+
+    if (currentIndex < questions.length - 1) {
+      currentIndex++;
+      isAnswerRevealed = false;
+      updateStageDisplay();
+      playCurrentQuestion();
+    } else {
+      // Đã hoàn thành toàn bộ các câu trong bộ đề
+      pauseExamTimer();
+      showExamResultModal();
+    }
+  }
+
+  function showExamResultModal() {
+    const totalSec = examTimerSeconds;
+    const count = questions.length;
+    const avg = count > 0 ? Math.round(totalSec / count) : 0;
+
+    resultTotalTime.textContent = formatTime(totalSec);
+    resultTotalQuestions.textContent = `${count} câu`;
+    resultAvgSpeed.textContent = `${avg}s / câu`;
+    resultHeading.textContent = `Xuất sắc! Bạn đã luyện xong toàn bộ ${count} câu hỏi!`;
+
+    examResultModal.style.display = 'flex';
+    setStatus('🏆 Đã hoàn thành bộ đề!', false);
+  }
+
   // Audio Playback Engine
   async function getAudioBlobUrl(text) {
     if (!text || !text.trim()) return null;
@@ -846,11 +1103,22 @@ document.addEventListener('DOMContentLoaded', () => {
     stopAudio(true);
     if (questions.length === 0) return;
 
+    // Tự động khởi động đồng hồ bấm giờ nếu chưa chạy
+    if (!isExamTimerRunning) {
+      startExamTimer();
+    }
+
     isPlaying = true;
     updatePlayPauseButton();
 
     const currentSession = ++playbackSessionId;
     const item = questions[currentIndex];
+
+    // Cập nhật trạng thái hiển thị đáp án
+    if (examMode === 'manual' && !isAnswerRevealed && answerBoxContainer) {
+      answerBoxContainer.classList.add('answer-hidden');
+      btnExamShowAnswer.innerHTML = '👁️ Xem & Nghe đáp án';
+    }
 
     try {
       // Bước 1: Đọc Câu hỏi
@@ -864,6 +1132,16 @@ document.addEventListener('DOMContentLoaded', () => {
       audio.onended = () => {
         if (!isPlaying || currentSession !== playbackSessionId) return;
 
+        // Nếu là Chế độ Luyện Thi (nhấn nút khi trả lời xong):
+        if (examMode === 'manual') {
+          clearAllTimers();
+          setStatus('🎤 Hãy trả lời... (Bấm nút bên dưới khi xong)', false, true);
+          isPlaying = false;
+          updatePlayPauseButton();
+          return;
+        }
+
+        // Nếu là Chế độ Tự Động (Auto):
         // Bước 2: Bắt đầu đếm ngược độ trễ mới (Reset về đúng số giây cài đặt)
         let countdown = delaySeconds;
         setStatus(`Chờ trả lời (${countdown}s)...`, false, true);
@@ -947,17 +1225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clearAllTimers();
 
     if (repeatMode === '1') {
-      playCurrentQuestion();
-      return;
-    }
-
-    if (isShuffle) {
-      let nextIdx = Math.floor(Math.random() * questions.length);
-      if (questions.length > 1 && nextIdx === currentIndex) {
-        nextIdx = (nextIdx + 1) % questions.length;
-      }
-      currentIndex = nextIdx;
-      updateStageDisplay();
+      isAnswerRevealed = false;
       playCurrentQuestion();
       return;
     }
@@ -966,28 +1234,36 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isAscending) {
       if (currentIndex < questions.length - 1) {
         currentIndex++;
+        isAnswerRevealed = false;
         updateStageDisplay();
         playCurrentQuestion();
       } else if (repeatMode === 'all') {
         currentIndex = 0;
+        isAnswerRevealed = false;
         updateStageDisplay();
         playCurrentQuestion();
       } else {
         stopAudio();
+        pauseExamTimer();
         setStatus('Đã hoàn thành bài nghe!', false);
+        showExamResultModal();
       }
     } else {
       if (currentIndex > 0) {
         currentIndex--;
+        isAnswerRevealed = false;
         updateStageDisplay();
         playCurrentQuestion();
       } else if (repeatMode === 'all') {
         currentIndex = questions.length - 1;
+        isAnswerRevealed = false;
         updateStageDisplay();
         playCurrentQuestion();
       } else {
         stopAudio();
+        pauseExamTimer();
         setStatus('Đã hoàn thành bài nghe!', false);
+        showExamResultModal();
       }
     }
   }
@@ -1030,11 +1306,8 @@ document.addEventListener('DOMContentLoaded', () => {
     stopAudio(true);
     if (questions.length === 0) return;
 
-    if (isShuffle) {
-      currentIndex = Math.floor(Math.random() * questions.length);
-    } else {
-      currentIndex = (currentIndex + dir + questions.length) % questions.length;
-    }
+    currentIndex = (currentIndex + dir + questions.length) % questions.length;
+    isAnswerRevealed = false;
     updateStageDisplay();
     playCurrentQuestion();
   }
@@ -1082,7 +1355,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `epstopik_cau_${item.num ? item.num.replace(/\D/g, '') : currentIndex + 1}.mp3`;
+      a.download = `korean_cau_${item.num ? item.num.replace(/\D/g, '') : currentIndex + 1}.mp3`;
       a.click();
       showToast('⬇ Đã tải câu MP3 về máy!');
     } catch (err) {
@@ -1127,7 +1400,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `epstopik_tron_bo_${questions.length}_cau_delay_${delaySeconds}s.mp3`;
+      a.download = `korean_tron_bo_${questions.length}_cau_delay_${delaySeconds}s.mp3`;
       a.click();
       showToast('⬇ Đã tải trọn bộ bài nghe MP3 thành công!');
     } catch (err) {
@@ -1194,8 +1467,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     questions = newQuestions;
-    localStorage.setItem('epstopik_questions', JSON.stringify(questions));
+    originalQuestions = JSON.parse(JSON.stringify(questions));
+    localStorage.setItem('korean_questions', JSON.stringify(questions));
     currentIndex = 0;
+    isAnswerRevealed = false;
+    resetExamTimer();
     audioCache.clear();
     stopAudio();
     renderPlaylist();

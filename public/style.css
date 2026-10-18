@@ -37,40 +37,6 @@ body.dark-theme {
   overflow-x: hidden;
 }
 
-/* Watermark Overlay matching epstopikvn.com */
-.watermark-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-  user-select: none;
-}
-
-.watermark-text {
-  position: absolute;
-  color: rgba(255, 255, 255, 0.022);
-  font-size: 3.5rem;
-  font-weight: 800;
-  transform: rotate(-35deg);
-  white-space: nowrap;
-}
-
-.watermark-text.w1 {
-  top: 35%;
-  left: 30%;
-}
-
-.watermark-text.w2 {
-  bottom: 20%;
-  right: 15%;
-}
-
-.watermark-text.w3 {
-  bottom: 5%;
-  right: 35%;
-}
-
 /* App Layout */
 .app-layout {
   position: relative;
@@ -225,6 +191,43 @@ body.dark-theme {
   flex-direction: column;
   gap: 6px;
   transition: all 0.2s ease;
+  position: relative;
+}
+
+.answer-box-container.answer-hidden {
+  border-style: dashed;
+  background-color: rgba(245, 158, 11, 0.05);
+}
+
+.answer-box-container.answer-hidden .ans-text,
+.answer-box-container.answer-hidden .ans-vi,
+.answer-box-container.answer-hidden .icon-speaker-small {
+  filter: blur(8px);
+  user-select: none;
+  opacity: 0.15;
+  transition: all 0.3s ease;
+}
+
+.answer-box-container.answer-hidden .ans-badge {
+  opacity: 0.5;
+}
+
+.answer-box-container.answer-hidden::after {
+  content: '🔒 Trả lời thành tiếng ➔ Bấm "Xem & Nghe đáp án" hoặc bấm "Câu tiếp theo"';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fbbf24;
+  background: rgba(22, 25, 32, 0.9);
+  border: 1px dashed rgba(245, 158, 11, 0.5);
+  padding: 8px 12px;
+  border-radius: 6px;
+  pointer-events: none;
 }
 
 .answer-kr-line {
@@ -1633,3 +1636,244 @@ body.dark-theme {
     bottom: 110px;
   }
 }
+
+/* ========================================================
+   EXAM PRACTICE & TIMER STYLES (CHỨC NĂNG LUYỆN THI)
+   ======================================================== */
+
+/* Exam Timer Box in Header */
+.exam-timer-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 8px;
+  padding: 4px 10px;
+  transition: all 0.2s ease;
+}
+
+.exam-timer-box:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.timer-icon {
+  font-size: 0.95rem;
+}
+
+.timer-digits {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.5px;
+  min-width: 45px;
+}
+
+.btn-timer-icon {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.btn-timer-icon:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Exam Action Bar on Stage Card */
+.exam-action-bar {
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.exam-mode-pills {
+  display: flex;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 4px;
+}
+
+.mode-pill {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 0.775rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-pill.active {
+  background: #0284c7;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
+.exam-btn-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-exam-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+
+.btn-show-answer {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.btn-show-answer:hover {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: #f59e0b;
+  transform: translateY(-1px);
+}
+
+.btn-exam-next {
+  background: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+}
+
+.btn-exam-next:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.5);
+}
+
+.kbd-tag {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  color: #bae6fd;
+}
+
+/* Button Restore Original Order (123) */
+.btn-restore-order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctrl-icon-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: -0.5px;
+  color: var(--accent-cyan);
+}
+
+.btn-restore-order:hover .ctrl-icon-num {
+  color: #fff;
+}
+
+/* Exam Result Modal */
+.result-modal-card {
+  max-width: 480px;
+  text-align: center;
+}
+
+.result-modal-body {
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.result-celebration {
+  font-size: 3rem;
+  line-height: 1;
+  animation: bounce 0.6s ease infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-8px); }
+}
+
+.result-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.result-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 0.725rem;
+  color: var(--text-dim);
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.result-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.result-actions button {
+  flex: 1;
+  padding: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
