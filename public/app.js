@@ -250,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnToggleMinimal = document.getElementById('btnToggleMinimal');
   const minimalBtnText = document.getElementById('minimalBtnText');
   const toggleMinimalMode = document.getElementById('toggleMinimalMode');
+  const btnExitMinimalBottom = document.getElementById('btnExitMinimalBottom');
 
   // iPhone 13 Pro Mode Toggle DOM
   const btnToggleIPhone13 = document.getElementById('btnToggleIPhone13');
@@ -421,6 +422,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Keyboard shortcuts
     window.addEventListener('keydown', (e) => {
+      if (e.code === 'Escape' || e.key === 'Escape') {
+        if (document.body.classList.contains('minimal-mode')) {
+          setMinimalMode(false);
+          return;
+        }
+      }
       if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
       if (e.code === 'Space') {
         e.preventDefault();
@@ -631,6 +638,11 @@ document.addEventListener('DOMContentLoaded', () => {
       btnToggleMinimal.addEventListener('click', () => {
         const isMinimal = document.body.classList.contains('minimal-mode');
         setMinimalMode(!isMinimal);
+      });
+    }
+    if (btnExitMinimalBottom) {
+      btnExitMinimalBottom.addEventListener('click', () => {
+        setMinimalMode(false);
       });
     }
     if (toggleMinimalMode) {
@@ -2269,7 +2281,12 @@ document.addEventListener('DOMContentLoaded', () => {
     applyVisualSettings();
     syncCustomizerControls();
 
-    const savedMinimal = localStorage.getItem('korean_minimal_mode');
+    // Xóa cờ cũ bị kẹt để tự động thoát nếu trình duyệt trước đó bị kẹt ở giao diện tối giản
+    if (localStorage.getItem('korean_minimal_mode')) {
+      localStorage.removeItem('korean_minimal_mode');
+    }
+
+    const savedMinimal = localStorage.getItem('korean_minimal_mode_v2');
     if (savedMinimal === '1') {
       setMinimalMode(true, false);
     }
@@ -2309,7 +2326,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleMinimalMode) {
       toggleMinimalMode.checked = enabled;
     }
-    localStorage.setItem('korean_minimal_mode', enabled ? '1' : '0');
+    localStorage.setItem('korean_minimal_mode_v2', enabled ? '1' : '0');
     if (notify) {
       showToast(enabled ? '🎯 Đã bật Giao diện tối giản tập trung!' : '🔄 Đã quay lại Giao diện đầy đủ!', 'info');
     }

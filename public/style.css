@@ -96,6 +96,7 @@ body.no-glass * {
    GIAO DIỆN TỐI GIẢN (MINIMALIST / FOCUS MODE)
    Chỉ hiển thị: Thời gian, câu hỏi & nút câu tiếp theo
    ======================================================== */
+body.minimal-mode .header-left,
 body.minimal-mode .origami-logo,
 body.minimal-mode .header-brand,
 body.minimal-mode #btnQuickSaveSet,
@@ -112,7 +113,13 @@ body.minimal-mode .bottom-floating-bar {
 }
 
 body.minimal-mode .app-header {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   padding-top: calc(env(safe-area-inset-top, 0px) + 10px);
   padding-bottom: 10px;
   padding-left: calc(env(safe-area-inset-left, 0px) + 20px);
@@ -125,27 +132,81 @@ body.minimal-mode .app-header {
 body.minimal-mode .header-center {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  flex: 1;
+  justify-content: flex-start;
+  gap: 12px;
+  flex: 1 1 0%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+body.minimal-mode .header-right {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0 !important;
 }
 
 body.minimal-mode .set-picker-box {
   display: flex !important;
+  align-items: center;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 4px 10px;
   border-radius: 6px;
+  flex: 0 1 360px;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+body.minimal-mode .header-set-select {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
 body.minimal-mode #examTimerBox {
   display: inline-flex !important;
-  transform: scale(1.05);
+  flex-shrink: 0 !important;
+  transform: none;
 }
 
 body.minimal-mode .stage-card {
   padding: 24px 20px 16px;
   gap: 16px;
+}
+
+/* Nút thoát giao diện đơn giản ở cuối trang */
+.btn-exit-minimal-bottom {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(239, 68, 68, 0.16);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.btn-exit-minimal-bottom:hover {
+  background: rgba(239, 68, 68, 0.32);
+  border-color: #ef4444;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+body.minimal-mode .btn-exit-minimal-bottom {
+  display: inline-flex !important;
 }
 
 /* Nút Header Giao diện tối giản */
@@ -392,10 +453,13 @@ body.iphone13-mode.minimal-mode .app-header {
   padding-left: 12px !important;
   padding-right: 12px !important;
   display: grid !important;
-  grid-template-columns: auto 1fr !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
   row-gap: 8px !important;
   column-gap: 8px !important;
   align-items: center !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
   height: auto !important;
   min-height: auto !important;
   box-sizing: border-box !important;
@@ -428,25 +492,30 @@ body.iphone13-mode.minimal-mode .header-right {
   justify-content: flex-end !important;
   gap: 6px !important;
   margin: 0 !important;
+  flex-shrink: 0 !important;
 }
 
 body.iphone13-mode.minimal-mode .btn-header-minimal {
   padding: 4px 8px !important;
   font-size: 0.75rem !important;
   white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 body.iphone13-mode.minimal-mode .btn-header-iphone {
   padding: 4px 8px !important;
   font-size: 0.75rem !important;
   white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 body.iphone13-mode.minimal-mode .set-picker-box {
   grid-column: 1 / -1 !important;
   grid-row: 2 !important;
+  min-width: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
+  overflow: hidden !important;
   display: flex !important;
   align-items: center !important;
   background: rgba(255, 255, 255, 0.06) !important;
@@ -463,13 +532,16 @@ body.iphone13-mode.minimal-mode .set-picker-label {
   font-weight: 700 !important;
   white-space: nowrap !important;
   margin-right: 6px !important;
+  flex-shrink: 0 !important;
 }
 
 body.iphone13-mode.minimal-mode .set-picker-box select,
 body.iphone13-mode.minimal-mode .header-set-select {
-  flex: 1 !important;
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
+  overflow: hidden !important;
   font-size: 0.82rem !important;
   font-weight: 700 !important;
   color: #fff !important;
@@ -478,6 +550,7 @@ body.iphone13-mode.minimal-mode .header-set-select {
   outline: none !important;
   cursor: pointer !important;
   text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
 body.iphone13-mode.minimal-mode .stage-card {
@@ -2015,10 +2088,13 @@ body.dark-theme {
 @media (max-width: 680px) {
   body.minimal-mode .app-header {
     display: grid !important;
-    grid-template-columns: auto 1fr !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
     row-gap: 8px !important;
     column-gap: 8px !important;
     align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
     padding-top: calc(max(env(safe-area-inset-top, 0px), 47px) + 12px) !important;
     padding-bottom: 10px !important;
     padding-left: calc(env(safe-area-inset-left, 0px) + 12px) !important;
@@ -2061,26 +2137,31 @@ body.dark-theme {
     justify-content: flex-end !important;
     gap: 6px !important;
     margin: 0 !important;
+    flex-shrink: 0 !important;
   }
   body.minimal-mode .btn-header-minimal {
     padding: 4px 8px !important;
     font-size: 0.75rem !important;
     gap: 4px !important;
     white-space: nowrap !important;
+    flex-shrink: 0 !important;
   }
   body.minimal-mode .btn-header-iphone {
     padding: 4px 8px !important;
     font-size: 0.75rem !important;
     gap: 4px !important;
     white-space: nowrap !important;
+    flex-shrink: 0 !important;
   }
   body.minimal-mode .set-picker-box {
     grid-column: 1 / -1 !important;
     grid-row: 2 !important;
     display: flex !important;
     align-items: center !important;
+    min-width: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
+    overflow: hidden !important;
     background: rgba(255, 255, 255, 0.06) !important;
     border: 1px solid rgba(255, 255, 255, 0.16) !important;
     padding: 5px 10px !important;
@@ -2094,12 +2175,14 @@ body.dark-theme {
     font-weight: 700 !important;
     white-space: nowrap !important;
     margin-right: 6px !important;
+    flex-shrink: 0 !important;
   }
   body.minimal-mode .header-set-select {
-    flex: 1 !important;
+    flex: 1 1 0% !important;
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
+    overflow: hidden !important;
     font-size: 0.82rem !important;
     font-weight: 700 !important;
     color: #fff !important;
@@ -2108,6 +2191,7 @@ body.dark-theme {
     outline: none !important;
     cursor: pointer !important;
     text-overflow: ellipsis !important;
+    white-space: nowrap !important;
   }
   body.minimal-mode .stage-card {
     padding: 14px 12px 10px !important;
@@ -2419,8 +2503,10 @@ body.dark-theme {
 /* Page Bottom Actions */
 .page-bottom-actions {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 12px;
   padding: 20px 20px calc(75px + env(safe-area-inset-bottom, 0px));
   width: 100%;
 }
