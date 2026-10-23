@@ -3,8 +3,9 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
+const crypto = require('crypto');
+const WebSocket = require('ws');
 const QRCode = require('qrcode');
-const { TextToSpeech } = require('@kirillasyamov/text-to-speech');
 const { MsEdgeTTS, OUTPUT_FORMAT } = require('msedge-tts');
 
 const app = express();
@@ -108,30 +109,216 @@ const KOREAN_VOICES = [
   }
 ];
 
-// Cache instance TTS tốc độ cao (kết nối WebSocket tái sử dụng, hỗ trợ đầy đủ đổi giọng & tốc độ)
-const ttsClient = new TextToSpeech();
+// ========================================================
+// HỆ THỐNG TỔNG HỢP GIỌNG NÓI EDGE NEURAL TTS (PURE COMMONJS)
+// Tương thích 100% với mọi phiên bản Node.js (Node 18/20/22/24 trên Render & Local)
+// Hỗ trợ đầy đủ đổi giọng đọc (SunHi, InJoon, Hyunsu) & tốc độ (0.5x - 2.0x)
+// ========================================================
+const EDGE_WS_HOST = 'api.msedgeservices.com/tts/cognitiveservices/websocket/v1';
+const EDGE_TRUSTED_TOKEN = '6A5AA1D4EAFF4E9FB37E23D68491D6F4';
+const EDGE_CHROMIUM_VERSION = '143.0.3650.75';
+const EDGE_CHROMIUM_MAJOR = EDGE_CHROMIUM_VERSION.split('.')[0];
+const EDGE_SEC_MS_GEC_VERSION = `1-${EDGE_CHROMIUM_VERSION}`;
+const EDGE_WIN_EPOCH = 11644473600;
+const EDGE_DEFAULT_FORMAT = 'audio-24khz-48kbitrate-mono-mp3';
 
-// Helper: tổng hợp giọng nói với tốc độ & giọng đọc chính xác, có luồng dự phòng tự động
+const EDGE_HEADERS = {
+  'User-Agent': `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${EDGE_CHROMIUM_MAJOR}.0.0.0 Safari/537.36 Edg/${EDGE_CHROMIUM_MAJOR}.0.0.0`,
+  Origin: 'chrome-extension://jdiccldimpdaibmpdkjnbmckianbfold',
+  'Accept-Encoding': 'gzip, deflate, br',
+  'Accept-Language': 'en-US,en;q=0.9',
+  Pragma: 'no-cache',
+  'Cache-Control': 'no-cache'
+};
+
+function edgeConnectionId() {
+  return crypto.randomUUID().replace(/-/g, '');
+}
+
+function edgeTimestamp() {
+  return new Date().toUTCString().replace('GMT', 'GMT+0000 (Coordinated Universal Time)');
+}
+
+function generateSecMsGec() {
+  let ticks = Date.now() / 1000 + EDGE_WIN_EPOCH;
+  ticks -= ticks % 300;
+  ticks *= 1e7;
+  const strToHash = `${ticks.toFixed(0)}${EDGE_TRUSTED_TOKEN}`;
+  return crypto.createHash('sha256').update(strToHash, 'ascii').digest('hex').toUpperCase();
+}
+
+function toEdgeVoiceName(voice) {
+  const match = /^([a-z]{2,})-([A-Z]{2,})-(.+Neural)$/.exec(voice || 'ko-KR-SunHiNeural');
+  if (!match) return voice || 'ko-KR-SunHiNeural';
+  let [, lang, region, name] = match;
+  if (name.includes('-')) {
+    const [prefix, rest] = name.split('-');
+    region = `${region}-${prefix}`;
+    name = rest;
+  }
+  return `Microsoft Server Speech Text to Speech Voice (${lang}-${region}, ${name})`;
+}
+
+function speedToRateStr(speed) {
+  const val = Number(speed);
+  const norm = Number.isFinite(val) ? Math.min(2.0, Math.max(0.25, val)) : 1.0;
+  const pct = Math.round((norm - 1) * 100);
+  return `${pct >= 0 ? '+' : ''}${pct}%`;
+}
+
+function pitchToHzStr(pitch) {
+  const val = Number(pitch) || 0;
+  return `${val >= 0 ? '+' : ''}${Math.round(val)}Hz`;
+}
+
+function escapeXmlText(text) {
+  return String(text || '')
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, ' ')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function synthesizeDirectEdgeWs(text, voice, rateStr, pitchStr, format = EDGE_DEFAULT_FORMAT) {
+  return new Promise((resolve, reject) => {
+    const connId = edgeConnectionId();
+    const url = `wss://${EDGE_WS_HOST}?Ocp-Apim-Subscription-Key=${EDGE_TRUSTED_TOKEN}&Sec-MS-GEC=${generateSecMsGec()}&Sec-MS-GEC-Version=${EDGE_SEC_MS_GEC_VERSION}&ConnectionId=${connId}`;
+    const ws = new WebSocket(url, {
+      headers: {
+        ...EDGE_HEADERS,
+        Cookie: `muid=${crypto.randomBytes(16).toString('hex').toUpperCase()};`
+      },
+      handshakeTimeout: 12000
+    });
+
+    const audioChunks = [];
+    let settled = false;
+    const timer = setTimeout(() => {
+      if (!settled) {
+        settled = true;
+        try { ws.terminate(); } catch (e) {}
+        reject(new Error('Edge WebSocket synthesis timeout'));
+      }
+    }, 18000);
+
+    const finish = (err, result) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      try { ws.close(); } catch (e) {}
+      if (err) reject(err);
+      else resolve(result);
+    };
+
+    ws.on('open', () => {
+      const configBody = JSON.stringify({
+        context: {
+          synthesis: {
+            audio: {
+              metadataoptions: {
+                sentenceBoundaryEnabled: 'false',
+                wordBoundaryEnabled: 'false'
+              },
+              outputFormat: format
+            }
+          }
+        }
+      });
+      const configMsg = `X-Timestamp:${edgeTimestamp()}\r\nContent-Type:application/json; charset=utf-8\r\nPath:speech.config\r\n\r\n${configBody}\r\n`;
+
+      const ssml = `<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='${toEdgeVoiceName(voice)}'><prosody pitch='${pitchStr}' rate='${rateStr}' volume='+0%'>${escapeXmlText(text)}</prosody></voice></speak>`;
+      const ssmlMsg = `X-RequestId:${edgeConnectionId()}\r\nContent-Type:application/ssml+xml\r\nX-Timestamp:${edgeTimestamp()}Z\r\nPath:ssml\r\n\r\n${ssml}`;
+
+      ws.send(configMsg);
+      ws.send(ssmlMsg);
+    });
+
+    ws.on('message', (data, isBinary) => {
+      if (isBinary) {
+        const buffer = Buffer.isBuffer(data) ? data : Buffer.from(data);
+        if (buffer.length >= 2) {
+          const headerLen = buffer.readUInt16BE(0);
+          if (buffer.length >= headerLen + 2) {
+            const headers = buffer.subarray(2, headerLen + 2).toString('utf-8');
+            if (headers.includes('Path:audio')) {
+              const audioData = buffer.subarray(headerLen + 2);
+              if (audioData.length > 0) audioChunks.push(audioData);
+            }
+          }
+        }
+      } else {
+        const str = data.toString();
+        if (str.includes('Path:turn.end')) {
+          finish(null, Buffer.concat(audioChunks));
+        }
+      }
+    });
+
+    ws.on('error', (err) => finish(err));
+    ws.on('close', () => {
+      if (!settled) {
+        if (audioChunks.length > 0) {
+          finish(null, Buffer.concat(audioChunks));
+        } else {
+          finish(new Error('Edge WebSocket closed before audio received'));
+        }
+      }
+    });
+  });
+}
+
+// Khởi tạo EdgePool TTS Client qua Dynamic Import (tương thích 100% Node 18/20/22/24 trên Render & Local)
+let ttsClientInstance = null;
+async function getTtsClient() {
+  if (!ttsClientInstance) {
+    const mod = await import('@kirillasyamov/text-to-speech');
+    const TextToSpeech = mod.TextToSpeech || mod.default;
+    ttsClientInstance = new TextToSpeech({
+      voice: 'ko-KR-SunHiNeural',
+      speed: 1.0,
+      pitch: 0,
+      warm: true
+    });
+  }
+  return ttsClientInstance;
+}
+
+// Helper: tổng hợp giọng nói với tốc độ & giọng đọc chính xác, tái sử dụng kết nối WebSocket (EdgePool)
 async function edgeSpeak(text, voice = 'ko-KR-SunHiNeural', speed = 1.0, pitch = 0) {
   const cleanText = String(text || '').trim();
   if (!cleanText) return Buffer.alloc(0);
 
-  // Luồng 1: Dùng pooled TextToSpeech tốc độ cao (~200ms, không bị treo kết nối khi đổi giọng/tốc độ)
-  try {
-    const audioBuffer = await ttsClient.speak(cleanText, {
-      voice,
-      speed,
-      pitch,
-      format: 'audio-24khz-48kbitrate-mono-mp3'
-    });
-    if (audioBuffer && audioBuffer.byteLength > 0) {
-      return Buffer.from(audioBuffer);
+  const rateStr = speedToRateStr(speed);
+  const pitchStr = pitchToHzStr(pitch);
+
+  // Luồng 1: EdgePool thông qua dynamic import @kirillasyamov/text-to-speech (tái sử dụng kết nối WS, không bị lỗi 429)
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      const client = await getTtsClient();
+      const buf = await client.speak(cleanText, {
+        voice,
+        speed,
+        pitch
+      });
+      if (buf && buf.length > 0) {
+        return Buffer.isBuffer(buf) ? buf : Buffer.from(buf);
+      }
+    } catch (errPool) {
+      console.warn(`EdgePool attempt ${attempt} failed:`, errPool.message);
     }
-  } catch (err1) {
-    console.warn('TTS primary fallback to MsEdgeTTS:', err1.message);
   }
 
-  // Luồng 2: Dự phòng bằng MsEdgeTTS (luôn đóng kết nối sau khi đọc xong)
+  // Luồng 2: Direct Edge WebSocket chuẩn CommonJS
+  try {
+    const buf = await synthesizeDirectEdgeWs(cleanText, voice, rateStr, pitchStr);
+    if (buf && buf.length > 0) {
+      return buf;
+    }
+  } catch (errWs) {
+    console.warn('Direct Edge WS fallback failed:', errWs.message);
+  }
+
+  // Luồng 3: Dự phòng bằng MsEdgeTTS (luôn đóng kết nối sau khi đọc xong)
   const tts = new MsEdgeTTS();
   try {
     await tts.setMetadata(
@@ -139,14 +326,7 @@ async function edgeSpeak(text, voice = 'ko-KR-SunHiNeural', speed = 1.0, pitch =
       OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3
     );
 
-    const ratePercent = Math.round((speed - 1) * 100);
-    const rateStr = ratePercent >= 0 ? `+${ratePercent}%` : `${ratePercent}%`;
-    const pitchStr = pitch >= 0 ? `+${pitch}Hz` : `${pitch}Hz`;
-    const safeXmlText = cleanText
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-
+    const safeXmlText = escapeXmlText(cleanText);
     return await new Promise((resolve, reject) => {
       const chunks = [];
       const { audioStream } = tts.toStream(safeXmlText, { rate: rateStr, pitch: pitchStr });
@@ -535,6 +715,9 @@ app.post('/api/tts', async (req, res) => {
     // Đơn câu không lặp: Tổng hợp trực tiếp tốc độ cao
     if (targetSentences.length === 1 && clampedRepeat === 1) {
       const buffer = await edgeSpeak(targetSentences[0], voice, clampedSpeed, clampedPitch);
+      if (!buffer || buffer.length === 0) {
+        return res.status(502).json({ success: false, error: 'Không nhận được dữ liệu âm thanh từ máy chủ' });
+      }
 
       res.set({
         'Content-Type': 'audio/mpeg',

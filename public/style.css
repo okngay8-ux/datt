@@ -107,10 +107,47 @@ body.minimal-mode .user-avatar,
 body.minimal-mode .stage-top-bar,
 body.minimal-mode .stage-status-bar,
 body.minimal-mode .exam-mode-pills,
+body.minimal-mode #btnToggleOrder,
+body.minimal-mode #btnPrev,
+body.minimal-mode #btnNext,
+body.minimal-mode #btnRepeatMode,
+body.minimal-mode .delay-control-group,
 body.minimal-mode #btnDownloadCurrent,
 body.minimal-mode #btnDownloadAll,
 body.minimal-mode .bottom-floating-bar {
   display: none !important;
+}
+
+body.minimal-mode .player-control-bar,
+body.iphone13-mode.minimal-mode .player-control-bar {
+  position: relative !important;
+  top: auto !important;
+  bottom: auto !important;
+  min-height: auto !important;
+  height: auto !important;
+  padding: 6px 12px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: rgba(22, 25, 32, 0.78) !important;
+  box-shadow: none !important;
+}
+
+body.minimal-mode .controls-left,
+body.iphone13-mode.minimal-mode .controls-left,
+body.minimal-mode .controls-right,
+body.iphone13-mode.minimal-mode .controls-right {
+  width: auto !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 6px !important;
 }
 
 body.minimal-mode .app-header {
@@ -2354,15 +2391,16 @@ body.dark-theme {
     font-size: 0.925rem;
   }
 
-  /* Player bar on phone: sticky bottom */
+  /* Player bar on phone: hiển thị ngay dưới khung câu hỏi để không bị che khuất nút chọn giọng & tốc độ */
   .player-control-bar {
-    position: sticky;
-    bottom: 0;
-    z-index: 95;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    z-index: 20;
     background: rgba(22, 25, 32, 0.96);
     backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     height: auto;
     padding: 10px 12px;
     flex-direction: column;

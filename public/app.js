@@ -242,6 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleShowVisualizer = document.getElementById('toggleShowVisualizer');
   const toggleGlassGlow = document.getElementById('toggleGlassGlow');
   const customizerVoiceSelect = document.getElementById('customizerVoiceSelect');
+  const customizerSpeedSelect = document.getElementById('customizerSpeedSelect');
   const rangeCustomizerDelay = document.getElementById('rangeCustomizerDelay');
   const labelCustomizerDelay = document.getElementById('labelCustomizerDelay');
   const btnResetCustomizer = document.getElementById('btnResetCustomizer');
@@ -251,6 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const minimalBtnText = document.getElementById('minimalBtnText');
   const toggleMinimalMode = document.getElementById('toggleMinimalMode');
   const btnExitMinimalBottom = document.getElementById('btnExitMinimalBottom');
+  const btnEnterMinimalStage = document.getElementById('btnEnterMinimalStage');
 
   // iPhone 13 Pro Mode Toggle DOM
   const btnToggleIPhone13 = document.getElementById('btnToggleIPhone13');
@@ -406,6 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
     selectSpeed.addEventListener('change', (e) => {
       currentSpeed = parseFloat(e.target.value) || 1.0;
       visualSettings.speed = currentSpeed;
+      if (customizerSpeedSelect) customizerSpeedSelect.value = e.target.value;
       saveVisualSettings();
       audioCache.clear();
       const speedLabel = e.target.options[e.target.selectedIndex]?.text || `${currentSpeed}x`;
@@ -615,7 +618,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Customizer Voice & Delay
+    // Customizer Voice, Speed & Delay
     if (customizerVoiceSelect) {
       customizerVoiceSelect.addEventListener('change', (e) => {
         visualSettings.voice = e.target.value;
@@ -624,6 +627,18 @@ document.addEventListener('DOMContentLoaded', () => {
         saveVisualSettings();
         audioCache.clear();
         showToast(`🎙️ Đã đổi giọng sang: ${e.target.options[e.target.selectedIndex].text.split('(')[0].trim()}`);
+        playCurrentQuestion();
+      });
+    }
+    if (customizerSpeedSelect) {
+      customizerSpeedSelect.addEventListener('change', (e) => {
+        currentSpeed = parseFloat(e.target.value) || 1.0;
+        visualSettings.speed = currentSpeed;
+        if (selectSpeed) selectSpeed.value = e.target.value;
+        saveVisualSettings();
+        audioCache.clear();
+        const speedLabel = e.target.options[e.target.selectedIndex]?.text || `${currentSpeed}x`;
+        showToast(`⚡ Đã đổi tốc độ đọc: ${speedLabel}`);
         playCurrentQuestion();
       });
     }
@@ -654,6 +669,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setMinimalMode(!isMinimal);
       });
     }
+    if (btnEnterMinimalStage) {
+      btnEnterMinimalStage.addEventListener('click', () => {
+        setMinimalMode(true);
+      });
+    }
     if (btnExitMinimalBottom) {
       btnExitMinimalBottom.addEventListener('click', () => {
         setMinimalMode(false);
@@ -662,6 +682,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleMinimalMode) {
       toggleMinimalMode.addEventListener('change', (e) => {
         setMinimalMode(e.target.checked);
+      });
+    }
+    if (displayQuestionKr) {
+      displayQuestionKr.style.cursor = 'pointer';
+      displayQuestionKr.title = 'Bấm vào câu hỏi để nghe lại phát âm';
+      displayQuestionKr.addEventListener('click', () => {
+        playCurrentQuestion();
       });
     }
 
@@ -1803,6 +1830,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!resp.ok) throw new Error('Không thể tạo audio');
     const blob = await resp.blob();
+    if (!blob || blob.size < 100) throw new Error('Dữ liệu âm thanh rỗng');
     const url = URL.createObjectURL(blob);
     audioCache.set(cacheKey, url);
     return url;
@@ -1873,6 +1901,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch (err) {
       if (currentSession !== playbackSessionId) return;
+      if (err && err.name === 'NotAllowedError') {
+        setStatus('Bấm ▶ để nghe câu hỏi', false);
+        isPlaying = false;
+        updatePlayPauseButton();
+        return;
+      }
       console.error(err);
       setStatus('Lỗi phát âm thanh', false);
       isPlaying = false;
@@ -1998,9 +2032,13 @@ document.addEventListener('DOMContentLoaded', () => {
     playbackSessionId++;
     clearAllTimers();
     isPlaying = false;
-    audio.pause();
+    try { audio.pause(); } catch (e) {}
     audio.onended = null;
-    audio.currentTime = 0;
+    try {
+      if (audio.readyState > 0) {
+        audio.currentTime = 0;
+      }
+    } catch (e) {}
     if (!keepStatus) {
       setStatus('Sẵn sàng', false);
     }
@@ -2343,6 +2381,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleMinimalMode) {
       toggleMinimalMode.checked = enabled;
     }
+    if (enabled && customizerDrawer && customizerDrawer.classList.contains('open')) {
+      customizerDrawer.classList.remove('open');
+      if (customizerBackdrop) customizerBackdrop.style.display = 'none';
+    }
     localStorage.setItem('korean_minimal_mode_v2', enabled ? '1' : '0');
     if (notify) {
       showToast(enabled ? '🎯 Đã bật Giao diện tối giản tập trung!' : '🔄 Đã quay lại Giao diện đầy đủ!', 'info');
@@ -2412,6 +2454,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const matchOpt = Array.from(selectSpeed.options).find(o => Math.abs(parseFloat(o.value) - currentSpeed) < 0.01);
         if (matchOpt) selectSpeed.value = matchOpt.value;
       }
+      if (customizerSpeedSelect) {
+        const matchOpt2 = Array.from(customizerSpeedSelect.options).find(o => Math.abs(parseFloat(o.value) - currentSpeed) < 0.01);
+        if (matchOpt2) customizerSpeedSelect.value = matchOpt2.value;
+      }
     }
   }
 
@@ -2446,9 +2492,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleShowVisualizer) toggleShowVisualizer.checked = visualSettings.showVisualizer;
     if (toggleGlassGlow) toggleGlassGlow.checked = visualSettings.glassGlow;
 
-    // Delay & voice
+    // Delay, voice & speed
     if (rangeCustomizerDelay) rangeCustomizerDelay.value = visualSettings.delay;
     if (customizerVoiceSelect) customizerVoiceSelect.value = visualSettings.voice;
+    if (customizerSpeedSelect && visualSettings.speed) {
+      const matchOpt = Array.from(customizerSpeedSelect.options).find(o => Math.abs(parseFloat(o.value) - parseFloat(visualSettings.speed)) < 0.01);
+      if (matchOpt) customizerSpeedSelect.value = matchOpt.value;
+    }
     if (toggleMinimalMode) toggleMinimalMode.checked = document.body.classList.contains('minimal-mode');
     if (toggleIPhone13Mode) toggleIPhone13Mode.checked = document.body.classList.contains('iphone13-mode');
   }

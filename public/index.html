@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261023_3">
+  <link rel="stylesheet" href="style.css?v=20261023_5">
 </head>
 <body class="dark-theme">
 
@@ -176,6 +176,9 @@
             <button type="button" class="mode-pill" id="btnModeAuto" title="Chế độ Tự Động: Tự chạy hết độ trễ rồi tự sang câu kế tiếp">
               ⚡ Tự động (Auto)
             </button>
+            <button type="button" class="mode-pill" id="btnEnterMinimalStage" title="Mở Giao diện đơn giản tập trung">
+              ✨ Giao diện đơn giản
+            </button>
           </div>
 
           <div class="exam-btn-group" id="examBtnGroup">
@@ -279,10 +282,12 @@
           <!-- Speed selection -->
           <div class="dropdown-wrapper">
             <select id="selectSpeed" class="custom-select" title="Tốc độ nói">
+              <option value="0.5">0.5x (Rất chậm)</option>
               <option value="0.75">0.75x (Chậm)</option>
               <option value="0.85">0.85x (Vừa)</option>
               <option value="1.0" selected>1.0x (Chuẩn)</option>
               <option value="1.25">1.25x (Nhanh)</option>
+              <option value="1.5">1.5x (Rất nhanh)</option>
             </select>
           </div>
 
@@ -822,15 +827,27 @@
         </div>
       </div>
 
-      <!-- Section 5: Giọng đọc & Độ trễ -->
+      <!-- Section 5: Giọng đọc, Tốc độ & Độ trễ -->
       <div class="customizer-section">
-        <h4 class="customizer-section-title">🎙️ Giọng đọc & Độ trễ</h4>
+        <h4 class="customizer-section-title">🎙️ Giọng đọc, Tốc độ & Độ trễ</h4>
         <div class="customizer-field">
           <label for="customizerVoiceSelect">Giọng đọc phát thanh:</label>
           <select id="customizerVoiceSelect" class="form-select-sm">
             <option value="ko-KR-SunHiNeural">Sun-Hi (Nữ Seoul - Chuẩn phát thanh viên)</option>
             <option value="ko-KR-InJoonNeural">In-Joon (Nam Seoul - Trầm ấm, rõ chữ)</option>
             <option value="ko-KR-HyunsuMultilingualNeural">Hyunsu (Nam trẻ trung năng động)</option>
+          </select>
+        </div>
+
+        <div class="customizer-field" style="margin-top: 10px;">
+          <label for="customizerSpeedSelect">Tốc độ nói:</label>
+          <select id="customizerSpeedSelect" class="form-select-sm">
+            <option value="0.5">0.5x (Rất chậm)</option>
+            <option value="0.75">0.75x (Chậm)</option>
+            <option value="0.85">0.85x (Vừa)</option>
+            <option value="1.0" selected>1.0x (Chuẩn)</option>
+            <option value="1.25">1.25x (Nhanh)</option>
+            <option value="1.5">1.5x (Rất nhanh)</option>
           </select>
         </div>
 
@@ -853,6 +870,6 @@
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <script src="app.js?v=20261023_3"></script>
+  <script src="app.js?v=20261023_5"></script>
 </body>
 </html>
