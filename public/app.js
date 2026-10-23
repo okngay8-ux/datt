@@ -298,16 +298,23 @@ document.addEventListener('DOMContentLoaded', () => {
   let visualSettings = { ...defaultVisualSettings };
   let editingQuestionIndex = 0;
   let isAddingNewQuestion = false;
-
-  // Initialize App
-  init();
+  let cachedNetworkData = null;
+  let stageTranslateToken = 0;
+  let isDraggingPlaylist = false;
+  let playlistStartY = 0;
+  let playlistStartScrollTop = 0;
+  let hasDraggedPlaylist = false;
 
   async function init() {
     originalQuestions = JSON.parse(JSON.stringify(questions));
     loadAndApplyVisualSettings();
-    renderPlaylist();
-    updateStageDisplay();
     bindEvents();
+    renderPlaylist();
+    try {
+      updateStageDisplay();
+    } catch (err) {
+      console.error('Lỗi hiển thị câu hỏi ban đầu:', err);
+    }
     await fetchSavedSets();
   }
 
@@ -757,8 +764,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Network Info & QR Code Loader
-  let cachedNetworkData = null;
-
   async function loadNetworkInfo() {
     phoneQrLoading.style.display = 'flex';
     phoneQrImage.style.display = 'none';
@@ -1479,7 +1484,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Update Center Stage Info (Tự động dịch ngầm nếu câu hỏi hoặc đáp án chưa có tiếng Việt)
-  let stageTranslateToken = 0;
   function updateStageDisplay() {
     if (questions.length === 0) {
       displayQuestionKr.textContent = "Chưa có câu hỏi nào";
@@ -1570,11 +1574,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Hỗ trợ vuốt trượt (drag/swipe) bằng chuột trên máy tính cho khu câu hỏi
-  let isDraggingPlaylist = false;
-  let playlistStartY = 0;
-  let playlistStartScrollTop = 0;
-  let hasDraggedPlaylist = false;
-
   if (playlistContainer) {
     playlistContainer.addEventListener('mousedown', (e) => {
       isDraggingPlaylist = true;
@@ -1766,7 +1765,8 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       setStatus('Đang đọc đáp án...', true);
       btnExamShowAnswer.innerHTML = '🔊 Đang đọc đáp án...';
-      const aAudioUrl = await getAudioBlobUrl(item.aKr);
+      const cacheKey = `${item.aKr}_${currentVoice}_${currentSpeed}`;
+      const aAudioUrl = audioCache.get(cacheKey) || getDirectTtsUrl(item.aKr);
       audio.src = aAudioUrl;
       await audio.play();
       audio.onended = () => {
@@ -1808,6 +1808,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     examResultModal.style.display = 'flex';
     setStatus('🏆 Đã hoàn thành bộ đề!', false);
+  }
+
+  function getDirectTtsUrl(text) {
+    if (!text || !text.trim()) return '';
+    return `/api/tts?text=${encodeURIComponent(text.trim())}&voice=${encodeURIComponent(currentVoice)}&speed=${encodeURIComponent(currentSpeed)}`;
   }
 
   // Audio Playback Engine
@@ -1858,10 +1863,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      // Bước 1: Đọc Câu hỏi
+      // Bước 1: Đọc Câu hỏi (Gán trực tiếp URL đồng bộ trong sự kiện người dùng để không bao giờ bị chặn trên iPhone/Web)
       setStatus('Đang đọc câu hỏi...', true);
-      const qAudioUrl = await getAudioBlobUrl(item.qKr);
-      if (!isPlaying || currentSession !== playbackSessionId) return;
+      const cacheKey = `${item.qKr}_${currentVoice}_${currentSpeed}`;
+      const qAudioUrl = audioCache.get(cacheKey) || getDirectTtsUrl(item.qKr);
+      if (!qAudioUrl || !isPlaying || currentSession !== playbackSessionId) return;
 
       audio.src = qAudioUrl;
       await audio.play();
@@ -2758,4 +2764,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
   }
+
+  // Khởi chạy ứng dụng sau khi toàn bộ biến và hàm đã sẵn sàng
+  init();
 });

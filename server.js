@@ -442,15 +442,24 @@ app.post('/api/sets/sync', (req, res) => {
             const primaryQuestions = (cTime >= sTime || cRichness >= sRichness) ? cSet.questions : sSet.questions;
             const secondaryQuestions = (primaryQuestions === cSet.questions) ? sSet.questions : cSet.questions;
             const mergedQuestions = mergeQuestionsList(primaryQuestions, secondaryQuestions);
+            const nextTitle = (cTime >= sTime && cSet.title) ? cSet.title.trim() : sSet.title;
+            const nextDesc = (cTime >= sTime && cSet.description !== undefined) ? cSet.description.trim() : (sSet.description || '');
 
-            serverSets[sIdx] = {
-              ...sSet,
-              title: (cTime >= sTime && cSet.title) ? cSet.title.trim() : sSet.title,
-              description: (cTime >= sTime && cSet.description !== undefined) ? cSet.description.trim() : (sSet.description || ''),
-              updatedAt: new Date(Math.max(cTime, sTime, Date.now())).toISOString(),
-              questions: mergedQuestions
-            };
-            hasChanges = true;
+            const contentChanged =
+              nextTitle !== sSet.title ||
+              nextDesc !== (sSet.description || '') ||
+              JSON.stringify(mergedQuestions) !== JSON.stringify(sSet.questions);
+
+            if (contentChanged) {
+              serverSets[sIdx] = {
+                ...sSet,
+                title: nextTitle,
+                description: nextDesc,
+                updatedAt: new Date(Math.max(cTime, sTime, Date.now())).toISOString(),
+                questions: mergedQuestions
+              };
+              hasChanges = true;
+            }
           }
         }
       }
@@ -680,6 +689,39 @@ app.post('/api/translate-batch', async (req, res) => {
   } catch (err) {
     console.error('Lỗi dịch hàng loạt:', err.message);
     return res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// API phát trực tiếp giọng nói qua GET (tương thích 100% iOS Safari / Chrome Mobile / Zalo không bị chặn autoplay)
+app.get('/api/tts', async (req, res) => {
+  try {
+    const text = String(req.query.text || '').trim();
+    const voice = String(req.query.voice || 'ko-KR-SunHiNeural').trim();
+    const speed = Math.max(0.5, Math.min(2.0, parseFloat(req.query.speed) || 1.0));
+    const pitch = Math.max(-50, Math.min(50, parseInt(req.query.pitch, 10) || 0));
+
+    if (!text) {
+      return res.status(400).json({ success: false, error: 'Vui lòng nhập văn bản tiếng Hàn' });
+    }
+
+    const buffer = await edgeSpeak(text, voice, speed, pitch);
+    if (!buffer || buffer.length === 0) {
+      return res.status(502).json({ success: false, error: 'Không nhận được dữ liệu âm thanh từ máy chủ' });
+    }
+
+    res.set({
+      'Content-Type': 'audio/mpeg',
+      'Content-Length': buffer.length,
+      'Content-Disposition': 'inline; filename="korean_voice.mp3"',
+      'Cache-Control': 'public, max-age=86400'
+    });
+    return res.end(buffer);
+  } catch (error) {
+    console.error('Lỗi GET /api/tts:', error);
+    return res.status(500).json({
+      success: false,
+      error: 'Không thể tạo âm thanh: ' + (error.message || 'Lỗi server')
+    });
   }
 });
 
