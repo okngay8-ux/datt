@@ -17,7 +17,6 @@
     "cors": "^2.8.6",
     "express": "^5.3.0",
     "msedge-tts": "^2.1.0",
-    "pdf-export-images": "^1.2.0",
     "qrcode": "^1.5.4"
   }
 }

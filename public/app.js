@@ -289,7 +289,8 @@ document.addEventListener('DOMContentLoaded', () => {
     showVisualizer: true,
     glassGlow: true,
     delay: 3,
-    voice: 'ko-KR-SunHiNeural'
+    voice: 'ko-KR-SunHiNeural',
+    speed: 1.0
   };
 
   let visualSettings = { ...defaultVisualSettings };
@@ -393,12 +394,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Voice & Speed
     selectVoice.addEventListener('change', (e) => {
       currentVoice = e.target.value;
+      visualSettings.voice = currentVoice;
+      if (customizerVoiceSelect) customizerVoiceSelect.value = currentVoice;
+      saveVisualSettings();
       audioCache.clear();
+      const voiceName = e.target.options[e.target.selectedIndex]?.text || currentVoice;
+      showToast(`🎙️ Đã đổi giọng đọc: ${voiceName}`);
+      playCurrentQuestion();
     });
 
     selectSpeed.addEventListener('change', (e) => {
-      currentSpeed = parseFloat(e.target.value);
+      currentSpeed = parseFloat(e.target.value) || 1.0;
+      visualSettings.speed = currentSpeed;
+      saveVisualSettings();
       audioCache.clear();
+      const speedLabel = e.target.options[e.target.selectedIndex]?.text || `${currentSpeed}x`;
+      showToast(`⚡ Đã đổi tốc độ đọc: ${speedLabel}`);
+      playCurrentQuestion();
     });
 
     // Download handlers
@@ -608,9 +620,11 @@ document.addEventListener('DOMContentLoaded', () => {
       customizerVoiceSelect.addEventListener('change', (e) => {
         visualSettings.voice = e.target.value;
         currentVoice = e.target.value;
-        selectVoice.value = e.target.value;
+        if (selectVoice) selectVoice.value = e.target.value;
         saveVisualSettings();
-        showToast(`Đã đổi giọng sang: ${e.target.options[e.target.selectedIndex].text.split('(')[0].trim()}`, 'info');
+        audioCache.clear();
+        showToast(`🎙️ Đã đổi giọng sang: ${e.target.options[e.target.selectedIndex].text.split('(')[0].trim()}`);
+        playCurrentQuestion();
       });
     }
     if (rangeCustomizerDelay) {
@@ -2281,9 +2295,12 @@ document.addEventListener('DOMContentLoaded', () => {
     applyVisualSettings();
     syncCustomizerControls();
 
-    // Xóa cờ cũ bị kẹt để tự động thoát nếu trình duyệt trước đó bị kẹt ở giao diện tối giản
+    // Xóa cờ cũ bị kẹt để tự động thoát nếu trình duyệt trước đó bị kẹt ở giao diện tối giản / IP13
     if (localStorage.getItem('korean_minimal_mode')) {
       localStorage.removeItem('korean_minimal_mode');
+    }
+    if (localStorage.getItem('korean_iphone13_mode')) {
+      localStorage.removeItem('korean_iphone13_mode');
     }
 
     const savedMinimal = localStorage.getItem('korean_minimal_mode_v2');
@@ -2291,7 +2308,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setMinimalMode(true, false);
     }
 
-    const savedIPhone13 = localStorage.getItem('korean_iphone13_mode');
+    const savedIPhone13 = localStorage.getItem('korean_iphone13_mode_v2');
     if (savedIPhone13 === '1') {
       setIPhone13Mode(true, false);
     }
@@ -2309,7 +2326,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleIPhone13Mode) {
       toggleIPhone13Mode.checked = enabled;
     }
-    localStorage.setItem('korean_iphone13_mode', enabled ? '1' : '0');
+    localStorage.setItem('korean_iphone13_mode_v2', enabled ? '1' : '0');
     if (notify) {
       showToast(enabled ? '📱 Đã bật chế độ chuẩn màn hình iPhone 13 Pro!' : '🔄 Đã quay lại Giao diện tiêu chuẩn!', 'info');
     }
@@ -2380,7 +2397,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('no-glass');
     }
 
-    // 5. Delay & Voice sync
+    // 5. Delay, Voice & Speed sync
     delaySeconds = visualSettings.delay;
     if (delayValueText) delayValueText.textContent = `${delaySeconds} s`;
     if (labelCustomizerDelay) labelCustomizerDelay.textContent = `${delaySeconds} giây`;
@@ -2388,6 +2405,13 @@ document.addEventListener('DOMContentLoaded', () => {
       currentVoice = visualSettings.voice;
       if (selectVoice) selectVoice.value = currentVoice;
       if (customizerVoiceSelect) customizerVoiceSelect.value = currentVoice;
+    }
+    if (visualSettings.speed) {
+      currentSpeed = parseFloat(visualSettings.speed) || 1.0;
+      if (selectSpeed) {
+        const matchOpt = Array.from(selectSpeed.options).find(o => Math.abs(parseFloat(o.value) - currentSpeed) < 0.01);
+        if (matchOpt) selectSpeed.value = matchOpt.value;
+      }
     }
   }
 

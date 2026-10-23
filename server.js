@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const os = require('os');
 const QRCode = require('qrcode');
+const { TextToSpeech } = require('@kirillasyamov/text-to-speech');
 const { MsEdgeTTS, OUTPUT_FORMAT } = require('msedge-tts');
 
 const app = express();
@@ -11,7 +12,16 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json({ limit: '20mb' }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), {
+  etag: false,
+  setHeaders: (res, filePath) => {
+    if (/\.(html|js|css)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+    }
+  }
+}));
 
 const { exec } = require('child_process');
 
@@ -98,27 +108,55 @@ const KOREAN_VOICES = [
   }
 ];
 
-// Helper: tổng hợp giọng nói bằng MsEdgeTTS, trả về Buffer MP3
-async function edgeSpeak(text, voice, speed = 1.0, pitch = 0) {
+// Cache instance TTS tốc độ cao (kết nối WebSocket tái sử dụng, hỗ trợ đầy đủ đổi giọng & tốc độ)
+const ttsClient = new TextToSpeech();
+
+// Helper: tổng hợp giọng nói với tốc độ & giọng đọc chính xác, có luồng dự phòng tự động
+async function edgeSpeak(text, voice = 'ko-KR-SunHiNeural', speed = 1.0, pitch = 0) {
+  const cleanText = String(text || '').trim();
+  if (!cleanText) return Buffer.alloc(0);
+
+  // Luồng 1: Dùng pooled TextToSpeech tốc độ cao (~200ms, không bị treo kết nối khi đổi giọng/tốc độ)
+  try {
+    const audioBuffer = await ttsClient.speak(cleanText, {
+      voice,
+      speed,
+      pitch,
+      format: 'audio-24khz-48kbitrate-mono-mp3'
+    });
+    if (audioBuffer && audioBuffer.byteLength > 0) {
+      return Buffer.from(audioBuffer);
+    }
+  } catch (err1) {
+    console.warn('TTS primary fallback to MsEdgeTTS:', err1.message);
+  }
+
+  // Luồng 2: Dự phòng bằng MsEdgeTTS (luôn đóng kết nối sau khi đọc xong)
   const tts = new MsEdgeTTS();
-  await tts.setMetadata(
-    voice,
-    OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3
-  );
+  try {
+    await tts.setMetadata(
+      voice,
+      OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3
+    );
 
-  // Chuyển speed/pitch sang định dạng SSML prosody của Edge TTS
-  const ratePercent = Math.round((speed - 1) * 100);
-  const rateStr = ratePercent >= 0 ? `+${ratePercent}%` : `${ratePercent}%`;
-  const pitchStr = pitch >= 0 ? `+${pitch}Hz` : `${pitch}Hz`;
+    const ratePercent = Math.round((speed - 1) * 100);
+    const rateStr = ratePercent >= 0 ? `+${ratePercent}%` : `${ratePercent}%`;
+    const pitchStr = pitch >= 0 ? `+${pitch}Hz` : `${pitch}Hz`;
+    const safeXmlText = cleanText
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
 
-  return new Promise((resolve, reject) => {
-    const chunks = [];
-    // toStream() trả về { audioStream, metadataStream, requestId }
-    const { audioStream } = tts.toStream(text, { rate: rateStr, pitch: pitchStr });
-    audioStream.on('data', (chunk) => chunks.push(chunk));
-    audioStream.on('end', () => resolve(Buffer.concat(chunks)));
-    audioStream.on('error', reject);
-  });
+    return await new Promise((resolve, reject) => {
+      const chunks = [];
+      const { audioStream } = tts.toStream(safeXmlText, { rate: rateStr, pitch: pitchStr });
+      audioStream.on('data', (chunk) => chunks.push(chunk));
+      audioStream.on('end', () => resolve(Buffer.concat(chunks)));
+      audioStream.on('error', reject);
+    });
+  } finally {
+    try { tts.close(); } catch (e) {}
+  }
 }
 
 // Khởi tạo Mp3Encoder cho tạo khoảng lặng (Silence)
