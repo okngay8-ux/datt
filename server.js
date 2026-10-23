@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const os = require('os');
 const QRCode = require('qrcode');
-const { TextToSpeech } = require('@kirillasyamov/text-to-speech');
+const { MsEdgeTTS, OUTPUT_FORMAT } = require('msedge-tts');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -71,8 +71,28 @@ const KOREAN_VOICES = [
   }
 ];
 
-// Cache instance TTS
-const ttsClient = new TextToSpeech();
+// Helper: tổng hợp giọng nói bằng MsEdgeTTS, trả về Buffer MP3
+async function edgeSpeak(text, voice, speed = 1.0, pitch = 0) {
+  const tts = new MsEdgeTTS();
+  await tts.setMetadata(
+    voice,
+    OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3
+  );
+
+  // Chuyển speed/pitch sang định dạng SSML prosody của Edge TTS
+  const ratePercent = Math.round((speed - 1) * 100);
+  const rateStr = ratePercent >= 0 ? `+${ratePercent}%` : `${ratePercent}%`;
+  const pitchStr = pitch >= 0 ? `+${pitch}Hz` : `${pitch}Hz`;
+
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    // toStream() trả về { audioStream, metadataStream, requestId }
+    const { audioStream } = tts.toStream(text, { rate: rateStr, pitch: pitchStr });
+    audioStream.on('data', (chunk) => chunks.push(chunk));
+    audioStream.on('end', () => resolve(Buffer.concat(chunks)));
+    audioStream.on('error', reject);
+  });
+}
 
 // Khởi tạo Mp3Encoder cho tạo khoảng lặng (Silence)
 let Mp3EncoderClass = null;
@@ -104,15 +124,107 @@ app.get('/api/voices', (req, res) => {
   });
 });
 
+// Tính độ đầy đủ dữ liệu của 1 bộ câu hỏi (ưu tiên bộ có nhiều câu trả lời & bản dịch hơn)
+function calculateSetRichness(set) {
+  if (!set || !Array.isArray(set.questions)) return 0;
+  let score = set.questions.length * 10;
+  for (const q of set.questions) {
+    if (q.qKr && q.qKr.trim()) score += 2;
+    if (q.qVi && q.qVi.trim()) score += 3;
+    if (q.aKr && q.aKr.trim()) score += 10;
+    if (q.aVi && q.aVi.trim()) score += 8;
+  }
+  return score;
+}
+
+// Hợp nhất từng câu hỏi giữa 2 phiên bản của cùng 1 bộ câu hỏi để không bao giờ mất đáp án hoặc bản dịch
+function mergeQuestionsList(newerList = [], olderList = []) {
+  if (!Array.isArray(newerList) || newerList.length === 0) return olderList || [];
+  if (!Array.isArray(olderList) || olderList.length === 0) return newerList;
+
+  return newerList.map((newQ, idx) => {
+    const oldQ = olderList.find(o => o.qKr && newQ.qKr && o.qKr.trim() === newQ.qKr.trim()) || olderList[idx];
+    if (!oldQ) return newQ;
+    return {
+      num: newQ.num || oldQ.num || `${idx + 1}.`,
+      qKr: (newQ.qKr && newQ.qKr.trim()) ? newQ.qKr : (oldQ.qKr || ''),
+      qVi: (newQ.qVi && newQ.qVi.trim()) ? newQ.qVi : (oldQ.qVi || ''),
+      aKr: (newQ.aKr && newQ.aKr.trim()) ? newQ.aKr : (oldQ.aKr || ''),
+      aVi: (newQ.aVi && newQ.aVi.trim()) ? newQ.aVi : (oldQ.aVi || '')
+    };
+  });
+}
+
 // API Quản lý bộ câu hỏi (Question Sets CRUD)
 app.get('/api/sets', (req, res) => {
   const sets = loadSets();
   res.json({ success: true, sets });
 });
 
+// API Đồng bộ 2 chiều giữa trình duyệt (localStorage) và Server (chống mất dữ liệu khi Render ngủ/reset)
+app.post('/api/sets/sync', (req, res) => {
+  try {
+    const { sets: clientSets = [], deletedIds = [] } = req.body || {};
+    const deletedSet = new Set(Array.isArray(deletedIds) ? deletedIds : []);
+    let serverSets = loadSets().filter(s => s && s.id && !deletedSet.has(s.id));
+
+    if (Array.isArray(clientSets) && clientSets.length > 0) {
+      let hasChanges = deletedSet.size > 0;
+
+      for (const cSet of clientSets) {
+        if (!cSet || !cSet.id || !Array.isArray(cSet.questions) || deletedSet.has(cSet.id)) continue;
+
+        const sIdx = serverSets.findIndex(s => s.id === cSet.id);
+        if (sIdx === -1) {
+          // Bộ câu hỏi có trên máy người dùng nhưng bị mất trên server (do Render khởi động lại) -> Khôi phục ngay
+          serverSets.unshift({
+            id: cSet.id,
+            title: (cSet.title || 'Bộ câu hỏi đã lưu').trim(),
+            description: (cSet.description || '').trim(),
+            createdAt: cSet.createdAt || new Date().toISOString(),
+            updatedAt: cSet.updatedAt || new Date().toISOString(),
+            questions: cSet.questions
+          });
+          hasChanges = true;
+        } else {
+          const sSet = serverSets[sIdx];
+          const cTime = new Date(cSet.updatedAt || cSet.createdAt || 0).getTime() || 0;
+          const sTime = new Date(sSet.updatedAt || sSet.createdAt || 0).getTime() || 0;
+          const cRichness = calculateSetRichness(cSet);
+          const sRichness = calculateSetRichness(sSet);
+
+          if (cTime > sTime || cRichness > sRichness) {
+            const primaryQuestions = (cTime >= sTime || cRichness >= sRichness) ? cSet.questions : sSet.questions;
+            const secondaryQuestions = (primaryQuestions === cSet.questions) ? sSet.questions : cSet.questions;
+            const mergedQuestions = mergeQuestionsList(primaryQuestions, secondaryQuestions);
+
+            serverSets[sIdx] = {
+              ...sSet,
+              title: (cTime >= sTime && cSet.title) ? cSet.title.trim() : sSet.title,
+              description: (cTime >= sTime && cSet.description !== undefined) ? cSet.description.trim() : (sSet.description || ''),
+              updatedAt: new Date(Math.max(cTime, sTime, Date.now())).toISOString(),
+              questions: mergedQuestions
+            };
+            hasChanges = true;
+          }
+        }
+      }
+
+      if (hasChanges) {
+        saveSets(serverSets);
+      }
+    }
+
+    return res.json({ success: true, sets: serverSets });
+  } catch (err) {
+    console.error('Lỗi đồng bộ bộ câu hỏi:', err.message);
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 app.post('/api/sets', (req, res) => {
   try {
-    const { title, description = '', questions = [] } = req.body;
+    const { id: customId, title, description = '', questions = [] } = req.body;
     if (!title || !title.trim()) {
       return res.status(400).json({ success: false, error: 'Vui lòng nhập tên bộ câu hỏi' });
     }
@@ -121,16 +233,23 @@ app.post('/api/sets', (req, res) => {
     }
 
     const sets = loadSets();
+    const targetId = customId || ('set_' + Date.now());
+    const existingIdx = sets.findIndex(s => s.id === targetId);
+
     const newSet = {
-      id: 'set_' + Date.now(),
+      id: targetId,
       title: title.trim(),
       description: description.trim(),
-      createdAt: new Date().toISOString(),
+      createdAt: existingIdx !== -1 ? sets[existingIdx].createdAt : new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       questions
     };
 
-    sets.unshift(newSet);
+    if (existingIdx !== -1) {
+      sets[existingIdx] = newSet;
+    } else {
+      sets.unshift(newSet);
+    }
     saveSets(sets);
 
     res.json({ success: true, set: newSet });
@@ -146,7 +265,21 @@ app.put('/api/sets/:id', (req, res) => {
     const sets = loadSets();
     const index = sets.findIndex(s => s.id === id);
 
+    // Nếu bộ câu hỏi không tìm thấy trên server (do Render ngủ dậy bị reset), tự động tạo lại (Upsert) thay vì báo lỗi 404
     if (index === -1) {
+      if (Array.isArray(questions) && questions.length > 0) {
+        const recoveredSet = {
+          id,
+          title: (title && title.trim()) ? title.trim() : 'Bộ câu hỏi đã lưu',
+          description: description !== undefined ? String(description).trim() : '',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          questions
+        };
+        sets.unshift(recoveredSet);
+        saveSets(sets);
+        return res.json({ success: true, set: recoveredSet, recovered: true });
+      }
       return res.status(404).json({ success: false, error: 'Không tìm thấy bộ câu hỏi' });
     }
 
@@ -166,13 +299,7 @@ app.delete('/api/sets/:id', (req, res) => {
   try {
     const { id } = req.params;
     let sets = loadSets();
-    const initialLen = sets.length;
     sets = sets.filter(s => s.id !== id);
-
-    if (sets.length === initialLen) {
-      return res.status(404).json({ success: false, error: 'Không tìm thấy bộ câu hỏi' });
-    }
-
     saveSets(sets);
     res.json({ success: true, message: 'Đã xóa bộ câu hỏi thành công' });
   } catch (err) {
@@ -180,22 +307,134 @@ app.delete('/api/sets/:id', (req, res) => {
   }
 });
 
-// API dịch tự động Hàn -> Việt
+// Helper dịch Hàn -> Việt đa luồng (có dự phòng chống chặn IP trên Render)
+async function translateKoToViServer(rawText) {
+  if (!rawText || !String(rawText).trim()) return '';
+  const clean = String(rawText).trim();
+
+  // Luồng 1: Google Translate GTX với User-Agent trình duyệt chuẩn
+  try {
+    const url1 = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ko&tl=vi&dt=t&q=${encodeURIComponent(clean)}`;
+    const resp1 = await fetch(url1, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+        'Accept': 'application/json,text/plain,*/*'
+      },
+      signal: AbortSignal.timeout(7000)
+    });
+    if (resp1.ok) {
+      const data1 = await resp1.json();
+      if (Array.isArray(data1) && Array.isArray(data1[0])) {
+        const trans1 = data1[0].map(item => (item && item[0]) ? item[0] : '').join('').trim();
+        if (trans1) return trans1;
+      }
+    }
+  } catch (e1) {
+    console.warn('Translate GTX fallback:', e1.message);
+  }
+
+  // Luồng 2: Google Translate dict-chrome-ex endpoint
+  try {
+    const url2 = `https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=ko&tl=vi&q=${encodeURIComponent(clean)}`;
+    const resp2 = await fetch(url2, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124.0.0.0 Safari/537.36'
+      },
+      signal: AbortSignal.timeout(7000)
+    });
+    if (resp2.ok) {
+      const data2 = await resp2.json();
+      if (Array.isArray(data2)) {
+        const first = data2[0];
+        if (typeof first === 'string' && first.trim()) return first.trim();
+        if (Array.isArray(first) && typeof first[0] === 'string') return first[0].trim();
+      }
+    }
+  } catch (e2) {
+    console.warn('Translate clients5 fallback:', e2.message);
+  }
+
+  // Luồng 3: MyMemory Translation API
+  try {
+    const url3 = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(clean)}&langpair=ko|vi`;
+    const resp3 = await fetch(url3, { signal: AbortSignal.timeout(7000) });
+    if (resp3.ok) {
+      const data3 = await resp3.json();
+      if (data3 && data3.responseData && data3.responseData.translatedText) {
+        return String(data3.responseData.translatedText).trim();
+      }
+    }
+  } catch (e3) {
+    console.warn('Translate MyMemory fallback:', e3.message);
+  }
+
+  return '';
+}
+
+// API dịch tự động Hàn -> Việt (1 câu)
 app.post('/api/translate', async (req, res) => {
   try {
-    const { text } = req.body;
-    if (!text || !text.trim()) {
+    const { text } = req.body || {};
+    if (!text || !String(text).trim()) {
       return res.json({ success: true, translation: '' });
     }
-    const clean = text.trim();
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ko&tl=vi&dt=t&q=${encodeURIComponent(clean)}`;
-    const resp = await fetch(url);
-    const data = await resp.json();
-    const translation = data[0].map(item => item[0]).join('');
+    const translation = await translateKoToViServer(text);
+    if (!translation) {
+      return res.status(502).json({ success: false, error: 'Không thể dịch tự động lúc này' });
+    }
     return res.json({ success: true, translation });
   } catch (err) {
     console.error('Lỗi dịch:', err.message);
     return res.status(500).json({ success: false, error: 'Không thể dịch' });
+  }
+});
+
+// API dịch hàng loạt Hàn -> Việt tốc độ cao (Batch Translate)
+app.post('/api/translate-batch', async (req, res) => {
+  try {
+    const { texts = [] } = req.body || {};
+    if (!Array.isArray(texts) || texts.length === 0) {
+      return res.json({ success: true, translations: [] });
+    }
+
+    const results = new Array(texts.length).fill('');
+    const CHUNK_SIZE = 20;
+
+    for (let start = 0; start < texts.length; start += CHUNK_SIZE) {
+      const slice = texts.slice(start, start + CHUNK_SIZE).map(t => String(t || '').replace(/\r?\n/g, ' ').trim());
+      const nonEmptyIndices = [];
+      const nonEmptyLines = [];
+
+      slice.forEach((line, idx) => {
+        if (line) {
+          nonEmptyIndices.push(start + idx);
+          nonEmptyLines.push(line);
+        }
+      });
+
+      if (nonEmptyLines.length === 0) continue;
+
+      // Thử gộp dịch cả cụm bằng dấu xuống dòng
+      const joined = nonEmptyLines.join('\n');
+      const batchTranslated = await translateKoToViServer(joined);
+      const splitLines = batchTranslated ? batchTranslated.split(/\r?\n/).map(s => s.trim()) : [];
+
+      if (splitLines.length === nonEmptyLines.length) {
+        nonEmptyIndices.forEach((targetIdx, i) => {
+          results[targetIdx] = splitLines[i];
+        });
+      } else {
+        // Nếu số dòng trả về lệch, dịch song song từng câu trong nhóm nhỏ
+        await Promise.all(nonEmptyIndices.map(async (targetIdx, i) => {
+          results[targetIdx] = await translateKoToViServer(nonEmptyLines[i]);
+        }));
+      }
+    }
+
+    return res.json({ success: true, translations: results });
+  } catch (err) {
+    console.error('Lỗi dịch hàng loạt:', err.message);
+    return res.status(500).json({ success: false, error: err.message });
   }
 });
 
@@ -230,14 +469,8 @@ app.post('/api/tts', async (req, res) => {
 
     // Đơn câu không lặp: Tổng hợp trực tiếp tốc độ cao
     if (targetSentences.length === 1 && clampedRepeat === 1) {
-      const audioBuffer = await ttsClient.speak(targetSentences[0], {
-        voice,
-        speed: clampedSpeed,
-        pitch: clampedPitch,
-        format: 'audio-24khz-48kbitrate-mono-mp3'
-      });
+      const buffer = await edgeSpeak(targetSentences[0], voice, clampedSpeed, clampedPitch);
 
-      const buffer = Buffer.from(audioBuffer);
       res.set({
         'Content-Type': 'audio/mpeg',
         'Content-Length': buffer.length,
@@ -253,14 +486,8 @@ app.post('/api/tts', async (req, res) => {
 
     const audioBuffers = [];
     for (let i = 0; i < targetSentences.length; i++) {
-      const s = targetSentences[i];
-      const audio = await ttsClient.speak(s, {
-        voice,
-        speed: clampedSpeed,
-        pitch: clampedPitch,
-        format: 'audio-24khz-48kbitrate-mono-mp3'
-      });
-      audioBuffers.push(Buffer.from(audio));
+      const buf = await edgeSpeak(targetSentences[i], voice, clampedSpeed, clampedPitch);
+      audioBuffers.push(buf);
     }
 
     const finalChunks = [];
@@ -317,21 +544,13 @@ app.post('/api/tts-qa-playlist', async (req, res) => {
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
       if (item.question) {
-        const qAudio = await ttsClient.speak(item.question, {
-          voice,
-          speed: clampedSpeed,
-          format: 'audio-24khz-48kbitrate-mono-mp3'
-        });
-        chunks.push(Buffer.from(qAudio));
+        const qBuf = await edgeSpeak(item.question, voice, clampedSpeed);
+        chunks.push(qBuf);
         chunks.push(silenceBuffer);
       }
       if (item.answer) {
-        const aAudio = await ttsClient.speak(item.answer, {
-          voice,
-          speed: clampedSpeed,
-          format: 'audio-24khz-48kbitrate-mono-mp3'
-        });
-        chunks.push(Buffer.from(aAudio));
+        const aBuf = await edgeSpeak(item.answer, voice, clampedSpeed);
+        chunks.push(aBuf);
         if (i < items.length - 1) {
           chunks.push(silenceBuffer);
         }

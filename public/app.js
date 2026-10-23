@@ -790,26 +790,263 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Question Sets API Management
-  async function fetchSavedSets() {
+  // ========================================================
+  // HỆ THỐNG ĐỒNG BỘ 2 CHIỀU (LOCALSTORAGE <-> SERVER) & DỊCH ĐA LUỒNG
+  // ========================================================
+  function loadSavedSetsFromStorage() {
     try {
-      const resp = await fetch('/api/sets');
-      const data = await resp.json();
-      if (data.success && Array.isArray(data.sets)) {
-        savedSets = data.sets;
-        updateSetPickerDropdown();
-        renderSavedSetsLibrary();
+      const raw = localStorage.getItem('korean_saved_sets');
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  }
 
-        // Kiểm tra xem activeSetId có khớp bộ nào không
-        const activeSet = savedSets.find(s => s.id === activeSetId);
-        if (activeSet && (!questions || questions.length === 0)) {
-          questions = [...activeSet.questions];
-          renderPlaylist();
-          updateStageDisplay();
+  function saveSetsToStorage(sets = savedSets) {
+    try {
+      localStorage.setItem('korean_saved_sets', JSON.stringify(sets));
+    } catch (e) {
+      console.warn('Không thể lưu korean_saved_sets vào localStorage:', e);
+    }
+  }
+
+  function getDeletedSetIds() {
+    try {
+      const raw = localStorage.getItem('korean_deleted_set_ids');
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function markSetDeleted(setId) {
+    const list = getDeletedSetIds();
+    if (!list.includes(setId)) {
+      list.push(setId);
+      try {
+        localStorage.setItem('korean_deleted_set_ids', JSON.stringify(list));
+      } catch (e) {}
+    }
+  }
+
+  function calculateQuestionsRichness(qList) {
+    if (!Array.isArray(qList)) return 0;
+    let score = qList.length * 10;
+    for (const q of qList) {
+      if (q.qKr && q.qKr.trim()) score += 2;
+      if (q.qVi && q.qVi.trim()) score += 3;
+      if (q.aKr && q.aKr.trim()) score += 10;
+      if (q.aVi && q.aVi.trim()) score += 8;
+    }
+    return score;
+  }
+
+  function mergeQuestionArrays(primaryList = [], secondaryList = []) {
+    if (!Array.isArray(primaryList) || primaryList.length === 0) return secondaryList || [];
+    if (!Array.isArray(secondaryList) || secondaryList.length === 0) return primaryList;
+
+    return primaryList.map((p, idx) => {
+      const s = secondaryList.find(item => item.qKr && p.qKr && item.qKr.trim() === p.qKr.trim()) || secondaryList[idx];
+      if (!s) return p;
+      return {
+        num: p.num || s.num || `${idx + 1}.`,
+        qKr: (p.qKr && p.qKr.trim()) ? p.qKr : (s.qKr || ''),
+        qVi: (p.qVi && p.qVi.trim()) ? p.qVi : (s.qVi || ''),
+        aKr: (p.aKr && p.aKr.trim()) ? p.aKr : (s.aKr || ''),
+        aVi: (p.aVi && p.aVi.trim()) ? p.aVi : (s.aVi || '')
+      };
+    });
+  }
+
+  function syncQuestionEditToOriginal(updatedItem, currentIdx) {
+    if (!updatedItem || !Array.isArray(originalQuestions)) return;
+    const matchIdx = originalQuestions.findIndex(o =>
+      (updatedItem.num && o.num === updatedItem.num && o.qKr === updatedItem.qKr) ||
+      (o.qKr && updatedItem.qKr && o.qKr.trim() === updatedItem.qKr.trim())
+    );
+    if (matchIdx !== -1) {
+      originalQuestions[matchIdx] = JSON.parse(JSON.stringify(updatedItem));
+    } else if (currentIdx >= 0 && currentIdx < originalQuestions.length && !btnShuffle.classList.contains('active')) {
+      originalQuestions[currentIdx] = JSON.parse(JSON.stringify(updatedItem));
+    }
+  }
+
+  // Dịch 1 câu Hàn -> Việt (kết hợp trực tiếp trình duyệt + Server dự phòng để không bao giờ bị chặn IP)
+  async function translateTextSmart(rawText) {
+    if (!rawText || !String(rawText).trim()) return '';
+    const clean = String(rawText).trim();
+
+    // 1. Thử dịch trực tiếp từ trình duyệt người dùng (nhanh nhất, không bị giới hạn IP máy chủ Render)
+    try {
+      const directUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ko&tl=vi&dt=t&q=${encodeURIComponent(clean)}`;
+      const resp = await fetch(directUrl);
+      if (resp.ok) {
+        const data = await resp.json();
+        if (Array.isArray(data) && Array.isArray(data[0])) {
+          const translated = data[0].map(item => (item && item[0]) ? item[0] : '').join('').trim();
+          if (translated) return translated;
+        }
+      }
+    } catch (e) {
+      // Chuyển sang gọi qua Server nếu trình duyệt bị chặn CORS/mạng
+    }
+
+    // 2. Dự phòng qua API Server (có sẵn 3 luồng dự phòng trên server)
+    try {
+      const resp = await fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: clean })
+      });
+      if (resp.ok) {
+        const data = await resp.json();
+        if (data && data.translation) {
+          return String(data.translation).trim();
         }
       }
     } catch (err) {
-      console.warn('Không thể tải bộ câu hỏi từ server:', err);
+      console.warn('Lỗi dịch dự phòng qua server:', err);
+    }
+
+    return '';
+  }
+
+  // Dịch hàng loạt tốc độ cao
+  async function translateBatchSmart(texts = []) {
+    if (!Array.isArray(texts) || texts.length === 0) return [];
+    const results = new Array(texts.length).fill('');
+    const CHUNK_SIZE = 20;
+
+    for (let start = 0; start < texts.length; start += CHUNK_SIZE) {
+      const slice = texts.slice(start, start + CHUNK_SIZE).map(t => String(t || '').replace(/\r?\n/g, ' ').trim());
+      const nonEmptyIndices = [];
+      const nonEmptyLines = [];
+
+      slice.forEach((line, idx) => {
+        if (line) {
+          nonEmptyIndices.push(start + idx);
+          nonEmptyLines.push(line);
+        }
+      });
+
+      if (nonEmptyLines.length === 0) continue;
+
+      let resolved = false;
+
+      // Thử gộp dịch cả cụm trực tiếp
+      try {
+        const joined = nonEmptyLines.join('\n');
+        const directTranslated = await translateTextSmart(joined);
+        const splitLines = directTranslated ? directTranslated.split(/\r?\n/).map(s => s.trim()) : [];
+        if (splitLines.length === nonEmptyLines.length) {
+          nonEmptyIndices.forEach((targetIdx, i) => {
+            results[targetIdx] = splitLines[i];
+          });
+          resolved = true;
+        }
+      } catch (e) {}
+
+      // Nếu gộp dòng bị lệch số dòng, gọi API batch của server hoặc dịch từng câu
+      if (!resolved) {
+        try {
+          const resp = await fetch('/api/translate-batch', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ texts: nonEmptyLines })
+          });
+          if (resp.ok) {
+            const data = await resp.json();
+            if (data.success && Array.isArray(data.translations) && data.translations.length === nonEmptyLines.length) {
+              nonEmptyIndices.forEach((targetIdx, i) => {
+                results[targetIdx] = data.translations[i] || '';
+              });
+              resolved = true;
+            }
+          }
+        } catch (e) {}
+      }
+
+      if (!resolved) {
+        await Promise.all(nonEmptyIndices.map(async (targetIdx, i) => {
+          results[targetIdx] = await translateTextSmart(nonEmptyLines[i]);
+        }));
+      }
+    }
+
+    return results;
+  }
+
+  // Question Sets API Management (Đồng bộ 2 chiều chống mất bộ câu hỏi mới lưu)
+  async function fetchSavedSets() {
+    const localSets = loadSavedSetsFromStorage();
+    const deletedIds = getDeletedSetIds();
+
+    // Bảo toàn các câu đang làm dở trong korean_questions vào localSets trước khi đồng bộ
+    if (Array.isArray(questions) && questions.length > 0 && activeSetId) {
+      const idx = localSets.findIndex(s => s.id === activeSetId);
+      if (idx !== -1) {
+        const localRichness = calculateQuestionsRichness(localSets[idx].questions);
+        const activeRichness = calculateQuestionsRichness(questions);
+        if (activeRichness >= localRichness && questions.length === localSets[idx].questions.length) {
+          localSets[idx].questions = mergeQuestionArrays(questions, localSets[idx].questions);
+          localSets[idx].updatedAt = new Date().toISOString();
+        }
+      }
+    }
+
+    if (localSets.length > 0) {
+      savedSets = localSets;
+      updateSetPickerDropdown();
+    }
+
+    try {
+      const resp = await fetch('/api/sets/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sets: localSets,
+          deletedIds
+        })
+      });
+      const data = await resp.json();
+      if (data.success && Array.isArray(data.sets)) {
+        savedSets = data.sets;
+        saveSetsToStorage(savedSets);
+
+        // Đảm bảo activeSetId luôn trỏ tới một bộ câu hợp lệ
+        let activeSet = savedSets.find(s => s.id === activeSetId);
+        if (!activeSet && savedSets.length > 0) {
+          activeSet = savedSets[0];
+          activeSetId = activeSet.id;
+          localStorage.setItem('korean_active_set_id', activeSetId);
+        }
+
+        if (activeSet) {
+          // Hợp nhất câu hỏi đang mở với dữ liệu bộ câu để không mất câu trả lời mới lưu
+          const isSameSetLength = questions && questions.length === activeSet.questions.length;
+          questions = isSameSetLength
+            ? mergeQuestionArrays(activeSet.questions, questions)
+            : JSON.parse(JSON.stringify(activeSet.questions));
+          originalQuestions = JSON.parse(JSON.stringify(questions));
+          localStorage.setItem('korean_questions', JSON.stringify(questions));
+          if (currentIndex >= questions.length) currentIndex = 0;
+        }
+
+        updateSetPickerDropdown();
+        renderSavedSetsLibrary();
+        renderPlaylist();
+        updateStageDisplay();
+      }
+    } catch (err) {
+      console.warn('Không thể đồng bộ bộ câu hỏi với server (đang dùng bản lưu trên máy):', err);
+      if (localSets.length > 0) {
+        savedSets = localSets;
+        updateSetPickerDropdown();
+        renderSavedSetsLibrary();
+      }
     }
   }
 
@@ -840,7 +1077,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     activeSetId = setId;
     localStorage.setItem('korean_active_set_id', setId);
-    questions = [...targetSet.questions];
+    questions = JSON.parse(JSON.stringify(targetSet.questions));
     originalQuestions = JSON.parse(JSON.stringify(questions));
     localStorage.setItem('korean_questions', JSON.stringify(questions));
 
@@ -899,45 +1136,121 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isOverwrite = chkOverwriteCurrentSet.checked && activeSetId && savedSets.some(s => s.id === activeSetId);
     btnConfirmSaveSet.disabled = true;
-    btnConfirmSaveSet.textContent = 'Đang lưu...';
+    btnConfirmSaveSet.textContent = 'Đang dịch & lưu...';
 
     try {
+      // Tự động dịch các câu hỏi hoặc câu trả lời còn thiếu tiếng Việt trước khi lưu bộ câu
+      const missingQIndices = [];
+      const missingQTexts = [];
+      const missingAIndices = [];
+      const missingATexts = [];
+
+      questions.forEach((q, idx) => {
+        if (q.qKr && q.qKr.trim() && (!q.qVi || !q.qVi.trim())) {
+          missingQIndices.push(idx);
+          missingQTexts.push(q.qKr.trim());
+        }
+        if (q.aKr && q.aKr.trim() && (!q.aVi || !q.aVi.trim())) {
+          missingAIndices.push(idx);
+          missingATexts.push(q.aKr.trim());
+        }
+      });
+
+      if (missingQTexts.length > 0) {
+        const transQ = await translateBatchSmart(missingQTexts);
+        missingQIndices.forEach((qIdx, i) => {
+          if (transQ[i]) questions[qIdx].qVi = transQ[i];
+        });
+      }
+
+      if (missingATexts.length > 0) {
+        const transA = await translateBatchSmart(missingATexts);
+        missingAIndices.forEach((aIdx, i) => {
+          if (transA[i]) questions[aIdx].aVi = transA[i];
+        });
+      }
+
+      originalQuestions = JSON.parse(JSON.stringify(questions));
+      saveQuestionsToLocalStorage();
+      updateStageDisplay();
+
+      const nowIso = new Date().toISOString();
+
       if (isOverwrite) {
-        // Cập nhật bộ câu hiện tại
-        const resp = await fetch(`/api/sets/${activeSetId}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            title,
-            description: desc,
-            questions
-          })
-        });
-        const data = await resp.json();
-        if (!data.success) throw new Error(data.error);
-
-        // Update local state
+        // Cập nhật ngay vào bộ nhớ máy trước
         const idx = savedSets.findIndex(s => s.id === activeSetId);
-        if (idx !== -1) savedSets[idx] = data.set;
-        showToast(`✅ Đã cập nhật: ${data.set.title}`);
-      } else {
-        // Lưu thành bộ mới
-        const resp = await fetch('/api/sets', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
+        if (idx !== -1) {
+          savedSets[idx] = {
+            ...savedSets[idx],
             title,
             description: desc,
-            questions
-          })
-        });
-        const data = await resp.json();
-        if (!data.success) throw new Error(data.error);
+            updatedAt: nowIso,
+            questions: JSON.parse(JSON.stringify(questions))
+          };
+        }
+        saveSetsToStorage(savedSets);
 
-        savedSets.unshift(data.set);
-        activeSetId = data.set.id;
+        // Đồng bộ lên Server
+        try {
+          const resp = await fetch(`/api/sets/${activeSetId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              title,
+              description: desc,
+              questions
+            })
+          });
+          const data = await resp.json();
+          if (data && data.success && data.set && idx !== -1) {
+            savedSets[idx] = data.set;
+            saveSetsToStorage(savedSets);
+          }
+        } catch (netErr) {
+          console.warn('Đã lưu vào bộ nhớ máy, sẽ đồng bộ lên server sau:', netErr);
+        }
+
+        showToast(`✅ Đã cập nhật & sao lưu vĩnh viễn: ${title}`);
+      } else {
+        const newId = 'set_' + Date.now();
+        const localNewSet = {
+          id: newId,
+          title,
+          description: desc,
+          createdAt: nowIso,
+          updatedAt: nowIso,
+          questions: JSON.parse(JSON.stringify(questions))
+        };
+
+        savedSets.unshift(localNewSet);
+        activeSetId = newId;
         localStorage.setItem('korean_active_set_id', activeSetId);
-        showToast(`✅ Đã lưu bộ câu mới: ${data.set.title}`);
+        saveSetsToStorage(savedSets);
+
+        // Đồng bộ lên Server
+        try {
+          const resp = await fetch('/api/sets', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: newId,
+              title,
+              description: desc,
+              questions
+            })
+          });
+          const data = await resp.json();
+          if (data && data.success && data.set) {
+            savedSets[0] = data.set;
+            activeSetId = data.set.id;
+            localStorage.setItem('korean_active_set_id', activeSetId);
+            saveSetsToStorage(savedSets);
+          }
+        } catch (netErr) {
+          console.warn('Đã lưu bộ mới vào máy, sẽ đồng bộ lên server sau:', netErr);
+        }
+
+        showToast(`✅ Đã lưu bộ câu mới vĩnh viễn: ${title}`);
       }
 
       updateSetPickerDropdown();
@@ -996,21 +1309,21 @@ document.addEventListener('DOMContentLoaded', () => {
       card.querySelector('.btn-set-edit').addEventListener('click', async () => {
         const newTitle = prompt('Nhập tên mới cho bộ câu hỏi:', set.title);
         if (newTitle && newTitle.trim() && newTitle.trim() !== set.title) {
+          set.title = newTitle.trim();
+          set.updatedAt = new Date().toISOString();
+          saveSetsToStorage(savedSets);
+          updateSetPickerDropdown();
+          renderSavedSetsLibrary();
+          showToast('Đã đổi tên bộ câu hỏi!');
+
           try {
-            const resp = await fetch(`/api/sets/${set.id}`, {
+            await fetch(`/api/sets/${set.id}`, {
               method: 'PUT',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ title: newTitle.trim() })
+              body: JSON.stringify({ title: set.title, questions: set.questions })
             });
-            const d = await resp.json();
-            if (d.success) {
-              set.title = newTitle.trim();
-              updateSetPickerDropdown();
-              renderSavedSetsLibrary();
-              showToast('Đã đổi tên bộ câu hỏi!');
-            }
           } catch (e) {
-            alert('Không thể đổi tên: ' + e.message);
+            console.warn('Đồng bộ đổi tên sau:', e);
           }
         }
       });
@@ -1018,20 +1331,20 @@ document.addEventListener('DOMContentLoaded', () => {
       // Delete set button
       card.querySelector('.btn-set-delete').addEventListener('click', async () => {
         if (confirm(`Bạn có chắc muốn xóa bộ câu hỏi "${set.title}" không?`)) {
+          markSetDeleted(set.id);
+          savedSets = savedSets.filter(s => s.id !== set.id);
+          saveSetsToStorage(savedSets);
+          if (activeSetId === set.id && savedSets.length > 0) {
+            loadSetById(savedSets[0].id);
+          }
+          updateSetPickerDropdown();
+          renderSavedSetsLibrary();
+          showToast('Đã xóa bộ câu hỏi!');
+
           try {
-            const resp = await fetch(`/api/sets/${set.id}`, { method: 'DELETE' });
-            const d = await resp.json();
-            if (d.success) {
-              savedSets = savedSets.filter(s => s.id !== set.id);
-              if (activeSetId === set.id && savedSets.length > 0) {
-                activeSetId = savedSets[0].id;
-              }
-              updateSetPickerDropdown();
-              renderSavedSetsLibrary();
-              showToast('Đã xóa bộ câu hỏi!');
-            }
+            await fetch(`/api/sets/${set.id}`, { method: 'DELETE' });
           } catch (e) {
-            alert('Không thể xóa: ' + e.message);
+            console.warn('Lỗi xóa trên server:', e);
           }
         }
       });
@@ -1069,18 +1382,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (const item of importedData) {
           if (item.title && Array.isArray(item.questions)) {
-            await fetch('/api/sets', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                title: item.title,
-                description: item.description || '',
-                questions: item.questions
-              })
-            });
+            const newId = item.id || ('set_' + Date.now() + '_' + Math.floor(Math.random() * 1000));
+            const existingIdx = savedSets.findIndex(s => s.id === newId);
+            const setObj = {
+              id: newId,
+              title: item.title,
+              description: item.description || '',
+              createdAt: item.createdAt || new Date().toISOString(),
+              updatedAt: new Date().toISOString(),
+              questions: item.questions
+            };
+            if (existingIdx !== -1) savedSets[existingIdx] = setObj;
+            else savedSets.unshift(setObj);
           }
         }
 
+        saveSetsToStorage(savedSets);
         await fetchSavedSets();
         showToast('⬆ Đã nhập thành công các bộ câu hỏi từ file JSON!');
       } catch (err) {
@@ -1097,7 +1414,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('toastContainer');
     if (!container) return;
     const toast = document.createElement('div');
-    toast.className = `toast-message ${isError ? 'toast-error' : ''}`;
+    toast.className = `toast-message ${isError === true ? 'toast-error' : ''}`;
     toast.textContent = message;
     container.appendChild(toast);
     setTimeout(() => {
@@ -1108,7 +1425,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2800);
   }
 
-  // Update Center Stage Info
+  // Update Center Stage Info (Tự động dịch ngầm nếu câu hỏi hoặc đáp án chưa có tiếng Việt)
+  let stageTranslateToken = 0;
   function updateStageDisplay() {
     if (questions.length === 0) {
       displayQuestionKr.textContent = "Chưa có câu hỏi nào";
@@ -1120,6 +1438,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const item = questions[currentIndex];
+    if (!item) return;
+
     displayQuestionKr.textContent = `${item.num ? item.num + ' ' : ''}${item.qKr}`;
     displayQuestionVi.textContent = item.qVi || "—";
 
@@ -1127,6 +1447,50 @@ document.addEventListener('DOMContentLoaded', () => {
     displayAnswerVi.textContent = item.aVi || "";
 
     counterText.textContent = `${currentIndex + 1}/${questions.length}`;
+
+    // Tự động dịch bổ sung nếu câu hỏi hoặc câu trả lời có tiếng Hàn nhưng chưa có nghĩa tiếng Việt
+    const needTranslateQ = item.qKr && item.qKr.trim() && (!item.qVi || !item.qVi.trim());
+    const needTranslateA = item.aKr && item.aKr.trim() && (!item.aVi || !item.aVi.trim());
+
+    if (needTranslateQ || needTranslateA) {
+      const currentToken = ++stageTranslateToken;
+      const targetIdx = currentIndex;
+      if (needTranslateQ) displayQuestionVi.textContent = "⏳ Đang tự động dịch sang tiếng Việt...";
+      if (needTranslateA) displayAnswerVi.textContent = "⏳ Đang dịch nghĩa câu trả lời...";
+
+      (async () => {
+        let updated = false;
+        if (needTranslateQ) {
+          const viQ = await translateTextSmart(item.qKr);
+          if (viQ && questions[targetIdx]) {
+            questions[targetIdx].qVi = viQ;
+            updated = true;
+            if (currentIndex === targetIdx && stageTranslateToken === currentToken) {
+              displayQuestionVi.textContent = viQ;
+            }
+          } else if (currentIndex === targetIdx && stageTranslateToken === currentToken) {
+            displayQuestionVi.textContent = "—";
+          }
+        }
+        if (needTranslateA) {
+          const viA = await translateTextSmart(item.aKr);
+          if (viA && questions[targetIdx]) {
+            questions[targetIdx].aVi = viA;
+            updated = true;
+            if (currentIndex === targetIdx && stageTranslateToken === currentToken) {
+              displayAnswerVi.textContent = viA;
+            }
+          } else if (currentIndex === targetIdx && stageTranslateToken === currentToken) {
+            displayAnswerVi.textContent = "";
+          }
+        }
+        if (updated) {
+          syncQuestionEditToOriginal(questions[targetIdx], targetIdx);
+          saveQuestionsToLocalStorage();
+          persistQuestionsToServer();
+        }
+      })();
+    }
 
     // Xử lý ẩn / hiện đáp án theo chế độ luyện thi
     if (answerBoxContainer) {
@@ -1730,7 +2094,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Xử lý áp dụng danh sách câu dán từ Modal
+  // Xử lý áp dụng danh sách câu dán từ Modal (Tự động nhận diện câu hỏi/đáp án, dịch hàng loạt & tự động lưu vĩnh viễn)
   async function handleApplyBulk() {
     const raw = bulkInputText.value.trim();
     if (!raw) {
@@ -1741,65 +2105,153 @@ document.addEventListener('DOMContentLoaded', () => {
     const lines = raw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
     if (lines.length === 0) return;
 
-    btnApplyBulk.textContent = 'Đang nhận diện & dịch...';
+    btnApplyBulk.textContent = '⏳ Đang nhận diện & dịch tự động...';
     btnApplyBulk.disabled = true;
 
-    const newQuestions = [];
-    const shouldTranslate = chkAutoTranslateMissing ? chkAutoTranslateMissing.checked : true;
+    try {
+      const newQuestions = [];
+      const shouldTranslate = chkAutoTranslateMissing ? chkAutoTranslateMissing.checked : true;
+      const hasHangul = (str) => /[\uAC00-\uD7A3\u3131-\u318E]/.test(str || '');
 
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      // Tách số thứ tự (ví dụ: "79. ", "80. ")
-      const numMatch = line.match(/^(\d+[\.\)])\s*(.*)/);
-      let num = '';
-      let qKr = line;
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
 
-      if (numMatch) {
-        num = numMatch[1];
-        qKr = numMatch[2].trim();
-      } else {
-        num = `${i + 1}.`;
+        // Kiểm tra xem dòng này có phải là dòng Đáp án (답:, Đáp:, Trả lời:, A:, ->) của câu ngay phía trên không
+        const ansMatch = line.match(/^(?:답|정답|Đáp(?:\s*án)?|Trả\s*lời|A|=>|->|➡)\s*[:\.\-]?\s*(.+)$/i);
+        if (ansMatch && newQuestions.length > 0) {
+          const lastQ = newQuestions[newQuestions.length - 1];
+          const ansContent = ansMatch[1].trim();
+          if (hasHangul(ansContent) || !lastQ.aKr) {
+            lastQ.aKr = ansContent;
+          } else if (!lastQ.aVi) {
+            lastQ.aVi = ansContent;
+          }
+          continue;
+        }
+
+        // Nếu dòng không có chữ Hàn nào mà câu trước đó chưa có bản dịch tiếng Việt -> gán làm nghĩa tiếng Việt
+        if (!hasHangul(line) && newQuestions.length > 0) {
+          const lastQ = newQuestions[newQuestions.length - 1];
+          const cleanVi = line.replace(/^[\-\*\•\>]\s*/, '').trim();
+          if (lastQ.aKr && !lastQ.aVi) {
+            lastQ.aVi = cleanVi;
+            continue;
+          } else if (!lastQ.qVi) {
+            lastQ.qVi = cleanVi;
+            continue;
+          }
+        }
+
+        // Tách số thứ tự đầu câu (ví dụ: "79. ", "Câu 1: ", "1) ")
+        const numMatch = line.match(/^(?:Câu\s*)?(\d+[\.\)\:]?)\s*(.*)/i);
+        let num = '';
+        let rest = line;
+
+        if (numMatch && numMatch[2].trim()) {
+          num = numMatch[1].endsWith('.') || numMatch[1].endsWith(')') ? numMatch[1] : `${numMatch[1].replace(/\D/g, '')}.`;
+          rest = numMatch[2].trim();
+        } else {
+          num = `${newQuestions.length + 1}.`;
+        }
+
+        // Hỗ trợ cú pháp "Câu hỏi Hàn | Câu trả lời Hàn" trên cùng 1 dòng
+        let qKr = rest;
+        let aKr = '';
+        if (rest.includes('|')) {
+          const parts = rest.split('|').map(s => s.trim()).filter(Boolean);
+          qKr = parts[0] || rest;
+          aKr = parts[1] || '';
+        }
+
+        newQuestions.push({
+          num,
+          qKr,
+          qVi: '',
+          aKr,
+          aVi: ''
+        });
       }
 
-      let qVi = '';
-      if (shouldTranslate) {
-        try {
-          const transResp = await fetch('/api/translate', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text: qKr })
+      if (shouldTranslate && newQuestions.length > 0) {
+        const qIndices = [];
+        const qTexts = [];
+        const aIndices = [];
+        const aTexts = [];
+
+        newQuestions.forEach((item, idx) => {
+          if (item.qKr && !item.qVi) {
+            qIndices.push(idx);
+            qTexts.push(item.qKr);
+          }
+          if (item.aKr && !item.aVi) {
+            aIndices.push(idx);
+            aTexts.push(item.aKr);
+          }
+        });
+
+        if (qTexts.length > 0) {
+          const qTranslations = await translateBatchSmart(qTexts);
+          qIndices.forEach((qIdx, idx) => {
+            if (qTranslations[idx]) newQuestions[qIdx].qVi = qTranslations[idx];
           });
-          const transData = await transResp.json();
-          qVi = transData.translation || '';
-        } catch (e) {
-          console.warn('Lỗi dịch câu:', line);
+        }
+
+        if (aTexts.length > 0) {
+          const aTranslations = await translateBatchSmart(aTexts);
+          aIndices.forEach((aIdx, idx) => {
+            if (aTranslations[idx]) newQuestions[aIdx].aVi = aTranslations[idx];
+          });
         }
       }
 
-      newQuestions.push({
-        num,
-        qKr,
-        qVi,
-        aKr: '',
-        aVi: ''
-      });
+      questions = newQuestions;
+      originalQuestions = JSON.parse(JSON.stringify(questions));
+      saveQuestionsToLocalStorage();
+
+      // Tự động tạo & lưu thành bộ câu hỏi mới trong thư viện để không bao giờ bị mất sau vài hôm
+      const nowIso = new Date().toISOString();
+      const autoTitle = `Bộ câu mới (${questions.length} câu - ${new Date().toLocaleDateString('vi-VN')})`;
+      const newSetId = 'set_' + Date.now();
+      const autoSavedSet = {
+        id: newSetId,
+        title: autoTitle,
+        description: 'Tự động lưu khi dán danh sách câu mới',
+        createdAt: nowIso,
+        updatedAt: nowIso,
+        questions: JSON.parse(JSON.stringify(questions))
+      };
+
+      savedSets.unshift(autoSavedSet);
+      activeSetId = newSetId;
+      localStorage.setItem('korean_active_set_id', activeSetId);
+      saveSetsToStorage(savedSets);
+
+      // Đồng bộ lên Server
+      fetch('/api/sets', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(autoSavedSet)
+      }).catch(e => console.warn('Auto-save bulk set to server deferred:', e));
+
+      currentIndex = 0;
+      isAnswerRevealed = false;
+      resetExamTimer();
+      audioCache.clear();
+      stopAudio();
+      updateSetPickerDropdown();
+      renderSavedSetsLibrary();
+      renderPlaylist();
+      updateStageDisplay();
+
+      managerModal.style.display = 'none';
+      showToast(`✅ Đã dịch & tự động lưu "${autoTitle}" (${questions.length} câu)!`);
+    } catch (err) {
+      console.error('Lỗi áp dụng danh sách câu:', err);
+      alert('Có lỗi khi xử lý danh sách câu: ' + err.message);
+    } finally {
+      btnApplyBulk.textContent = '🚀 Áp dụng danh sách câu';
+      btnApplyBulk.disabled = false;
     }
-
-    questions = newQuestions;
-    originalQuestions = JSON.parse(JSON.stringify(questions));
-    localStorage.setItem('korean_questions', JSON.stringify(questions));
-    currentIndex = 0;
-    isAnswerRevealed = false;
-    resetExamTimer();
-    audioCache.clear();
-    stopAudio();
-    renderPlaylist();
-    updateStageDisplay();
-
-    btnApplyBulk.textContent = '🚀 Áp dụng danh sách câu';
-    btnApplyBulk.disabled = false;
-    managerModal.style.display = 'none';
-    showToast(`Đã áp dụng ${questions.length} câu mới. Bấm "Lưu bộ này" để lưu lại!`);
   }
 
   // ========================================================
@@ -1960,6 +2412,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleIPhone13Mode) toggleIPhone13Mode.checked = document.body.classList.contains('iphone13-mode');
   }
 
+  // Tự động dịch khi người dùng nhập xong câu hỏi / câu trả lời tiếng Hàn trong bảng Sửa nhanh
+  if (editQuestionKr) {
+    editQuestionKr.addEventListener('blur', async () => {
+      const kr = editQuestionKr.value.trim();
+      if (kr && (!editQuestionVi.value || !editQuestionVi.value.trim())) {
+        editQuestionVi.placeholder = '⏳ Đang tự động dịch sang tiếng Việt...';
+        const vi = await translateTextSmart(kr);
+        if (vi && (!editQuestionVi.value || !editQuestionVi.value.trim())) {
+          editQuestionVi.value = vi;
+        }
+        editQuestionVi.placeholder = 'Nhập bản dịch tiếng Việt...';
+      }
+    });
+  }
+
+  if (editAnswerKr) {
+    editAnswerKr.addEventListener('blur', async () => {
+      const kr = editAnswerKr.value.trim();
+      if (kr && (!editAnswerVi.value || !editAnswerVi.value.trim())) {
+        editAnswerVi.placeholder = '⏳ Đang tự động dịch câu trả lời...';
+        const vi = await translateTextSmart(kr);
+        if (vi && (!editAnswerVi.value || !editAnswerVi.value.trim())) {
+          editAnswerVi.value = vi;
+        }
+        editAnswerVi.placeholder = 'Nhập bản dịch tiếng Việt của câu trả lời...';
+      }
+    });
+  }
+
   function openQuickEditModal(index = currentIndex, isNew = false) {
     editingQuestionIndex = index;
     isAddingNewQuestion = isNew;
@@ -1998,21 +2479,16 @@ document.addEventListener('DOMContentLoaded', () => {
     btnElement.disabled = true;
 
     try {
-      const resp = await fetch('/api/translate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: sourceText.trim() })
-      });
-      const data = await resp.json();
-      if (data.success && data.translation) {
-        targetElement.value = data.translation;
-        showToast("Đã dịch xong sang Tiếng Việt!");
+      const translated = await translateTextSmart(sourceText.trim());
+      if (translated) {
+        targetElement.value = translated;
+        showToast("✅ Đã dịch xong sang Tiếng Việt!");
       } else {
-        throw new Error(data.error || 'Lỗi dịch');
+        throw new Error('Không thể dịch');
       }
     } catch (err) {
       console.error('Translation error:', err);
-      showToast("Không thể dịch tự động lúc này", true);
+      showToast("Không thể dịch tự động lúc này, vui lòng thử lại!", true);
     } finally {
       btnElement.textContent = origText;
       btnElement.disabled = false;
@@ -2025,21 +2501,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     try {
-      const resp = await fetch('/api/tts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          text: text.trim(),
-          voice: currentVoice,
-          speed: currentSpeed
-        })
-      });
-      const data = await resp.json();
-      if (data.success && data.audioUrl) {
-        const previewAudio = new Audio(data.audioUrl);
-        previewAudio.play();
+      const blobUrl = await getAudioBlobUrl(text.trim());
+      if (blobUrl) {
+        const previewAudio = new Audio(blobUrl);
+        await previewAudio.play();
       } else {
-        throw new Error(data.error || 'Lỗi TTS');
+        throw new Error('Lỗi tạo âm thanh');
       }
     } catch (err) {
       console.error('TTS preview error:', err);
@@ -2047,7 +2514,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function handleSaveQuickEdit() {
+  async function handleSaveQuickEdit() {
     const qKr = editQuestionKr.value.trim();
     if (!qKr) {
       showToast("Vui lòng nhập câu hỏi tiếng Hàn!", true);
@@ -2055,36 +2522,66 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const item = {
-      num: editQuestionNum.value.trim() || `${editingQuestionIndex + 1}.`,
-      qKr: qKr,
-      qVi: editQuestionVi.value.trim(),
-      aKr: editAnswerKr.value.trim(),
-      aVi: editAnswerVi.value.trim()
-    };
+    const oldItem = (!isAddingNewQuestion && questions[editingQuestionIndex])
+      ? questions[editingQuestionIndex]
+      : { qKr: '', qVi: '', aKr: '', aVi: '' };
 
-    if (isAddingNewQuestion) {
-      if (editingQuestionIndex >= 0 && editingQuestionIndex < questions.length) {
-        questions.splice(editingQuestionIndex + 1, 0, item);
-        currentIndex = editingQuestionIndex + 1;
-      } else {
-        questions.push(item);
-        currentIndex = questions.length - 1;
+    let qVi = editQuestionVi.value.trim();
+    const aKr = editAnswerKr.value.trim();
+    let aVi = editAnswerVi.value.trim();
+
+    const origBtnText = btnSaveQuickEdit.textContent;
+    btnSaveQuickEdit.disabled = true;
+    btnSaveQuickEdit.textContent = "⏳ Đang dịch & lưu...";
+
+    try {
+      // Tự động dịch câu hỏi nếu chưa có nghĩa tiếng Việt hoặc vừa sửa câu tiếng Hàn mà chưa sửa nghĩa Việt
+      if (qKr && (!qVi || (!isAddingNewQuestion && qKr !== oldItem.qKr && qVi === oldItem.qVi))) {
+        const transQ = await translateTextSmart(qKr);
+        if (transQ) qVi = transQ;
       }
-      showToast("Đã thêm câu hỏi mới thành công!");
-    } else {
-      questions[editingQuestionIndex] = item;
-      showToast("Đã lưu cập nhật câu hỏi!");
+
+      // Tự động dịch câu trả lời nếu chưa có nghĩa tiếng Việt hoặc vừa sửa câu trả lời tiếng Hàn
+      if (aKr && (!aVi || (!isAddingNewQuestion && aKr !== oldItem.aKr && aVi === oldItem.aVi))) {
+        const transA = await translateTextSmart(aKr);
+        if (transA) aVi = transA;
+      }
+
+      const item = {
+        num: editQuestionNum.value.trim() || `${editingQuestionIndex + 1}.`,
+        qKr,
+        qVi,
+        aKr,
+        aVi
+      };
+
+      if (isAddingNewQuestion) {
+        if (editingQuestionIndex >= 0 && editingQuestionIndex < questions.length) {
+          questions.splice(editingQuestionIndex + 1, 0, item);
+          currentIndex = editingQuestionIndex + 1;
+        } else {
+          questions.push(item);
+          currentIndex = questions.length - 1;
+        }
+        originalQuestions = JSON.parse(JSON.stringify(questions));
+        showToast("✅ Đã dịch & thêm câu hỏi mới thành công!");
+      } else {
+        questions[editingQuestionIndex] = item;
+        syncQuestionEditToOriginal(item, editingQuestionIndex);
+        showToast("✅ Đã dịch & lưu cập nhật câu hỏi vĩnh viễn!");
+      }
+
+      saveQuestionsToLocalStorage();
+      audioCache.clear();
+      renderPlaylist();
+      updateStageDisplay();
+      quickEditModal.style.display = 'none';
+
+      persistQuestionsToServer();
+    } finally {
+      btnSaveQuickEdit.disabled = false;
+      btnSaveQuickEdit.textContent = origBtnText;
     }
-
-    originalQuestions = JSON.parse(JSON.stringify(questions));
-    saveQuestionsToLocalStorage();
-    audioCache.clear();
-    renderPlaylist();
-    updateStageDisplay();
-    quickEditModal.style.display = 'none';
-
-    persistQuestionsToServer();
   }
 
   function handleDeleteCurrentQuestion() {
@@ -2119,11 +2616,44 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function persistQuestionsToServer() {
-    if (activeSetId && activeSetId.startsWith('set_')) {
+    const targetQuestions = (originalQuestions && originalQuestions.length === questions.length)
+      ? originalQuestions
+      : questions;
+    const nowIso = new Date().toISOString();
+
+    if (activeSetId) {
+      const idx = savedSets.findIndex(s => s.id === activeSetId);
+      let setTitle = 'Bộ câu hỏi đã lưu';
+      let setDesc = '';
+
+      if (idx !== -1) {
+        savedSets[idx].questions = JSON.parse(JSON.stringify(targetQuestions));
+        savedSets[idx].updatedAt = nowIso;
+        setTitle = savedSets[idx].title;
+        setDesc = savedSets[idx].description || '';
+      } else {
+        const newSet = {
+          id: activeSetId,
+          title: setTitle,
+          description: setDesc,
+          createdAt: nowIso,
+          updatedAt: nowIso,
+          questions: JSON.parse(JSON.stringify(targetQuestions))
+        };
+        savedSets.unshift(newSet);
+      }
+
+      saveSetsToStorage(savedSets);
+      updateSetPickerDropdown();
+
       fetch(`/api/sets/${activeSetId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ questions })
+        body: JSON.stringify({
+          title: setTitle,
+          description: setDesc,
+          questions: targetQuestions
+        })
       }).catch(err => console.warn('Could not auto-sync set to server:', err));
     }
   }
