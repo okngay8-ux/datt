@@ -306,6 +306,28 @@ document.addEventListener('DOMContentLoaded', () => {
   let hasDraggedPlaylist = false;
 
   async function init() {
+    // 0. Sửa ngay lập tức toàn bộ lỗi dịch sai và lệch bộ câu hỏi trong localStorage của người dùng
+    if (window.KoViDict) {
+      if (Array.isArray(questions)) {
+        questions = window.KoViDict.repairQuestionsList(questions);
+        try { localStorage.setItem('korean_questions', JSON.stringify(questions)); } catch (e) {}
+      }
+      let rawSets = loadSavedSetsFromStorage();
+      if (Array.isArray(rawSets) && rawSets.length > 0) {
+        rawSets.forEach(s => {
+          if (s && Array.isArray(s.questions)) {
+            // Khôi phục nếu bộ 46 câu từng bị đè nhầm thành 101 câu
+            if (s.id === 'set_1792223473614' && (s.questions.length > 50 || (s.questions[0] && s.questions[0].qKr && s.questions[0].qKr.includes('버니어캘리퍼스')))) {
+              s.title = '46 kynangungxu';
+            }
+            s.questions = window.KoViDict.repairQuestionsList(s.questions);
+          }
+        });
+        savedSets = rawSets;
+        saveSetsToStorage(savedSets);
+      }
+    }
+
     originalQuestions = JSON.parse(JSON.stringify(questions));
     loadAndApplyVisualSettings();
     bindEvents();
@@ -903,19 +925,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function mergeQuestionArrays(primaryList = [], secondaryList = []) {
-    if (!Array.isArray(primaryList) || primaryList.length === 0) return secondaryList || [];
-    if (!Array.isArray(secondaryList) || secondaryList.length === 0) return primaryList;
+    if (!Array.isArray(primaryList) || primaryList.length === 0) {
+      return (secondaryList || []).map(q => window.KoViDict ? window.KoViDict.repairQuestionItem({ ...q }) : q);
+    }
+    if (!Array.isArray(secondaryList) || secondaryList.length === 0) {
+      return (primaryList || []).map(q => window.KoViDict ? window.KoViDict.repairQuestionItem({ ...q }) : q);
+    }
 
     return primaryList.map((p, idx) => {
-      const s = secondaryList.find(item => item.qKr && p.qKr && item.qKr.trim() === p.qKr.trim()) || secondaryList[idx];
-      if (!s) return p;
-      return {
+      const cleanPKr = (p.qKr || '').trim();
+      // TUYỆT ĐỐI chỉ ghép theo đúng nội dung câu hỏi tiếng Hàn qKr, KHÔNG BAO GIỜ lấy theo index
+      const s = secondaryList.find(item => item.qKr && cleanPKr && item.qKr.trim() === cleanPKr);
+      if (!s) return window.KoViDict ? window.KoViDict.repairQuestionItem({ ...p }) : p;
+      const sameAns = (p.aKr || '').trim() === (s.aKr || '').trim();
+      const merged = {
         num: p.num || s.num || `${idx + 1}.`,
-        qKr: (p.qKr && p.qKr.trim()) ? p.qKr : (s.qKr || ''),
+        qKr: cleanPKr ? p.qKr : (s.qKr || ''),
         qVi: (p.qVi && p.qVi.trim()) ? p.qVi : (s.qVi || ''),
         aKr: (p.aKr && p.aKr.trim()) ? p.aKr : (s.aKr || ''),
-        aVi: (p.aVi && p.aVi.trim()) ? p.aVi : (s.aVi || '')
+        aVi: (p.aVi && p.aVi.trim()) ? p.aVi : (sameAns ? (s.aVi || '') : '')
       };
+      return window.KoViDict ? window.KoViDict.repairQuestionItem(merged) : merged;
     });
   }
 
@@ -932,20 +962,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Dịch 1 câu Hàn -> Việt (kết hợp trực tiếp trình duyệt + Server dự phòng để không bao giờ bị chặn IP)
+  // Dịch 1 câu Hàn -> Việt (kết hợp tra từ điển chuẩn 614 câu + Google Dịch hậu xử lý chuyên ngành)
   async function translateTextSmart(rawText) {
     if (!rawText || !String(rawText).trim()) return '';
     const clean = String(rawText).trim();
 
+    // 0. Tra từ điển chuẩn EPS-TOPIK trước (chuẩn xác 100%, phản hồi tức thì 0ms)
+    if (window.KoViDict) {
+      const exact = window.KoViDict.lookupExactKoVi(clean);
+      if (exact) return exact;
+    }
+
+    const preprocessed = window.KoViDict ? window.KoViDict.preprocessKoForTranslate(clean) : clean;
+
     // 1. Thử dịch trực tiếp từ trình duyệt người dùng (nhanh nhất, không bị giới hạn IP máy chủ Render)
     try {
-      const directUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ko&tl=vi&dt=t&q=${encodeURIComponent(clean)}`;
+      const directUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ko&tl=vi&dt=t&q=${encodeURIComponent(preprocessed)}`;
       const resp = await fetch(directUrl);
       if (resp.ok) {
         const data = await resp.json();
         if (Array.isArray(data) && Array.isArray(data[0])) {
           const translated = data[0].map(item => (item && item[0]) ? item[0] : '').join('').trim();
-          if (translated) return translated;
+          if (translated) {
+            return window.KoViDict ? window.KoViDict.refineKoViTranslation(clean, translated) : translated;
+          }
         }
       }
     } catch (e) {
@@ -962,7 +1002,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (resp.ok) {
         const data = await resp.json();
         if (data && data.translation) {
-          return String(data.translation).trim();
+          const trans = String(data.translation).trim();
+          return window.KoViDict ? window.KoViDict.refineKoViTranslation(clean, trans) : trans;
         }
       }
     } catch (err) {
@@ -972,66 +1013,21 @@ document.addEventListener('DOMContentLoaded', () => {
     return '';
   }
 
-  // Dịch hàng loạt tốc độ cao
+  // Dịch hàng loạt tốc độ cao (dịch song song từng câu với concurrency 8, tránh gộp \n gây lệch thứ tự câu)
   async function translateBatchSmart(texts = []) {
     if (!Array.isArray(texts) || texts.length === 0) return [];
     const results = new Array(texts.length).fill('');
-    const CHUNK_SIZE = 20;
+    const PARALLEL_LIMIT = 8;
 
-    for (let start = 0; start < texts.length; start += CHUNK_SIZE) {
-      const slice = texts.slice(start, start + CHUNK_SIZE).map(t => String(t || '').replace(/\r?\n/g, ' ').trim());
-      const nonEmptyIndices = [];
-      const nonEmptyLines = [];
-
-      slice.forEach((line, idx) => {
-        if (line) {
-          nonEmptyIndices.push(start + idx);
-          nonEmptyLines.push(line);
+    for (let i = 0; i < texts.length; i += PARALLEL_LIMIT) {
+      const slice = texts.slice(i, i + PARALLEL_LIMIT);
+      await Promise.all(slice.map(async (text, offset) => {
+        const idx = i + offset;
+        const clean = String(text || '').trim();
+        if (clean) {
+          results[idx] = await translateTextSmart(clean);
         }
-      });
-
-      if (nonEmptyLines.length === 0) continue;
-
-      let resolved = false;
-
-      // Thử gộp dịch cả cụm trực tiếp
-      try {
-        const joined = nonEmptyLines.join('\n');
-        const directTranslated = await translateTextSmart(joined);
-        const splitLines = directTranslated ? directTranslated.split(/\r?\n/).map(s => s.trim()) : [];
-        if (splitLines.length === nonEmptyLines.length) {
-          nonEmptyIndices.forEach((targetIdx, i) => {
-            results[targetIdx] = splitLines[i];
-          });
-          resolved = true;
-        }
-      } catch (e) {}
-
-      // Nếu gộp dòng bị lệch số dòng, gọi API batch của server hoặc dịch từng câu
-      if (!resolved) {
-        try {
-          const resp = await fetch('/api/translate-batch', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ texts: nonEmptyLines })
-          });
-          if (resp.ok) {
-            const data = await resp.json();
-            if (data.success && Array.isArray(data.translations) && data.translations.length === nonEmptyLines.length) {
-              nonEmptyIndices.forEach((targetIdx, i) => {
-                results[targetIdx] = data.translations[i] || '';
-              });
-              resolved = true;
-            }
-          }
-        } catch (e) {}
-      }
-
-      if (!resolved) {
-        await Promise.all(nonEmptyIndices.map(async (targetIdx, i) => {
-          results[targetIdx] = await translateTextSmart(nonEmptyLines[i]);
-        }));
-      }
+      }));
     }
 
     return results;
@@ -1074,6 +1070,15 @@ document.addEventListener('DOMContentLoaded', () => {
         savedSets = data.sets;
         saveSetsToStorage(savedSets);
 
+        // Nếu người dùng đang học bộ 101 câu công cụ nhưng activeSetId bị lưu nhầm sang ID khác
+        if (Array.isArray(questions) && questions.length > 50 && questions[0]?.qKr?.includes('버니어캘리퍼스')) {
+          const toolSet = savedSets.find(s => s.id === 'set_1792719791167' || (s.questions && s.questions[0]?.qKr?.includes('버니어캘리퍼스')));
+          if (toolSet) {
+            activeSetId = toolSet.id;
+            localStorage.setItem('korean_active_set_id', activeSetId);
+          }
+        }
+
         // Đảm bảo activeSetId luôn trỏ tới một bộ câu hợp lệ
         let activeSet = savedSets.find(s => s.id === activeSetId);
         if (!activeSet && savedSets.length > 0) {
@@ -1083,11 +1088,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (activeSet) {
+          activeSet.questions = window.KoViDict ? window.KoViDict.repairQuestionsList(activeSet.questions) : activeSet.questions;
           // Hợp nhất câu hỏi đang mở với dữ liệu bộ câu để không mất câu trả lời mới lưu
           const isSameSetLength = questions && questions.length === activeSet.questions.length;
           questions = isSameSetLength
             ? mergeQuestionArrays(activeSet.questions, questions)
             : JSON.parse(JSON.stringify(activeSet.questions));
+          if (window.KoViDict) {
+            questions = window.KoViDict.repairQuestionsList(questions);
+          }
           originalQuestions = JSON.parse(JSON.stringify(questions));
           localStorage.setItem('korean_questions', JSON.stringify(questions));
           if (currentIndex >= questions.length) currentIndex = 0;
@@ -1512,15 +1521,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (needTranslateQ || needTranslateA) {
       const currentToken = ++stageTranslateToken;
       const targetIdx = currentIndex;
+      const targetKr = item.qKr;
+      const targetAKr = item.aKr;
       if (needTranslateQ) displayQuestionVi.textContent = "⏳ Đang tự động dịch sang tiếng Việt...";
       if (needTranslateA) displayAnswerVi.textContent = "⏳ Đang dịch nghĩa câu trả lời...";
 
       (async () => {
         let updated = false;
         if (needTranslateQ) {
-          const viQ = await translateTextSmart(item.qKr);
-          if (viQ && questions[targetIdx]) {
-            questions[targetIdx].qVi = viQ;
+          const viQ = await translateTextSmart(targetKr);
+          // TUYỆT ĐỐI chỉ gán nếu câu hỏi tại targetIdx vẫn đúng là targetKr (chống gán nhầm sang câu khác khi đổi câu/trộn câu)
+          const matchQ = (questions[targetIdx] && questions[targetIdx].qKr === targetKr)
+            ? questions[targetIdx]
+            : questions.find(q => q && q.qKr === targetKr);
+          if (viQ && matchQ) {
+            matchQ.qVi = viQ;
             updated = true;
             if (currentIndex === targetIdx && stageTranslateToken === currentToken) {
               displayQuestionVi.textContent = viQ;
@@ -1530,9 +1545,12 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
         if (needTranslateA) {
-          const viA = await translateTextSmart(item.aKr);
-          if (viA && questions[targetIdx]) {
-            questions[targetIdx].aVi = viA;
+          const viA = await translateTextSmart(targetAKr);
+          const matchA = (questions[targetIdx] && questions[targetIdx].aKr === targetAKr)
+            ? questions[targetIdx]
+            : questions.find(q => q && q.aKr === targetAKr);
+          if (viA && matchA) {
+            matchA.aVi = viA;
             updated = true;
             if (currentIndex === targetIdx && stageTranslateToken === currentToken) {
               displayAnswerVi.textContent = viA;
@@ -1542,7 +1560,9 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
         if (updated) {
-          syncQuestionEditToOriginal(questions[targetIdx], targetIdx);
+          if (questions[targetIdx]) {
+            syncQuestionEditToOriginal(questions[targetIdx], targetIdx);
+          }
           saveQuestionsToLocalStorage();
           persistQuestionsToServer();
         }
@@ -2649,7 +2669,9 @@ document.addEventListener('DOMContentLoaded', () => {
         qKr,
         qVi,
         aKr,
-        aVi
+        aVi,
+        customVi: !!qVi,
+        customAVi: !!aVi
       };
 
       if (isAddingNewQuestion) {

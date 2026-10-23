@@ -4,17 +4,714 @@
     "title": "Bộ 101 câu khẩu lệnh công cụ - tay nghề",
     "description": "101 câu mệnh lệnh thao tác dụng cụ cơ khí, đo đạc, lắp ráp và bảo hộ lao động",
     "createdAt": "2026-10-23T01:00:00.000Z",
-    "updatedAt": "2026-10-23T13:02:18.647Z",
+    "updatedAt": "2026-10-23T05:00:00.000Z",
     "questions": [
       {
         "num": "1.",
         "qKr": "버니어캘리퍼스를 바구니에 넣으세요.",
-        "qVi": "Hãy bỏ thước cặp vào rổ."
+        "qVi": "Hãy bỏ thước cặp vào rổ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "2.",
+        "qKr": "스패너를 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ cờ lê vào rổ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "3.",
+        "qKr": "작업등을 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ đèn làm việc vào rổ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "4.",
+        "qKr": "나사못을 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ ốc vít vào rổ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "5.",
+        "qKr": "망치를 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ búa vào rổ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "6.",
+        "qKr": "줄자를 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ thước dây vào rổ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "7.",
+        "qKr": "드라이버를 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ tua vít vào rổ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "8.",
+        "qKr": "펜치를 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ kìm điện (kìm bằng) vào rổ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "9.",
+        "qKr": "니퍼를 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ kìm cắt vào rổ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "10.",
+        "qKr": "테이프를 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ băng dính vào rổ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "11.",
+        "qKr": "줄을 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ cái dũa sắt vào rổ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "12.",
+        "qKr": "경첩을 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ bản lề vào rổ.",
+        "aKr": "",
+        "aVi": ""
       },
       {
         "num": "13.",
         "qKr": "망치와 톱을 공구함에 넣으세요.",
-        "qVi": "Hãy cất búa và cưa vào hộp dụng cụ."
+        "qVi": "Hãy cất búa và cưa vào hộp dụng cụ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "14.",
+        "qKr": "드라이버와 스패너를 공구함에 넣으세요.",
+        "qVi": "Hãy cất tua vít và cờ lê vào hộp dụng cụ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "15.",
+        "qKr": "니퍼와 펜치를 공구함에 넣으세요.",
+        "qVi": "Hãy cất kìm cắt và kìm điện vào hộp dụng cụ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "16.",
+        "qKr": "줄자와 톱, 망치를 공구함에 넣으세요.",
+        "qVi": "Hãy cất thước dây, cưa và búa vào hộp dụng cụ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "17.",
+        "qKr": "줄자를 공구함에 넣고 전기드릴을 제자리에 놓으세요.",
+        "qVi": "Hãy cất thước dây vào hộp dụng cụ và đặt máy khoan điện về đúng vị trí.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "18.",
+        "qKr": "철사와 줄자는 상자에 넣고 펜치는 공구함에 넣으세요.",
+        "qVi": "Hãy bỏ dây thép và thước dây vào thùng, còn kìm điện thì cất vào hộp dụng cụ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "19.",
+        "qKr": "몽키스패너와 스패너를 제자리에 놓으세요.",
+        "qVi": "Hãy đặt mỏ lết và cờ lê về đúng vị trí.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "20.",
+        "qKr": "테이프는 상자에 넣고 가위는 공구함에 넣으세요.",
+        "qVi": "Hãy bỏ băng dính vào thùng và cất kéo vào hộp dụng cụ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "21.",
+        "qKr": "스패너로 플랜지의 볼트를 조인 다음 두 공구를 공구함에 넣으세요.",
+        "qVi": "Hãy dùng cờ lê siết chặt bu lông của mặt bích, sau đó cất cả hai dụng cụ vào hộp dụng cụ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "22.",
+        "qKr": "볼트는 상자에 넣고 공구는 모두 제자리에 놓으세요.",
+        "qVi": "Hãy bỏ bu lông vào thùng và để tất cả dụng cụ về đúng vị trí.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "23.",
+        "qKr": "몽키스패너로 옆에 있는 너트를 조인 다음 모든 공구를 제자리에 놓으세요.",
+        "qVi": "Hãy dùng mỏ lết siết chặt đai ốc ở bên cạnh, sau đó để tất cả dụng cụ về đúng vị trí.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "24.",
+        "qKr": "줄자와 톱은 공구함에 넣고 테이프는 상자에 넣으세요.",
+        "qVi": "Hãy cất thước dây và cưa vào hộp dụng cụ, còn băng dính thì bỏ vào thùng.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "25.",
+        "qKr": "철사는 상자에 넣고 줄자와 니퍼, 펜치는 공구함에 넣으세요.",
+        "qVi": "Hãy bỏ dây thép vào thùng, còn thước dây, kìm cắt và kìm điện thì cất vào hộp dụng cụ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "26.",
+        "qKr": "줄자와 가위는 공구함에 넣고 테이프는 원래 있던 상자에 넣으세요.",
+        "qVi": "Hãy cất thước dây và kéo vào hộp dụng cụ, còn băng dính thì bỏ lại vào thùng ban đầu.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "27.",
+        "qKr": "나사를 조이는 도구 를 왼쪽 아래 선반에 있는 공구함에 넣습니다",
+        "qVi": "Hãy cất dụng cụ vặn ốc vít (tua vít) vào hộp dụng cụ ở kệ dưới bên trái.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "28.",
+        "qKr": "철사를 자르는 도구를 가져와서 철사를 자르는 행동하세요",
+        "qVi": "Hãy lấy dụng cụ cắt dây thép (kìm cắt) và làm động tác cắt dây thép.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "29.",
+        "qKr": "망치를 가져와서 못을 박는 행동하세요.",
+        "qVi": "Hãy lấy búa và làm động tác đóng đinh.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "30.",
+        "qKr": "톱을 가져와서 나무판을 자르는 행동하세요.",
+        "qVi": "Hãy lấy cưa và làm động tác cưa tấm gỗ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "31.",
+        "qKr": "렌치를가져와서 너트를 조이는 행동하세요.",
+        "qVi": "Hãy lấy cờ lê (tròng) và làm động tác siết đai ốc.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "32.",
+        "qKr": "드라이버를 사용해서 나사를 조이는 행동하세요",
+        "qVi": "Hãy dùng tua vít làm động tác vặn chặt ốc vít.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "33.",
+        "qKr": "펜치를 사용해서 철사를 자르는 행동하세요.",
+        "qVi": "Hãy dùng kìm điện làm động tác cắt dây thép.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "34.",
+        "qKr": "펜치를 가져와서 철사를 구부리는 행동을 하세요.",
+        "qVi": "Hãy lấy kìm điện và làm động tác uốn cong dây thép.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "35.",
+        "qKr": "충전드릴을 사용해서 나사를 푸는 행동하세요.",
+        "qVi": "Hãy dùng máy khoan pin làm động tác tháo ốc vít.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "36.",
+        "qKr": "전기드릴을 사용해서 금속에 구멍을 뚫는 행동하세요.",
+        "qVi": "Hãy dùng máy khoan điện làm động tác khoan lỗ trên kim loại.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "37.",
+        "qKr": "전기 드릴을 가져와서 나무판에 구멍을 뚫는 행동을 하세요.",
+        "qVi": "Hãy lấy máy khoan điện và làm động tác khoan lỗ trên tấm gỗ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "38.",
+        "qKr": "전기 드릴을 가져와서 나사못을 조이는 행동을 하세요.",
+        "qVi": "Hãy lấy máy khoan điện và làm động tác bắn (vặn) ốc vít.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "39.",
+        "qKr": "플라이어를 가져와서 철사를 펴는 행동을 하세요.",
+        "qVi": "Hãy lấy kìm mỏ quạ (kìm kẹp) và làm động tác uốn thẳng dây thép.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "40.",
+        "qKr": "육각렌치를 사용해서 육각볼트를 조이는 행동하세요.",
+        "qVi": "Hãy dùng lục giác làm động tác siết chặt bu lông lục giác.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "41.",
+        "qKr": "그라인더를 사용해서 금속판을 가공하는 행동하세요.",
+        "qVi": "Hãy dùng máy mài làm động tác mài gia công tấm kim loại.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "42.",
+        "qKr": "버니어캘리퍼스를 사용해서 볼트의 길이를 재는 행동하세요.",
+        "qVi": "Hãy dùng thước cặp làm động tác đo chiều dài của bu lông.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "43.",
+        "qKr": "줄을 사용해서 철판의 날카로운 모서리를 다듬을 행동하세요.",
+        "qVi": "Hãy dùng dũa sắt làm động tác dũa nhẵn cạnh sắc của tấm sắt.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "44.",
+        "qKr": "테이프를 사용해서 상자를 포장하는 행동하세요.",
+        "qVi": "Hãy dùng băng dính làm động tác dán đóng gói thùng hàng.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "45.",
+        "qKr": "사포를 사용해서 표면을 매끄럽게 만드는 행동하세요.",
+        "qVi": "Hãy dùng giấy nhám (giấy ráp) làm động tác chà nhẵn bề mặt.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "46.",
+        "qKr": "너트의 크기에 맞게 몽키스패너를 조절하세요.",
+        "qVi": "Hãy điều chỉnh mỏ lết cho vừa với kích thước của đai ốc.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "47.",
+        "qKr": "안전장갑과 방진마스크를 착용하세요.",
+        "qVi": "Hãy đeo găng tay bảo hộ và khẩu trang chống bụi.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "48.",
+        "qKr": "안전모와 방진마스크를 착용하세요.",
+        "qVi": "Hãy đội mũ bảo hộ và đeo khẩu trang chống bụi.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "49.",
+        "qKr": "안전장갑을 착용하세요.",
+        "qVi": "Hãy đeo găng tay bảo hộ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "50.",
+        "qKr": "안전모와 안전장갑을 착용하세요.",
+        "qVi": "Hãy đội mũ bảo hộ và đeo găng tay bảo hộ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "51.",
+        "qKr": "안전모를 착용하세요.",
+        "qVi": "Hãy đội mũ bảo hộ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "52.",
+        "qKr": "망치로 나무판에 못을 박아 보세요.",
+        "qVi": "Hãy dùng búa đóng đinh vào tấm gỗ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "53.",
+        "qKr": "톱으로 나무를 잘라 보세요.",
+        "qVi": "Hãy dùng cưa để cắt thanh gỗ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "54.",
+        "qKr": "줄자로 나무판의 길이를 재 보세요.",
+        "qVi": "Hãy dùng thước dây đo chiều dài của tấm gỗ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "55.",
+        "qKr": "드라이버로 나사못을 조여 보세요.",
+        "qVi": "Hãy dùng tua vít vặn chặt ốc vít.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "56.",
+        "qKr": "스패너로 볼트를 조여 보세요.",
+        "qVi": "Hãy dùng cờ lê siết chặt bu lông.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "57.",
+        "qKr": "니퍼로 철사를 잘라 보세요.",
+        "qVi": "Hãy dùng kìm cắt để cắt dây thép.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "58.",
+        "qKr": "펜치로 자른 철사를 구부려 보세요.",
+        "qVi": "Hãy dùng kìm điện uốn cong đoạn dây thép đã cắt.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "59.",
+        "qKr": "줄자로 철사의 길이를 재 보세요.",
+        "qVi": "Hãy dùng thước dây đo chiều dài sợi dây thép.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "60.",
+        "qKr": "그라인더로 금속 표면을 갈아 보세요.",
+        "qVi": "Hãy dùng máy mài để mài bề mặt kim loại.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "61.",
+        "qKr": "몽키스패너로 볼트에 너트를 조여 보세요.",
+        "qVi": "Hãy dùng mỏ lết siết chặt đai ốc vào bu lông.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "62.",
+        "qKr": "줄자로 나무의 길이를 재 보세요.",
+        "qVi": "Hãy dùng thước dây đo chiều dài của thanh gỗ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "63.",
+        "qKr": "톱으로 표시된 부분을 잘라 보세요.",
+        "qVi": "Hãy dùng cưa cắt phần đã được đánh dấu.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "64.",
+        "qKr": "자른 나무를 테이프로 묶어 보세요.",
+        "qVi": "Hãy dùng băng dính quấn buộc các thanh gỗ đã cắt lại.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "65.",
+        "qKr": "니퍼로 표시된 부분을 잘라 보세요.",
+        "qVi": "Hãy dùng kìm cắt để cắt phần đã được đánh dấu.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "66.",
+        "qKr": "펜치로 자른 철사를 구부려 보세요.",
+        "qVi": "Hãy dùng kìm điện uốn cong đoạn dây thép đã cắt.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "67.",
+        "qKr": "스패너로 플랜지의 볼트를 조여 보세요.",
+        "qVi": "Hãy dùng cờ lê siết chặt bu lông của mặt bích.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "68.",
+        "qKr": "줄자로 종이 상자의 가로와 세로를 재 보세요.",
+        "qVi": "Hãy dùng thước dây đo chiều ngang (rộng) và chiều dọc (dài) của thùng giấy.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "69.",
+        "qKr": "상자의 뚜껑을 닫고 테이프로 붙인 다음 가위로 테이프를 자르세요.",
+        "qVi": "Hãy đậy nắp thùng lại, dán băng dính rồi dùng kéo cắt băng dính.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "70.",
+        "qKr": "버니어캘리퍼스로 플랜지의 바깥지름을 재 보세요.",
+        "qVi": "Hãy dùng thước cặp đo đường kính ngoài của mặt bích.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "71.",
+        "qKr": "전기드릴로 나무판에 나사못을 박아 보세요.",
+        "qVi": "Hãy dùng máy khoan điện bắn ốc vít vào tấm gỗ.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "72.",
+        "qKr": "드라이버로 나사못을 더 단단히 조여 보세요.",
+        "qVi": "Hãy dùng tua vít vặn ốc vít chặt thêm nữa.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "73.",
+        "qKr": "버니어캘리퍼스로 가공한 부분의 바깥지름을 재 보세요.",
+        "qVi": "Hãy dùng thước cặp đo đường kính ngoài của phần đã gia công.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "74.",
+        "qKr": "버니어캘리퍼스로 가공한 부분의 바깥지름을 재 보세요.",
+        "qVi": "Hãy dùng thước cặp đo đường kính ngoài của phần đã gia công.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "75.",
+        "qKr": "버니어캘리퍼스로 플랜지의 안지름을 재 보세요.",
+        "qVi": "Hãy dùng thước cặp đo đường kính trong của mặt bích.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "76.",
+        "qKr": "이번에는 플랜지의 바깥지름을 재 보세.",
+        "qVi": "Lần này hãy đo đường kính ngoài của mặt bích.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "77.",
+        "qKr": "버니어캘리퍼스로 볼트의 길이를 재 보세요.",
+        "qVi": "Hãy dùng thước cặp đo chiều dài của bu lông.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "78.",
+        "qKr": "몽키스패너로 너트를 조이고 스패너로 볼트를 풀어 보세요.",
+        "qVi": "Hãy dùng mỏ lết siết đai ốc và dùng cờ lê tháo bu lông ra.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "79.",
+        "qKr": "종이 상자의 뚜껑을 닫고 테이프로 붙이세요.",
+        "qVi": "Hãy đậy nắp thùng giấy lại và dán bằng băng dính.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "80.",
+        "qKr": "가위로 테이프를 잘라 보세요.",
+        "qVi": "Hãy dùng kéo cắt băng dính.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "81.",
+        "qKr": "줄자로 나무의 길이를 재고 표시된 부분을 톱으로 잘라 보세요.",
+        "qVi": "Hãy dùng thước dây đo chiều dài thanh gỗ rồi dùng cưa cắt phần đã đánh dấu.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "82.",
+        "qKr": "망치를 가져와서 자른 나무에 못을 박아 보세.",
+        "qVi": "Hãy lấy búa và đóng đinh vào thanh gỗ đã cắt.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "83.",
+        "qKr": "펜치로 철사를 구부린 다음 다시 펴 보세요.",
+        "qVi": "Hãy dùng kìm điện uốn cong dây thép rồi uốn thẳng lại.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "84.",
+        "qKr": "표시된 곳에 전기드릴로 나사못을 박아 보세요.",
+        "qVi": "Hãy dùng máy khoan điện bắn ốc vít vào vị trí đã đánh dấu.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "85.",
+        "qKr": "줄자로 상자의 가로를 재 보세요.",
+        "qVi": "Hãy dùng thước dây đo chiều ngang (chiều rộng) của thùng.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "86.",
+        "qKr": "줄자로 상자의 세로를 재 보세요.",
+        "qVi": "Hãy dùng thước dây đo chiều dọc (chiều dài) của thùng.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "87.",
+        "qKr": "상자의 뚜껑을 닫으세요.",
+        "qVi": "Hãy đậy nắp thùng lại.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "88.",
+        "qKr": "버니어캘리퍼스를 가져오세요.",
+        "qVi": "Hãy lấy thước cặp lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "89.",
+        "qKr": "줄자와 테이프, 가위를 가져오세요.",
+        "qVi": "Hãy lấy thước dây, băng dính và kéo lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "90.",
+        "qKr": "망치와 톱을 가져오세요.",
+        "qVi": "Hãy lấy búa và cưa lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "91.",
+        "qKr": "줄자와 전기드릴을 가져오세요.",
+        "qVi": "Hãy lấy thước dây và máy khoan điện lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "92.",
+        "qKr": "드라이버와 스패너를 가져오세요.",
+        "qVi": "Hãy lấy tua vít và cờ lê lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "93.",
+        "qKr": "니퍼와 펜치를 가져오세요.",
+        "qVi": "Hãy lấy kìm cắt và kìm điện lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "94.",
+        "qKr": "펜치와 줄자를 가져오세요.",
+        "qVi": "Hãy lấy kìm điện và thước dây lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "95.",
+        "qKr": "몽키스패너와 스패너를 가져오세요.",
+        "qVi": "Hãy lấy mỏ lết và cờ lê lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "96.",
+        "qKr": "테이프와 가위를 가져오세요.",
+        "qVi": "Hãy lấy băng dính và kéo lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "97.",
+        "qKr": "줄자와 톱을 가져오세요.",
+        "qVi": "Hãy lấy thước dây và cưa lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "98.",
+        "qKr": "그라인더를 가져오세요.",
+        "qVi": "Hãy lấy máy mài lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "99.",
+        "qKr": "버니어캘리퍼스와 스패너를 가져오세요.",
+        "qVi": "Hãy lấy thước cặp và cờ lê lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "100.",
+        "qKr": "버니어캘리퍼스와 몽키스패너를 가져오세요.",
+        "qVi": "Hãy lấy thước cặp và mỏ lết lại đây.",
+        "aKr": "",
+        "aVi": ""
+      },
+      {
+        "num": "101.",
+        "qKr": "전기드릴과 드라이버를 가져오세요.",
+        "qVi": "Hãy lấy máy khoan điện và tua vít lại đây.",
+        "aKr": "",
+        "aVi": ""
       }
     ]
   },
@@ -513,21 +1210,21 @@
       {
         "num": "52.",
         "qKr": "요즘 무슨 일을 하세요?",
-        "qVi": "Dạo này bạn làm công việc gì?",
+        "qVi": "Dạo này bạn đang làm công việc gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "53.",
         "qKr": "무엇을 타고 왔어요?",
-        "qVi": "Bạn đi gì đến đây?",
+        "qVi": "Bạn đi bằng phương tiện gì đến đây?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "54.",
         "qKr": "여기까지 얼마나 걸렸어요?",
-        "qVi": "Mất bao lâu để đến đây?",
+        "qVi": "Đến đây mất bao lâu?",
         "aKr": "",
         "aVi": ""
       },
@@ -842,7 +1539,7 @@
       {
         "num": "99.",
         "qKr": "컴퓨터를 할 수 있어요?",
-        "qVi": "Bạn có thể sử dụng máy tính không?",
+        "qVi": "Bạn có biết sử dụng máy tính không?",
         "aKr": "",
         "aVi": ""
       },

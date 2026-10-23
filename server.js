@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public'), {
 }));
 
 const { exec } = require('child_process');
+const KoViDict = require('./public/ko_vi_dict.js');
 
 // Thư mục lưu trữ bộ câu hỏi trên server
 const DATA_DIR = path.join(__dirname, 'data');
@@ -60,7 +61,15 @@ function loadSets() {
       return [];
     }
     const raw = fs.readFileSync(SETS_FILE, 'utf-8');
-    return JSON.parse(raw);
+    const sets = JSON.parse(raw);
+    if (Array.isArray(sets)) {
+      sets.forEach(s => {
+        if (s && Array.isArray(s.questions)) {
+          s.questions = KoViDict.repairQuestionsList(s.questions);
+        }
+      });
+    }
+    return sets;
   } catch (err) {
     console.error('Lỗi đọc question_sets.json:', err.message);
     return [];
@@ -384,19 +393,23 @@ function calculateSetRichness(set) {
 
 // Hợp nhất từng câu hỏi giữa 2 phiên bản của cùng 1 bộ câu hỏi để không bao giờ mất đáp án hoặc bản dịch
 function mergeQuestionsList(newerList = [], olderList = []) {
-  if (!Array.isArray(newerList) || newerList.length === 0) return olderList || [];
-  if (!Array.isArray(olderList) || olderList.length === 0) return newerList;
+  if (!Array.isArray(newerList) || newerList.length === 0) return (olderList || []).map(q => KoViDict.repairQuestionItem({ ...q }));
+  if (!Array.isArray(olderList) || olderList.length === 0) return (newerList || []).map(q => KoViDict.repairQuestionItem({ ...q }));
 
   return newerList.map((newQ, idx) => {
-    const oldQ = olderList.find(o => o.qKr && newQ.qKr && o.qKr.trim() === newQ.qKr.trim()) || olderList[idx];
-    if (!oldQ) return newQ;
-    return {
+    const cleanNewKr = (newQ.qKr || '').trim();
+    // TUYỆT ĐỐI chỉ ghép theo đúng nội dung câu hỏi tiếng Hàn qKr, KHÔNG BAO GIỜ fallback theo số thứ tự index
+    const oldQ = olderList.find(o => o.qKr && cleanNewKr && o.qKr.trim() === cleanNewKr);
+    if (!oldQ) return KoViDict.repairQuestionItem({ ...newQ });
+    const sameAns = (newQ.aKr || '').trim() === (oldQ.aKr || '').trim();
+    const merged = {
       num: newQ.num || oldQ.num || `${idx + 1}.`,
-      qKr: (newQ.qKr && newQ.qKr.trim()) ? newQ.qKr : (oldQ.qKr || ''),
+      qKr: cleanNewKr ? newQ.qKr : (oldQ.qKr || ''),
       qVi: (newQ.qVi && newQ.qVi.trim()) ? newQ.qVi : (oldQ.qVi || ''),
       aKr: (newQ.aKr && newQ.aKr.trim()) ? newQ.aKr : (oldQ.aKr || ''),
-      aVi: (newQ.aVi && newQ.aVi.trim()) ? newQ.aVi : (oldQ.aVi || '')
+      aVi: (newQ.aVi && newQ.aVi.trim()) ? newQ.aVi : (sameAns ? (oldQ.aVi || '') : '')
     };
+    return KoViDict.repairQuestionItem(merged);
   });
 }
 
@@ -416,8 +429,40 @@ app.post('/api/sets/sync', (req, res) => {
     if (Array.isArray(clientSets) && clientSets.length > 0) {
       let hasChanges = deletedSet.size > 0;
 
-      for (const cSet of clientSets) {
+      for (let cSet of clientSets) {
         if (!cSet || !cSet.id || !Array.isArray(cSet.questions) || deletedSet.has(cSet.id)) continue;
+
+        // Chuẩn hóa bộ câu hỏi từ client: tự động sửa lỗi dịch sai
+        cSet = {
+          ...cSet,
+          questions: KoViDict.repairQuestionsList(cSet.questions)
+        };
+
+        // Nếu máy client bị kẹt nhầm bộ 101 câu vào ID 'set_1792223473614' (của 46 kynangungxu)
+        if (cSet.id === 'set_1792223473614' && (cSet.questions.length > 50 || (cSet.questions[0] && cSet.questions[0].qKr && cSet.questions[0].qKr.includes('버니어캘리퍼스')))) {
+          // Chuyển nội dung 101 câu sang đúng ID set_1792719791167
+          const toolIdx = serverSets.findIndex(s => s.id === 'set_1792719791167');
+          if (toolIdx !== -1) {
+            if (cSet.questions.length >= serverSets[toolIdx].questions.length) {
+              serverSets[toolIdx].questions = KoViDict.repairQuestionsList(cSet.questions);
+            } else {
+              serverSets[toolIdx].questions = mergeQuestionsList(serverSets[toolIdx].questions, cSet.questions);
+            }
+            serverSets[toolIdx].title = 'Bộ 101 câu khẩu lệnh công cụ - tay nghề';
+            serverSets[toolIdx].updatedAt = new Date().toISOString();
+          } else {
+            serverSets.unshift({
+              id: 'set_1792719791167',
+              title: 'Bộ 101 câu khẩu lệnh công cụ - tay nghề',
+              description: '101 câu mệnh lệnh thao tác dụng cụ cơ khí, đo đạc, lắp ráp và bảo hộ lao động',
+              createdAt: '2026-10-23T01:00:00.000Z',
+              updatedAt: new Date().toISOString(),
+              questions: KoViDict.repairQuestionsList(cSet.questions)
+            });
+          }
+          hasChanges = true;
+          continue;
+        }
 
         const sIdx = serverSets.findIndex(s => s.id === cSet.id);
         if (sIdx === -1) {
@@ -428,7 +473,7 @@ app.post('/api/sets/sync', (req, res) => {
             description: (cSet.description || '').trim(),
             createdAt: cSet.createdAt || new Date().toISOString(),
             updatedAt: cSet.updatedAt || new Date().toISOString(),
-            questions: cSet.questions
+            questions: KoViDict.repairQuestionsList(cSet.questions)
           });
           hasChanges = true;
         } else {
@@ -456,7 +501,7 @@ app.post('/api/sets/sync', (req, res) => {
                 title: nextTitle,
                 description: nextDesc,
                 updatedAt: new Date(Math.max(cTime, sTime, Date.now())).toISOString(),
-                questions: mergedQuestions
+                questions: KoViDict.repairQuestionsList(mergedQuestions)
               };
               hasChanges = true;
             }
@@ -561,14 +606,20 @@ app.delete('/api/sets/:id', (req, res) => {
   }
 });
 
-// Helper dịch Hàn -> Việt đa luồng (có dự phòng chống chặn IP trên Render)
+// Helper dịch Hàn -> Việt đa luồng (ưu tiên tra từ điển chuẩn 614 câu + hậu xử lý thuật ngữ cơ khí / tay nghề)
 async function translateKoToViServer(rawText) {
   if (!rawText || !String(rawText).trim()) return '';
   const clean = String(rawText).trim();
 
+  // 0. Tra cứu từ điển chuẩn chuyên ngành EPS-TOPIK (chính xác 100%, 0ms, không lo lỗi mạng)
+  const exact = KoViDict.lookupExactKoVi(clean);
+  if (exact) return exact;
+
+  const preprocessed = KoViDict.preprocessKoForTranslate(clean);
+
   // Luồng 1: Google Translate GTX với User-Agent trình duyệt chuẩn
   try {
-    const url1 = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ko&tl=vi&dt=t&q=${encodeURIComponent(clean)}`;
+    const url1 = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ko&tl=vi&dt=t&q=${encodeURIComponent(preprocessed)}`;
     const resp1 = await fetch(url1, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
@@ -580,7 +631,7 @@ async function translateKoToViServer(rawText) {
       const data1 = await resp1.json();
       if (Array.isArray(data1) && Array.isArray(data1[0])) {
         const trans1 = data1[0].map(item => (item && item[0]) ? item[0] : '').join('').trim();
-        if (trans1) return trans1;
+        if (trans1) return KoViDict.refineKoViTranslation(clean, trans1);
       }
     }
   } catch (e1) {
@@ -589,7 +640,7 @@ async function translateKoToViServer(rawText) {
 
   // Luồng 2: Google Translate dict-chrome-ex endpoint
   try {
-    const url2 = `https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=ko&tl=vi&q=${encodeURIComponent(clean)}`;
+    const url2 = `https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=ko&tl=vi&q=${encodeURIComponent(preprocessed)}`;
     const resp2 = await fetch(url2, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124.0.0.0 Safari/537.36'
@@ -600,8 +651,8 @@ async function translateKoToViServer(rawText) {
       const data2 = await resp2.json();
       if (Array.isArray(data2)) {
         const first = data2[0];
-        if (typeof first === 'string' && first.trim()) return first.trim();
-        if (Array.isArray(first) && typeof first[0] === 'string') return first[0].trim();
+        if (typeof first === 'string' && first.trim()) return KoViDict.refineKoViTranslation(clean, first.trim());
+        if (Array.isArray(first) && typeof first[0] === 'string') return KoViDict.refineKoViTranslation(clean, first[0].trim());
       }
     }
   } catch (e2) {
@@ -610,12 +661,12 @@ async function translateKoToViServer(rawText) {
 
   // Luồng 3: MyMemory Translation API
   try {
-    const url3 = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(clean)}&langpair=ko|vi`;
+    const url3 = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(preprocessed)}&langpair=ko|vi`;
     const resp3 = await fetch(url3, { signal: AbortSignal.timeout(7000) });
     if (resp3.ok) {
       const data3 = await resp3.json();
       if (data3 && data3.responseData && data3.responseData.translatedText) {
-        return String(data3.responseData.translatedText).trim();
+        return KoViDict.refineKoViTranslation(clean, String(data3.responseData.translatedText).trim());
       }
     }
   } catch (e3) {
@@ -652,37 +703,17 @@ app.post('/api/translate-batch', async (req, res) => {
     }
 
     const results = new Array(texts.length).fill('');
-    const CHUNK_SIZE = 20;
-
-    for (let start = 0; start < texts.length; start += CHUNK_SIZE) {
-      const slice = texts.slice(start, start + CHUNK_SIZE).map(t => String(t || '').replace(/\r?\n/g, ' ').trim());
-      const nonEmptyIndices = [];
-      const nonEmptyLines = [];
-
-      slice.forEach((line, idx) => {
-        if (line) {
-          nonEmptyIndices.push(start + idx);
-          nonEmptyLines.push(line);
+    // Dịch song song từng câu với độ rộng 8 luồng đồng thời (tránh gộp \n làm lệch ngữ cảnh và sai vị trí)
+    const PARALLEL_LIMIT = 8;
+    for (let i = 0; i < texts.length; i += PARALLEL_LIMIT) {
+      const slice = texts.slice(i, i + PARALLEL_LIMIT);
+      await Promise.all(slice.map(async (text, offset) => {
+        const idx = i + offset;
+        const clean = String(text || '').trim();
+        if (clean) {
+          results[idx] = await translateKoToViServer(clean);
         }
-      });
-
-      if (nonEmptyLines.length === 0) continue;
-
-      // Thử gộp dịch cả cụm bằng dấu xuống dòng
-      const joined = nonEmptyLines.join('\n');
-      const batchTranslated = await translateKoToViServer(joined);
-      const splitLines = batchTranslated ? batchTranslated.split(/\r?\n/).map(s => s.trim()) : [];
-
-      if (splitLines.length === nonEmptyLines.length) {
-        nonEmptyIndices.forEach((targetIdx, i) => {
-          results[targetIdx] = splitLines[i];
-        });
-      } else {
-        // Nếu số dòng trả về lệch, dịch song song từng câu trong nhóm nhỏ
-        await Promise.all(nonEmptyIndices.map(async (targetIdx, i) => {
-          results[targetIdx] = await translateKoToViServer(nonEmptyLines[i]);
-        }));
-      }
+      }));
     }
 
     return res.json({ success: true, translations: results });
