@@ -13,9 +13,35 @@ app.use(cors());
 app.use(express.json({ limit: '20mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+const { exec } = require('child_process');
+
 // Thư mục lưu trữ bộ câu hỏi trên server
 const DATA_DIR = path.join(__dirname, 'data');
 const SETS_FILE = path.join(DATA_DIR, 'question_sets.json');
+let gitSyncTimer = null;
+
+function scheduleGitAutoPush() {
+  if (gitSyncTimer) clearTimeout(gitSyncTimer);
+  gitSyncTimer = setTimeout(() => {
+    const gitDir = path.join(__dirname, '.git');
+    if (!fs.existsSync(gitDir)) return;
+
+    const minGitPath = process.env.LOCALAPPDATA
+      ? path.join(process.env.LOCALAPPDATA, 'Programs', 'Git', 'cmd')
+      : '';
+    const env = {
+      ...process.env,
+      PATH: minGitPath ? `${minGitPath};${process.env.PATH}` : process.env.PATH
+    };
+
+    const cmd = `git add data/question_sets.json && git commit -m "chore: auto-sync saved question sets" && git push origin main`;
+    exec(cmd, { cwd: __dirname, env }, (err) => {
+      if (!err) {
+        console.log('☁️ Đã tự động đồng bộ bộ câu hỏi lên GitHub / Web!');
+      }
+    });
+  }, 2500);
+}
 
 function loadSets() {
   try {
@@ -36,6 +62,7 @@ function saveSets(sets) {
       fs.mkdirSync(DATA_DIR, { recursive: true });
     }
     fs.writeFileSync(SETS_FILE, JSON.stringify(sets, null, 2), 'utf-8');
+    scheduleGitAutoPush();
     return true;
   } catch (err) {
     console.error('Lỗi lưu question_sets.json:', err.message);
