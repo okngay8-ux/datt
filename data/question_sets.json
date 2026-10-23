@@ -1,36 +1,55 @@
 [
   {
+    "id": "set_1792719791167",
+    "title": "Bộ 101 câu khẩu lệnh công cụ - tay nghề",
+    "description": "101 câu mệnh lệnh thao tác dụng cụ cơ khí, đo đạc, lắp ráp và bảo hộ lao động",
+    "createdAt": "2026-10-23T01:00:00.000Z",
+    "updatedAt": "2026-10-23T13:02:18.647Z",
+    "questions": [
+      {
+        "num": "1.",
+        "qKr": "버니어캘리퍼스를 바구니에 넣으세요.",
+        "qVi": "Hãy bỏ thước cặp vào rổ."
+      },
+      {
+        "num": "13.",
+        "qKr": "망치와 톱을 공구함에 넣으세요.",
+        "qVi": "Hãy cất búa và cưa vào hộp dụng cụ."
+      }
+    ]
+  },
+  {
     "id": "set_1792223473614",
     "title": "46 kynangungxu",
     "description": "46",
     "createdAt": "2026-10-17T07:51:13.615Z",
-    "updatedAt": "2026-10-23T04:29:58.629Z",
+    "updatedAt": "2026-10-23T05:00:00.000Z",
     "questions": [
       {
         "num": "1.",
         "qKr": "직장 동료하고 어떻게 지낼거예요?",
-        "qVi": "Đặt thước cặp vernier vào giỏ.",
+        "qVi": "Bạn sẽ hòa đồng với đồng nghiệp ở nơi làm việc như thế nào?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "2.",
         "qKr": "직장 동료가 바쁘면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu đồng nghiệp của bạn bận rộn?",
+        "qVi": "Nếu đồng nghiệp bận, bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "3.",
         "qKr": "동료와 갈등이 있으면 어떻게 할거예요?",
-        "qVi": "Bạn làm gì nếu xảy ra mâu thuẫn với đồng nghiệp?",
+        "qVi": "Nếu có mâu thuẫn với đồng nghiệp thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "4.",
         "qKr": "새로운 동료들과 잘 지내기 위해 무엇을 합니까?",
-        "qVi": "Bạn làm gì để hòa hợp với các đồng nghiệp mới?",
+        "qVi": "Bạn sẽ làm gì để hòa hợp với đồng nghiệp mới?",
         "aKr": "",
         "aVi": ""
       },
@@ -44,105 +63,105 @@
       {
         "num": "6.",
         "qKr": "직장에서 좋은 관계를 유지하려면 어떻게 해야 합니까?",
-        "qVi": "Làm thế nào để bạn duy trì mối quan hệ tốt ở nơi làm việc?",
+        "qVi": "Làm sao để duy trì mối quan hệ tốt tại nơi làm việc?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "7.",
         "qKr": "동료가 실수하면 어떻게 합니까?",
-        "qVi": "Bạn làm gì khi đồng nghiệp mắc lỗi?",
+        "qVi": "Nếu đồng nghiệp mắc lỗi thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "8.",
         "qKr": "동료가 어려움을 겪으면 어떻게 합니까?",
-        "qVi": "Bạn sẽ làm gì nếu đồng nghiệp đang gặp khó khăn?",
+        "qVi": "Nếu đồng nghiệp gặp khó khăn thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "9.",
         "qKr": "친구가 근무 중 개인 일을 하자고 하면 어떻게 합니까?",
-        "qVi": "Tôi nên làm gì nếu bạn tôi yêu cầu tôi làm việc gì đó riêng tư khi anh ấy đang làm việc?",
+        "qVi": "Nếu bạn bè rủ làm việc riêng trong giờ làm thì bạn làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "10.",
         "qKr": "상사가 당신 의견에 반대하면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu sếp không đồng ý với ý kiến ​​của bạn?",
+        "qVi": "Nếu cấp trên không đồng ý với ý kiến của bạn thì sao?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "11.",
         "qKr": "해결 방법을 모를 때는 어떻게 합니까?",
-        "qVi": "Bạn sẽ làm gì khi không biết cách giải quyết?",
+        "qVi": "Khi không biết cách giải quyết thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "12.",
         "qKr": "문제가 생기면 해결책을 찾기 위해 어떻게 노력하실 건가요?",
-        "qVi": "Nếu một vấn đề nảy sinh, bạn sẽ làm việc như thế nào để tìm ra giải pháp?",
+        "qVi": "Nếu phát sinh vấn đề bạn làm gì để tìm phương pháp giải quyết?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "13.",
         "qKr": "다른 사람들과 잘 지내는 것이 왜 중요하다고 생각하세요?",
-        "qVi": "Tại sao bạn nghĩ việc hòa hợp với những người khác là điều quan trọng?",
+        "qVi": "Bạn có nghĩ là việc hòa đồng với người khác quan trọng?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "14.",
         "qKr": "의사소통이 왜 중요한지 설명할 수 있나요?",
-        "qVi": "Bạn có thể giải thích tại sao giao tiếp lại quan trọng không?",
+        "qVi": "Bạn cho biết tại sao giao tiếp lại quan trọng?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "15.",
         "qKr": "의사소통을 방해하는 요소들은 무엇이 있나요?",
-        "qVi": "Các yếu tố cản trở giao tiếp là gì?",
+        "qVi": "Những yếu tố nào gây ảnh hưởng xấu đến giao tiếp?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "16.",
         "qKr": "팀에서 효과적인 소통은 무엇입니까?",
-        "qVi": "Điều gì tạo nên sự giao tiếp hiệu quả trong một nhóm?",
+        "qVi": "Giao tiếp hiệu quả trong nhóm là gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "17.",
         "qKr": "사람들 사이에서 지켜야 할 예절에 대해 잘 알고 있나요?",
-        "qVi": "Bạn có quen với những phép xã giao cần được tuân thủ giữa mọi người không?",
+        "qVi": "Bạn có nắm rõ các phép tắc trong giao tiếp không?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "18.",
         "qKr": "일하면서 정해진 시간을 잘 지키시나요?",
-        "qVi": "Bạn có tuân theo giờ cố định trong khi làm việc không?",
+        "qVi": "Bạn có tuân thủ thời gian làm việc không?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "19.",
         "qKr": "두 가지 방법 중 선택할 때는 어떻게 합니까?",
-        "qVi": "Làm thế nào để bạn lựa chọn giữa hai phương pháp?",
+        "qVi": "Khi chọn giữa hai phương án, bạn làm sao?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "20.",
         "qKr": "작업하다가 실수하면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu mắc lỗi trong khi làm việc?",
+        "qVi": "Nếu bạn làm sai trong lúc làm việc thì sao?",
         "aKr": "",
         "aVi": ""
       },
@@ -156,168 +175,168 @@
       {
         "num": "22.",
         "qKr": "불량품이 많이 나면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có nhiều sản phẩm bị lỗi?",
+        "qVi": "Nếu ra nhiều sản phẩm lỗi thì sao?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "23.",
         "qKr": "문제가 생겼을 때 누구에게 먼저 보고합니까?",
-        "qVi": "Bạn sẽ báo cáo ai đầu tiên khi có vấn đề phát sinh?",
+        "qVi": "Nếu phát sinh vấn đề bạn báo cáo cho ai đầu tiên?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "24.",
         "qKr": "작업 중 문제가 반복되면 어떻게 하시겠습니까?",
-        "qVi": "Bạn làm gì khi vấn đề tái diễn trong công việc?",
+        "qVi": "Trong công việc nếu vấn đề phát sinh lặp đi lặp lại thì bạn xử lý sao?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "25.",
         "qKr": "이 일에 필요한 기술이 있습니까?",
-        "qVi": "Bạn có những kỹ năng cần thiết cho công việc này?",
+        "qVi": "Bạn có kỹ năng cần thiết cho công việc này không?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "26.",
         "qKr": "기술을 어떻게 향상시키나요?",
-        "qVi": "Làm cách nào để cải thiện kỹ năng của tôi?",
+        "qVi": "Bạn làm thế nào để nâng cao kỹ năng?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "27.",
         "qKr": "새로운 기계를 만나면 어떻게 합니까?",
-        "qVi": "Bạn làm gì khi gặp một chiếc máy mới?",
+        "qVi": "Khi gặp máy mới, bạn làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "28.",
         "qKr": "기술적인 문제가 생기면 어떻게 합니까?",
-        "qVi": "Nếu tôi gặp vấn đề kỹ thuật thì sao?",
+        "qVi": "Nếu có sự cố kỹ thuật thì bạn làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "29.",
         "qKr": "한국에서 사용할 수 있는 기술이 있어요?",
-        "qVi": "Có công nghệ nào có thể được sử dụng ở Hàn Quốc không?",
+        "qVi": "Bạn có kỹ năng có thể dùng ở Hàn Quốc không?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "30.",
         "qKr": "다른 사람보다 잘 할수 있는 기술이 있어요?",
-        "qVi": "Có kỹ năng nào bạn có thể làm tốt hơn những kỹ năng khác không?",
+        "qVi": "Bạn có kỹ năng nào làm tốt hơn người khác không?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "31.",
         "qKr": "새로운 장비를 사용할 줄 모를 때는 어떻게 합니까?",
-        "qVi": "Nếu tôi không biết cách sử dụng thiết bị mới thì sao?",
+        "qVi": "Khi chưa biết cách sử dụng trang thiết bị mới bạn làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "32.",
         "qKr": "작업 중 도구가(기계) 고장나면 어떻게 하시겠습니까?",
-        "qVi": "Bạn sẽ làm gì nếu dụng cụ (máy) của bạn bị hỏng khi đang làm việc?",
+        "qVi": "Đang làm nếu công cụ, máy móc bị hỏng thì bạn làm thế nào?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "33.",
         "qKr": "업무를 잘 이해하지 못했을 때는 어떻게 합니까?",
-        "qVi": "Bạn làm gì khi không hiểu công việc của mình?",
+        "qVi": "Nếu bạn chưa hiểu rõ công việc thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "34.",
         "qKr": "상대가 내 말을 안 들으면 어떻게 합니까?",
-        "qVi": "Tôi nên làm gì nếu người kia không lắng nghe tôi?",
+        "qVi": "Nếu đối phương không nghe bạn thì làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "35.",
         "qKr": "논쟁이 있을 때는 어떻게 합니까?",
-        "qVi": "Bạn làm gì khi có tranh cãi?",
+        "qVi": "Khi có tranh luận, bạn làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "36.",
         "qKr": "팀에서 오해가 생기면 어떻게 해결합니까?",
-        "qVi": "Làm thế nào để bạn giải quyết những hiểu lầm trong nhóm của bạn?",
+        "qVi": "Nếu có hiểu lầm trong nhóm thì bạn làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "37.",
         "qKr": "다른 사람의 의견을 잘 듣는 편입니까?",
-        "qVi": "Bạn có giỏi lắng nghe ý kiến ​​của người khác không?",
+        "qVi": "Bạn có phải tuýp người biết lắng nghe?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "38.",
         "qKr": "상사에게 건의할 일이 있으면 어떻게 합니까?",
-        "qVi": "Tôi nên làm gì nếu có điều gì muốn đề xuất với sếp?",
+        "qVi": "Nếu có kiến nghị thì bạn làm sao?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "39.",
         "qKr": "근무시간 중에 외출해야 할 경우에는 어떻게 합니까?",
-        "qVi": "Nếu tôi cần ra ngoài trong giờ làm việc thì sao?",
+        "qVi": "Nếu bận cần ra ngoài trong giờ làm thì làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "40.",
         "qKr": "회사가 월급을 안 주면 어떻게 합니까?",
-        "qVi": "Tôi phải làm gì nếu công ty không trả lương cho tôi?",
+        "qVi": "Nếu công ty không trả lương thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "41.",
         "qKr": "모르는 일이 있으면 어떻게 합니까?",
-        "qVi": "Tôi phải làm gì nếu tôi không biết điều gì đó?",
+        "qVi": "Nếu có việc không biết thì bạn làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "42.",
         "qKr": "직장에서 가장 중요한 것은 무엇이라고 생각합니까?",
-        "qVi": "Bạn nghĩ điều gì là quan trọng nhất trong công việc?",
+        "qVi": "Bạn nghĩ điều gì là quan trọng nhất ở nơi làm việc?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "43.",
         "qKr": "누군가 규정을 어기면 어떻게 합니까?",
-        "qVi": "Điều gì sẽ xảy ra nếu ai đó vi phạm các quy tắc?",
+        "qVi": "Nếu ai đó vi phạm quy định thì sao?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "44.",
         "qKr": "피곤해도 일을 성실히 합니까?",
-        "qVi": "Bạn có làm việc chăm chỉ ngay cả khi mệt mỏi không?",
+        "qVi": "Bạn có làm việc chăm chỉ dù mệt không?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "45.",
         "qKr": "실수하면 책임지시겠습니까?",
-        "qVi": "Bạn có chịu trách nhiệm nếu mắc sai lầm không?",
+        "qVi": "Nếu phạm sai lầm, bạn có chịu trách nhiệm không?",
         "aKr": "",
         "aVi": ""
       },
@@ -335,19 +354,19 @@
     "title": "118 coban",
     "description": "118",
     "createdAt": "2026-10-17T02:15:33.510Z",
-    "updatedAt": "2026-10-23T03:43:11.061Z",
+    "updatedAt": "2026-10-23T05:00:00.000Z",
     "questions": [
       {
         "num": "29.",
         "qKr": "한국에 왜 가고 싶어요? 한국에 가는 이유가 무엇입니까? 한국에 갈 목적이 뭐예요?",
-        "qVi": "Tại sao bạn muốn đến Hàn Quốc? Tại sao bạn lại đến Hàn Quốc? Mục đích bạn đến Hàn Quốc là gì?",
+        "qVi": "Tại sao bạn muốn đi Hàn Quốc? Lý do bạn đến Hàn Quốc là gì? Mục đích bạn sang Hàn Quốc là gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "30.",
         "qKr": "한국에 가면 어떤 일 하고 싶어요?",
-        "qVi": "Bạn muốn làm gì khi đến Hàn Quốc?",
+        "qVi": "Khi sang Hàn Quốc bạn muốn làm công việc gì?",
         "aKr": "",
         "aVi": ""
       },
@@ -361,21 +380,21 @@
       {
         "num": "32.",
         "qKr": "베트남에서 어떤 일을 해 본 적이 있습니까?",
-        "qVi": "Bạn đã làm gì ở Việt Nam?",
+        "qVi": "Ở Việt Nam bạn đã từng làm công việc gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "33.",
         "qKr": "당신은 어떤 사람입니까? 무슨 단장점이 있습니까?",
-        "qVi": "Bạn là người như thế nào? Những ưu và nhược điểm là gì?",
+        "qVi": "Bạn là người như thế nào? Bạn có ưu điểm và nhược điểm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "34.",
         "qKr": "나중에 계약기간이 끝난 후에 뭘 할 거예요?/ 끝나고나서 어떻게 할 거예요?/ 끝나면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì sau khi thời hạn hợp đồng kết thúc?/ Bạn sẽ làm gì sau khi thời hạn hợp đồng kết thúc?/ Bạn sẽ làm gì khi thời hạn hợp đồng kết thúc?",
+        "qVi": "Sau này khi hết hạn hợp đồng bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
@@ -396,35 +415,35 @@
       {
         "num": "38.",
         "qKr": "맡는 일이 끝나면 뭐 할 거예요?",
-        "qVi": "Bạn sẽ làm gì sau khi kết thúc công việc?",
+        "qVi": "Khi hoàn thành công việc được giao thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "39.",
         "qKr": "잘 못할 것이 있으면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có điều gì đó bạn không giỏi?",
+        "qVi": "Nếu có việc chưa làm tốt thì bạn sẽ làm thế nào?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "40.",
         "qKr": "직장 동료하고 어떻게지낼 거예요?",
-        "qVi": "Bạn sẽ hòa hợp với đồng nghiệp như thế nào?",
+        "qVi": "Bạn sẽ hòa đồng với đồng nghiệp ở nơi làm việc như thế nào?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "41.",
         "qKr": "직장 동료가 바쁘면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu đồng nghiệp của bạn bận rộn?",
+        "qVi": "Nếu đồng nghiệp bận, bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "42.",
         "qKr": "불량품을 많으면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có nhiều sản phẩm bị lỗi?",
+        "qVi": "Nếu có nhiều sản phẩm lỗi thì bạn sẽ làm thế nào?",
         "aKr": "",
         "aVi": ""
       },
@@ -445,21 +464,21 @@
       {
         "num": "45.",
         "qKr": "한국에 가서 시간이 있으면 뭘 할 거예요?",
-        "qVi": "Nếu có thời gian sang Hàn Quốc bạn sẽ làm gì?",
+        "qVi": "Khi sang Hàn Quốc, nếu có thời gian rảnh bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "46.",
         "qKr": "한국에 대해 아는게 있어요?",
-        "qVi": "Bạn có biết gì về Hàn Quốc không?",
+        "qVi": "Bạn biết điều gì về đất nước Hàn Quốc?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "47.",
         "qKr": "상사가 당신 의견에 반대하면 어떻게 할거예요?",
-        "qVi": "Bạn sẽ làm gì nếu sếp không đồng ý với ý kiến ​​của bạn?",
+        "qVi": "Nếu cấp trên không đồng ý với ý kiến của bạn thì sao?",
         "aKr": "",
         "aVi": ""
       },
@@ -494,21 +513,21 @@
       {
         "num": "52.",
         "qKr": "요즘 무슨 일을 하세요?",
-        "qVi": "Bạn đang làm gì trong những ngày này?",
+        "qVi": "Dạo này bạn làm công việc gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "53.",
         "qKr": "무엇을 타고 왔어요?",
-        "qVi": "Bạn đã đi xe gì?",
+        "qVi": "Bạn đi gì đến đây?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "54.",
         "qKr": "여기까지 얼마나 걸렸어요?",
-        "qVi": "Mất bao lâu để đến được đây?",
+        "qVi": "Mất bao lâu để đến đây?",
         "aKr": "",
         "aVi": ""
       },
@@ -536,7 +555,7 @@
       {
         "num": "58.",
         "qKr": "포장하는 일을 해 봤어요? / 해 봤습니까?",
-        "qVi": "Bạn đã từng làm việc trong lĩnh vực đóng gói chưa? / Bạn đã thử chưa?",
+        "qVi": "Bạn đã từng làm công việc đóng gói bao giờ chưa?",
         "aKr": "",
         "aVi": ""
       },
@@ -550,28 +569,28 @@
       {
         "num": "60.",
         "qKr": "당신이 한국에서 일할 자격이 있는 것은 무엇입니까?",
-        "qVi": "Bạn đủ điều kiện để làm việc tại Hàn Quốc?",
+        "qVi": "Điều gì chứng tỏ bạn đủ năng lực làm việc tại Hàn Quốc?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "61.",
         "qKr": "왜 우리가 당신을 고용 합니까?",
-        "qVi": "Tại sao chúng tôi thuê bạn?",
+        "qVi": "Tại sao chúng tôi nên tuyển dụng bạn?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "62.",
         "qKr": "아침을 드셨어요? / 아침을 먹었어요?",
-        "qVi": "Bạn đã ăn sáng chưa? / Bạn đã ăn sáng chưa?",
+        "qVi": "Bạn đã ăn sáng chưa?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "63.",
         "qKr": "아침을 무엇을 먹었습니까?",
-        "qVi": "Bạn đã ăn gì cho bữa sáng?",
+        "qVi": "Sáng nay bạn đã ăn món gì?",
         "aKr": "",
         "aVi": ""
       },
@@ -641,7 +660,7 @@
       {
         "num": "73.",
         "qKr": "집에서 여기까지 어떻게 왔습니까?(왔어요?) 무엇을 타고 왔습니까? 시간이얼마나 걸립니까?",
-        "qVi": "Bạn từ nhà đến đây bằng cách nào? (Làm thế nào bạn đến được đây?) Bạn đã đi xe gì? Phải mất bao lâu?",
+        "qVi": "Từ nhà đến đây bạn đi bằng cách nào? Bạn đi phương tiện gì? Mất bao lâu?",
         "aKr": "",
         "aVi": ""
       },
@@ -676,28 +695,28 @@
       {
         "num": "78.",
         "qKr": "일하면서 가장 힘든 점은 무엇입니까?",
-        "qVi": "Điều khó khăn nhất trong công việc của bạn là gì?",
+        "qVi": "Khi làm việc, điều vất vả/khó khăn nhất là gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "79.",
         "qKr": "그 상황을 해결하려고 노력했던 방법이 있습니까?",
-        "qVi": "Có cách nào bạn đã cố gắng giải quyết tình hình không?",
+        "qVi": "Bạn đã cố gắng giải quyết tình huống đó bằng cách nào?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "80.",
         "qKr": "안전 교육을 받은 경험이 있습니까?",
-        "qVi": "Bạn đã bao giờ được đào tạo về an toàn chưa?",
+        "qVi": "Bạn đã từng được đào tạo về an toàn lao động chưa?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "81.",
         "qKr": "소통이 잘 되지 않을 때는 어떻게 해결합니까?",
-        "qVi": "Làm thế nào để bạn giải quyết vấn đề khi giao tiếp không tốt?",
+        "qVi": "Khi giao tiếp chưa hiểu nhau thì bạn giải quyết thế nào?",
         "aKr": "",
         "aVi": ""
       },
@@ -718,35 +737,35 @@
       {
         "num": "84.",
         "qKr": "지각하면 어떻게 합니까?",
-        "qVi": "Tôi phải làm gì nếu đến muộn?",
+        "qVi": "Nếu đi làm muộn thì bạn phải làm thế nào?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "85.",
         "qKr": "한국에서 어느 쪽 일을 하고 싶으세요?",
-        "qVi": "Bạn muốn làm công việc gì ở Hàn Quốc?",
+        "qVi": "Ở Hàn Quốc bạn muốn làm việc bên lĩnh vực/bộ phận nào?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "86.",
         "qKr": "이유가 뭐예요?",
-        "qVi": "Tại sao?",
+        "qVi": "Lý do là gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "87.",
         "qKr": "다른 사람보다 잘 할수 있는 기술이 있습니까?",
-        "qVi": "Có kỹ năng nào bạn có thể làm tốt hơn những người khác không?",
+        "qVi": "Bạn có kỹ năng/tay nghề nào làm tốt hơn người khác không?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "88.",
         "qKr": "상사가 시킨 일이 마음에 들지 않으면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu bạn không thích những gì sếp yêu cầu bạn làm?",
+        "qVi": "Nếu công việc cấp trên giao không đúng ý mình thì bạn sẽ làm thế nào?",
         "aKr": "",
         "aVi": ""
       },
@@ -774,7 +793,7 @@
       {
         "num": "92.",
         "qKr": "다른 사람들과 잘 지내는 것이 왜 중요하다고 생각하세요?",
-        "qVi": "Tại sao bạn nghĩ việc hòa hợp với những người khác là điều quan trọng?",
+        "qVi": "Bạn có nghĩ là việc hòa đồng với người khác quan trọng?",
         "aKr": "",
         "aVi": ""
       },
@@ -788,35 +807,35 @@
       {
         "num": "94.",
         "qKr": "문제가 생기면 해결책을 찾기 위해 어떻게 노력하실 건가요?",
-        "qVi": "Nếu một vấn đề nảy sinh, bạn sẽ làm việc như thế nào để tìm ra giải pháp?",
+        "qVi": "Nếu phát sinh vấn đề bạn làm gì để tìm phương pháp giải quyết?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "95.",
         "qKr": "의사소통이 왜 중요한지 설명할 수 있나요?",
-        "qVi": "Bạn có thể giải thích tại sao giao tiếp lại quan trọng không?",
+        "qVi": "Bạn cho biết tại sao giao tiếp lại quan trọng?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "96.",
         "qKr": "의사소통을 방해하는 요소들은 무엇이 있나요?",
-        "qVi": "Các yếu tố cản trở giao tiếp là gì?",
+        "qVi": "Những yếu tố nào gây ảnh hưởng xấu đến giao tiếp?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "97.",
         "qKr": "사람들 사이에서 지켜야 할 예절에 대해 잘 알고 있나요?",
-        "qVi": "Bạn có quen với những phép xã giao cần được tuân thủ giữa mọi người không?",
+        "qVi": "Bạn có nắm rõ các phép tắc trong giao tiếp không?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "98.",
         "qKr": "일하면서 정해진 시간을 잘 지키시나요?",
-        "qVi": "Bạn có tuân theo giờ cố định trong khi làm việc không?",
+        "qVi": "Bạn có tuân thủ thời gian làm việc không?",
         "aKr": "",
         "aVi": ""
       },
@@ -830,28 +849,28 @@
       {
         "num": "100.",
         "qKr": "다른 부서로 옮기라고 하면 어떻게 할 거예요? / 다른 부서로 옮기게 된다면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu tôi yêu cầu bạn chuyển sang bộ phận khác? / Bạn sẽ làm gì nếu được chuyển sang bộ phận khác?",
+        "qVi": "Nếu công ty yêu cầu chuyển sang bộ phận khác thì bạn sẽ làm thế nào?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "101.",
         "qKr": "작업 중에 도구나 기계가 고장나면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu một công cụ hoặc máy móc bị hỏng trong quá trình làm việc?",
+        "qVi": "Trong lúc làm việc nếu dụng cụ hoặc máy móc bị hỏng thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "102.",
         "qKr": "힘든 일을 할 수 있어요?",
-        "qVi": "Bạn có thể làm việc chăm chỉ không?",
+        "qVi": "Bạn có làm được công việc vất vả, nặng nhọc không?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "103.",
         "qKr": "한국에서 생활하는 동안 힘든 일이 생기면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có điều gì khó khăn xảy ra khi sống ở Hàn Quốc?",
+        "qVi": "Trong thời gian sống ở Hàn Quốc, nếu gặp chuyện khó khăn vất vả thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
@@ -865,21 +884,21 @@
       {
         "num": "105.",
         "qKr": "한국사람과 갈등이 생기면 어떻게 해결해야 해요?",
-        "qVi": "Nếu xảy ra mâu thuẫn với người Hàn Quốc thì tôi nên giải quyết như thế nào?",
+        "qVi": "Nếu xảy ra mâu thuẫn với người Hàn Quốc thì bạn giải quyết như thế nào?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "106.",
         "qKr": "한국에서 생활하는 동안 힘든 일이 생기면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu có điều gì khó khăn xảy ra khi sống ở Hàn Quốc?",
+        "qVi": "Trong thời gian sống ở Hàn Quốc, nếu gặp chuyện khó khăn vất vả thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
       {
         "num": "107.",
         "qKr": "첫 월급을 받으면 뭘 할 거예요?",
-        "qVi": "Bạn sẽ làm gì khi nhận được đồng lương đầu tiên?",
+        "qVi": "Khi nhận tháng lương đầu tiên bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
@@ -893,7 +912,7 @@
       {
         "num": "109.",
         "qKr": "업무를 잘 이해하지 못 했을 때 어떻게 할 거예요?",
-        "qVi": "Bạn làm gì khi không hiểu rõ công việc của mình?",
+        "qVi": "Khi chưa hiểu rõ công việc được giao thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
@@ -914,7 +933,7 @@
       {
         "num": "112.",
         "qKr": "맡는 일이 너무 힘들면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu công việc của bạn quá khó khăn?",
+        "qVi": "Nếu công việc được giao quá vất vả thì bạn sẽ làm thế nào?",
         "aKr": "",
         "aVi": ""
       },
@@ -928,7 +947,7 @@
       {
         "num": "114.",
         "qKr": "동료가 실수하면 어떻게 할 거예요? / 실수한 동료를 보면 어떻게 할 거예요?",
-        "qVi": "Bạn sẽ làm gì nếu đồng nghiệp của bạn mắc lỗi? / Bạn sẽ làm gì nếu thấy đồng nghiệp mắc lỗi?",
+        "qVi": "Nếu đồng nghiệp mắc lỗi (hoặc thấy đồng nghiệp làm sai) thì bạn sẽ làm gì?",
         "aKr": "",
         "aVi": ""
       },
@@ -956,7 +975,7 @@
       {
         "num": "118.",
         "qKr": "직장에서 가장 중요한 것은 무엇이라고 생각합니까?",
-        "qVi": "Bạn nghĩ điều gì là quan trọng nhất trong công việc?",
+        "qVi": "Bạn nghĩ điều gì là quan trọng nhất ở nơi làm việc?",
         "aKr": "",
         "aVi": ""
       }
@@ -1331,7 +1350,7 @@
       {
         "num": "1.",
         "qKr": "직장 동료하고 어떻게 지낼거예요?",
-        "qVi": "Bạn sẽ đối xử với đồng nghiệp như thế nào?",
+        "qVi": "Bạn sẽ hòa đồng với đồng nghiệp ở nơi làm việc như thế nào?",
         "aKr": "배려하면서 즐겁게 지낼겁니다. 바쁘면 도와줄게요.",
         "aVi": "Tôi sẽ quan tâm và hòa đồng vui vẻ. Nếu đồng nghiệp bận tôi sẽ giúp đỡ."
       },
@@ -1359,7 +1378,7 @@
       {
         "num": "5.",
         "qKr": "동료와 의견이 다르면 어떻게 할거예요?",
-        "qVi": "Nếu bạn có ý kiến khác với đồng nghiệp thì sao?",
+        "qVi": "Bạn sẽ làm gì nếu có quan điểm khác với đồng nghiệp?",
         "aKr": "상대방의 의견을 듣고 솔직하게 대화하여 해결하려고 합니다.",
         "aVi": "Tôi sẽ lắng nghe ý kiến của đối phương và thẳng thắn trao đổi để giải quyết."
       },
@@ -1471,7 +1490,7 @@
       {
         "num": "21.",
         "qKr": "작업하다가 사고가 나면 어떻게 할거예요?",
-        "qVi": "Nếu xảy ra tai nạn khi làm việc thì sao?",
+        "qVi": "Bạn sẽ làm gì nếu xảy ra tai nạn khi đang làm việc?",
         "aKr": "큰 소리로 외치고 옆동료를 부르고 관리자에게 빨리 보고하겠습니다.",
         "aVi": "Tôi sẽ hô to gọi đồng nghiệp xung quanh và lập tức báo ngay cho quản lý."
       },
@@ -1646,7 +1665,7 @@
       {
         "num": "46.",
         "qKr": "회사에 일이 많으면 어떻게 할거예요?",
-        "qVi": "Nếu công ty nhiều việc bạn sẽ làm gì?",
+        "qVi": "Bạn sẽ làm gì nếu có nhiều việc ở công ty?",
         "aKr": "맡은 일은 빨리 끝내고 추가 업무도 열심히 하겠습니다.",
         "aVi": "Tôi sẽ hoàn thành nhanh việc được giao và sẵn sàng tăng ca chăm chỉ."
       },
@@ -2478,7 +2497,7 @@
       {
         "num": "23.",
         "qKr": "물어보기가 무슨 뜻인가요?",
-        "qVi": "Hỏi là có nghĩa là gì không?",
+        "qVi": "Bạn có biết \"hỏi lại\" có nghĩa là gì không?",
         "aKr": "물어보기는 모르는 것을 다른 사람에게 질문하는 것입니다.",
         "aVi": "Hỏi là đặt câu hỏi cho người khác về điều mình chưa biết."
       },
@@ -3362,7 +3381,7 @@
       {
         "num": "114.",
         "qKr": "물어보기가 무슨 뜻인가요?",
-        "qVi": "Hỏi là có nghĩa là gì không?",
+        "qVi": "Bạn có biết \"hỏi lại\" có nghĩa là gì không?",
         "aKr": "물어보기는 모르는 것을 다른 사람에게 질문하는 것입니다.",
         "aVi": "Hỏi là đặt câu hỏi cho người khác về điều mình chưa biết."
       },
