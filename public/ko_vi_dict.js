@@ -721,14 +721,18 @@
 
   function repairQuestionItem(q) {
     if (!q || typeof q !== 'object') return q;
-    const kr = String(q.qKr || '').trim();
-    const vi = String(q.qVi || '').trim();
-    if (kr) {
-      const exactQ = lookupExactKoVi(kr);
-      if (exactQ && !q.customVi) {
-        q.qVi = exactQ;
-      } else if (vi) {
-        q.qVi = refineKoViTranslation(kr, vi);
+    if (q.noQVi) {
+      q.qVi = '';
+    } else {
+      const kr = String(q.qKr || '').trim();
+      const vi = String(q.qVi || '').trim();
+      if (kr) {
+        const exactQ = lookupExactKoVi(kr);
+        if (exactQ && !q.customVi) {
+          q.qVi = exactQ;
+        } else if (vi) {
+          q.qVi = refineKoViTranslation(kr, vi);
+        }
       }
     }
 

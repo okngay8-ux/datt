@@ -384,7 +384,7 @@ function calculateSetRichness(set) {
   let score = set.questions.length * 10;
   for (const q of set.questions) {
     if (q.qKr && q.qKr.trim()) score += 2;
-    if (q.qVi && q.qVi.trim()) score += 3;
+    if (q.noQVi || (q.qVi && q.qVi.trim())) score += 3;
     if (q.aKr && q.aKr.trim()) score += 10;
     if (q.aVi && q.aVi.trim()) score += 8;
   }
@@ -402,10 +402,12 @@ function mergeQuestionsList(newerList = [], olderList = []) {
     const oldQ = olderList.find(o => o.qKr && cleanNewKr && o.qKr.trim() === cleanNewKr);
     if (!oldQ) return KoViDict.repairQuestionItem({ ...newQ });
     const sameAns = (newQ.aKr || '').trim() === (oldQ.aKr || '').trim();
+    const isNoQVi = !!(newQ.noQVi || oldQ.noQVi);
     const merged = {
       num: newQ.num || oldQ.num || `${idx + 1}.`,
+      noQVi: isNoQVi,
       qKr: cleanNewKr ? newQ.qKr : (oldQ.qKr || ''),
-      qVi: (newQ.qVi && newQ.qVi.trim()) ? newQ.qVi : (oldQ.qVi || ''),
+      qVi: isNoQVi ? '' : ((newQ.qVi && newQ.qVi.trim()) ? newQ.qVi : (oldQ.qVi || '')),
       aKr: (newQ.aKr && newQ.aKr.trim()) ? newQ.aKr : (oldQ.aKr || ''),
       aVi: (newQ.aVi && newQ.aVi.trim()) ? newQ.aVi : (sameAns ? (oldQ.aVi || '') : '')
     };

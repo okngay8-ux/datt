@@ -917,7 +917,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let score = qList.length * 10;
     for (const q of qList) {
       if (q.qKr && q.qKr.trim()) score += 2;
-      if (q.qVi && q.qVi.trim()) score += 3;
+      if (q.noQVi || (q.qVi && q.qVi.trim())) score += 3;
       if (q.aKr && q.aKr.trim()) score += 10;
       if (q.aVi && q.aVi.trim()) score += 8;
     }
@@ -938,10 +938,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const s = secondaryList.find(item => item.qKr && cleanPKr && item.qKr.trim() === cleanPKr);
       if (!s) return window.KoViDict ? window.KoViDict.repairQuestionItem({ ...p }) : p;
       const sameAns = (p.aKr || '').trim() === (s.aKr || '').trim();
+      const isNoQVi = !!(p.noQVi || s.noQVi);
       const merged = {
         num: p.num || s.num || `${idx + 1}.`,
+        noQVi: isNoQVi,
         qKr: cleanPKr ? p.qKr : (s.qKr || ''),
-        qVi: (p.qVi && p.qVi.trim()) ? p.qVi : (s.qVi || ''),
+        qVi: isNoQVi ? '' : ((p.qVi && p.qVi.trim()) ? p.qVi : (s.qVi || '')),
         aKr: (p.aKr && p.aKr.trim()) ? p.aKr : (s.aKr || ''),
         aVi: (p.aVi && p.aVi.trim()) ? p.aVi : (sameAns ? (s.aVi || '') : '')
       };
@@ -1145,6 +1147,9 @@ document.addEventListener('DOMContentLoaded', () => {
     activeSetId = setId;
     localStorage.setItem('korean_active_set_id', setId);
     questions = JSON.parse(JSON.stringify(targetSet.questions));
+    if (targetSet.noQVi) {
+      questions.forEach(q => { q.noQVi = true; q.qVi = ''; });
+    }
     originalQuestions = JSON.parse(JSON.stringify(questions));
     localStorage.setItem('korean_questions', JSON.stringify(questions));
 
@@ -1213,7 +1218,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const missingATexts = [];
 
       questions.forEach((q, idx) => {
-        if (q.qKr && q.qKr.trim() && (!q.qVi || !q.qVi.trim())) {
+        if (!q.noQVi && q.qKr && q.qKr.trim() && (!q.qVi || !q.qVi.trim())) {
           missingQIndices.push(idx);
           missingQTexts.push(q.qKr.trim());
         }
@@ -1507,7 +1512,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!item) return;
 
     displayQuestionKr.textContent = `${item.num ? item.num + ' ' : ''}${item.qKr}`;
-    displayQuestionVi.textContent = item.qVi || "—";
+    if (item.noQVi) {
+      displayQuestionVi.textContent = "";
+      displayQuestionVi.style.display = "none";
+    } else {
+      displayQuestionVi.style.display = "";
+      displayQuestionVi.textContent = item.qVi || "—";
+    }
 
     displayAnswerKr.textContent = item.aKr || "Chưa có đáp án";
     displayAnswerVi.textContent = item.aVi || "";
@@ -1515,7 +1526,7 @@ document.addEventListener('DOMContentLoaded', () => {
     counterText.textContent = `${currentIndex + 1}/${questions.length}`;
 
     // Tự động dịch bổ sung nếu câu hỏi hoặc câu trả lời có tiếng Hàn nhưng chưa có nghĩa tiếng Việt
-    const needTranslateQ = item.qKr && item.qKr.trim() && (!item.qVi || !item.qVi.trim());
+    const needTranslateQ = !item.noQVi && item.qKr && item.qKr.trim() && (!item.qVi || !item.qVi.trim());
     const needTranslateA = item.aKr && item.aKr.trim() && (!item.aVi || !item.aVi.trim());
 
     if (needTranslateQ || needTranslateA) {
@@ -2653,7 +2664,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       // Tự động dịch câu hỏi nếu chưa có nghĩa tiếng Việt hoặc vừa sửa câu tiếng Hàn mà chưa sửa nghĩa Việt
-      if (qKr && (!qVi || (!isAddingNewQuestion && qKr !== oldItem.qKr && qVi === oldItem.qVi))) {
+      if (!oldItem.noQVi && qKr && (!qVi || (!isAddingNewQuestion && qKr !== oldItem.qKr && qVi === oldItem.qVi))) {
         const transQ = await translateTextSmart(qKr);
         if (transQ) qVi = transQ;
       }
@@ -2666,6 +2677,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const item = {
         num: editQuestionNum.value.trim() || `${editingQuestionIndex + 1}.`,
+        noQVi: !qVi && (oldItem.noQVi || false),
         qKr,
         qVi,
         aKr,
