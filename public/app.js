@@ -1788,22 +1788,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (!item.aKr) {
-      btnExamShowAnswer.innerHTML = '✅ Đã xem đáp án';
-      showToast('Câu này chưa có đáp án tiếng Hàn để phát!');
+      btnExamShowAnswer.innerHTML = '✅ Đã xem (Khẩu lệnh thực hành)';
+      showToast('Câu này là khẩu lệnh thực hành (không có câu trả lời riêng)!');
+      setStatus('Đang đọc khẩu lệnh...', true);
+      try {
+        await playAudioText(item.qKr, () => {
+          btnExamShowAnswer.innerHTML = '✅ Đã xem đáp án';
+          setStatus('Sẵn sàng', false);
+        });
+      } catch (e) {
+        btnExamShowAnswer.innerHTML = '✅ Đã xem đáp án';
+        setStatus('Sẵn sàng', false);
+      }
       return;
     }
 
     try {
       setStatus('Đang đọc đáp án...', true);
       btnExamShowAnswer.innerHTML = '🔊 Đang đọc đáp án...';
-      const cacheKey = `${item.aKr}_${currentVoice}_${currentSpeed}`;
-      const aAudioUrl = audioCache.get(cacheKey) || getDirectTtsUrl(item.aKr);
-      audio.src = aAudioUrl;
-      await audio.play();
-      audio.onended = () => {
+      await playAudioText(item.aKr, () => {
         btnExamShowAnswer.innerHTML = '✅ Đã xem đáp án';
         setStatus('Sẵn sàng', false);
-      };
+      });
     } catch (err) {
       console.error('Lỗi phát âm thanh đáp án:', err);
       btnExamShowAnswer.innerHTML = '✅ Đã xem đáp án';
@@ -1846,6 +1852,75 @@ document.addEventListener('DOMContentLoaded', () => {
     return `/api/tts?text=${encodeURIComponent(text.trim())}&voice=${encodeURIComponent(currentVoice)}&speed=${encodeURIComponent(currentSpeed)}`;
   }
 
+  // Phát âm thanh tiếng Hàn với cơ chế tự phục hồi 3 cấp độ:
+  // Cấp 1: Server Edge TTS (/api/tts - chất lượng cao Studio 24kHz)
+  // Cấp 2: Google Translate TTS trực tiếp từ trình duyệt (vượt qua mọi lỗi máy chủ)
+  // Cấp 3: Web Speech API tích hợp sẵn trên thiết bị (iOS Safari, Android Chrome, Windows)
+  async function playAudioText(text, onEndedCallback) {
+    const cleanText = String(text || '').trim();
+    if (!cleanText) {
+      if (typeof onEndedCallback === 'function') onEndedCallback();
+      return;
+    }
+
+    const currentSession = playbackSessionId;
+    const cacheKey = `${cleanText}_${currentVoice}_${currentSpeed}`;
+
+    let isCompleted = false;
+    const triggerEnd = () => {
+      if (isCompleted) return;
+      isCompleted = true;
+      if (currentSession !== playbackSessionId) return;
+      if (typeof onEndedCallback === 'function') onEndedCallback();
+    };
+
+    // Cấp 1: Thử phát qua URL máy chủ (/api/tts)
+    const serverUrl = audioCache.get(cacheKey) || getDirectTtsUrl(cleanText);
+    try {
+      audio.onended = () => triggerEnd();
+      audio.onerror = null;
+      audio.src = serverUrl;
+      await audio.play();
+      return;
+    } catch (e1) {
+      console.warn('Cấp 1 (/api/tts) phát thất bại, thử Cấp 2 Google Direct:', e1.message);
+    }
+
+    // Cấp 2: Thử phát trực tiếp qua Google Translate TTS từ trình duyệt
+    try {
+      const googleDirectUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ko&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
+      audio.onended = () => triggerEnd();
+      audio.onerror = null;
+      audio.src = googleDirectUrl;
+      await audio.play();
+      return;
+    } catch (e2) {
+      console.warn('Cấp 2 (Google Direct TTS) phát thất bại, thử Cấp 3 Web Speech API:', e2.message);
+    }
+
+    // Cấp 3: Dùng Web Speech API có sẵn trên mọi điện thoại & máy tính
+    if ('speechSynthesis' in window) {
+      try {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(cleanText);
+        utter.lang = 'ko-KR';
+        utter.rate = Math.max(0.6, Math.min(1.5, parseFloat(currentSpeed) || 1.0));
+        utter.onend = () => triggerEnd();
+        utter.onerror = (e) => {
+          console.warn('SpeechSynthesis error:', e);
+          triggerEnd();
+        };
+        window.speechSynthesis.speak(utter);
+        return;
+      } catch (e3) {
+        console.warn('Cấp 3 (SpeechSynthesis) thất bại:', e3.message);
+      }
+    }
+
+    triggerEnd();
+    throw new Error('Không thể phát âm thanh trên thiết bị');
+  }
+
   // Audio Playback Engine
   async function getAudioBlobUrl(text) {
     if (!text || !text.trim()) return null;
@@ -1854,22 +1929,28 @@ document.addEventListener('DOMContentLoaded', () => {
       return audioCache.get(cacheKey);
     }
 
-    const resp = await fetch('/api/tts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        text,
-        voice: currentVoice,
-        speed: currentSpeed
-      })
-    });
+    try {
+      const resp = await fetch('/api/tts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text,
+          voice: currentVoice,
+          speed: currentSpeed
+        })
+      });
 
-    if (!resp.ok) throw new Error('Không thể tạo audio');
-    const blob = await resp.blob();
-    if (!blob || blob.size < 100) throw new Error('Dữ liệu âm thanh rỗng');
-    const url = URL.createObjectURL(blob);
-    audioCache.set(cacheKey, url);
-    return url;
+      if (resp.ok) {
+        const blob = await resp.blob();
+        if (blob && blob.size >= 100) {
+          const url = URL.createObjectURL(blob);
+          audioCache.set(cacheKey, url);
+          return url;
+        }
+      }
+    } catch (e) {}
+
+    return getDirectTtsUrl(text);
   }
 
   async function playCurrentQuestion() {
@@ -1894,16 +1975,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      // Bước 1: Đọc Câu hỏi (Gán trực tiếp URL đồng bộ trong sự kiện người dùng để không bao giờ bị chặn trên iPhone/Web)
+      // Bước 1: Đọc Câu hỏi với cơ chế dự phòng 3 cấp độ
       setStatus('Đang đọc câu hỏi...', true);
-      const cacheKey = `${item.qKr}_${currentVoice}_${currentSpeed}`;
-      const qAudioUrl = audioCache.get(cacheKey) || getDirectTtsUrl(item.qKr);
-      if (!qAudioUrl || !isPlaying || currentSession !== playbackSessionId) return;
+      if (!item.qKr || !isPlaying || currentSession !== playbackSessionId) return;
 
-      audio.src = qAudioUrl;
-      await audio.play();
-
-      audio.onended = () => {
+      await playAudioText(item.qKr, () => {
         if (!isPlaying || currentSession !== playbackSessionId) return;
 
         // Nếu là Chế độ Luyện Thi (nhấn nút khi trả lời xong):
@@ -1934,7 +2010,7 @@ document.addEventListener('DOMContentLoaded', () => {
             proceedToAnswerOrNext(item, currentSession);
           }
         }, 1000);
-      };
+      });
 
     } catch (err) {
       if (currentSession !== playbackSessionId) return;
@@ -1944,8 +2020,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updatePlayPauseButton();
         return;
       }
-      console.error(err);
-      setStatus('Lỗi phát âm thanh', false);
+      console.error('Lỗi phát âm thanh câu hỏi:', err);
+      setStatus('Bấm ▶ để thử lại âm thanh', false);
       isPlaying = false;
       updatePlayPauseButton();
     }
@@ -1960,13 +2036,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (item.aKr && speakAnswer) {
       try {
         setStatus('Đang đọc câu trả lời...', true);
-        const aAudioUrl = await getAudioBlobUrl(item.aKr);
-        if (!isPlaying || currentSession !== playbackSessionId) return;
-
-        audio.src = aAudioUrl;
-        await audio.play();
-
-        audio.onended = () => {
+        await playAudioText(item.aKr, () => {
           if (!isPlaying || currentSession !== playbackSessionId) return;
 
           // Bước 3: Nghỉ sau câu trả lời trước khi chuyển sang câu tiếp theo
@@ -1987,10 +2057,10 @@ document.addEventListener('DOMContentLoaded', () => {
               advanceNextQuestion();
             }
           }, 1000);
-        };
+        });
       } catch (err) {
         if (currentSession !== playbackSessionId) return;
-        console.error(err);
+        console.error('Lỗi đọc câu trả lời:', err);
         advanceNextQuestion();
       }
     } else {
@@ -2060,7 +2130,10 @@ document.addEventListener('DOMContentLoaded', () => {
     playbackSessionId++;
     clearAllTimers();
     isPlaying = false;
-    audio.pause();
+    try { audio.pause(); } catch (e) {}
+    if ('speechSynthesis' in window) {
+      try { window.speechSynthesis.cancel(); } catch (e) {}
+    }
     setStatus('Tạm dừng', false);
     updatePlayPauseButton();
   }
@@ -2076,6 +2149,9 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.currentTime = 0;
       }
     } catch (e) {}
+    if ('speechSynthesis' in window) {
+      try { window.speechSynthesis.cancel(); } catch (e) {}
+    }
     if (!keepStatus) {
       setStatus('Sẵn sàng', false);
     }
